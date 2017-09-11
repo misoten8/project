@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54228977463043308}
   m_Layer: 0
   m_Name: AndoPrehub
-  m_TagString: BOXTAG
+  m_TagString: BOX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
