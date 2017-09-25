@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66e17d8782690943bcc468e987489dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Effect: {fileID: 1559665166625722, guid: 36908d2787e47cd4eb54c159bacda489, type: 2}
+  GameScore: {fileID: 0}
 --- !u!135 &135754951791455730
 SphereCollider:
   m_ObjectHideFlags: 1

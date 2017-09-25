@@ -11,6 +11,8 @@
 //				・弾が命中した際にBOXタグオブジェクトが削除されるように変更
 //				-2017/9/25 吉田幸太郎
 //              ・スコア加算を追加
+//              -2017/9/25 江澤秋人
+//              ・ステージとの当たり判定
 //=============================================================================
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +23,7 @@ using UnityEngine;
 //=============================================================================
 public class Bullet : MonoBehaviour {
 
+    public GameObject Effect;
 
     [SerializeField]
     Score GameScore;
@@ -59,7 +62,13 @@ public class Bullet : MonoBehaviour {
             Debug.Log("弾が命中しました");
 			Destroy(collision.gameObject);
 		}
-	}
+
+        if (collision.gameObject.tag == "Stage")
+        {
+            Instantiate(Effect, transform.position, Quaternion.identity);
+            
+        }
+    }
 
 	//=========================================================================
 	//	関数名: void OnCollisionStay(Collision collision)
