@@ -6,6 +6,9 @@
 //=============================================================================
 //	更新履歴    -2017/9/11 戸部俊太
 //			    V0.01 InitialVersion
+//
+//				-2017/9/25 戸部俊太
+//				・弾が命中した際にBOXタグオブジェクトが削除されるように変更
 //=============================================================================
 using System.Collections;
 using System.Collections.Generic;
@@ -39,7 +42,9 @@ public class Bullet : MonoBehaviour {
 		// 箱とのあたり判定
 		if (collision.gameObject.tag == "BOX")
 		{
+			Debug.Log("弾が命中しました");
 			Destroy(this);
+			Destroy(collision.gameObject);
 		}
 	}
 }
