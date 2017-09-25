@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour {
 	public GameObject BulletPrefab;
 
 	// 移動量
-	public float BulletMovement = 20.0f;
+	public float BulletMovement = 5.0f;
 
 	// 初期化処理
 	void Start ()

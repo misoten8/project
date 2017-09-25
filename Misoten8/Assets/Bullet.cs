@@ -43,9 +43,13 @@ public class Bullet : MonoBehaviour {
 		if (collision.gameObject.tag == "BOX")
 		{
 			Debug.Log("弾が命中しました");
-			Destroy(this);
 			Destroy(collision.gameObject);
 		}
+	}
+
+	void OnCollisionStay(Collision collision)
+	{
+		Destroy(gameObject);
 	}
 }
 //=============================================================================
