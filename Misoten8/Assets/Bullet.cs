@@ -9,6 +9,8 @@
 //
 //				-2017/9/25 戸部俊太
 //				・弾が命中した際にBOXタグオブジェクトが削除されるように変更
+//				-2017/9/25 吉田幸太郎
+//              ・スコア加算を追加
 //=============================================================================
 using System.Collections;
 using System.Collections.Generic;
@@ -19,8 +21,12 @@ using UnityEngine;
 //=============================================================================
 public class Bullet : MonoBehaviour {
 
-	// 生成時処理
-	void Awake()
+
+    [SerializeField]
+    Score GameScore;
+
+    // 生成時処理
+    void Awake()
 	{
 	}
 
@@ -46,7 +52,11 @@ public class Bullet : MonoBehaviour {
 		// 箱とのあたり判定
 		if (collision.gameObject.tag == "BOX")
 		{
-			Debug.Log("弾が命中しました");
+
+            GameScore = GameObject.Find("Score").GetComponent<Score>();
+
+            GameScore.AddScore(100);
+            Debug.Log("弾が命中しました");
 			Destroy(collision.gameObject);
 		}
 	}
