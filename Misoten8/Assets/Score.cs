@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
 	[SerializeField]
-    public Text ScoreText;       //Text用変数
-    public int  GameScore = 0;	 //スコア用
+    private Text ScoreText;       //Text用変数
+    private int  GameScore = 0;	 //スコア用
 	
     // Use this for initialization
 	void Start () {
@@ -17,7 +17,21 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        ScoreText.text = "Score: " + GameScore.ToString(); 
-		GameScore += 1 ;
+        ScoreText.text = "Score: " + GameScore.ToString();
 	}
+    /// <summary>
+    /// セットされた引き数の値を加算する
+    /// </summary>
+    public void AddScore( int value )
+    {
+        GameScore += value;
+    }
+
+    /// <summary>
+    /// スコア取得
+    /// </summary>
+    public int GetScore()
+    {
+        return GameScore;
+    }
 }
