@@ -19,20 +19,24 @@ using UnityEngine;
 //=============================================================================
 public class Bullet : MonoBehaviour {
 
+	// 生成時処理
+	void Awake()
+	{
+	}
+
 	// 初期化処理
-	void Start () {
-		
+	void Start ()
+	{
 	}
 	
 	// 更新処理
 	void Update ()
 	{
-		
 	}
 
 	//=========================================================================
 	//	関数名: void OnCollisionEnter(Collision collision)
-	//	引数  : なし
+	//	引数  : Collision collision : オブジェクトのコリジョン
 	//	戻り値: なし
 	//	説明  : 弾のあたり判定処理
 	//			箱に当たると削除
@@ -47,6 +51,12 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
+	//=========================================================================
+	//	関数名: void OnCollisionStay(Collision collision)
+	//	引数  : Collision collision : オブジェクトのコリジョン
+	//	戻り値: なし
+	//	説明  : 弾の削除処理
+	//=========================================================================
 	void OnCollisionStay(Collision collision)
 	{
 		Destroy(gameObject);

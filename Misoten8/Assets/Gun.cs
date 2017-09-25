@@ -7,6 +7,9 @@
 //=============================================================================
 //	更新履歴    -2017/9/11 戸部俊太
 //			    V0.01 InitialVersion
+//
+//				-2017/9/25 戸部俊太
+//				・弾の発射処理を外部から(非)有効化できるように変更
 //=============================================================================
 using System.Collections;
 using System.Collections.Generic;
@@ -16,23 +19,32 @@ using UnityEngine;
 //  スクリプト
 //=============================================================================
 public class Gun : MonoBehaviour {
+
 	// 弾プレハブ(Bulletをアタッチ)
 	public GameObject BulletPrefab;
 
 	// 移動量
 	public float BulletMovement = 5.0f;
 
+	// 弾を発射処理が有効であるかないか
+	private bool Active;
+
+	//　生成時処理
+	void Awake()
+	{
+	}
+
 	// 初期化処理
 	void Start ()
 	{
-		
+		Active = true;
 	}
 	
 	// 更新処理
 	void Update ()
 	{
 		// 弾発射処理
-		if (Input.GetMouseButtonDown(0))
+		if (Active == true && Input.GetMouseButtonDown(0))
 		{
 			// 弾生成
 			GameObject Bullet = Instantiate(BulletPrefab);
@@ -48,6 +60,17 @@ public class Gun : MonoBehaviour {
 			// 弾の移動量を設定
 			Bullet.GetComponent<Rigidbody>().velocity = direction * BulletMovement;
 		}
+	}
+
+	//=========================================================================
+	//	関数名: public void GunActive(bool flag)
+	//	引数  : bool flag : 発射処理を有効にするかしないか
+	//	戻り値: なし
+	//	説明  : 発射処理の(非)有効化関数
+	//=========================================================================
+	public void GunActive(bool flag)
+	{
+		Active = flag;
 	}
 }
 //=============================================================================
