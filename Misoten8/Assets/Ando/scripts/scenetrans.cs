@@ -16,10 +16,10 @@ public class scenetrans : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       if (score.GameScore >= 50)
-        {
-            SceneManager.LoadScene("Sample");
-        }
-        Debug.Log("honyarara");
+       //if (score.GameScore >= 50)
+       // {
+       //     SceneManager.LoadScene("Sample");
+       // }
+       // Debug.Log("honyarara");
     }
 }
