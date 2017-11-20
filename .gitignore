@@ -5,10 +5,12 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
+**/ProjectSettings/*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
+**/.vs/
 ExportedObj/
 *.svd
 *.userprefs
