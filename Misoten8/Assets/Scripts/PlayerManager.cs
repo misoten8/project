@@ -14,17 +14,17 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// ダンス時間
 	/// </summary>
-	public const float DANCE_TIME = 30.0f;
-
-	/// <summary>
-	/// ダンス開始するまでの間隔
-	/// </summary>
-	public const float DANCE_START_INTERVAL = 20.0f;
+	public const float DANCE_TIME = 10.0f;
 
 	/// <summary>
 	/// 一回のダンスで発生するリクエスト回数
 	/// </summary>
-	public const int REQUEST_COUNT = 3;
+	public const int REQUEST_COUNT = 20;
+
+	/// <summary>
+	/// リクエスト秒数の偏り係数(数値が高い程偏る)
+	/// </summary>
+	public const int LEAN_COEFFICIENT = 3;
 
 	/// <summary>
 	/// プレイヤーキャッシュリスト

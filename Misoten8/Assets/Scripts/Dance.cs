@@ -79,9 +79,6 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	private bool _isPlaing = false;
 
-	// wiiリモコン
-	private int _wmNum;
-
 	/// <summary>
 	/// 各リクエスト事の持続時間
 	/// </summary>
@@ -97,8 +94,6 @@ public class Dance : MonoBehaviour
 		_danceUI.OnAwake();
 		_danceUI.NotActive();
 		_dancePoint = 0;
-
-		_wmNum = (int)_player.Type - 1;
 	}
 
 	void Update()
@@ -108,7 +103,7 @@ public class Dance : MonoBehaviour
 			if (_isTransing)
 				return;
 
-			if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(_wmNum))
+			if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
 			{
 				ChangeFanPoint(_isRequestShake ? 1 : -1);
 				ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
@@ -123,7 +118,7 @@ public class Dance : MonoBehaviour
 	public void Begin()
 	{
 		// ダンスの振付時間を乱数で決定する
-		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * 3)).ToArray();
+		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
 
 		// 合計
 		float sum = _requestTime.Sum();
@@ -202,20 +197,15 @@ public class Dance : MonoBehaviour
 	private IEnumerator StepDo()
 	{
 		yield return new WaitForSeconds(1.0f);
-		_isRequestShake = true;
-		_danceUI.SetRequestShake(_isRequestShake);
 
-		yield return new WaitForSeconds(_requestTime[0]);
-		_isRequestShake = false;
-		_danceUI.SetRequestShake(_isRequestShake);
+		for(int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
+		{
+			yield return new WaitForSeconds(_requestTime[callCount]);
+			_isRequestShake = !_isRequestShake;
+			_danceUI.SetRequestShake(_isRequestShake);
+		}
 
-		yield return new WaitForSeconds(_requestTime[1]);
-		_isRequestShake = true;
-		_danceUI.SetRequestShake(_isRequestShake);
-
-		yield return new WaitForSeconds(_requestTime[2]);
 		End();
-
 		yield return null;
 	}
 }
