@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using WiimoteApi;
 
 /// <summary>
 /// LobbySceneManager クラス
@@ -9,7 +10,7 @@ public class LobbySceneManager : Photon.MonoBehaviour
 {
 	void Update () 
 	{
-		if(Input.GetKeyDown("return"))
+		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
 		{
 			if (PhotonNetwork.inRoom)
 			{

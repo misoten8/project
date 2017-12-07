@@ -10,25 +10,12 @@ using WiimoteApi;
 /// </summary>
 public class Title : MonoBehaviour
 {
-	void Start()
-	{
-		// wiiリモコン初期化処理
-		WiimoteManager.FindWiimotes();
-		int wiiNumber = 0;
-		if (WiimoteManager.HasWiimote(wiiNumber))
-		{
-			Wiimote wm = WiimoteManager.Wiimotes[wiiNumber];
-			wm.InitWiiMotionPlus();
-			wm.Speaker.Init();
-			int i = wiiNumber + 1;
-			wm.SendPlayerLED(i == 1, i == 2, i == 3, i == 4);
-			WiimoteManager.Rumble(wiiNumber, false);
-		}
-	}
-
 	void Update()
 	{
-
+		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
+		{
+			TransScene();
+		}
 	}
 
 	private void OnGUI()

@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: d8024d9d5ee2de148b280b589a9688a1
+timeCreated: 1512622217
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: body
+    100002: Chest
+    100004: Head
+    100006: head
+    100008: Hip
+    100010: Index
+    100012: Index 1
+    100014: Index1
+    100016: Index1 1
+    100018: Index2
+    100020: Index2 1
+    100022: L_Foot
+    100024: L_Hand
+    100026: L_LowerArm
+    100028: L_LowerLeg
+    100030: L_Shoulder
+    100032: L_Toes
+    100034: L_UpperArm
+    100036: L_UpperLeg
+    100038: Little
+    100040: Little 1
+    100042: Little1
+    100044: Little1 1
+    100046: Little2
+    100048: Little2 1
+    100050: locator1
+    100052: locator2
+    100054: Master
+    100056: Middle
+    100058: Middle 1
+    100060: Middle1
+    100062: Middle1 1
+    100064: Middle2
+    100066: Middle2 1
+    100068: Neck
+    100070: pCylinder18
+    100072: pCylinder20
+    100074: pCylinder21
+    100076: player
+    100078: //RootNode
+    100080: polySurface81
+    100082: polySurface82
+    100084: polySurface85
+    100086: polySurface86
+    100088: polySurface87
+    100090: polySurface88
+    100092: pPlane1
+    100094: pPlane10
+    100096: pPlane2
+    100098: pPlane24
+    100100: pPlane25
+    100102: pPlane27
+    100104: pPlane28
+    100106: pPlane29
+    100108: pPlane3
+    100110: pPlane30
+    100112: pPlane31
+    100114: pPlane32
+    100116: pPlane33
+    100118: pPlane34
+    100120: pPlane35
+    100122: pPlane36
+    100124: pPlane37
+    100126: pPlane38
+    100128: pPlane39
+    100130: pPlane4
+    100132: pPlane40
+    100134: pPlane5
+    100136: pPlane7
+    100138: pPlane8
+    100140: pPlane9
+    100142: pSphere1
+    100144: pTorus1
+    100146: R_Foot
+    100148: R_Hand
+    100150: R_LowerArm
+    100152: R_LowerLeg
+    100154: R_Shoulder
+    100156: R_Toes
+    100158: R_UpperArm
+    100160: R_UpperLeg
+    100162: Ring
+    100164: Ring 1
+    100166: Ring1
+    100168: Ring1 1
+    100170: Ring2
+    100172: Ring2 1
+    100174: Spine
+    100176: Thumb_Distal
+    100178: Thumb_Distal 1
+    100180: Thumb_Intermediate
+    100182: Thumb_Intermediate 1
+    100184: Thunb_Proximal
+    100186: Thunb_Proximal 1
+    400000: body
+    400002: Chest
+    400004: Head
+    400006: head
+    400008: Hip
+    400010: Index
+    400012: Index 1
+    400014: Index1
+    400016: Index1 1
+    400018: Index2
+    400020: Index2 1
+    400022: L_Foot
+    400024: L_Hand
+    400026: L_LowerArm
+    400028: L_LowerLeg
+    400030: L_Shoulder
+    400032: L_Toes
+    400034: L_UpperArm
+    400036: L_UpperLeg
+    400038: Little
+    400040: Little 1
+    400042: Little1
+    400044: Little1 1
+    400046: Little2
+    400048: Little2 1
+    400050: locator1
+    400052: locator2
+    400054: Master
+    400056: Middle
+    400058: Middle 1
+    400060: Middle1
+    400062: Middle1 1
+    400064: Middle2
+    400066: Middle2 1
+    400068: Neck
+    400070: pCylinder18
+    400072: pCylinder20
+    400074: pCylinder21
+    400076: player
+    400078: //RootNode
+    400080: polySurface81
+    400082: polySurface82
+    400084: polySurface85
+    400086: polySurface86
+    400088: polySurface87
+    400090: polySurface88
+    400092: pPlane1
+    400094: pPlane10
+    400096: pPlane2
+    400098: pPlane24
+    400100: pPlane25
+    400102: pPlane27
+    400104: pPlane28
+    400106: pPlane29
+    400108: pPlane3
+    400110: pPlane30
+    400112: pPlane31
+    400114: pPlane32
+    400116: pPlane33
+    400118: pPlane34
+    400120: pPlane35
+    400122: pPlane36
+    400124: pPlane37
+    400126: pPlane38
+    400128: pPlane39
+    400130: pPlane4
+    400132: pPlane40
+    400134: pPlane5
+    400136: pPlane7
+    400138: pPlane8
+    400140: pPlane9
+    400142: pSphere1
+    400144: pTorus1
+    400146: R_Foot
+    400148: R_Hand
+    400150: R_LowerArm
+    400152: R_LowerLeg
+    400154: R_Shoulder
+    400156: R_Toes
+    400158: R_UpperArm
+    400160: R_UpperLeg
+    400162: Ring
+    400164: Ring 1
+    400166: Ring1
+    400168: Ring1 1
+    400170: Ring2
+    400172: Ring2 1
+    400174: Spine
+    400176: Thumb_Distal
+    400178: Thumb_Distal 1
+    400180: Thumb_Intermediate
+    400182: Thumb_Intermediate 1
+    400184: Thunb_Proximal
+    400186: Thunb_Proximal 1
+    4300000: pPlane25
+    4300002: pPlane4
+    4300004: pPlane5
+    4300006: pPlane24
+    4300008: pPlane8
+    4300010: pPlane10
+    4300012: pPlane3
+    4300014: pPlane2
+    4300016: pPlane1
+    4300018: pSphere1
+    4300020: pPlane7
+    4300022: polySurface81
+    4300024: pPlane27
+    4300026: pPlane9
+    4300028: pPlane29
+    4300030: pPlane28
+    4300032: pPlane31
+    4300034: pPlane30
+    4300036: pPlane32
+    4300038: pPlane33
+    4300040: pPlane34
+    4300042: pPlane35
+    4300044: pPlane36
+    4300046: pPlane37
+    4300048: pPlane38
+    4300050: pPlane39
+    4300052: pPlane40
+    4300054: polySurface87
+    4300056: polySurface85
+    4300058: polySurface82
+    4300060: polySurface86
+    4300062: pCylinder21
+    4300064: polySurface88
+    4300066: pTorus1
+    4300068: pCylinder20
+    4300070: pCylinder18
+    9500000: //RootNode
+    13700000: pCylinder18
+    13700002: pCylinder20
+    13700004: pCylinder21
+    13700006: polySurface81
+    13700008: polySurface82
+    13700010: polySurface85
+    13700012: polySurface86
+    13700014: polySurface87
+    13700016: polySurface88
+    13700018: pPlane1
+    13700020: pPlane10
+    13700022: pPlane2
+    13700024: pPlane24
+    13700026: pPlane25
+    13700028: pPlane27
+    13700030: pPlane28
+    13700032: pPlane29
+    13700034: pPlane3
+    13700036: pPlane30
+    13700038: pPlane31
+    13700040: pPlane32
+    13700042: pPlane33
+    13700044: pPlane34
+    13700046: pPlane35
+    13700048: pPlane36
+    13700050: pPlane37
+    13700052: pPlane38
+    13700054: pPlane39
+    13700056: pPlane4
+    13700058: pPlane40
+    13700060: pPlane5
+    13700062: pPlane7
+    13700064: pPlane8
+    13700066: pPlane9
+    13700068: pSphere1
+    13700070: pTorus1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

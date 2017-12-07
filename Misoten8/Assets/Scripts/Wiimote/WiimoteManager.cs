@@ -33,12 +33,29 @@ public class WiimoteManager
     public static int MaxWriteFrequency = 20; // In ms
     private static Queue<WriteQueueData> WriteQueue;
 
-        // ------------- RAW HIDAPI INTERFACE ------------- //
+		// ------------- RAW HIDAPI INTERFACE ------------- //
 
-    /// \brief Attempts to find connected Wii Remotes, Wii Remote Pluses or Wii U Pro Controllers
-    /// \return If any new remotes were found.
-    ///
-    public static bool FindWiimotes()
+		[RuntimeInitializeOnLoadMethod]
+		static void Initialize()
+		{
+			// wiiリモコン初期化処理
+			FindWiimotes();
+			int wiiNumber = 0;
+			if (HasWiimote(wiiNumber))
+			{
+				Wiimote wm = Wiimotes[wiiNumber];
+				wm.InitWiiMotionPlus();
+				wm.Speaker.Init();
+				int i = wiiNumber + 1;
+				wm.SendPlayerLED(i == 1, i == 2, i == 3, i == 4);
+				Rumble(wiiNumber, false);
+			}
+		}
+
+		/// \brief Attempts to find connected Wii Remotes, Wii Remote Pluses or Wii U Pro Controllers
+		/// \return If any new remotes were found.
+		///
+		public static bool FindWiimotes()
     {
         bool ret = _FindWiimotes(WiimoteType.WIIMOTE);
         ret = ret || _FindWiimotes(WiimoteType.WIIMOTEPLUS);
