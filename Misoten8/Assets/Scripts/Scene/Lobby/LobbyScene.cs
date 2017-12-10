@@ -6,7 +6,7 @@ using WiimoteApi;
 /// LobbySceneManager クラス
 /// 製作者：実川
 /// </summary>
-public class LobbySceneManager : Photon.MonoBehaviour 
+public class LobbyScene : Photon.MonoBehaviour 
 {
 	void Update () 
 	{

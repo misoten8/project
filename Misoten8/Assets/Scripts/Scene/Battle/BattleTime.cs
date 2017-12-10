@@ -12,7 +12,7 @@ public class BattleTime : MonoBehaviour
 	}
 
 	[SerializeField]
-	private Battle _battle;
+	private BattleScene _battle;
 
 	[SerializeField]
 	private float _limitTime;

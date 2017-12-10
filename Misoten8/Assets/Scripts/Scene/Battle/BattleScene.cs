@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// Battle クラス
 /// 製作者：実川
 /// </summary>
-public class Battle : Photon.MonoBehaviour
+public class BattleScene : Photon.MonoBehaviour
 {
 	[SerializeField]
 	private Score _score;
@@ -118,17 +118,5 @@ public class Battle : Photon.MonoBehaviour
 				e.SetCustomProperties(properties);
 				return default(IEnumerable);
 			});
-	}
-
-	/// <summary>
-	/// アプリケーション終了時実行イベント
-	/// </summary>
-	void OnApplicationQuit()
-	{
-		Debug.Log("ルームから退出しました");
-		// ルーム退室  
-		PhotonNetwork.LeaveRoom();
-		// ネットワーク切断
-		PhotonNetwork.Disconnect();
 	}
 }
