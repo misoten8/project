@@ -72,4 +72,18 @@ namespace Misoten8Utility
 				.First(e => e.Value.Equals(element.Select(s => s).Min())).Index;
 		}
 	}
+
+	public static class ArrayExtension
+	{
+		/// <summary>
+		/// 配列のfor文を簡潔に記述するための拡張メソッド
+		/// </summary>
+		public static void Foreach<T>(this T[] array, Action<T> action)
+		{
+			foreach(T t in array)
+			{
+				action?.Invoke(t);
+			}
+		}
+	}
 }

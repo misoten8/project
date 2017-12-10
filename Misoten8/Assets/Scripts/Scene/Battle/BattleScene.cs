@@ -1,13 +1,11 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Battle クラス
-/// 製作者：実川
+/// バトルシーン管理クラス
 /// </summary>
-public class BattleScene : Photon.MonoBehaviour
+[RequireComponent(typeof(BattleSceneCache))]
+public class BattleScene : SceneBase<BattleScene>
 {
 	[SerializeField]
 	private Score _score;
@@ -21,6 +19,28 @@ public class BattleScene : Photon.MonoBehaviour
 	[SerializeField]
 	private BattleTime _battleTime;
 
+	[SerializeField]
+	private BattleSceneNetwork _battleSceneNetwork;
+
+	/// <summary>
+	/// 外部シーンが利用できるデータキャッシュ
+	/// </summary>
+	public override ISceneCache SceneCache
+	{
+		get { return _sceneCache; }
+	}
+
+	[SerializeField]
+	private BattleSceneCache _sceneCache;
+
+	/// <summary>
+	/// 派生クラスのインスタンスを取得
+	/// </summary>
+	protected override BattleScene GetOverrideInstance()
+	{
+		return this;
+	}
+
 	private void Start()
 	{
 		StartCoroutine(DelayInstance());
@@ -33,10 +53,26 @@ public class BattleScene : Photon.MonoBehaviour
 	}
 
 	/// <summary>
-	/// シーン遷移する
+	/// シーン切り替え
 	/// </summary>
-	[PunRPC]
-	public void TransScene()
+	/// <remarks>
+	/// 通信処理を挟みます
+	/// </remarks>
+	public override void Switch(SceneType nextScene)
+	{
+		if (duringTransScene)
+			return;
+
+		duringTransScene = true;
+
+		// シーン遷移処理呼び出し
+		_battleSceneNetwork.photonView.RPC("CallBackSwitch", PhotonTargets.AllViaServer, (byte)nextScene);
+	}
+
+	/// <summary>
+	/// 使用しないでください
+	/// </summary>
+	public void CallBackSwitch(SceneType nextScene)
 	{
 		ResultScore.scoreArray[(int)Define.PlayerType.First] = _score.GetScore(Define.PlayerType.First);
 		ResultScore.scoreArray[(int)Define.PlayerType.Second] = _score.GetScore(Define.PlayerType.Second);
@@ -47,7 +83,7 @@ public class BattleScene : Photon.MonoBehaviour
 
 		// ルームから退出する
 		PhotonNetwork.LeaveRoom();
-		SceneManager.LoadScene("Result");
+		StartCoroutine(SwitchAsync(nextScene));
 	}
 
 	//TODO:バトルシーン開始時にカメラで街を見渡す処理を挟む
@@ -67,7 +103,17 @@ public class BattleScene : Photon.MonoBehaviour
 			yield return null;
 
 		// クライアント全員の生成クラスをアクティブにする
-		photonView.RPC("StartupGenerator", PhotonTargets.AllViaServer);
+		_battleSceneNetwork.photonView.RPC("StartupGenerator", PhotonTargets.AllViaServer);
+	}
+
+	/// <summary>
+	/// 生成クラスをアクティブにする
+	/// </summary>
+	public void StartupGenerator()
+	{
+		_mobGenerator.enabled = true;
+		_playerGenerator.enabled = true;
+		_battleTime.enabled = true;
 	}
 
 	private bool IsWaiting()
@@ -87,36 +133,5 @@ public class BattleScene : Photon.MonoBehaviour
 		// 待機終了
 		return false;
 		// 全員がシーン遷移が完了したかどうかのチェックする
-	}
-
-	/// <summary>
-	/// 生成クラスをアクティブにする
-	/// </summary>
-	[PunRPC]
-	private void StartupGenerator()
-	{
-		_mobGenerator.enabled = true;
-		_playerGenerator.enabled = true;
-		_battleTime.enabled = true;
-	}
-
-	/// <summary>
-	/// 定義のみ
-	/// </summary>
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
-
-	public void OnPhotonPlayerPropertiesChanged(object[] i_playerAndUpdatedProps)
-	{
-		var player = i_playerAndUpdatedProps[0] as PhotonPlayer;
-		var properties = i_playerAndUpdatedProps[1] as ExitGames.Client.Photon.Hashtable;
-
-		PhotonNetwork.playerList
-			.Where(e => e.ID == player.ID)
-			.Select(e =>
-			{
-
-				e.SetCustomProperties(properties);
-				return default(IEnumerable);
-			});
 	}
 }

@@ -1,34 +1,69 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using WiimoteApi;
 
 /// <summary>
-/// LobbySceneManager クラス
-/// 製作者：実川
+/// ロビーシーン管理クラス
 /// </summary>
-public class LobbyScene : Photon.MonoBehaviour 
+[RequireComponent(typeof(LobbySceneCache))]
+public class LobbyScene : SceneBase<LobbyScene>
 {
+	[SerializeField]
+	private LobbySceneNetwork _lobbySceneNetwork;
+
+	/// <summary>
+	/// 外部シーンが利用できるデータキャッシュ
+	/// </summary>
+	public override ISceneCache SceneCache
+	{
+		get { return _sceneCache; }
+	}
+
+	[SerializeField]
+	private LobbySceneCache _sceneCache;
+
+	/// <summary>
+	/// 派生クラスのインスタンスを取得
+	/// </summary>
+	protected override LobbyScene GetOverrideInstance()
+	{
+		return this;
+	}
+
 	void Update () 
 	{
 		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
 		{
 			if (PhotonNetwork.inRoom)
 			{
-				photonView.RPC("LoadBattleScene", PhotonTargets.AllViaServer);
+				Switch(SceneType.Battle);
 				return;
 			}
 			Debug.LogWarning("まだゲーム開始の準備ができていません");
 		}
 	}
 
-	[PunRPC]
-	public void LoadBattleScene()
+	/// <summary>
+	/// シーン切り替え
+	/// </summary>
+	/// <remarks>
+	/// 通信処理を挟みます
+	/// </remarks>
+	public override void Switch(SceneType nextScene)
 	{
-		SceneManager.LoadScene("Battle");
+		if (duringTransScene)
+			return;
+
+		duringTransScene = true;
+
+		// シーン遷移処理呼び出し
+		_lobbySceneNetwork.photonView.RPC("CallBackSwitch", PhotonTargets.AllViaServer, (byte)nextScene);
 	}
 
 	/// <summary>
-	/// 定義のみ
+	/// 使用しないでください
 	/// </summary>
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+	public void CallBackSwitch(SceneType nextScene)
+	{
+		StartCoroutine(SwitchAsync(nextScene));
+	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using WiimoteApi;
 
 /// <summary>
 ///リザルトシーン管理クラス
@@ -26,14 +27,12 @@ public class ResultScene : SceneBase<ResultScene>
 		return this;
 	}
 
-	void Start ()
-	{
-		
-	}
-	
 	void Update ()
 	{
-		
+		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
+		{
+			Switch(SceneType.Title);
+		}
 	}
 
 	private void OnGUI()
