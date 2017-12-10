@@ -50,6 +50,13 @@ public class DisplayMediator : MonoBehaviour
 	[SerializeField]
 	private Text _danceStop;
 
+	public GaugeUI GaugeUI
+	{
+		get { return _gaugeUI; }
+	}
+
+	[SerializeField]
+	private GaugeUI _gaugeUI;
 
 	// 以下は子要素が使用するフィールド群
 

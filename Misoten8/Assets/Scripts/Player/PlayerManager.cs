@@ -27,6 +27,11 @@ public class PlayerManager : Photon.MonoBehaviour
 	public const int LEAN_COEFFICIENT = 3;
 
 	/// <summary>
+	/// ダンス成功条件数
+	/// </summary>
+	public const int SHAKE_NORMA = 10;
+
+	/// <summary>
 	/// プレイヤーキャッシュリスト
 	/// </summary>
 	public List<Player> Players

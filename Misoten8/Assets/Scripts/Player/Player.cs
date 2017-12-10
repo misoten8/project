@@ -43,6 +43,8 @@ public class Player : Photon.PunBehaviour
 
 	private cameramanager _cameramanager;
 
+	private bool canPlayDance = true;
+
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
@@ -88,8 +90,11 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (Input.GetKeyDown("k") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
+			if (shakeparameter.IsCompareWithValue(3))
+			{
 				photonView.RPC("DanceBegin", PhotonTargets.AllViaServer);
+				shakeparameter.ResetShakeParameter();
+			}
 		}
 		else
 		{
