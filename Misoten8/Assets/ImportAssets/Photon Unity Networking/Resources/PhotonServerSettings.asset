@@ -50,4 +50,5 @@ MonoBehaviour:
   - DanceCancel
   - SendFanChanges
   - SendFollowChanges
+  - CallBackSwitch
   DisableAutoOpenWizard: 1

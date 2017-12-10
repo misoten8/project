@@ -348,8 +348,9 @@ GameObject:
   - component: {fileID: 2128661440}
   - component: {fileID: 2128661443}
   - component: {fileID: 2128661444}
+  - component: {fileID: 2128661445}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: LobbyScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1c4ba8def591a42b58b32de4f25ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lobbyScene: {fileID: 2128661441}
 --- !u!114 &2128661441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +379,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636fc02493e7ec146b84999054d7f832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstUsingDisplay: 0
+  _lobbySceneNetwork: {fileID: 2128661440}
+  _sceneCache: {fileID: 2128661445}
 --- !u!4 &2128661442
 Transform:
   m_ObjectHideFlags: 0
@@ -433,9 +438,20 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 2128661441}
+  - {fileID: 2128661440}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 1
   instantiationId: 1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &2128661445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128661439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d984c23d268f3cc47a18c638e8c4d742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
