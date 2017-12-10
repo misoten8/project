@@ -28,7 +28,7 @@ public class TitleScene : SceneBase<TitleScene>
 
 	void Update()
 	{
-		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
+		if (shakeparameter.IsCompareWithValue(2))
 		{
 			Switch(SceneType.Lobby);
 		}

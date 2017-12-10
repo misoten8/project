@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// ディスプレイ基底クラス
@@ -19,9 +20,9 @@ public abstract class DisplayBase : MonoBehaviour, IDisplay
 	/// <summary>
 	/// ディスプレイイベントの定義インターフェイス
 	/// </summary>
-	public virtual IEvents DisplayEvents
+	public abstract IEvents DisplayEvents
 	{
-		get { return null; }
+		get;
 	}
 		
 	/// <summary>
@@ -43,7 +44,7 @@ public abstract class DisplayBase : MonoBehaviour, IDisplay
 	/// <summary>
 	/// ディスプレイ切り替えアニメーション
 	/// </summary>
-	[SerializeField, HideInInspector]
+	[SerializeField]
 	protected DisplaySwitchAnim switchAnim;
 
 	/// <summary>
@@ -52,10 +53,21 @@ public abstract class DisplayBase : MonoBehaviour, IDisplay
 	public virtual void OnAwake(ISceneCache cache) 
 	{
 		gameObject.SetActive(true);
-		// キャッシュを各UIオブジェクトに渡す(イベントクラスは渡さない)
-		uiList.ForEach(e => e.OnAwake(cache, null));
+		// キャッシュを各UIオブジェクトに渡す
+		uiList.ForEach(e => e.OnAwake(cache, DisplayEvents));
 		isCallOnAwake = true;
 		switchAnim.OnAwake (uiList);
+	}
+
+	/// <summary>
+	/// 毎フレーム呼ばれるイベント
+	/// </summary>
+	protected virtual void Update()
+	{
+		if (!isCallOnAwake)
+			return;
+		// 描画処理
+		uiList.Where(e => e.IsDrawUpdate()).ToList().ForEach(e => e.OnDrawUpdate());
 	}
 
 	/// <summary>

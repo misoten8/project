@@ -71,9 +71,9 @@ public class DisplaySwitchAnim : MonoBehaviour
 	private Dictionary<AnimType, Action<float, Vector3>> _animationMap;
 
 	/// <summary>
-	/// UIオブジェクトリスト
+	/// アニメーションを再生させるUIオブジェクトリスト
 	/// </summary>
-	private List<UIBase> _uiList = null;
+	private List<UIBase> _playAnimUiList = null;
 
 	/// <summary>
 	/// アニメーション再生経過時間
@@ -100,7 +100,7 @@ public class DisplaySwitchAnim : MonoBehaviour
 	/// </summary>
 	public void OnAwake(List<UIBase> uiList)
 	{
-		_uiList = uiList;
+		_playAnimUiList = uiList.FindAll(e => e.PlaySwitchAnim);
 		_animationMap = new Dictionary<AnimType, Action<float, Vector3>>
 		{
 			{ AnimType.None, _Empty },
@@ -157,7 +157,7 @@ public class DisplaySwitchAnim : MonoBehaviour
 	private void _CircleIn(float rate, Vector3 anchorPos)
 	{
 		Vector3 direction, distance;
-		_uiList.ForEach(e =>
+		_playAnimUiList.ForEach(e =>
 		{
 			direction = Vector3.Normalize(e.AnchorPos - anchorPos);
 			distance = new Vector3(direction.x * (Screen.width * 3.0f), direction.y * (Screen.height * 3.0f), 0.0f);
@@ -168,7 +168,7 @@ public class DisplaySwitchAnim : MonoBehaviour
 	private void _CircleOut(float rate, Vector3 anchorPos)
 	{
 		Vector3 direction, distance;
-		_uiList.ForEach(e =>
+		_playAnimUiList.ForEach(e =>
 		{
 			direction = Vector3.Normalize(e.AnchorPos - anchorPos);
 			distance = new Vector3(direction.x * (Screen.width * 3.0f), direction.y * (Screen.height * 3.0f), 0.0f);

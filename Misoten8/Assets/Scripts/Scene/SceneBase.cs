@@ -95,6 +95,9 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 	{
 		// シーン情報を渡す
 		DisplayManager.OnSceneStart(GetOverrideInstance());
+
+		// ディスプレイの表示
+		DisplayManager.Switch(firstUsingDisplay);
 	}
 
 	/// <summary>

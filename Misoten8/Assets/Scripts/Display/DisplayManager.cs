@@ -42,7 +42,12 @@ public class DisplayManager : SingletonMonoBehaviour<DisplayManager>
 		/// ディスプレイなし
 		/// </summary>
 		None,
-		Title
+		Title,
+		Lobby,
+		Battle,
+		Move,
+		Dance,
+		Result
 	}
 
 	/// <summary>
@@ -62,7 +67,9 @@ public class DisplayManager : SingletonMonoBehaviour<DisplayManager>
 		new Dictionary<DisplayType, string>
 	{
 		{ DisplayType.None, "None" },
-		{ DisplayType.Title, "TitleDisplay" }
+		{ DisplayType.Title, "TitleDisplay" },
+		{ DisplayType.Lobby, "LobbyDisplay" },
+		{ DisplayType.Result, "ResultDisplay" }
 	};
 
 	/// <summary>

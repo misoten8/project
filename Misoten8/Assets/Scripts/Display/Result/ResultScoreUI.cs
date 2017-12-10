@@ -2,19 +2,19 @@
 using UnityEngine.UI;
 
 /// <summary>
-/// ResultScoreUI クラス
-/// 製作者：実川
+/// スコア表示UI
 /// </summary>
-public class ResultScoreUI : MonoBehaviour 
+public class ResultScoreUI : UIBase
 {
 	[SerializeField]
 	private Define.PlayerType _playerType;
 
-	[SerializeField]
 	private Text _text;
 
-	void Start ()
+	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
+		base.OnAwake(cache, displayEvents);
+		_text = uiObjects[0] as Text;
 		_text.text = "Player" + _playerType.ToString() + ":" + ResultScore.scoreArray[(int)_playerType].ToString();
 	}
 }

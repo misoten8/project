@@ -18,10 +18,21 @@ public class UIBase : MonoBehaviour
 	protected Vector3 anchorPos;
 
 	/// <summary>
+	/// 遷移アニメーションを再生するかどうか
+	/// </summary>
+	public bool PlaySwitchAnim
+	{
+		get { return playSwitchAnim; }
+	}
+
+	[SerializeField]
+	protected bool playSwitchAnim = true;
+
+	/// <summary>
 	/// スクリプト制御を行うUIオブジェクト(アタッチ必須)
 	/// </summary>
-	[SerializeField, Header("スクリプト制御を行うUIオブジェクト(アタッチ必須)")]
-	protected Graphic uiObject;
+	[SerializeField, Header("スクリプト制御を行うUIオブジェクトリスト(アタッチ必須)")]
+	protected Graphic[] uiObjects;
 
 	/// <summary>
 	/// ディスプレイ生成時に呼ばれるイベント

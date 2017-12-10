@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using WiimoteApi;
 
 /// <summary>
 /// ロビーシーン管理クラス
@@ -31,7 +30,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 
 	void Update () 
 	{
-		if (Input.GetKeyDown("return") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_TWO))
+		if (shakeparameter.IsCompareWithValue(2))
 		{
 			if (PhotonNetwork.inRoom)
 			{
