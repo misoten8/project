@@ -22,32 +22,46 @@ public class DanceUI : MonoBehaviour
 	/// </summary>
 	public void OnAwake()
 	{
-		_dm = GameObject.Find("Canvas/Display").GetComponent<DisplayMediator>();
 
 		_mesh.enabled = true;
 		_textMesh.color = Define.playerColor[(int)_player.Type];
 		_textMesh.text = ((int)_player.Type).ToString() + "P";
-		_dm.DanceSuccess.enabled = false;
-		_dm.DanceFailure.enabled = false;
-		_dm.DancePoint.enabled = false;
-		_dm.DanceShake.enabled = false;
-		_dm.DanceStop.enabled = false;
+
+		if (_player.photonView.isMine)
+		{
+			_dm = GameObject.Find("Canvas/Display").GetComponent<DisplayMediator>();
+			_dm.DanceSuccess.enabled = false;
+			_dm.DanceFailure.enabled = false;
+			_dm.DancePoint.enabled = false;
+			_dm.DanceShake.enabled = false;
+			_dm.DanceStop.enabled = false;
+		}
 	}
 
 	public void Active()
 	{
 		_mesh.enabled = false;
-		_dm.DancePoint.enabled = true;
+
+		if (_player.photonView.isMine)
+		{
+			_dm.DancePoint.enabled = true;
+			_dm.GaugeUI.SetActive(false);
+		}
 	}
 
 	public void NotActive()
 	{
 		_mesh.enabled = true;
-		_dm.DancePoint.enabled = false;
-		_dm.DanceSuccess.enabled = false;
-		_dm.DanceFailure.enabled = false;
-		_dm.DanceShake.enabled = false;
-		_dm.DanceStop.enabled = false;
+
+		if (_player.photonView.isMine)
+		{
+			_dm.DancePoint.enabled = false;
+			_dm.DanceSuccess.enabled = false;
+			_dm.DanceFailure.enabled = false;
+			_dm.DanceShake.enabled = false;
+			_dm.DanceStop.enabled = false;
+			_dm.GaugeUI.SetActive(true);
+		}
 	}
 
 	public void SetResult(bool success)
@@ -55,12 +69,16 @@ public class DanceUI : MonoBehaviour
 		if(success)
 		{
 			ParticleManager.Play("DanceEndClear", new Vector3(), transform);
-			_dm.DanceSuccess.enabled = true;
+
+			if (_player.photonView.isMine)
+				_dm.DanceSuccess.enabled = true;
 		}
 		else
 		{
 			ParticleManager.Play("DanceEndFailed", new Vector3(), transform);
-			_dm.DanceFailure.enabled = true;
+
+			if (_player.photonView.isMine)
+				_dm.DanceFailure.enabled = true;
 		}
 	}
 
@@ -76,15 +94,18 @@ public class DanceUI : MonoBehaviour
 
 	public void SetRequestShake(bool isRequestShake)
 	{
-		if(isRequestShake)
+		if (_player.photonView.isMine)
 		{
-			_dm.DanceShake.enabled = true;
-			_dm.DanceStop.enabled = false;
-		}
-		else
-		{
-			_dm.DanceShake.enabled = false;
-			_dm.DanceStop.enabled = true;
+			if (isRequestShake)
+			{
+				_dm.DanceShake.enabled = true;
+				_dm.DanceStop.enabled = false;
+			}
+			else
+			{
+				_dm.DanceShake.enabled = false;
+				_dm.DanceStop.enabled = true;
+			}
 		}
 	}
 }

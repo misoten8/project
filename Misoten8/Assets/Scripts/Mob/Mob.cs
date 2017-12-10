@@ -161,7 +161,7 @@ public class Mob : Photon.PunBehaviour
 		Dance playerDance = other.gameObject.GetComponent<Dance>();
 
 		// プレイヤーがダンス中であれば、視聴する
-		if (playerDance.IsPlaying)
+		if (playerDance.IsPlaying && !playerDance.IsTransing)
 		{
 			// モブ停止イベント実行
 			onDanceWatchMob?.Invoke();
@@ -183,7 +183,10 @@ public class Mob : Photon.PunBehaviour
 
 					// ファンタイプが変更したかチェックする
 					Define.PlayerType newFunType = isSuccess ? playerDance.Player.Type : Define.PlayerType.None;
-					_mobManager.FanChangeStack(newFunType, photonView.viewID);
+					if (FunType != newFunType)
+					{
+						_mobManager.FanChangeStack(newFunType, photonView.viewID);
+					}
 				}
 				else
 				{

@@ -38,7 +38,7 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
         {
             _shakeparameter++;
         }
-        Debug.Log(_shakeparameter);
+        //Debug.Log(_shakeparameter);
 	}
     //=====================================
     //関数名：GetShakeParameter()
@@ -61,4 +61,9 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
             return false;
     }
 
+	// 仮
+	public static void ResetShakeParameter()
+	{
+		_shakeparameter = 0;
+	}
 }

@@ -25,6 +25,14 @@ public class Dance : MonoBehaviour
 		get { return _isPlaing; }
 	}
 
+	/// <summary>
+	/// ダンスの遷移中かどうか
+	/// </summary>
+	public bool IsTransing
+	{
+		get { return _isTransing; }
+	}
+
 	public bool IsSuccess
 	{
 		get { return _isSuccess; }
@@ -98,9 +106,9 @@ public class Dance : MonoBehaviour
 
 	void Update()
 	{
-		if (IsPlaying)
+		if (!_isTransing)
 		{
-			if (_isTransing)
+			if (!IsPlaying)
 				return;
 
 			if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
@@ -117,23 +125,28 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void Begin()
 	{
-		// ダンスの振付時間を乱数で決定する
-		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
+		//if (Player.photonView.isMine)
+		{
+			shakeparameter.ResetShakeParameter();
 
-		// 合計
-		float sum = _requestTime.Sum();
+			// ダンスの振付時間を乱数で決定する
+			_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
 
-		// 正規化
-		_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
+			// 合計
+			float sum = _requestTime.Sum();
 
-		_isTransing = false;
-		_isSuccess = false;
-		_dancePoint = 0;
-		_danceUI.Active();
-		_danceFloor.enabled = true;
-		_isPlaing = true;
-		_cameramanager?.ChangeCameraMode();
-		StartCoroutine("StepDo");
+			// 正規化
+			_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
+
+			_isTransing = false;
+			_isSuccess = false;
+			_dancePoint = 0;
+			_danceUI.Active();
+			_danceFloor.enabled = true;
+			_isPlaing = true;
+			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.DANCE_INTRO);
+			StartCoroutine("StepDo");
+		}
 	}
 
 	/// <summary>
@@ -141,23 +154,30 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void End()
 	{
-		onEndDance?.Invoke(false, IsSuccess);
-		onEndDance = null;
-		_danceUI.SetResult(IsSuccess);
-		_isTransing = true;
-		_isPlaing = false;
-		StopCoroutine("StepDo");
-		Observable
-			.Timer(TimeSpan.FromSeconds(3))
-			.Subscribe(_ =>
-			{
-				_isTransing = false;
-				_danceUI.NotActive();
-				_danceFloor.enabled = false;
-				// スコアを設定する
-				_dancePoint = 0;
-				_cameramanager?.ChangeCameraMode();
-			});
+		//if (Player.photonView.isMine)
+		{
+			onEndDance?.Invoke(false, IsSuccess);
+			onEndDance = null;
+			_danceUI.SetResult(IsSuccess);
+			_isTransing = true;
+			shakeparameter.ResetShakeParameter();
+			StopCoroutine("StepDo");
+			Observable
+				.Timer(TimeSpan.FromSeconds(3))
+				.Subscribe(_ =>
+				{
+					if (Player.photonView.isMine)
+						shakeparameter.ResetShakeParameter();
+
+					_isPlaing = false;
+					_isTransing = false;
+					_danceUI.NotActive();
+					_danceFloor.enabled = false;
+					// スコアを設定する
+					_dancePoint = 0;
+					_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
+				});
+		}
 	}
 
 	/// <summary>
@@ -165,26 +185,31 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void Cancel()
 	{
-		if (_isTransing)
-			return;
+		//if (Player.photonView.isMine)
+		{
+			shakeparameter.ResetShakeParameter();
 
-		onEndDance?.Invoke(true, IsSuccess);
-		onEndDance = null;
-		_isPlaing = false;
-		_isTransing = false;
-		_danceUI.NotActive();
-		_danceFloor.enabled = false;
-		// スコアを設定する
-		_dancePoint = 0;
-		_cameramanager?.ChangeCameraMode();
-		StopCoroutine("StepDo");
+			if (_isTransing)
+				return;
+
+			onEndDance?.Invoke(true, IsSuccess);
+			onEndDance = null;
+			_isPlaing = false;
+			_isTransing = false;
+			_danceUI.NotActive();
+			_danceFloor.enabled = false;
+			// スコアを設定する
+			_dancePoint = 0;
+			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
+			StopCoroutine("StepDo");
+		}
 	}
 
 	private void ChangeFanPoint(int addValue)
 	{
 		_dancePoint += addValue;
 		_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
-		if (_dancePoint >= 30)
+		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			_isSuccess = true;
 			_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
@@ -198,7 +223,7 @@ public class Dance : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.0f);
 
-		for(int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
+		for (int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
 		{
 			yield return new WaitForSeconds(_requestTime[callCount]);
 			_isRequestShake = !_isRequestShake;
