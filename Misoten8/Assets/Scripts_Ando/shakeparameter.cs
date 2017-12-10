@@ -48,4 +48,17 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
     {
         return _shakeparameter;
     }
+    //=====================================
+    //関数名：IsShakeMax
+    //説明　：渡された引数と現在の_shakeparameterを比較
+    //　　　　渡された値より大きければtrueを返却
+    //=====================================
+    public static bool IsCompareWithValue(int value)
+    {
+        if (_shakeparameter >= value)
+            return true;
+        else
+            return false;
+    }
+
 }
