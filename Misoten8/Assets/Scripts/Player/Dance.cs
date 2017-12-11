@@ -144,6 +144,8 @@ public class Dance : MonoBehaviour
 			_danceUI.Active();
 			_danceFloor.enabled = true;
 			_isPlaing = true;
+			_player.Animator.SetBool("PlayDance", true);
+
 			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.DANCE_INTRO);
 			StartCoroutine("StepDo");
 		}
@@ -175,6 +177,7 @@ public class Dance : MonoBehaviour
 					_danceFloor.enabled = false;
 					// スコアを設定する
 					_dancePoint = 0;
+					_player.Animator.SetBool("PlayDance", false);
 					_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
 				});
 		}
@@ -200,6 +203,7 @@ public class Dance : MonoBehaviour
 			_danceFloor.enabled = false;
 			// スコアを設定する
 			_dancePoint = 0;
+			_player.Animator.SetBool("PlayDance", false);
 			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
 			StopCoroutine("StepDo");
 		}
