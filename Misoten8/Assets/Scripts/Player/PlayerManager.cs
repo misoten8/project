@@ -7,10 +7,19 @@ using UnityEngine;
 /// <summary>
 /// プレイヤー管理 クラス
 /// プレイヤー全体に対するイベント等の発信や、変数の保管等を行う
-/// 製作者：実川
 /// </summary>
 public class PlayerManager : Photon.MonoBehaviour
 {
+	/// <summary>
+	/// 使用するモデルの紐付けマップ
+	/// </summary>
+	public static readonly Dictionary<Define.PlayerType, ModelManager.ModelType> MODEL_MAP = new Dictionary<Define.PlayerType, ModelManager.ModelType>
+	{
+		{ Define.PlayerType.First, ModelManager.ModelType.Player1 },
+		{ Define.PlayerType.Second, ModelManager.ModelType.Player2 },
+		{ Define.PlayerType.Third, ModelManager.ModelType.Player3 }
+	};
+
 	/// <summary>
 	/// ダンス時間
 	/// </summary>

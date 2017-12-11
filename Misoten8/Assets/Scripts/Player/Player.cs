@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using WiimoteApi;
 
-//TODO:プレイヤーをネットワーク対応する
 /// <summary>
 /// Player クラス
 /// 製作者：実川
@@ -36,6 +35,9 @@ public class Player : Photon.PunBehaviour
 
 	[SerializeField]
 	private Dance _dance;
+
+	[SerializeField]
+	private Transform _modelPlaceObject;
 
 	private PlayerManager _playerManager;
 
@@ -73,9 +75,12 @@ public class Player : Photon.PunBehaviour
 			_cameramanager.SetFollowTarget(transform);
 			_cameramanager.SetLookAtTarget(transform);
 		}
+
+		// モデルの設定
+		Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type])).transform.SetParent(_modelPlaceObject);
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (!photonView.isMine)
 			return;
@@ -133,5 +138,5 @@ public class Player : Photon.PunBehaviour
 	/// <summary>
 	/// 定義のみ
 	/// </summary>
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
+	private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
 }
