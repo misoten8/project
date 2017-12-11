@@ -3,7 +3,6 @@ using UnityEngine;
 using Misoten8Utility;
 using System;
 
-//TODO:モブキャラから管理クラスに変更処理をスタックする
 /// <summary>
 /// モブキャラ クラス
 /// 製作者：実川
@@ -72,11 +71,14 @@ public class Mob : Photon.PunBehaviour
 	[SerializeField]
 	private MobController _mobController;
 
+
+	[SerializeField]
+	private Transform _modelPlaceObject;
+
 	/// <summary>
 	/// マテリアルを設定する対象メッシュ
 	/// </summary>
-	[SerializeField]
-	private MeshRenderer _meshRenderer;
+	private ModelSkinnidMeshs _modelSkinnidMeshs;
 
 	/// <summary>
 	/// モブ管理クラス
@@ -139,11 +141,17 @@ public class Mob : Photon.PunBehaviour
 		// ファンタイプの更新
 		_funType = (Define.PlayerType)_fanPointArray.FindIndexMax();
 
-		// アウトラインの更新
-		_meshRenderer.materials[1].color = new Color(0.2f, 0.2f, 0.2f);
-
 		// モブ再生イベント実行
 		onMoveMob?.Invoke();
+
+		// モデルの設定
+		GameObject model = Instantiate(ModelManager.GetCache(MobManager.MODEL_MAP[_fanLevel]));
+		model.transform.SetParent(_modelPlaceObject);
+		model.transform.localPosition = Vector3.zero;
+		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();
+
+		// アウトラインの更新
+		_modelSkinnidMeshs.SkinnedMeshs.Foreach(e => e.materials[1].color = new Color(0.2f, 0.2f, 0.2f));
 	}
 
 	private void OnTriggerStay(Collider other)
@@ -240,7 +248,7 @@ public class Mob : Photon.PunBehaviour
 			_fllowTarget = type;
 
 			// アウトラインの更新
-			_meshRenderer.materials[1].color = Define.playerColor[(int)type];
+			_modelSkinnidMeshs.SkinnedMeshs.Foreach(e => e.materials[1].color = Define.playerColor[(int)type]);
 
 			// モブ移動動作の変更
 			onChangeFllowPlayer?.Invoke();

@@ -201,7 +201,6 @@ namespace Cinemachine
                 else
                 {
                     // Otherwise brake
-                    // TODO: Can the fluctuation between these two cause nasty behaviour? Must monitor..
                     float decelTime = Mathf.Max(0.001f, m_DecelTime);
                     float reduction = Mathf.Sign(mCurrentSpeed) * (m_MaxSpeed / decelTime) * dt;
                     mCurrentSpeed = (Mathf.Abs(reduction) >= Mathf.Abs(mCurrentSpeed))
