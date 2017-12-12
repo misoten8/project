@@ -21,6 +21,16 @@ public class Player : Photon.PunBehaviour
 
 	private Color _playerColor;
 
+	/// <summary>
+	/// アニメーション処理
+	/// </summary>
+	public Animator Animator
+	{
+		get { return _animator; }
+	}
+
+	private Animator _animator;
+
 	[SerializeField]
 	private Rigidbody _rb;
 
@@ -29,9 +39,6 @@ public class Player : Photon.PunBehaviour
 
 	[SerializeField]
 	private float _rotatePower;
-
-	[SerializeField]
-	private Animator _animator;
 
 	[SerializeField]
 	private Dance _dance;
@@ -44,6 +51,7 @@ public class Player : Photon.PunBehaviour
 	private MobManager _mobManager;
 
 	private cameramanager _cameramanager;
+
 
 	private bool canPlayDance = true;
 
@@ -77,7 +85,9 @@ public class Player : Photon.PunBehaviour
 		}
 
 		// モデルの設定
-		Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type])).transform.SetParent(_modelPlaceObject);
+		GameObject model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
+		model.transform.SetParent(_modelPlaceObject);
+		_animator = model.GetComponent<Animator>();
 	}
 
 	private void Update()
@@ -107,8 +117,12 @@ public class Player : Photon.PunBehaviour
 				photonView.RPC("DanceCancel", PhotonTargets.AllViaServer);
 		}
 
+		Vector3 velocity = _rb.velocity;
+
+		_animator.SetFloat("Velocity", Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z));
+
 		// 移動量の減衰
-		_rb.velocity -= _rb.velocity * 0.1f;
+		_rb.velocity -= velocity * 0.1f;
 	}
 
 	/// <summary>

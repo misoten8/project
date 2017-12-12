@@ -1,0 +1,2127 @@
+fileFormatVersion: 2
+guid: 1b785c3b1672373408b046bf2cdfca4d
+timeCreated: 1482929368
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: geo_collar_L
+    100004: geo_collar_R
+    100006: geo_foot_L
+    100008: geo_foot_L 1
+    100010: geo_foot_R
+    100012: geo_foot_R 1
+    100014: geo_forearm_L
+    100016: geo_forearm_L 1
+    100018: geo_forearm_R
+    100020: geo_forearm_R 1
+    100022: geo_hand_L
+    100024: geo_hand_L 1
+    100026: geo_hand_R
+    100028: geo_hand_R 1
+    100030: geo_handpinky_L 1
+    100032: geo_handpinky_L 2
+    100034: geo_handpinky_L 3
+    100036: geo_head
+    100038: geo_hips
+    100040: geo_lefthandindex 1
+    100042: geo_lefthandindex 2
+    100044: geo_lefthandindex 3
+    100046: geo_lefthandmiddle 1
+    100048: geo_lefthandmiddle 2
+    100050: geo_lefthandmiddle 3
+    100052: geo_lefthandring 1
+    100054: geo_lefthandring 2
+    100056: geo_lefthandring 3
+    100058: geo_lefthandthumb 1
+    100060: geo_lefthandthumb 2
+    100062: geo_lefthandthumb 3
+    100064: geo_lowerLeg_L
+    100066: geo_lowerLeg_L 1
+    100068: geo_lowerLeg_R
+    100070: geo_lowerLeg_R 1
+    100072: geo_neck
+    100074: geo_righthandindex 1
+    100076: geo_righthandindex 2
+    100078: geo_righthandindex 3
+    100080: geo_righthandmiddle 1
+    100082: geo_righthandmiddle 2
+    100084: geo_righthandmiddle 3
+    100086: geo_righthandpinky 1
+    100088: geo_righthandpinky 2
+    100090: geo_righthandpinky 3
+    100092: geo_righthandring 1
+    100094: geo_righthandring 2
+    100096: geo_righthandring 3
+    100098: geo_righthandthumb 1
+    100100: geo_righthandthumb 2
+    100102: geo_righthandthumb 3
+    100104: geo_spine
+    100106: geo_spine1
+    100108: geo_spine2
+    100110: geo_toe_L
+    100112: geo_toe_L 1
+    100114: geo_toe_R
+    100116: geo_toe_R 1
+    100118: geo_upperarm_L
+    100120: geo_upperarm_R
+    100122: geo_upperleg_L
+    100124: geo_upperleg_L 1
+    100126: geo_upperleg_R
+    100128: geo_upperleg_R 1
+    100130: Head
+    100132: Head_end
+    100134: Hips
+    100136: LeftArm
+    100138: LeftFoot
+    100140: LeftForeArm
+    100142: LeftHand
+    100144: LeftHandIndex1
+    100146: LeftHandIndex2
+    100148: LeftHandIndex3
+    100150: LeftHandIndex4
+    100152: LeftHandMiddle1
+    100154: LeftHandMiddle2
+    100156: LeftHandMiddle3
+    100158: LeftHandMiddle4
+    100160: LeftHandPinky1
+    100162: LeftHandPinky2
+    100164: LeftHandPinky3
+    100166: LeftHandPinky4
+    100168: LeftHandRing1
+    100170: LeftHandRing2
+    100172: LeftHandRing3
+    100174: LeftHandRing4
+    100176: LeftHandThumb1
+    100178: LeftHandThumb2
+    100180: LeftHandThumb3
+    100182: LeftHandThumb4
+    100184: LeftLeg
+    100186: LeftShoulder
+    100188: LeftToeBase
+    100190: LeftUpLeg
+    100192: Light
+    100194: Mannequin_wood
+    100196: Neck
+    100198: Plane
+    100200: Reference
+    100202: RightArm
+    100204: RightFoot
+    100206: RightForeArm
+    100208: RightHand
+    100210: RightHandIndex1
+    100212: RightHandIndex2
+    100214: RightHandIndex3
+    100216: RightHandIndex4
+    100218: RightHandMiddle1
+    100220: RightHandMiddle2
+    100222: RightHandMiddle3
+    100224: RightHandMiddle4
+    100226: RightHandPinky1
+    100228: RightHandPinky2
+    100230: RightHandPinky3
+    100232: RightHandPinky4
+    100234: RightHandRing1
+    100236: RightHandRing2
+    100238: RightHandRing3
+    100240: RightHandRing4
+    100242: RightHandThumb1
+    100244: RightHandThumb2
+    100246: RightHandThumb3
+    100248: RightHandThumb4
+    100250: RightLeg
+    100252: RightShoulder
+    100254: RightToeBase
+    100256: RightUpLeg
+    100258: Spine
+    100260: Spine1
+    100262: Spine2
+    100264: geo_foot_L_1
+    100266: geo_foot_R_1
+    100268: geo_forearm_L_1
+    100270: geo_forearm_R_1
+    100272: geo_hand_L_1
+    100274: geo_hand_R_1
+    100276: geo_handpinky_L_1
+    100278: geo_handpinky_L_2
+    100280: geo_handpinky_L_3
+    100282: geo_lefthandindex_1
+    100284: geo_lefthandindex_2
+    100286: geo_lefthandindex_3
+    100288: geo_lefthandmiddle_1
+    100290: geo_lefthandmiddle_2
+    100292: geo_lefthandmiddle_3
+    100294: geo_lefthandring_1
+    100296: geo_lefthandring_2
+    100298: geo_lefthandring_3
+    100300: geo_lefthandthumb_1
+    100302: geo_lefthandthumb_2
+    100304: geo_lefthandthumb_3
+    100306: geo_lowerLeg_L_1
+    100308: geo_lowerLeg_R_1
+    100310: geo_righthandindex_1
+    100312: geo_righthandindex_2
+    100314: geo_righthandindex_3
+    100316: geo_righthandmiddle_1
+    100318: geo_righthandmiddle_2
+    100320: geo_righthandmiddle_3
+    100322: geo_righthandpinky_1
+    100324: geo_righthandpinky_2
+    100326: geo_righthandpinky_3
+    100328: geo_righthandring_1
+    100330: geo_righthandring_2
+    100332: geo_righthandring_3
+    100334: geo_righthandthumb_1
+    100336: geo_righthandthumb_2
+    100338: geo_righthandthumb_3
+    100340: geo_toe_L_1
+    100342: geo_toe_R_1
+    100344: geo_upperleg_L_1
+    100346: geo_upperleg_R_1
+    400000: //RootNode
+    400002: geo_collar_L
+    400004: geo_collar_R
+    400006: geo_foot_L
+    400008: geo_foot_L 1
+    400010: geo_foot_R
+    400012: geo_foot_R 1
+    400014: geo_forearm_L
+    400016: geo_forearm_L 1
+    400018: geo_forearm_R
+    400020: geo_forearm_R 1
+    400022: geo_hand_L
+    400024: geo_hand_L 1
+    400026: geo_hand_R
+    400028: geo_hand_R 1
+    400030: geo_handpinky_L 1
+    400032: geo_handpinky_L 2
+    400034: geo_handpinky_L 3
+    400036: geo_head
+    400038: geo_hips
+    400040: geo_lefthandindex 1
+    400042: geo_lefthandindex 2
+    400044: geo_lefthandindex 3
+    400046: geo_lefthandmiddle 1
+    400048: geo_lefthandmiddle 2
+    400050: geo_lefthandmiddle 3
+    400052: geo_lefthandring 1
+    400054: geo_lefthandring 2
+    400056: geo_lefthandring 3
+    400058: geo_lefthandthumb 1
+    400060: geo_lefthandthumb 2
+    400062: geo_lefthandthumb 3
+    400064: geo_lowerLeg_L
+    400066: geo_lowerLeg_L 1
+    400068: geo_lowerLeg_R
+    400070: geo_lowerLeg_R 1
+    400072: geo_neck
+    400074: geo_righthandindex 1
+    400076: geo_righthandindex 2
+    400078: geo_righthandindex 3
+    400080: geo_righthandmiddle 1
+    400082: geo_righthandmiddle 2
+    400084: geo_righthandmiddle 3
+    400086: geo_righthandpinky 1
+    400088: geo_righthandpinky 2
+    400090: geo_righthandpinky 3
+    400092: geo_righthandring 1
+    400094: geo_righthandring 2
+    400096: geo_righthandring 3
+    400098: geo_righthandthumb 1
+    400100: geo_righthandthumb 2
+    400102: geo_righthandthumb 3
+    400104: geo_spine
+    400106: geo_spine1
+    400108: geo_spine2
+    400110: geo_toe_L
+    400112: geo_toe_L 1
+    400114: geo_toe_R
+    400116: geo_toe_R 1
+    400118: geo_upperarm_L
+    400120: geo_upperarm_R
+    400122: geo_upperleg_L
+    400124: geo_upperleg_L 1
+    400126: geo_upperleg_R
+    400128: geo_upperleg_R 1
+    400130: Head
+    400132: Head_end
+    400134: Hips
+    400136: LeftArm
+    400138: LeftFoot
+    400140: LeftForeArm
+    400142: LeftHand
+    400144: LeftHandIndex1
+    400146: LeftHandIndex2
+    400148: LeftHandIndex3
+    400150: LeftHandIndex4
+    400152: LeftHandMiddle1
+    400154: LeftHandMiddle2
+    400156: LeftHandMiddle3
+    400158: LeftHandMiddle4
+    400160: LeftHandPinky1
+    400162: LeftHandPinky2
+    400164: LeftHandPinky3
+    400166: LeftHandPinky4
+    400168: LeftHandRing1
+    400170: LeftHandRing2
+    400172: LeftHandRing3
+    400174: LeftHandRing4
+    400176: LeftHandThumb1
+    400178: LeftHandThumb2
+    400180: LeftHandThumb3
+    400182: LeftHandThumb4
+    400184: LeftLeg
+    400186: LeftShoulder
+    400188: LeftToeBase
+    400190: LeftUpLeg
+    400192: Light
+    400194: Mannequin_wood
+    400196: Neck
+    400198: Plane
+    400200: Reference
+    400202: RightArm
+    400204: RightFoot
+    400206: RightForeArm
+    400208: RightHand
+    400210: RightHandIndex1
+    400212: RightHandIndex2
+    400214: RightHandIndex3
+    400216: RightHandIndex4
+    400218: RightHandMiddle1
+    400220: RightHandMiddle2
+    400222: RightHandMiddle3
+    400224: RightHandMiddle4
+    400226: RightHandPinky1
+    400228: RightHandPinky2
+    400230: RightHandPinky3
+    400232: RightHandPinky4
+    400234: RightHandRing1
+    400236: RightHandRing2
+    400238: RightHandRing3
+    400240: RightHandRing4
+    400242: RightHandThumb1
+    400244: RightHandThumb2
+    400246: RightHandThumb3
+    400248: RightHandThumb4
+    400250: RightLeg
+    400252: RightShoulder
+    400254: RightToeBase
+    400256: RightUpLeg
+    400258: Spine
+    400260: Spine1
+    400262: Spine2
+    400264: geo_foot_L_1
+    400266: geo_foot_R_1
+    400268: geo_forearm_L_1
+    400270: geo_forearm_R_1
+    400272: geo_hand_L_1
+    400274: geo_hand_R_1
+    400276: geo_handpinky_L_1
+    400278: geo_handpinky_L_2
+    400280: geo_handpinky_L_3
+    400282: geo_lefthandindex_1
+    400284: geo_lefthandindex_2
+    400286: geo_lefthandindex_3
+    400288: geo_lefthandmiddle_1
+    400290: geo_lefthandmiddle_2
+    400292: geo_lefthandmiddle_3
+    400294: geo_lefthandring_1
+    400296: geo_lefthandring_2
+    400298: geo_lefthandring_3
+    400300: geo_lefthandthumb_1
+    400302: geo_lefthandthumb_2
+    400304: geo_lefthandthumb_3
+    400306: geo_lowerLeg_L_1
+    400308: geo_lowerLeg_R_1
+    400310: geo_righthandindex_1
+    400312: geo_righthandindex_2
+    400314: geo_righthandindex_3
+    400316: geo_righthandmiddle_1
+    400318: geo_righthandmiddle_2
+    400320: geo_righthandmiddle_3
+    400322: geo_righthandpinky_1
+    400324: geo_righthandpinky_2
+    400326: geo_righthandpinky_3
+    400328: geo_righthandring_1
+    400330: geo_righthandring_2
+    400332: geo_righthandring_3
+    400334: geo_righthandthumb_1
+    400336: geo_righthandthumb_2
+    400338: geo_righthandthumb_3
+    400340: geo_toe_L_1
+    400342: geo_toe_R_1
+    400344: geo_upperleg_L_1
+    400346: geo_upperleg_R_1
+    2300000: geo_collar_L
+    2300002: geo_collar_R
+    2300004: geo_foot_L
+    2300006: geo_foot_L 1
+    2300008: geo_foot_R
+    2300010: geo_foot_R 1
+    2300012: geo_forearm_L
+    2300014: geo_forearm_L 1
+    2300016: geo_forearm_R
+    2300018: geo_forearm_R 1
+    2300020: geo_hand_L
+    2300022: geo_hand_L 1
+    2300024: geo_hand_R
+    2300026: geo_hand_R 1
+    2300028: geo_handpinky_L 1
+    2300030: geo_handpinky_L 2
+    2300032: geo_handpinky_L 3
+    2300034: geo_head
+    2300036: geo_hips
+    2300038: geo_lefthandindex 1
+    2300040: geo_lefthandindex 2
+    2300042: geo_lefthandindex 3
+    2300044: geo_lefthandmiddle 1
+    2300046: geo_lefthandmiddle 2
+    2300048: geo_lefthandmiddle 3
+    2300050: geo_lefthandring 1
+    2300052: geo_lefthandring 2
+    2300054: geo_lefthandring 3
+    2300056: geo_lefthandthumb 1
+    2300058: geo_lefthandthumb 2
+    2300060: geo_lefthandthumb 3
+    2300062: geo_lowerLeg_L
+    2300064: geo_lowerLeg_L 1
+    2300066: geo_lowerLeg_R
+    2300068: geo_lowerLeg_R 1
+    2300070: geo_neck
+    2300072: geo_righthandindex 1
+    2300074: geo_righthandindex 2
+    2300076: geo_righthandindex 3
+    2300078: geo_righthandmiddle 1
+    2300080: geo_righthandmiddle 2
+    2300082: geo_righthandmiddle 3
+    2300084: geo_righthandpinky 1
+    2300086: geo_righthandpinky 2
+    2300088: geo_righthandpinky 3
+    2300090: geo_righthandring 1
+    2300092: geo_righthandring 2
+    2300094: geo_righthandring 3
+    2300096: geo_righthandthumb 1
+    2300098: geo_righthandthumb 2
+    2300100: geo_righthandthumb 3
+    2300102: geo_spine
+    2300104: geo_spine1
+    2300106: geo_spine2
+    2300108: geo_toe_L
+    2300110: geo_toe_L 1
+    2300112: geo_toe_R
+    2300114: geo_toe_R 1
+    2300116: geo_upperarm_L
+    2300118: geo_upperarm_R
+    2300120: geo_upperleg_L
+    2300122: geo_upperleg_L 1
+    2300124: geo_upperleg_R
+    2300126: geo_upperleg_R 1
+    2300128: Plane
+    2300130: geo_foot_L_1
+    2300132: geo_foot_R_1
+    2300134: geo_forearm_L_1
+    2300136: geo_forearm_R_1
+    2300138: geo_hand_L_1
+    2300140: geo_hand_R_1
+    2300142: geo_handpinky_L_1
+    2300144: geo_handpinky_L_2
+    2300146: geo_handpinky_L_3
+    2300148: geo_lefthandindex_1
+    2300150: geo_lefthandindex_2
+    2300152: geo_lefthandindex_3
+    2300154: geo_lefthandmiddle_1
+    2300156: geo_lefthandmiddle_2
+    2300158: geo_lefthandmiddle_3
+    2300160: geo_lefthandring_1
+    2300162: geo_lefthandring_2
+    2300164: geo_lefthandring_3
+    2300166: geo_lefthandthumb_1
+    2300168: geo_lefthandthumb_2
+    2300170: geo_lefthandthumb_3
+    2300172: geo_lowerLeg_L_1
+    2300174: geo_lowerLeg_R_1
+    2300176: geo_righthandindex_1
+    2300178: geo_righthandindex_2
+    2300180: geo_righthandindex_3
+    2300182: geo_righthandmiddle_1
+    2300184: geo_righthandmiddle_2
+    2300186: geo_righthandmiddle_3
+    2300188: geo_righthandpinky_1
+    2300190: geo_righthandpinky_2
+    2300192: geo_righthandpinky_3
+    2300194: geo_righthandring_1
+    2300196: geo_righthandring_2
+    2300198: geo_righthandring_3
+    2300200: geo_righthandthumb_1
+    2300202: geo_righthandthumb_2
+    2300204: geo_righthandthumb_3
+    2300206: geo_toe_L_1
+    2300208: geo_toe_R_1
+    2300210: geo_upperleg_L_1
+    2300212: geo_upperleg_R_1
+    3300000: geo_collar_L
+    3300002: geo_collar_R
+    3300004: geo_foot_L
+    3300006: geo_foot_L 1
+    3300008: geo_foot_R
+    3300010: geo_foot_R 1
+    3300012: geo_forearm_L
+    3300014: geo_forearm_L 1
+    3300016: geo_forearm_R
+    3300018: geo_forearm_R 1
+    3300020: geo_hand_L
+    3300022: geo_hand_L 1
+    3300024: geo_hand_R
+    3300026: geo_hand_R 1
+    3300028: geo_handpinky_L 1
+    3300030: geo_handpinky_L 2
+    3300032: geo_handpinky_L 3
+    3300034: geo_head
+    3300036: geo_hips
+    3300038: geo_lefthandindex 1
+    3300040: geo_lefthandindex 2
+    3300042: geo_lefthandindex 3
+    3300044: geo_lefthandmiddle 1
+    3300046: geo_lefthandmiddle 2
+    3300048: geo_lefthandmiddle 3
+    3300050: geo_lefthandring 1
+    3300052: geo_lefthandring 2
+    3300054: geo_lefthandring 3
+    3300056: geo_lefthandthumb 1
+    3300058: geo_lefthandthumb 2
+    3300060: geo_lefthandthumb 3
+    3300062: geo_lowerLeg_L
+    3300064: geo_lowerLeg_L 1
+    3300066: geo_lowerLeg_R
+    3300068: geo_lowerLeg_R 1
+    3300070: geo_neck
+    3300072: geo_righthandindex 1
+    3300074: geo_righthandindex 2
+    3300076: geo_righthandindex 3
+    3300078: geo_righthandmiddle 1
+    3300080: geo_righthandmiddle 2
+    3300082: geo_righthandmiddle 3
+    3300084: geo_righthandpinky 1
+    3300086: geo_righthandpinky 2
+    3300088: geo_righthandpinky 3
+    3300090: geo_righthandring 1
+    3300092: geo_righthandring 2
+    3300094: geo_righthandring 3
+    3300096: geo_righthandthumb 1
+    3300098: geo_righthandthumb 2
+    3300100: geo_righthandthumb 3
+    3300102: geo_spine
+    3300104: geo_spine1
+    3300106: geo_spine2
+    3300108: geo_toe_L
+    3300110: geo_toe_L 1
+    3300112: geo_toe_R
+    3300114: geo_toe_R 1
+    3300116: geo_upperarm_L
+    3300118: geo_upperarm_R
+    3300120: geo_upperleg_L
+    3300122: geo_upperleg_L 1
+    3300124: geo_upperleg_R
+    3300126: geo_upperleg_R 1
+    3300128: Plane
+    3300130: geo_foot_L_1
+    3300132: geo_foot_R_1
+    3300134: geo_forearm_L_1
+    3300136: geo_forearm_R_1
+    3300138: geo_hand_L_1
+    3300140: geo_hand_R_1
+    3300142: geo_handpinky_L_1
+    3300144: geo_handpinky_L_2
+    3300146: geo_handpinky_L_3
+    3300148: geo_lefthandindex_1
+    3300150: geo_lefthandindex_2
+    3300152: geo_lefthandindex_3
+    3300154: geo_lefthandmiddle_1
+    3300156: geo_lefthandmiddle_2
+    3300158: geo_lefthandmiddle_3
+    3300160: geo_lefthandring_1
+    3300162: geo_lefthandring_2
+    3300164: geo_lefthandring_3
+    3300166: geo_lefthandthumb_1
+    3300168: geo_lefthandthumb_2
+    3300170: geo_lefthandthumb_3
+    3300172: geo_lowerLeg_L_1
+    3300174: geo_lowerLeg_R_1
+    3300176: geo_righthandindex_1
+    3300178: geo_righthandindex_2
+    3300180: geo_righthandindex_3
+    3300182: geo_righthandmiddle_1
+    3300184: geo_righthandmiddle_2
+    3300186: geo_righthandmiddle_3
+    3300188: geo_righthandpinky_1
+    3300190: geo_righthandpinky_2
+    3300192: geo_righthandpinky_3
+    3300194: geo_righthandring_1
+    3300196: geo_righthandring_2
+    3300198: geo_righthandring_3
+    3300200: geo_righthandthumb_1
+    3300202: geo_righthandthumb_2
+    3300204: geo_righthandthumb_3
+    3300206: geo_toe_L_1
+    3300208: geo_toe_R_1
+    3300210: geo_upperleg_L_1
+    3300212: geo_upperleg_R_1
+    4300000: Plane
+    4300002: geo_toe_L
+    4300004: geo_toe_L 1
+    4300006: geo_foot_L
+    4300008: geo_foot_L 1
+    4300010: geo_lowerLeg_L 1
+    4300012: geo_lowerLeg_L
+    4300014: geo_upperleg_L 1
+    4300016: geo_upperleg_L
+    4300018: geo_foot_R
+    4300020: geo_foot_R 1
+    4300022: geo_toe_R
+    4300024: geo_toe_R 1
+    4300026: geo_lowerLeg_R 1
+    4300028: geo_lowerLeg_R
+    4300030: geo_upperleg_R 1
+    4300032: geo_upperleg_R
+    4300034: geo_lefthandthumb 3
+    4300036: geo_lefthandthumb 2
+    4300038: geo_lefthandthumb 1
+    4300040: geo_lefthandindex 3
+    4300042: geo_lefthandindex 2
+    4300044: geo_lefthandindex 1
+    4300046: geo_lefthandmiddle 3
+    4300048: geo_lefthandmiddle 2
+    4300050: geo_lefthandmiddle 1
+    4300052: geo_lefthandring 3
+    4300054: geo_lefthandring 2
+    4300056: geo_lefthandring 1
+    4300058: geo_handpinky_L 3
+    4300060: geo_handpinky_L 2
+    4300062: geo_handpinky_L 1
+    4300064: geo_hand_L
+    4300066: geo_hand_L 1
+    4300068: geo_forearm_L
+    4300070: geo_forearm_L 1
+    4300072: geo_upperarm_L
+    4300074: geo_collar_L
+    4300076: geo_righthandthumb 3
+    4300078: geo_righthandthumb 2
+    4300080: geo_righthandthumb 1
+    4300082: geo_righthandindex 3
+    4300084: geo_righthandindex 2
+    4300086: geo_righthandindex 1
+    4300088: geo_righthandmiddle 3
+    4300090: geo_righthandmiddle 2
+    4300092: geo_righthandmiddle 1
+    4300094: geo_righthandring 3
+    4300096: geo_righthandring 2
+    4300098: geo_righthandring 1
+    4300100: geo_righthandpinky 3
+    4300102: geo_righthandpinky 2
+    4300104: geo_righthandpinky 1
+    4300106: geo_hand_R
+    4300108: geo_hand_R 1
+    4300110: geo_forearm_R
+    4300112: geo_forearm_R 1
+    4300114: geo_upperarm_R
+    4300116: geo_collar_R
+    4300118: geo_head
+    4300120: geo_neck
+    4300122: geo_spine2
+    4300124: geo_spine1
+    4300126: geo_spine
+    4300128: geo_hips
+    4300130: geo_toe_L_1
+    4300132: geo_foot_L_1
+    4300134: geo_lowerLeg_L_1
+    4300136: geo_upperleg_L_1
+    4300138: geo_foot_R_1
+    4300140: geo_toe_R_1
+    4300142: geo_lowerLeg_R_1
+    4300144: geo_upperleg_R_1
+    4300146: geo_lefthandthumb_3
+    4300148: geo_lefthandthumb_2
+    4300150: geo_lefthandthumb_1
+    4300152: geo_lefthandindex_3
+    4300154: geo_lefthandindex_2
+    4300156: geo_lefthandindex_1
+    4300158: geo_lefthandmiddle_3
+    4300160: geo_lefthandmiddle_2
+    4300162: geo_lefthandmiddle_1
+    4300164: geo_lefthandring_3
+    4300166: geo_lefthandring_2
+    4300168: geo_lefthandring_1
+    4300170: geo_handpinky_L_3
+    4300172: geo_handpinky_L_2
+    4300174: geo_handpinky_L_1
+    4300176: geo_hand_L_1
+    4300178: geo_forearm_L_1
+    4300180: geo_righthandthumb_3
+    4300182: geo_righthandthumb_2
+    4300184: geo_righthandthumb_1
+    4300186: geo_righthandindex_3
+    4300188: geo_righthandindex_2
+    4300190: geo_righthandindex_1
+    4300192: geo_righthandmiddle_3
+    4300194: geo_righthandmiddle_2
+    4300196: geo_righthandmiddle_1
+    4300198: geo_righthandring_3
+    4300200: geo_righthandring_2
+    4300202: geo_righthandring_1
+    4300204: geo_righthandpinky_3
+    4300206: geo_righthandpinky_2
+    4300208: geo_righthandpinky_1
+    4300210: geo_hand_R_1
+    4300212: geo_forearm_R_1
+    7400000: Busta_footwork003
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Busta_footwork003
+      takeName: Busta_footwork003_x2d
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Light
+        weight: 1
+      - path: Mannequin_wood
+        weight: 1
+      - path: Reference
+        weight: 1
+      - path: Reference/Hips
+        weight: 1
+      - path: Reference/Hips/geo_hips
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/geo_upperleg_L
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/geo_upperleg_L 1
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/geo_lowerLeg_L
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/geo_lowerLeg_L 1
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/geo_foot_L
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/geo_foot_L 1
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/geo_toe_L
+        weight: 1
+      - path: Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/geo_toe_L 1
+        weight: 1
+      - path: Reference/Hips/RightUpLeg
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/geo_upperleg_R
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/geo_upperleg_R 1
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/geo_lowerLeg_R
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/geo_lowerLeg_R 1
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot/geo_foot_R
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot/geo_foot_R 1
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/geo_toe_R
+        weight: 1
+      - path: Reference/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/geo_toe_R
+          1
+        weight: 1
+      - path: Reference/Hips/Spine
+        weight: 1
+      - path: Reference/Hips/Spine/geo_spine
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/geo_spine1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/geo_spine2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/geo_collar_L
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/geo_upperarm_L
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/geo_forearm_L
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/geo_forearm_L
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/geo_hand_L
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/geo_hand_L
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/geo_lefthandindex
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/geo_lefthandindex
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/geo_lefthandindex
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/geo_lefthandmiddle
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/geo_lefthandmiddle
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/geo_lefthandmiddle
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/LeftHandMiddle4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/geo_handpinky_L
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/geo_handpinky_L
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/geo_handpinky_L
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/geo_lefthandring
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/geo_lefthandring
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/geo_lefthandring
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/LeftHandRing4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/geo_lefthandthumb
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/geo_lefthandthumb
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/geo_lefthandthumb
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/Neck
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/Neck/geo_neck
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/Neck/Head/geo_head
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/Neck/Head/Head_end
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/geo_collar_R
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/geo_upperarm_R
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/geo_forearm_R
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/geo_forearm_R
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/geo_hand_R
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/geo_hand_R
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/geo_righthandindex
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/geo_righthandindex
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/geo_righthandindex
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/geo_righthandmiddle
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/geo_righthandmiddle
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/geo_righthandmiddle
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/RightHandMiddle4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/geo_righthandpinky
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/geo_righthandpinky
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/geo_righthandpinky
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/geo_righthandring
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/geo_righthandring
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/geo_righthandring
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/RightHandRing4
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/geo_righthandthumb
+          1
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/geo_righthandthumb
+          2
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/geo_righthandthumb
+          3
+        weight: 1
+      - path: Reference/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandPinky1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandPinky2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: LeftHandPinky3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandPinky1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandPinky2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHandPinky3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Busta_footwork003(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Light
+      position: {x: -.248371944, y: 3.29570341, z: 1.39961982}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Mannequin_wood
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Plane
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 11.7701998, y: 11.7701998, z: 11.7701998}
+      transformModified: 1
+    - name: Reference
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips
+      position: {x: -9.31322575e-10, y: .994864643, z: -.107419066}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_hips
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.77626358e-21, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftUpLeg
+      position: {x: -.0891000032, y: -.0627000406, z: 1.7763568e-17}
+      rotation: {x: .0409398302, y: -5.80687038e-06, z: .0399069488, w: .998364329}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperleg_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.08166817e-17, y: 4.33680869e-19, z: 2.71050543e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperleg_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.08166817e-17, y: 4.33680869e-19, z: 2.71050543e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftLeg
+      position: {x: 1.7763568e-17, y: -.448786378, z: 0}
+      rotation: {x: .000246884563, y: 2.45142583e-05, z: -6.05219119e-09, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lowerLeg_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.38777878e-17, y: -1.30104261e-18, z: 3.65918233e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lowerLeg_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.38777878e-17, y: -1.30104261e-18, z: 3.65918233e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftFoot
+      position: {x: 3.99680272e-17, y: -.407009572, z: -3.5527136e-17}
+      rotation: {x: -.041186519, y: 2.86259594e-09, z: -.0399340019, w: .998353124}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_foot_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -8.47032947e-22, y: -3.38813179e-21, z: -4.96538427e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_foot_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -8.47032947e-22, y: -3.38813179e-21, z: -4.96538427e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftToeBase
+      position: {x: -8.58306848e-08, y: -.062623173, z: .129547209}
+      rotation: {x: 2.10448747e-09, y: -6.3767955e-05, z: 3.30022704e-05, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_toe_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 4.23516474e-22, y: -8.63199854e-43, z: -2.03977569e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_toe_L_1
+      position: {x: 8.58306848e-08, y: .062623173, z: -.129547209}
+      rotation: {x: 4.23516474e-22, y: -8.63199854e-43, z: -2.03977569e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightUpLeg
+      position: {x: .0891000032, y: -.0627000406, z: 1.7763568e-17}
+      rotation: {x: .033156272, y: .000632516982, z: -.0373891033, w: .998750389}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperleg_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.9388939e-18, y: 2.16840434e-19, z: -8.75493254e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperleg_R_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.9388939e-18, y: 2.16840434e-19, z: -8.75493254e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightLeg
+      position: {x: 2.86102289e-08, y: -.448786378, z: 4.39024006e-06}
+      rotation: {x: .0355713293, y: .000699791242, z: 3.13041382e-05, w: .999366879}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lowerLeg_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.38777878e-17, y: -8.67361738e-19, z: 1.16009632e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lowerLeg_R_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.38777878e-17, y: -8.67361738e-19, z: 1.16009632e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightFoot
+      position: {x: -9.53674295e-09, y: -.407009572, z: -3.5527136e-17}
+      rotation: {x: -.0686883479, y: 4.69543814e-11, z: .0373398699, w: .996939182}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_foot_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.65436123e-24, y: -0, z: 2.5399267e-23, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_foot_R_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.65436123e-24, y: -0, z: 2.5399267e-23, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightToeBase
+      position: {x: 1.08528138e-05, y: -.062623173, z: .129547492}
+      rotation: {x: -1.63536654e-24, y: -3.11806107e-05, z: 6.09182322e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_toe_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.65436123e-24, y: 1.40129846e-45, z: -6.46288774e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_toe_R_1
+      position: {x: .00465308735, y: .0651569292, z: -.129551873}
+      rotation: {x: -1.65436123e-24, y: -2.26381414e-16, z: -6.51033147e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Spine
+      position: {x: -2.220446e-18, y: .0700000003, z: 1.7763568e-17}
+      rotation: {x: 6.5815029e-09, y: 6.15493918e-05, z: -.000106930427, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_spine
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.38935802e-21, y: -2.35684389e-41, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Spine1
+      position: {x: -2.220446e-18, y: .126666635, z: -1.7763568e-17}
+      rotation: {x: -4.27986328e-25, y: 2.80259693e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_spine1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.9919431e-25, y: -2.71050543e-20, z: -2.05060691e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Spine2
+      position: {x: -0, y: .126666635, z: 1.7763568e-17}
+      rotation: {x: 2.88073622e-24, y: -1.96181785e-44, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_spine2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.2263749e-24, y: -8.40779079e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftShoulder
+      position: {x: -.0700000003, y: .142552182, z: 0}
+      rotation: {x: -4.27986278e-25, y: 2.80259693e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_collar_L
+      position: {x: -.107072502, y: 1.37329096e-06, z: 1.7763568e-17}
+      rotation: {x: -4.27986278e-25, y: 2.80259693e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftArm
+      position: {x: -.107072502, y: 1.37329096e-06, z: 1.7763568e-17}
+      rotation: {x: 1.226375e-24, y: -8.40779079e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperarm_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.08421445e-19, y: -7.53912587e-40, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftForeArm
+      position: {x: -.273054659, y: 0, z: -1.7763568e-17}
+      rotation: {x: 4.54329095e-24, y: -4.05669994e-07, z: 2.01973417e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_forearm_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.40576275e-24, y: -1.35525272e-20, z: 4.35388293e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_forearm_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.40576275e-24, y: -1.35525272e-20, z: 4.35388293e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHand
+      position: {x: -.266971439, y: 0, z: 0}
+      rotation: {x: 4.05083374e-05, y: 3.72529119e-09, z: -1.50905316e-13, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_hand_L
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_hand_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandIndex1
+      position: {x: -.0882197544, y: .0019973754, z: .0316346958}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandindex_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandIndex2
+      position: {x: -.0422275551, y: -3.05175774e-07, z: .00147198909}
+      rotation: {x: 2.56626667e-08, y: -5.31790556e-06, z: 7.3602547e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandindex_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.77626358e-21, y: -1.35525272e-20, z: 1.80970574e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandIndex3
+      position: {x: -.0265232753, y: -1.52587887e-07, z: .000924843014}
+      rotation: {x: 1.31452737e-16, y: 5.31657679e-06, z: 7.89569615e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandindex_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -1.77364067e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandIndex4
+      position: {x: -.0195703115, y: -1.52587887e-07, z: .00068218942}
+      rotation: {x: 0, y: 0, z: -1.77364067e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandMiddle1
+      position: {x: -.0880988315, y: .00500884978, z: .00420880737}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandmiddle_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandMiddle2
+      position: {x: -.0486325063, y: 0, z: 3.02463764e-06}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandmiddle_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.38813179e-20, y: -1.35525272e-20, z: -1.08939687e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandMiddle3
+      position: {x: -.0276523586, y: 2.84217088e-16, z: 1.71780584e-06}
+      rotation: {x: 3.38813179e-20, y: -1.35525272e-20, z: -1.08939687e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandmiddle_3
+      position: {x: -.0200563036, y: -2.84217088e-16, z: 1.23590223e-06}
+      rotation: {x: 6.77626358e-21, y: -1.35525272e-20, z: -1.46435784e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandMiddle4
+      position: {x: -.0200563036, y: -2.84217088e-16, z: 1.23590223e-06}
+      rotation: {x: 6.77626358e-21, y: -1.35525272e-20, z: -1.46435784e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandPinky1
+      position: {x: -.088822782, y: -.00313018798, z: -.0461861752}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_handpinky_L_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandPinky2
+      position: {x: -.0304409787, y: 3.05175774e-07, z: 0}
+      rotation: {x: -6.55919763e-13, y: 2.14506851e-20, z: 2.71532531e-06, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_handpinky_L_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.35525272e-20, y: -7.4134294e-41, z: -5.47014539e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandPinky3
+      position: {x: -.0197450258, y: 3.05175774e-07, z: -4.76837148e-09}
+      rotation: {x: 1.35525272e-20, y: -7.4134294e-41, z: -5.47014539e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_handpinky_L_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.96511644e-19, y: -1.35525272e-20, z: 8.08238177e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandPinky4
+      position: {x: -.0166661069, y: 1.52587887e-07, z: 9.53674295e-09}
+      rotation: {x: 1.96511644e-19, y: -1.35525272e-20, z: 8.08238177e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandRing1
+      position: {x: -.0889376029, y: .00379913324, z: -.0166741293}
+      rotation: {x: -6.77626358e-21, y: -1.35525272e-20, z: -1.46319979e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandring_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandRing2
+      position: {x: -.0453775786, y: 0, z: 1.19209287e-09}
+      rotation: {x: 1.35525272e-19, y: -1.35525272e-20, z: -1.46270348e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandring_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 3.38813179e-20, y: -1.35525272e-20, z: -1.08939687e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandRing3
+      position: {x: -.0230452716, y: -2.84217088e-16, z: -1.19209287e-09}
+      rotation: {x: 3.38813179e-20, y: -1.35525272e-20, z: -1.08939687e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandring_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.77626358e-21, y: -1.35525272e-20, z: -1.46435784e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandRing4
+      position: {x: -.0192334745, y: 2.84217088e-16, z: -8.3446503e-09}
+      rotation: {x: 6.77626358e-21, y: -1.35525272e-20, z: -1.46435784e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandThumb1
+      position: {x: -.0434876233, y: -.00798507687, z: .0428243391}
+      rotation: {x: -.0641321465, y: .209163681, z: -.0692726672, w: .973313391}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandthumb_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -4.71492949e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandThumb2
+      position: {x: -.0251258835, y: -.00536087016, z: .00707454188}
+      rotation: {x: -2.25380063e-07, y: .107052498, z: .0811202675, w: .990938604}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandthumb_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 6.77626358e-21, y: -3.1949605e-41, z: -4.71492949e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandThumb3
+      position: {x: -.0254313648, y: -1.52587887e-07, z: 9.5367426e-08}
+      rotation: {x: 6.77626358e-21, y: -3.1949605e-41, z: -4.71492949e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_lefthandthumb_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: -4.71492949e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LeftHandThumb4
+      position: {x: -.0266674794, y: 2.84217088e-16, z: -8.10623177e-08}
+      rotation: {x: 0, y: 0, z: -4.71492949e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Neck
+      position: {x: -2.220446e-18, y: .12666671, z: 0}
+      rotation: {x: 1.2263749e-24, y: -8.40779079e-45, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_neck
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 5.42080245e-20, y: -3.76938077e-40, z: -6.95354276e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Head
+      position: {x: -2.220446e-18, y: .199999988, z: 0}
+      rotation: {x: -4.27985982e-25, y: 1.45519152e-11, z: -2.05060723e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_head
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.08423099e-19, y: 7.15481976e-40, z: 6.59898237e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Head_end
+      position: {x: -2.220446e-18, y: .149999991, z: 3.5527136e-17}
+      rotation: {x: 1.08423099e-19, y: 7.15481976e-40, z: 6.59898237e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightShoulder
+      position: {x: .0699999928, y: .142552182, z: -1.7763568e-17}
+      rotation: {x: 5.362353e-24, y: -3.7252903e-09, z: 2.01519324e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_collar_R
+      position: {x: .107072748, y: 4.27246096e-06, z: 0}
+      rotation: {x: -1.25511517e-24, y: 1.35525272e-20, z: 6.59940404e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightArm
+      position: {x: .107072748, y: 4.27246096e-06, z: 0}
+      rotation: {x: -2.90945036e-24, y: 3.7252903e-09, z: -6.95354438e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_upperarm_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.90952807e-24, y: 1.96181785e-44, z: -6.95354357e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightForeArm
+      position: {x: .273055941, y: 0, z: 0}
+      rotation: {x: -3.73670276e-24, y: -9.31322686e-10, z: 6.599089e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_forearm_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 5.42121637e-20, y: -2.71050543e-20, z: 6.59908941e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_forearm_R_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 5.42121637e-20, y: -2.71050543e-20, z: 6.59908941e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHand
+      position: {x: .266969889, y: 2.84217088e-16, z: -3.5527136e-17}
+      rotation: {x: 2.88076521e-24, y: 2.32830688e-09, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_hand_R
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_hand_R_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandIndex1
+      position: {x: .0882166997, y: .0019973754, z: .0347244404}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandindex_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -4.28005753e-25, y: -1.35525272e-20, z: -6.9537019e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandIndex2
+      position: {x: .037103653, y: -2.84217088e-16, z: -9.61303704e-06}
+      rotation: {x: -3.96128646e-14, y: -5.31674868e-06, z: 7.4505806e-09, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandindex_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.92396233e-24, y: -6.77626358e-21, z: 8.56121594e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandIndex3
+      position: {x: .0353069454, y: -5.68434176e-16, z: .00141642685}
+      rotation: {x: -7.25575565e-24, y: 5.31674868e-06, z: 6.93677668e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandindex_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandIndex4
+      position: {x: .0195703115, y: 0, z: -.000682902348}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandMiddle1
+      position: {x: .0880976841, y: .00500900252, z: .0076379613}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandmiddle_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -4.28005753e-25, y: -1.35525272e-20, z: -6.9537019e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandMiddle2
+      position: {x: .0437718965, y: 0, z: -.00169603876}
+      rotation: {x: -3.96128646e-14, y: -5.31674868e-06, z: 7.4505806e-09, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandmiddle_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.92396233e-24, y: -6.77626358e-21, z: 8.56121594e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandMiddle3
+      position: {x: .0396398827, y: 2.84217088e-16, z: -.000964756939}
+      rotation: {x: -7.25575565e-24, y: 5.31674868e-06, z: 6.93677668e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandmiddle_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandMiddle4
+      position: {x: .020044174, y: -8.52651264e-16, z: -.000699434546}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandPinky1
+      position: {x: .0888249204, y: -.00313018798, z: -.0450982787}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandpinky_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -4.28005753e-25, y: -1.35525272e-20, z: -6.9537019e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandPinky2
+      position: {x: .0266532134, y: -7.62939408e-07, z: -.00106291287}
+      rotation: {x: -2.2278239e-07, y: -5.31992873e-06, z: -8.51148616e-06, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandpinky_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 6.94264643e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandPinky3
+      position: {x: .0263447501, y: -3.05175774e-07, z: -.000689696055}
+      rotation: {x: -5.77315973e-15, y: 5.31674868e-06, z: 2.00084036e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandpinky_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 2.2794782e-40, y: -2.71050543e-20, z: 8.40977727e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandPinky4
+      position: {x: .0166761782, y: -4.57763662e-07, z: -.000581912987}
+      rotation: {x: 2.2794782e-40, y: -2.71050543e-20, z: 8.40977727e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandRing1
+      position: {x: .0889382884, y: .00379928574, z: -.0171466637}
+      rotation: {x: 1.22635547e-24, y: -1.35525272e-20, z: -6.95370109e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandring_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -4.28005753e-25, y: -1.35525272e-20, z: -6.9537019e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandRing2
+      position: {x: .0370054618, y: 0, z: -.00158256525}
+      rotation: {x: -3.96128646e-14, y: -5.31674868e-06, z: 7.4505806e-09, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandring_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.92396233e-24, y: -6.77626358e-21, z: 8.56121594e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandRing3
+      position: {x: .0331325419, y: 2.84217088e-16, z: -.000804022013}
+      rotation: {x: -7.25575565e-24, y: 5.31674868e-06, z: 6.93677668e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandring_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandRing4
+      position: {x: .0192218013, y: 0, z: -.000670740614}
+      rotation: {x: -1.80844785e-24, y: 2.71050543e-20, z: 1.5157655e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandThumb1
+      position: {x: .0434838086, y: -.00798492413, z: .0428281426}
+      rotation: {x: -.0677380785, y: -.227421477, z: .0682114735, w: .969039917}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandthumb_1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.08239932e-24, y: 1.40129846e-44, z: -6.95396443e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandThumb2
+      position: {x: .0251252744, y: -.00536102289, z: .00707676401}
+      rotation: {x: .00274834572, y: -.0908920094, z: -.0786127746, w: .992749274}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandthumb_2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.08239932e-24, y: -1.40129846e-44, z: 6.59856232e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandThumb3
+      position: {x: .0254158769, y: 3.05175774e-07, z: .000888204551}
+      rotation: {x: -2.08239932e-24, y: -1.40129846e-44, z: 6.59856232e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: geo_righthandthumb_3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.08239932e-24, y: -1.40129846e-44, z: 6.59856232e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: RightHandThumb4
+      position: {x: .0266512297, y: 1.52587887e-07, z: .000931372633}
+      rotation: {x: -2.08239932e-24, y: -1.40129846e-44, z: 6.59856232e-21, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
