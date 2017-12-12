@@ -76,6 +76,7 @@ public class Wiimote
     /// Button data component.
     public ButtonData    Button     { get { return _Button; } }
     private ButtonData  _Button;
+
     /// IR data component.
     public IRData        Ir         { get { return _Ir; } }
     private IRData      _Ir;
@@ -690,6 +691,7 @@ public class Wiimote
             case InputDataType.ACKNOWLEDGE_OUTPUT_REPORT:
                 buttons = new byte[] { data[0], data[1] };
                 Button.InterpretData(buttons);
+                // TODO: doesn't do any actual error handling, or do any special code about acknowledging the output report.
                 break;
             case InputDataType.REPORT_BUTTONS: // done.
                 buttons = new byte[] { data[0], data[1] };
@@ -903,5 +905,5 @@ public class Wiimote
             RequestIdentifyWiiMotionPlus();
             ActivateWiiMotionPlus();
        }
-}
+    }
 }
