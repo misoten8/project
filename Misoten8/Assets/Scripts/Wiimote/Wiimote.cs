@@ -76,6 +76,10 @@ public class Wiimote
     /// Button data component.
     public ButtonData    Button     { get { return _Button; } }
     private ButtonData  _Button;
+
+    public ButtonData ButtonOld { get{ return _ButtonOld; } }
+    private ButtonData _ButtonOld;
+
     /// IR data component.
     public IRData        Ir         { get { return _Ir; } }
     private IRData      _Ir;
@@ -135,6 +139,7 @@ public class Wiimote
 
         _Accel  = new AccelData(this);
         _Button = new ButtonData(this);
+        _ButtonOld = new ButtonData(this);
         _Ir     = new IRData(this);
         _Status = new StatusData(this);
         _Extension = null;
@@ -904,5 +909,10 @@ public class Wiimote
             RequestIdentifyWiiMotionPlus();
             ActivateWiiMotionPlus();
        }
-}
+
+    void LateUpdate()
+    {
+        _ButtonOld = _Button;
+    }
+    }
 }
