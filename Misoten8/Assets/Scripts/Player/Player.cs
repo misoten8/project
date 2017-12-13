@@ -105,7 +105,7 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (shakeparameter.IsCompareWithValue(3))
+			if (shakeparameter.IsOverWithValue(3))
 			{
 				photonView.RPC("DanceBegin", PhotonTargets.AllViaServer);
 				shakeparameter.ResetShakeParameter();
