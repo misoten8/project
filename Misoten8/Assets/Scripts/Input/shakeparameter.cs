@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using WiimoteApi;
 /// <summary>
 /// wiiリモコンの動作クラス
@@ -15,55 +13,65 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
     //=====================================
     //変数
     //=====================================
-    static int _shakeparameter;
-    private float _changetime;
+    private float _shakeparameter;
+
     //=====================================
     // Use this for initialization
     //=====================================
-    void Start () {
+    void Start ()
+	{
         _shakeparameter = 0;
-        _changetime = 0;
 	}
     //=====================================
     // Update is called once per frame
     //=====================================
-    void Update () {
+    void Update ()
+	{
 
-        if (_changetime < Time.time && _shakeparameter > 0) //時間経過で数値が０になるようにする
+		//時間経過で数値が０になるようにする
+		_shakeparameter -= Time.deltaTime;
+
+		//0以下にならないようにする
+		_shakeparameter = Mathf.Max(_shakeparameter, 0.0f);
+
+		//リモコンを振るとゲージが足される
+		if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))  
         {
-            _shakeparameter--;                         //ゲージ減少
-            _changetime = Time.time + REDUCTION_TIME;  //次の更新時刻を決める
+            _shakeparameter += 1.0f;
         }
-        if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))  //リモコンを振るとゲージが足される
-        {
-            _shakeparameter++;
-        }
-        //Debug.Log(_shakeparameter);
 	}
     //=====================================
     //関数名：GetShakeParameter()
     //説明　：_shakeparameterを取得できる
     //=====================================
-    public static int GetShakeParameter()
+    public static float GetShakeParameter()
     {
-        return _shakeparameter;
+        return Instance._shakeparameter;
     }
-    //=====================================
-    //関数名：IsShakeMax
-    //説明　：渡された引数と現在の_shakeparameterを比較
-    //　　　　渡された値より大きければtrueを返却
-    //=====================================
-    public static bool IsCompareWithValue(int value)
+	//=====================================
+	//関数名：IsShakeMax
+	//説明　：渡された引数と現在の_shakeparameterを比較
+	//　　　　渡された値より大きければtrueを返却
+	//=====================================
+	public static bool IsOverWithValue(int value)
     {
-        if (_shakeparameter >= value)
-            return true;
-        else
-            return false;
-    }
-
-	// 仮
+		return (int)Instance._shakeparameter >= value;
+	}
+	//=====================================
+	//関数名：IsShakeMax
+	//説明　：渡された引数と現在の_shakeparameterを比較
+	//　　　　渡された値より大きければtrueを返却
+	//=====================================
+	public static bool IsOverWithValue(float value)
+	{
+		return Instance._shakeparameter >= value;
+	}
+	//=====================================
+	//関数名：ResetShakeParameter
+	//説明　：_shakeparameterの初期化
+	//=====================================
 	public static void ResetShakeParameter()
 	{
-		_shakeparameter = 0;
+		Instance._shakeparameter = 0.0f;
 	}
 }

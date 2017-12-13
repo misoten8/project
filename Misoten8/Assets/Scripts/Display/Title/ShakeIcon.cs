@@ -19,7 +19,7 @@ public class ShakeIcon : UIBase
 
 	public override bool IsDrawUpdate()
 	{
-		float value = (float)Mathf.Min(shakeparameter.GetShakeParameter(), _borderShakeCount) / _borderShakeCount;
+		float value = Mathf.Min(shakeparameter.GetShakeParameter(), _borderShakeCount) / _borderShakeCount;
 		if (_drawValue != value)
 		{
 			_drawValue = value;

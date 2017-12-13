@@ -28,7 +28,7 @@ public class ResultScene : SceneBase<ResultScene>
 
 	void Update ()
 	{
-		if (shakeparameter.IsCompareWithValue(2))
+		if (shakeparameter.IsOverWithValue(2))
 		{
 			Switch(SceneType.Title);
 		}
