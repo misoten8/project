@@ -52,10 +52,18 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 	private void Start () 
 	{
+#if UNITY_EDITOR
+		PhotonNetwork.offlineMode = true;
+		PhotonNetwork.player.CustomProperties = Define.defaultRoomPropaties;
+		_currentState = State.WaitMember;
+#else
+		PhotonNetwork.offlineMode = false;
+#endif
+
 		if (!PhotonNetwork.connected)
 		{
 			_currentState = State.ConnectingLobby;
-			PhotonNetwork.offlineMode = false;
+
 			// マスターサーバーへ接続  
 			PhotonNetwork.ConnectUsingSettings("v0.1");
 		}
