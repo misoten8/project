@@ -109,6 +109,10 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 	void OnApplicationQuit()
 	{
 		Debug.Log("ルームから退出しました");
+
+		if (PhotonNetwork.room == null)
+			return;
+
 		// ルーム退室  
 		PhotonNetwork.LeaveRoom();
 		// ネットワーク切断

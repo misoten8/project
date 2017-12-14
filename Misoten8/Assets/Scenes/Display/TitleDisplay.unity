@@ -136,6 +136,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 709949121}
+  - {fileID: 680285889}
   m_Father: {fileID: 1096207222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiList:
   - {fileID: 709949122}
+  - {fileID: 680285890}
   switchAnim: {fileID: 54416652}
 --- !u!114 &54416652
 MonoBehaviour:
@@ -173,6 +175,5022 @@ MonoBehaviour:
   _fadeOutAnimTime: 0.5
   _fadeInAnim: 1
   _fadeOutAnim: 2
+--- !u!1 &680285888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 680285889}
+  - component: {fileID: 680285892}
+  - component: {fileID: 680285891}
+  - component: {fileID: 680285890}
+  m_Layer: 5
+  m_Name: TitleMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &680285889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680285888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 54416650}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 150}
+  m_SizeDelta: {x: 1024, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &680285890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680285888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c032fc4a43e4954db052207ddc2fcf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSwitchAnim: 0
+  uiObjects:
+  - {fileID: 680285891}
+--- !u!114 &680285891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680285888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5907d93d26fecec41b5373317a3b8e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e9b7c580323b60b418228996e17f1381, type: 3}
+    m_FontSize: 120
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 120
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: LetsStreetLive
+  m_animation_manager:
+    m_master_animations:
+    - m_letter_actions:
+      - m_colour_section_foldout: 0
+        m_position_section_foldout: 0
+        m_global_rotation_section_foldout: 0
+        m_local_rotation_section_foldout: 0
+        m_global_scale_section_foldout: 0
+        m_local_scale_section_foldout: 0
+        m_offset_from_last: 0
+        m_action_type: 0
+        m_colour_transition_active: 1
+        m_start_colour:
+          m_reference_data:
+            m_data_type: 7
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 1
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - top_left: {r: 0, g: 0, b: 0, a: 0}
+            top_right: {r: 0, g: 0, b: 0, a: 0}
+            bottom_right: {r: 0, g: 0, b: 0, a: 0}
+            bottom_left: {r: 0, g: 0, b: 0, a: 0}
+          m_from:
+            top_left: {r: 0, g: 0, b: 0, a: 0}
+            top_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_left: {r: 1, g: 1, b: 1, a: 1}
+          m_to:
+            top_left: {r: 1, g: 1, b: 1, a: 1}
+            top_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_left: {r: 1, g: 1, b: 1, a: 1}
+          m_to_to:
+            top_left: {r: 1, g: 1, b: 1, a: 1}
+            top_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_left: {r: 1, g: 1, b: 1, a: 1}
+          m_override_alpha: 0
+          m_use_colour_gradients: 0
+          m_value_state: 2
+          m_offset_progression:
+            m_data_type: 7
+            m_start_state: 1
+            m_action_index: -1
+        m_end_colour:
+          m_reference_data:
+            m_data_type: 7
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - top_left: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            top_right: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            bottom_right: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            bottom_left: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+          m_from:
+            top_left: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            top_right: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            bottom_right: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+            bottom_left: {r: 0.4850746, g: 0.9567896, b: 1, a: 1}
+          m_to:
+            top_left: {r: 1, g: 1, b: 1, a: 1}
+            top_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_left: {r: 1, g: 1, b: 1, a: 1}
+          m_to_to:
+            top_left: {r: 1, g: 1, b: 1, a: 1}
+            top_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_right: {r: 1, g: 1, b: 1, a: 1}
+            bottom_left: {r: 1, g: 1, b: 1, a: 1}
+          m_override_alpha: 0
+          m_use_colour_gradients: 0
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_position_transition_active: 1
+        m_position_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_pos:
+          m_reference_data:
+            m_data_type: 8
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_force_position_override: 0
+        m_end_pos:
+          m_reference_data:
+            m_data_type: 8
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_force_position_override: 0
+        m_global_rotation_transition_active: 1
+        m_global_rotation_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_global_start_euler_rotation:
+          m_reference_data:
+            m_data_type: 10
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_global_end_euler_rotation:
+          m_reference_data:
+            m_data_type: 10
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_local_rotation_transition_active: 1
+        m_rotation_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_euler_rotation:
+          m_reference_data:
+            m_data_type: 9
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_end_euler_rotation:
+          m_reference_data:
+            m_data_type: 9
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 0, y: 0, z: 0}
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_global_scale_transition_active: 1
+        m_global_scale_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_global_start_scale:
+          m_reference_data:
+            m_data_type: 12
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 1, y: 1, z: 1}
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_global_end_scale:
+          m_reference_data:
+            m_data_type: 12
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 1, y: 1, z: 1}
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_local_scale_transition_active: 1
+        m_scale_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_scale:
+          m_reference_data:
+            m_data_type: 11
+            m_start_state: 1
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 1, y: 1, z: 1}
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_end_scale:
+          m_reference_data:
+            m_data_type: 11
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - {x: 1, y: 1.2, z: 1}
+          m_from: {x: 1, y: 1.2, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 0
+          m_offset_progression:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+        m_force_same_start_time: 1
+        m_delay_with_white_space_influence: 0
+        m_delay_progression:
+          m_reference_data:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 2
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - 0
+          - 0.033653848
+          - 0.067307696
+          - 0.100961536
+          - 0.13461539
+          - 0.16826923
+          - 0.20192307
+          - 0.23557693
+          - 0.26923078
+          - 0.30288464
+          - 0.33653846
+          - 0.37019232
+          - 0.40384614
+          - 0.4375
+          m_from: 0
+          m_to: 0.4375
+          m_to_to: 0
+        m_duration_progression:
+          m_reference_data:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - 0.2
+          m_from: 0.2
+          m_to: 1
+          m_to_to: 1
+        m_ease_type: 0
+        m_letter_anchor_start: 4
+        m_letter_anchor_end: 4
+        m_letter_anchor_2_way: 0
+        m_particle_effects: []
+        m_audio_effects: []
+        m_anchor_offset: {x: 0.5, y: 0.5, z: 0}
+        m_anchor_offset_end: {x: 0.5, y: 0.5, z: 0}
+      - m_colour_section_foldout: 0
+        m_position_section_foldout: 0
+        m_global_rotation_section_foldout: 0
+        m_local_rotation_section_foldout: 0
+        m_global_scale_section_foldout: 0
+        m_local_scale_section_foldout: 0
+        m_offset_from_last: 0
+        m_action_type: 1
+        m_colour_transition_active: 0
+        m_start_colour:
+          m_reference_data:
+            m_data_type: 7
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 1
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_to:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_to_to:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_override_alpha: 0
+          m_use_colour_gradients: 0
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 7
+            m_start_state: 1
+            m_action_index: 0
+        m_end_colour:
+          m_reference_data:
+            m_data_type: 7
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 1
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_to:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_to_to:
+            top_left: {r: 0, g: 0, b: 0, a: 1}
+            top_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_right: {r: 0, g: 0, b: 0, a: 1}
+            bottom_left: {r: 0, g: 0, b: 0, a: 1}
+          m_override_alpha: 0
+          m_use_colour_gradients: 0
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 7
+            m_start_state: 1
+            m_action_index: 0
+        m_position_transition_active: 0
+        m_position_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_pos:
+          m_reference_data:
+            m_data_type: 8
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 8
+            m_start_state: 1
+            m_action_index: 0
+          m_force_position_override: 0
+        m_end_pos:
+          m_reference_data:
+            m_data_type: 8
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 8
+            m_start_state: 1
+            m_action_index: 0
+          m_force_position_override: 0
+        m_global_rotation_transition_active: 0
+        m_global_rotation_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_global_start_euler_rotation:
+          m_reference_data:
+            m_data_type: 10
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 10
+            m_start_state: 1
+            m_action_index: 0
+        m_global_end_euler_rotation:
+          m_reference_data:
+            m_data_type: 10
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 10
+            m_start_state: 1
+            m_action_index: 0
+        m_local_rotation_transition_active: 0
+        m_rotation_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_euler_rotation:
+          m_reference_data:
+            m_data_type: 9
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 9
+            m_start_state: 1
+            m_action_index: 0
+        m_end_euler_rotation:
+          m_reference_data:
+            m_data_type: 9
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 0, y: 0, z: 0}
+          m_to: {x: 0, y: 0, z: 0}
+          m_to_to: {x: 0, y: 0, z: 0}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 9
+            m_start_state: 1
+            m_action_index: 0
+        m_global_scale_transition_active: 0
+        m_global_scale_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_global_start_scale:
+          m_reference_data:
+            m_data_type: 12
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 12
+            m_start_state: 1
+            m_action_index: 0
+        m_global_end_scale:
+          m_reference_data:
+            m_data_type: 12
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 12
+            m_start_state: 1
+            m_action_index: 0
+        m_local_scale_transition_active: 0
+        m_scale_axis_ease_data:
+          m_override_default: 0
+          m_x_ease: 0
+          m_y_ease: 0
+          m_z_ease: 0
+        m_start_scale:
+          m_reference_data:
+            m_data_type: 11
+            m_start_state: 1
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 11
+            m_start_state: 1
+            m_action_index: 0
+        m_end_scale:
+          m_reference_data:
+            m_data_type: 11
+            m_start_state: 0
+            m_action_index: 1
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: {x: 1, y: 1, z: 1}
+          m_to: {x: 1, y: 1, z: 1}
+          m_to_to: {x: 1, y: 1, z: 1}
+          m_ease_curve_per_axis: 0
+          m_custom_ease_curve_y:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_custom_ease_curve_z:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_value_state: 1
+          m_offset_progression:
+            m_data_type: 11
+            m_start_state: 1
+            m_action_index: 0
+        m_force_same_start_time: 0
+        m_delay_with_white_space_influence: 0
+        m_delay_progression:
+          m_reference_data:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: -1
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values: []
+          m_from: 0
+          m_to: 0
+          m_to_to: 0
+        m_duration_progression:
+          m_reference_data:
+            m_data_type: 0
+            m_start_state: 0
+            m_action_index: 0
+          m_progression: 0
+          m_progression_idx: 0
+          m_ease_type: 0
+          m_is_offset_from_last: 0
+          m_to_to_bool: 0
+          m_unique_randoms: 0
+          m_animate_per: 0
+          m_override_animate_per_option: 0
+          m_custom_ease_curve:
+            serializedVersion: 2
+            m_Curve: []
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          m_values:
+          - 0.000001
+          m_from: 0.000001
+          m_to: 1
+          m_to_to: 1
+        m_ease_type: 0
+        m_letter_anchor_start: 4
+        m_letter_anchor_end: 4
+        m_letter_anchor_2_way: 0
+        m_particle_effects: []
+        m_audio_effects: []
+        m_anchor_offset: {x: 0, y: 0, z: 0}
+        m_anchor_offset_end: {x: 0, y: 0, z: 0}
+      m_loop_cycles:
+      - m_start_action_idx: 0
+        m_end_action_idx: 0
+        m_number_of_loops: 0
+        m_loop_type: 1
+        m_delay_first_only: 0
+        m_finish_at_end: 0
+        m_active_loop_index: -1
+      m_letters_to_animate_option: 0
+      m_letters_to_animate: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
+      m_letters_to_animate_custom_idx: 1
+      m_num_white_space_chars_to_include: 0
+      m_defaultTextColourProgression:
+        m_reference_data:
+          m_data_type: 7
+          m_start_state: 1
+          m_action_index: -1
+        m_progression: 0
+        m_progression_idx: 2
+        m_ease_type: 0
+        m_is_offset_from_last: 0
+        m_to_to_bool: 0
+        m_unique_randoms: 0
+        m_animate_per: 0
+        m_override_animate_per_option: 0
+        m_custom_ease_curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_values:
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        - top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+          bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        m_from:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_to_to:
+          top_left: {r: 1, g: 1, b: 1, a: 1}
+          top_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_right: {r: 1, g: 1, b: 1, a: 1}
+          bottom_left: {r: 1, g: 1, b: 1, a: 1}
+        m_override_alpha: 0
+        m_use_colour_gradients: 1
+        m_value_state: 0
+        m_offset_progression:
+          m_data_type: 0
+          m_start_state: 0
+          m_action_index: 0
+    m_begin_on_start: 0
+    m_on_finish_action: 0
+    m_animation_speed_factor: 1
+    m_begin_delay: 0
+    m_animate_per: 0
+    m_time_type: 0
+    m_letters:
+    - m_base_vertices:
+      - {x: -245.30362, y: 47.064068, z: 0}
+      - {x: -182.55153, y: 47.064068, z: 0}
+      - {x: -182.55153, y: -42.785515, z: 0}
+      - {x: -245.30362, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -243.45746, y: 48.91022, z: 0}
+      - {x: -180.70537, y: 48.91022, z: 0}
+      - {x: -180.70537, y: -40.93936, z: 0}
+      - {x: -243.45746, y: -40.93936, z: 0}
+      - {x: -247.14978, y: 48.91022, z: 0}
+      - {x: -184.39769, y: 48.91022, z: 0}
+      - {x: -184.39769, y: -40.93936, z: 0}
+      - {x: -247.14978, y: -40.93936, z: 0}
+      - {x: -243.45746, y: 45.217915, z: 0}
+      - {x: -180.70537, y: 45.217915, z: 0}
+      - {x: -180.70537, y: -44.631668, z: 0}
+      - {x: -243.45746, y: -44.631668, z: 0}
+      - {x: -247.14978, y: 45.217915, z: 0}
+      - {x: -184.39769, y: 45.217915, z: 0}
+      - {x: -184.39769, y: -44.631668, z: 0}
+      - {x: -247.14978, y: -44.631668, z: 0}
+      - {x: -247.14978, y: 47.064068, z: 0}
+      - {x: -184.39769, y: 47.064068, z: 0}
+      - {x: -184.39769, y: -42.785515, z: 0}
+      - {x: -247.14978, y: -42.785515, z: 0}
+      - {x: -243.45746, y: 47.064068, z: 0}
+      - {x: -180.70537, y: 47.064068, z: 0}
+      - {x: -180.70537, y: -42.785515, z: 0}
+      - {x: -243.45746, y: -42.785515, z: 0}
+      - {x: -245.30362, y: 48.91022, z: 0}
+      - {x: -182.55153, y: 48.91022, z: 0}
+      - {x: -182.55153, y: -40.93936, z: 0}
+      - {x: -245.30362, y: -40.93936, z: 0}
+      - {x: -245.30362, y: 45.217915, z: 0}
+      - {x: -182.55153, y: 45.217915, z: 0}
+      - {x: -182.55153, y: -44.631668, z: 0}
+      - {x: -245.30362, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 0
+      m_width: 62.75209
+      m_height: 89.84958
+      m_progression_variables:
+        m_letter_value: 0
+        m_letter_value_inc_white_space: 0
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -243.45746, y: 48.91022, z: 0}
+      - {x: -180.70537, y: 48.91022, z: 0}
+      - {x: -180.70537, y: -40.93936, z: 0}
+      - {x: -243.45746, y: -40.93936, z: 0}
+      - {x: -247.14978, y: 48.91022, z: 0}
+      - {x: -184.39769, y: 48.91022, z: 0}
+      - {x: -184.39769, y: -40.93936, z: 0}
+      - {x: -247.14978, y: -40.93936, z: 0}
+      - {x: -243.45746, y: 45.217915, z: 0}
+      - {x: -180.70537, y: 45.217915, z: 0}
+      - {x: -180.70537, y: -44.631668, z: 0}
+      - {x: -243.45746, y: -44.631668, z: 0}
+      - {x: -247.14978, y: 45.217915, z: 0}
+      - {x: -184.39769, y: 45.217915, z: 0}
+      - {x: -184.39769, y: -44.631668, z: 0}
+      - {x: -247.14978, y: -44.631668, z: 0}
+      - {x: -247.14978, y: 47.064068, z: 0}
+      - {x: -184.39769, y: 47.064068, z: 0}
+      - {x: -184.39769, y: -42.785515, z: 0}
+      - {x: -247.14978, y: -42.785515, z: 0}
+      - {x: -243.45746, y: 47.064068, z: 0}
+      - {x: -180.70537, y: 47.064068, z: 0}
+      - {x: -180.70537, y: -42.785515, z: 0}
+      - {x: -243.45746, y: -42.785515, z: 0}
+      - {x: -245.30362, y: 48.91022, z: 0}
+      - {x: -182.55153, y: 48.91022, z: 0}
+      - {x: -182.55153, y: -40.93936, z: 0}
+      - {x: -245.30362, y: -40.93936, z: 0}
+      - {x: -245.30362, y: 45.217915, z: 0}
+      - {x: -182.55153, y: 45.217915, z: 0}
+      - {x: -182.55153, y: -44.631668, z: 0}
+      - {x: -245.30362, y: -44.631668, z: 0}
+      - {x: -245.30362, y: 47.064068, z: 0}
+      - {x: -182.55153, y: 47.064068, z: 0}
+      - {x: -182.55153, y: -42.785515, z: 0}
+      - {x: -245.30362, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -213.92758, y: 2.1392765, z: 0}
+      m_active_anchor_offset_upper_left: {x: -245.30362, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_center: {x: -213.92758, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_right: {x: -182.55154, y: 47.064064, z: 0}
+      m_active_anchor_offset_middle_left: {x: -245.30362, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_center: {x: -213.92758, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_right: {x: -182.55154, y: 2.1392765, z: 0}
+      m_active_anchor_offset_lower_left: {x: -245.30362, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -213.92758, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -182.55154, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -192.53482, y: 22.818941, z: 0}
+      - {x: -149.7493, y: 22.818941, z: 0}
+      - {x: -149.7493, y: -42.785515, z: 0}
+      - {x: -192.53482, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -190.68866, y: 24.665094, z: 0}
+      - {x: -147.90314, y: 24.665094, z: 0}
+      - {x: -147.90314, y: -40.93936, z: 0}
+      - {x: -190.68866, y: -40.93936, z: 0}
+      - {x: -194.38098, y: 24.665094, z: 0}
+      - {x: -151.59546, y: 24.665094, z: 0}
+      - {x: -151.59546, y: -40.93936, z: 0}
+      - {x: -194.38098, y: -40.93936, z: 0}
+      - {x: -190.68866, y: 20.972788, z: 0}
+      - {x: -147.90314, y: 20.972788, z: 0}
+      - {x: -147.90314, y: -44.631668, z: 0}
+      - {x: -190.68866, y: -44.631668, z: 0}
+      - {x: -194.38098, y: 20.972788, z: 0}
+      - {x: -151.59546, y: 20.972788, z: 0}
+      - {x: -151.59546, y: -44.631668, z: 0}
+      - {x: -194.38098, y: -44.631668, z: 0}
+      - {x: -194.38098, y: 22.818941, z: 0}
+      - {x: -151.59546, y: 22.818941, z: 0}
+      - {x: -151.59546, y: -42.785515, z: 0}
+      - {x: -194.38098, y: -42.785515, z: 0}
+      - {x: -190.68866, y: 22.818941, z: 0}
+      - {x: -147.90314, y: 22.818941, z: 0}
+      - {x: -147.90314, y: -42.785515, z: 0}
+      - {x: -190.68866, y: -42.785515, z: 0}
+      - {x: -192.53482, y: 24.665094, z: 0}
+      - {x: -149.7493, y: 24.665094, z: 0}
+      - {x: -149.7493, y: -40.93936, z: 0}
+      - {x: -192.53482, y: -40.93936, z: 0}
+      - {x: -192.53482, y: 20.972788, z: 0}
+      - {x: -149.7493, y: 20.972788, z: 0}
+      - {x: -149.7493, y: -44.631668, z: 0}
+      - {x: -192.53482, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 1
+      m_width: 42.785522
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 1
+        m_letter_value_inc_white_space: 1
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -190.68866, y: 24.665094, z: 0}
+      - {x: -147.90314, y: 24.665094, z: 0}
+      - {x: -147.90314, y: -40.93936, z: 0}
+      - {x: -190.68866, y: -40.93936, z: 0}
+      - {x: -194.38098, y: 24.665094, z: 0}
+      - {x: -151.59546, y: 24.665094, z: 0}
+      - {x: -151.59546, y: -40.93936, z: 0}
+      - {x: -194.38098, y: -40.93936, z: 0}
+      - {x: -190.68866, y: 20.972788, z: 0}
+      - {x: -147.90314, y: 20.972788, z: 0}
+      - {x: -147.90314, y: -44.631668, z: 0}
+      - {x: -190.68866, y: -44.631668, z: 0}
+      - {x: -194.38098, y: 20.972788, z: 0}
+      - {x: -151.59546, y: 20.972788, z: 0}
+      - {x: -151.59546, y: -44.631668, z: 0}
+      - {x: -194.38098, y: -44.631668, z: 0}
+      - {x: -194.38098, y: 22.818941, z: 0}
+      - {x: -151.59546, y: 22.818941, z: 0}
+      - {x: -151.59546, y: -42.785515, z: 0}
+      - {x: -194.38098, y: -42.785515, z: 0}
+      - {x: -190.68866, y: 22.818941, z: 0}
+      - {x: -147.90314, y: 22.818941, z: 0}
+      - {x: -147.90314, y: -42.785515, z: 0}
+      - {x: -190.68866, y: -42.785515, z: 0}
+      - {x: -192.53482, y: 24.665094, z: 0}
+      - {x: -149.7493, y: 24.665094, z: 0}
+      - {x: -149.7493, y: -40.93936, z: 0}
+      - {x: -192.53482, y: -40.93936, z: 0}
+      - {x: -192.53482, y: 20.972788, z: 0}
+      - {x: -149.7493, y: 20.972788, z: 0}
+      - {x: -149.7493, y: -44.631668, z: 0}
+      - {x: -192.53482, y: -44.631668, z: 0}
+      - {x: -192.53482, y: 22.818941, z: 0}
+      - {x: -149.7493, y: 22.818941, z: 0}
+      - {x: -149.7493, y: -42.785515, z: 0}
+      - {x: -192.53482, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -171.14206, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: -192.53482, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: -171.14206, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: -149.7493, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: -192.53482, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: -171.14206, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: -149.7493, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: -192.53482, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -171.14206, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -149.7493, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -162.58496, y: 34.228413, z: 0}
+      - {x: -129.78273, y: 34.228413, z: 0}
+      - {x: -129.78273, y: -42.785515, z: 0}
+      - {x: -162.58496, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -160.7388, y: 36.074566, z: 0}
+      - {x: -127.93658, y: 36.074566, z: 0}
+      - {x: -127.93658, y: -40.93936, z: 0}
+      - {x: -160.7388, y: -40.93936, z: 0}
+      - {x: -164.43112, y: 36.074566, z: 0}
+      - {x: -131.62889, y: 36.074566, z: 0}
+      - {x: -131.62889, y: -40.93936, z: 0}
+      - {x: -164.43112, y: -40.93936, z: 0}
+      - {x: -160.7388, y: 32.38226, z: 0}
+      - {x: -127.93658, y: 32.38226, z: 0}
+      - {x: -127.93658, y: -44.631668, z: 0}
+      - {x: -160.7388, y: -44.631668, z: 0}
+      - {x: -164.43112, y: 32.38226, z: 0}
+      - {x: -131.62889, y: 32.38226, z: 0}
+      - {x: -131.62889, y: -44.631668, z: 0}
+      - {x: -164.43112, y: -44.631668, z: 0}
+      - {x: -164.43112, y: 34.228413, z: 0}
+      - {x: -131.62889, y: 34.228413, z: 0}
+      - {x: -131.62889, y: -42.785515, z: 0}
+      - {x: -164.43112, y: -42.785515, z: 0}
+      - {x: -160.7388, y: 34.228413, z: 0}
+      - {x: -127.93658, y: 34.228413, z: 0}
+      - {x: -127.93658, y: -42.785515, z: 0}
+      - {x: -160.7388, y: -42.785515, z: 0}
+      - {x: -162.58496, y: 36.074566, z: 0}
+      - {x: -129.78273, y: 36.074566, z: 0}
+      - {x: -129.78273, y: -40.93936, z: 0}
+      - {x: -162.58496, y: -40.93936, z: 0}
+      - {x: -162.58496, y: 32.38226, z: 0}
+      - {x: -129.78273, y: 32.38226, z: 0}
+      - {x: -129.78273, y: -44.631668, z: 0}
+      - {x: -162.58496, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 2
+      m_width: 32.80223
+      m_height: 77.01393
+      m_progression_variables:
+        m_letter_value: 2
+        m_letter_value_inc_white_space: 2
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -160.7388, y: 36.074566, z: 0}
+      - {x: -127.93658, y: 36.074566, z: 0}
+      - {x: -127.93658, y: -40.93936, z: 0}
+      - {x: -160.7388, y: -40.93936, z: 0}
+      - {x: -164.43112, y: 36.074566, z: 0}
+      - {x: -131.62889, y: 36.074566, z: 0}
+      - {x: -131.62889, y: -40.93936, z: 0}
+      - {x: -164.43112, y: -40.93936, z: 0}
+      - {x: -160.7388, y: 32.38226, z: 0}
+      - {x: -127.93658, y: 32.38226, z: 0}
+      - {x: -127.93658, y: -44.631668, z: 0}
+      - {x: -160.7388, y: -44.631668, z: 0}
+      - {x: -164.43112, y: 32.38226, z: 0}
+      - {x: -131.62889, y: 32.38226, z: 0}
+      - {x: -131.62889, y: -44.631668, z: 0}
+      - {x: -164.43112, y: -44.631668, z: 0}
+      - {x: -164.43112, y: 34.228413, z: 0}
+      - {x: -131.62889, y: 34.228413, z: 0}
+      - {x: -131.62889, y: -42.785515, z: 0}
+      - {x: -164.43112, y: -42.785515, z: 0}
+      - {x: -160.7388, y: 34.228413, z: 0}
+      - {x: -127.93658, y: 34.228413, z: 0}
+      - {x: -127.93658, y: -42.785515, z: 0}
+      - {x: -160.7388, y: -42.785515, z: 0}
+      - {x: -162.58496, y: 36.074566, z: 0}
+      - {x: -129.78273, y: 36.074566, z: 0}
+      - {x: -129.78273, y: -40.93936, z: 0}
+      - {x: -162.58496, y: -40.93936, z: 0}
+      - {x: -162.58496, y: 32.38226, z: 0}
+      - {x: -129.78273, y: 32.38226, z: 0}
+      - {x: -129.78273, y: -44.631668, z: 0}
+      - {x: -162.58496, y: -44.631668, z: 0}
+      - {x: -162.58496, y: 34.228413, z: 0}
+      - {x: -129.78273, y: 34.228413, z: 0}
+      - {x: -129.78273, y: -42.785515, z: 0}
+      - {x: -162.58496, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -146.18384, y: -4.278551, z: 0}
+      m_active_anchor_offset_upper_left: {x: -162.58496, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_center: {x: -146.18384, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_right: {x: -129.78271, y: 34.228416, z: 0}
+      m_active_anchor_offset_middle_left: {x: -162.58496, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_center: {x: -146.18384, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_right: {x: -129.78271, y: -4.278551, z: 0}
+      m_active_anchor_offset_lower_left: {x: -162.58496, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -146.18384, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -129.78271, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -142.61838, y: 22.818941, z: 0}
+      - {x: -92.70195, y: 22.818941, z: 0}
+      - {x: -92.70195, y: -42.785515, z: 0}
+      - {x: -142.61838, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -140.77222, y: 24.665094, z: 0}
+      - {x: -90.8558, y: 24.665094, z: 0}
+      - {x: -90.8558, y: -40.93936, z: 0}
+      - {x: -140.77222, y: -40.93936, z: 0}
+      - {x: -144.46454, y: 24.665094, z: 0}
+      - {x: -94.5481, y: 24.665094, z: 0}
+      - {x: -94.5481, y: -40.93936, z: 0}
+      - {x: -144.46454, y: -40.93936, z: 0}
+      - {x: -140.77222, y: 20.972788, z: 0}
+      - {x: -90.8558, y: 20.972788, z: 0}
+      - {x: -90.8558, y: -44.631668, z: 0}
+      - {x: -140.77222, y: -44.631668, z: 0}
+      - {x: -144.46454, y: 20.972788, z: 0}
+      - {x: -94.5481, y: 20.972788, z: 0}
+      - {x: -94.5481, y: -44.631668, z: 0}
+      - {x: -144.46454, y: -44.631668, z: 0}
+      - {x: -144.46454, y: 22.818941, z: 0}
+      - {x: -94.5481, y: 22.818941, z: 0}
+      - {x: -94.5481, y: -42.785515, z: 0}
+      - {x: -144.46454, y: -42.785515, z: 0}
+      - {x: -140.77222, y: 22.818941, z: 0}
+      - {x: -90.8558, y: 22.818941, z: 0}
+      - {x: -90.8558, y: -42.785515, z: 0}
+      - {x: -140.77222, y: -42.785515, z: 0}
+      - {x: -142.61838, y: 24.665094, z: 0}
+      - {x: -92.70195, y: 24.665094, z: 0}
+      - {x: -92.70195, y: -40.93936, z: 0}
+      - {x: -142.61838, y: -40.93936, z: 0}
+      - {x: -142.61838, y: 20.972788, z: 0}
+      - {x: -92.70195, y: 20.972788, z: 0}
+      - {x: -92.70195, y: -44.631668, z: 0}
+      - {x: -142.61838, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 3
+      m_width: 49.916428
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 3
+        m_letter_value_inc_white_space: 3
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -140.77222, y: 24.665094, z: 0}
+      - {x: -90.8558, y: 24.665094, z: 0}
+      - {x: -90.8558, y: -40.93936, z: 0}
+      - {x: -140.77222, y: -40.93936, z: 0}
+      - {x: -144.46454, y: 24.665094, z: 0}
+      - {x: -94.5481, y: 24.665094, z: 0}
+      - {x: -94.5481, y: -40.93936, z: 0}
+      - {x: -144.46454, y: -40.93936, z: 0}
+      - {x: -140.77222, y: 20.972788, z: 0}
+      - {x: -90.8558, y: 20.972788, z: 0}
+      - {x: -90.8558, y: -44.631668, z: 0}
+      - {x: -140.77222, y: -44.631668, z: 0}
+      - {x: -144.46454, y: 20.972788, z: 0}
+      - {x: -94.5481, y: 20.972788, z: 0}
+      - {x: -94.5481, y: -44.631668, z: 0}
+      - {x: -144.46454, y: -44.631668, z: 0}
+      - {x: -144.46454, y: 22.818941, z: 0}
+      - {x: -94.5481, y: 22.818941, z: 0}
+      - {x: -94.5481, y: -42.785515, z: 0}
+      - {x: -144.46454, y: -42.785515, z: 0}
+      - {x: -140.77222, y: 22.818941, z: 0}
+      - {x: -90.8558, y: 22.818941, z: 0}
+      - {x: -90.8558, y: -42.785515, z: 0}
+      - {x: -140.77222, y: -42.785515, z: 0}
+      - {x: -142.61838, y: 24.665094, z: 0}
+      - {x: -92.70195, y: 24.665094, z: 0}
+      - {x: -92.70195, y: -40.93936, z: 0}
+      - {x: -142.61838, y: -40.93936, z: 0}
+      - {x: -142.61838, y: 20.972788, z: 0}
+      - {x: -92.70195, y: 20.972788, z: 0}
+      - {x: -92.70195, y: -44.631668, z: 0}
+      - {x: -142.61838, y: -44.631668, z: 0}
+      - {x: -142.61838, y: 22.818941, z: 0}
+      - {x: -92.70195, y: 22.818941, z: 0}
+      - {x: -92.70195, y: -42.785515, z: 0}
+      - {x: -142.61838, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -117.660164, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: -142.61838, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: -117.660164, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: -92.70195, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: -142.61838, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: -117.660164, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: -92.70195, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: -142.61838, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -117.660164, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -92.70195, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -108.38997, y: 47.064068, z: 0}
+      - {x: -41.35933, y: 47.064068, z: 0}
+      - {x: -41.35933, y: -42.785515, z: 0}
+      - {x: -108.38997, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -106.543816, y: 48.91022, z: 0}
+      - {x: -39.513176, y: 48.91022, z: 0}
+      - {x: -39.513176, y: -40.93936, z: 0}
+      - {x: -106.543816, y: -40.93936, z: 0}
+      - {x: -110.23612, y: 48.91022, z: 0}
+      - {x: -43.205482, y: 48.91022, z: 0}
+      - {x: -43.205482, y: -40.93936, z: 0}
+      - {x: -110.23612, y: -40.93936, z: 0}
+      - {x: -106.543816, y: 45.217915, z: 0}
+      - {x: -39.513176, y: 45.217915, z: 0}
+      - {x: -39.513176, y: -44.631668, z: 0}
+      - {x: -106.543816, y: -44.631668, z: 0}
+      - {x: -110.23612, y: 45.217915, z: 0}
+      - {x: -43.205482, y: 45.217915, z: 0}
+      - {x: -43.205482, y: -44.631668, z: 0}
+      - {x: -110.23612, y: -44.631668, z: 0}
+      - {x: -110.23612, y: 47.064068, z: 0}
+      - {x: -43.205482, y: 47.064068, z: 0}
+      - {x: -43.205482, y: -42.785515, z: 0}
+      - {x: -110.23612, y: -42.785515, z: 0}
+      - {x: -106.543816, y: 47.064068, z: 0}
+      - {x: -39.513176, y: 47.064068, z: 0}
+      - {x: -39.513176, y: -42.785515, z: 0}
+      - {x: -106.543816, y: -42.785515, z: 0}
+      - {x: -108.38997, y: 48.91022, z: 0}
+      - {x: -41.35933, y: 48.91022, z: 0}
+      - {x: -41.35933, y: -40.93936, z: 0}
+      - {x: -108.38997, y: -40.93936, z: 0}
+      - {x: -108.38997, y: 45.217915, z: 0}
+      - {x: -41.35933, y: 45.217915, z: 0}
+      - {x: -41.35933, y: -44.631668, z: 0}
+      - {x: -108.38997, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 4
+      m_width: 67.03064
+      m_height: 89.84958
+      m_progression_variables:
+        m_letter_value: 4
+        m_letter_value_inc_white_space: 4
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -106.543816, y: 48.91022, z: 0}
+      - {x: -39.513176, y: 48.91022, z: 0}
+      - {x: -39.513176, y: -40.93936, z: 0}
+      - {x: -106.543816, y: -40.93936, z: 0}
+      - {x: -110.23612, y: 48.91022, z: 0}
+      - {x: -43.205482, y: 48.91022, z: 0}
+      - {x: -43.205482, y: -40.93936, z: 0}
+      - {x: -110.23612, y: -40.93936, z: 0}
+      - {x: -106.543816, y: 45.217915, z: 0}
+      - {x: -39.513176, y: 45.217915, z: 0}
+      - {x: -39.513176, y: -44.631668, z: 0}
+      - {x: -106.543816, y: -44.631668, z: 0}
+      - {x: -110.23612, y: 45.217915, z: 0}
+      - {x: -43.205482, y: 45.217915, z: 0}
+      - {x: -43.205482, y: -44.631668, z: 0}
+      - {x: -110.23612, y: -44.631668, z: 0}
+      - {x: -110.23612, y: 47.064068, z: 0}
+      - {x: -43.205482, y: 47.064068, z: 0}
+      - {x: -43.205482, y: -42.785515, z: 0}
+      - {x: -110.23612, y: -42.785515, z: 0}
+      - {x: -106.543816, y: 47.064068, z: 0}
+      - {x: -39.513176, y: 47.064068, z: 0}
+      - {x: -39.513176, y: -42.785515, z: 0}
+      - {x: -106.543816, y: -42.785515, z: 0}
+      - {x: -108.38997, y: 48.91022, z: 0}
+      - {x: -41.35933, y: 48.91022, z: 0}
+      - {x: -41.35933, y: -40.93936, z: 0}
+      - {x: -108.38997, y: -40.93936, z: 0}
+      - {x: -108.38997, y: 45.217915, z: 0}
+      - {x: -41.35933, y: 45.217915, z: 0}
+      - {x: -41.35933, y: -44.631668, z: 0}
+      - {x: -108.38997, y: -44.631668, z: 0}
+      - {x: -108.38997, y: 47.064068, z: 0}
+      - {x: -41.35933, y: 47.064068, z: 0}
+      - {x: -41.35933, y: -42.785515, z: 0}
+      - {x: -108.38997, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -74.87465, y: 2.1392765, z: 0}
+      m_active_anchor_offset_upper_left: {x: -108.38997, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_center: {x: -74.87465, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_right: {x: -41.35933, y: 47.064064, z: 0}
+      m_active_anchor_offset_middle_left: {x: -108.38997, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_center: {x: -74.87465, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_right: {x: -41.35933, y: 2.1392765, z: 0}
+      m_active_anchor_offset_lower_left: {x: -108.38997, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -74.87465, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -41.35933, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -52.768803, y: 34.228413, z: 0}
+      - {x: -19.966574, y: 34.228413, z: 0}
+      - {x: -19.966574, y: -42.785515, z: 0}
+      - {x: -52.768803, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -50.92265, y: 36.074566, z: 0}
+      - {x: -18.12042, y: 36.074566, z: 0}
+      - {x: -18.12042, y: -40.93936, z: 0}
+      - {x: -50.92265, y: -40.93936, z: 0}
+      - {x: -54.614956, y: 36.074566, z: 0}
+      - {x: -21.812727, y: 36.074566, z: 0}
+      - {x: -21.812727, y: -40.93936, z: 0}
+      - {x: -54.614956, y: -40.93936, z: 0}
+      - {x: -50.92265, y: 32.38226, z: 0}
+      - {x: -18.12042, y: 32.38226, z: 0}
+      - {x: -18.12042, y: -44.631668, z: 0}
+      - {x: -50.92265, y: -44.631668, z: 0}
+      - {x: -54.614956, y: 32.38226, z: 0}
+      - {x: -21.812727, y: 32.38226, z: 0}
+      - {x: -21.812727, y: -44.631668, z: 0}
+      - {x: -54.614956, y: -44.631668, z: 0}
+      - {x: -54.614956, y: 34.228413, z: 0}
+      - {x: -21.812727, y: 34.228413, z: 0}
+      - {x: -21.812727, y: -42.785515, z: 0}
+      - {x: -54.614956, y: -42.785515, z: 0}
+      - {x: -50.92265, y: 34.228413, z: 0}
+      - {x: -18.12042, y: 34.228413, z: 0}
+      - {x: -18.12042, y: -42.785515, z: 0}
+      - {x: -50.92265, y: -42.785515, z: 0}
+      - {x: -52.768803, y: 36.074566, z: 0}
+      - {x: -19.966574, y: 36.074566, z: 0}
+      - {x: -19.966574, y: -40.93936, z: 0}
+      - {x: -52.768803, y: -40.93936, z: 0}
+      - {x: -52.768803, y: 32.38226, z: 0}
+      - {x: -19.966574, y: 32.38226, z: 0}
+      - {x: -19.966574, y: -44.631668, z: 0}
+      - {x: -52.768803, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 5
+      m_width: 32.80223
+      m_height: 77.01393
+      m_progression_variables:
+        m_letter_value: 5
+        m_letter_value_inc_white_space: 5
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -50.92265, y: 36.074566, z: 0}
+      - {x: -18.12042, y: 36.074566, z: 0}
+      - {x: -18.12042, y: -40.93936, z: 0}
+      - {x: -50.92265, y: -40.93936, z: 0}
+      - {x: -54.614956, y: 36.074566, z: 0}
+      - {x: -21.812727, y: 36.074566, z: 0}
+      - {x: -21.812727, y: -40.93936, z: 0}
+      - {x: -54.614956, y: -40.93936, z: 0}
+      - {x: -50.92265, y: 32.38226, z: 0}
+      - {x: -18.12042, y: 32.38226, z: 0}
+      - {x: -18.12042, y: -44.631668, z: 0}
+      - {x: -50.92265, y: -44.631668, z: 0}
+      - {x: -54.614956, y: 32.38226, z: 0}
+      - {x: -21.812727, y: 32.38226, z: 0}
+      - {x: -21.812727, y: -44.631668, z: 0}
+      - {x: -54.614956, y: -44.631668, z: 0}
+      - {x: -54.614956, y: 34.228413, z: 0}
+      - {x: -21.812727, y: 34.228413, z: 0}
+      - {x: -21.812727, y: -42.785515, z: 0}
+      - {x: -54.614956, y: -42.785515, z: 0}
+      - {x: -50.92265, y: 34.228413, z: 0}
+      - {x: -18.12042, y: 34.228413, z: 0}
+      - {x: -18.12042, y: -42.785515, z: 0}
+      - {x: -50.92265, y: -42.785515, z: 0}
+      - {x: -52.768803, y: 36.074566, z: 0}
+      - {x: -19.966574, y: 36.074566, z: 0}
+      - {x: -19.966574, y: -40.93936, z: 0}
+      - {x: -52.768803, y: -40.93936, z: 0}
+      - {x: -52.768803, y: 32.38226, z: 0}
+      - {x: -19.966574, y: 32.38226, z: 0}
+      - {x: -19.966574, y: -44.631668, z: 0}
+      - {x: -52.768803, y: -44.631668, z: 0}
+      - {x: -52.768803, y: 34.228413, z: 0}
+      - {x: -19.966574, y: 34.228413, z: 0}
+      - {x: -19.966574, y: -42.785515, z: 0}
+      - {x: -52.768803, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -36.367687, y: -4.278551, z: 0}
+      m_active_anchor_offset_upper_left: {x: -52.768803, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_center: {x: -36.367687, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_right: {x: -19.966572, y: 34.228416, z: 0}
+      m_active_anchor_offset_middle_left: {x: -52.768803, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_center: {x: -36.367687, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_right: {x: -19.966572, y: -4.278551, z: 0}
+      m_active_anchor_offset_lower_left: {x: -52.768803, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -36.367687, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: -19.966572, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: -31.376043, y: 21.392757, z: 0}
+      - {x: 12.835654, y: 21.392757, z: 0}
+      - {x: 12.835654, y: -42.785515, z: 0}
+      - {x: -31.376043, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: -29.52989, y: 23.23891, z: 0}
+      - {x: 14.681808, y: 23.23891, z: 0}
+      - {x: 14.681808, y: -40.93936, z: 0}
+      - {x: -29.52989, y: -40.93936, z: 0}
+      - {x: -33.2222, y: 23.23891, z: 0}
+      - {x: 10.9895, y: 23.23891, z: 0}
+      - {x: 10.9895, y: -40.93936, z: 0}
+      - {x: -33.2222, y: -40.93936, z: 0}
+      - {x: -29.52989, y: 19.546604, z: 0}
+      - {x: 14.681808, y: 19.546604, z: 0}
+      - {x: 14.681808, y: -44.631668, z: 0}
+      - {x: -29.52989, y: -44.631668, z: 0}
+      - {x: -33.2222, y: 19.546604, z: 0}
+      - {x: 10.9895, y: 19.546604, z: 0}
+      - {x: 10.9895, y: -44.631668, z: 0}
+      - {x: -33.2222, y: -44.631668, z: 0}
+      - {x: -33.2222, y: 21.392757, z: 0}
+      - {x: 10.9895, y: 21.392757, z: 0}
+      - {x: 10.9895, y: -42.785515, z: 0}
+      - {x: -33.2222, y: -42.785515, z: 0}
+      - {x: -29.52989, y: 21.392757, z: 0}
+      - {x: 14.681808, y: 21.392757, z: 0}
+      - {x: 14.681808, y: -42.785515, z: 0}
+      - {x: -29.52989, y: -42.785515, z: 0}
+      - {x: -31.376043, y: 23.23891, z: 0}
+      - {x: 12.835654, y: 23.23891, z: 0}
+      - {x: 12.835654, y: -40.93936, z: 0}
+      - {x: -31.376043, y: -40.93936, z: 0}
+      - {x: -31.376043, y: 19.546604, z: 0}
+      - {x: 12.835654, y: 19.546604, z: 0}
+      - {x: 12.835654, y: -44.631668, z: 0}
+      - {x: -31.376043, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 6
+      m_width: 44.211697
+      m_height: 64.17827
+      m_progression_variables:
+        m_letter_value: 6
+        m_letter_value_inc_white_space: 6
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: -29.52989, y: 23.23891, z: 0}
+      - {x: 14.681808, y: 23.23891, z: 0}
+      - {x: 14.681808, y: -40.93936, z: 0}
+      - {x: -29.52989, y: -40.93936, z: 0}
+      - {x: -33.2222, y: 23.23891, z: 0}
+      - {x: 10.9895, y: 23.23891, z: 0}
+      - {x: 10.9895, y: -40.93936, z: 0}
+      - {x: -33.2222, y: -40.93936, z: 0}
+      - {x: -29.52989, y: 19.546604, z: 0}
+      - {x: 14.681808, y: 19.546604, z: 0}
+      - {x: 14.681808, y: -44.631668, z: 0}
+      - {x: -29.52989, y: -44.631668, z: 0}
+      - {x: -33.2222, y: 19.546604, z: 0}
+      - {x: 10.9895, y: 19.546604, z: 0}
+      - {x: 10.9895, y: -44.631668, z: 0}
+      - {x: -33.2222, y: -44.631668, z: 0}
+      - {x: -33.2222, y: 21.392757, z: 0}
+      - {x: 10.9895, y: 21.392757, z: 0}
+      - {x: 10.9895, y: -42.785515, z: 0}
+      - {x: -33.2222, y: -42.785515, z: 0}
+      - {x: -29.52989, y: 21.392757, z: 0}
+      - {x: 14.681808, y: 21.392757, z: 0}
+      - {x: 14.681808, y: -42.785515, z: 0}
+      - {x: -29.52989, y: -42.785515, z: 0}
+      - {x: -31.376043, y: 23.23891, z: 0}
+      - {x: 12.835654, y: 23.23891, z: 0}
+      - {x: 12.835654, y: -40.93936, z: 0}
+      - {x: -31.376043, y: -40.93936, z: 0}
+      - {x: -31.376043, y: 19.546604, z: 0}
+      - {x: 12.835654, y: 19.546604, z: 0}
+      - {x: 12.835654, y: -44.631668, z: 0}
+      - {x: -31.376043, y: -44.631668, z: 0}
+      - {x: -31.376043, y: 21.392757, z: 0}
+      - {x: 12.835654, y: 21.392757, z: 0}
+      - {x: 12.835654, y: -42.785515, z: 0}
+      - {x: -31.376043, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: -9.270195, y: -10.696379, z: 0}
+      m_active_anchor_offset_upper_left: {x: -31.376043, y: 21.392756, z: 0}
+      m_active_anchor_offset_upper_center: {x: -9.270195, y: 21.392756, z: 0}
+      m_active_anchor_offset_upper_right: {x: 12.835653, y: 21.392756, z: 0}
+      m_active_anchor_offset_middle_left: {x: -31.376043, y: -10.696379, z: 0}
+      m_active_anchor_offset_middle_center: {x: -9.270195, y: -10.696379, z: 0}
+      m_active_anchor_offset_middle_right: {x: 12.835653, y: -10.696379, z: 0}
+      m_active_anchor_offset_lower_left: {x: -31.376043, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: -9.270195, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 12.835653, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 2.8523676, y: 22.818941, z: 0}
+      - {x: 45.637882, y: 22.818941, z: 0}
+      - {x: 45.637882, y: -42.785515, z: 0}
+      - {x: 2.8523676, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 4.6985216, y: 24.665094, z: 0}
+      - {x: 47.484035, y: 24.665094, z: 0}
+      - {x: 47.484035, y: -40.93936, z: 0}
+      - {x: 4.6985216, y: -40.93936, z: 0}
+      - {x: 1.0062138, y: 24.665094, z: 0}
+      - {x: 43.79173, y: 24.665094, z: 0}
+      - {x: 43.79173, y: -40.93936, z: 0}
+      - {x: 1.0062138, y: -40.93936, z: 0}
+      - {x: 4.6985216, y: 20.972788, z: 0}
+      - {x: 47.484035, y: 20.972788, z: 0}
+      - {x: 47.484035, y: -44.631668, z: 0}
+      - {x: 4.6985216, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: 20.972788, z: 0}
+      - {x: 43.79173, y: 20.972788, z: 0}
+      - {x: 43.79173, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: 22.818941, z: 0}
+      - {x: 43.79173, y: 22.818941, z: 0}
+      - {x: 43.79173, y: -42.785515, z: 0}
+      - {x: 1.0062138, y: -42.785515, z: 0}
+      - {x: 4.6985216, y: 22.818941, z: 0}
+      - {x: 47.484035, y: 22.818941, z: 0}
+      - {x: 47.484035, y: -42.785515, z: 0}
+      - {x: 4.6985216, y: -42.785515, z: 0}
+      - {x: 2.8523676, y: 24.665094, z: 0}
+      - {x: 45.637882, y: 24.665094, z: 0}
+      - {x: 45.637882, y: -40.93936, z: 0}
+      - {x: 2.8523676, y: -40.93936, z: 0}
+      - {x: 2.8523676, y: 20.972788, z: 0}
+      - {x: 45.637882, y: 20.972788, z: 0}
+      - {x: 45.637882, y: -44.631668, z: 0}
+      - {x: 2.8523676, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 7
+      m_width: 42.785515
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 7
+        m_letter_value_inc_white_space: 7
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 4.6985216, y: 24.665094, z: 0}
+      - {x: 47.484035, y: 24.665094, z: 0}
+      - {x: 47.484035, y: -40.93936, z: 0}
+      - {x: 4.6985216, y: -40.93936, z: 0}
+      - {x: 1.0062138, y: 24.665094, z: 0}
+      - {x: 43.79173, y: 24.665094, z: 0}
+      - {x: 43.79173, y: -40.93936, z: 0}
+      - {x: 1.0062138, y: -40.93936, z: 0}
+      - {x: 4.6985216, y: 20.972788, z: 0}
+      - {x: 47.484035, y: 20.972788, z: 0}
+      - {x: 47.484035, y: -44.631668, z: 0}
+      - {x: 4.6985216, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: 20.972788, z: 0}
+      - {x: 43.79173, y: 20.972788, z: 0}
+      - {x: 43.79173, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: -44.631668, z: 0}
+      - {x: 1.0062138, y: 22.818941, z: 0}
+      - {x: 43.79173, y: 22.818941, z: 0}
+      - {x: 43.79173, y: -42.785515, z: 0}
+      - {x: 1.0062138, y: -42.785515, z: 0}
+      - {x: 4.6985216, y: 22.818941, z: 0}
+      - {x: 47.484035, y: 22.818941, z: 0}
+      - {x: 47.484035, y: -42.785515, z: 0}
+      - {x: 4.6985216, y: -42.785515, z: 0}
+      - {x: 2.8523676, y: 24.665094, z: 0}
+      - {x: 45.637882, y: 24.665094, z: 0}
+      - {x: 45.637882, y: -40.93936, z: 0}
+      - {x: 2.8523676, y: -40.93936, z: 0}
+      - {x: 2.8523676, y: 20.972788, z: 0}
+      - {x: 45.637882, y: 20.972788, z: 0}
+      - {x: 45.637882, y: -44.631668, z: 0}
+      - {x: 2.8523676, y: -44.631668, z: 0}
+      - {x: 2.8523676, y: 22.818941, z: 0}
+      - {x: 45.637882, y: 22.818941, z: 0}
+      - {x: 45.637882, y: -42.785515, z: 0}
+      - {x: 2.8523676, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 24.245125, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: 2.8523674, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: 24.245125, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: 45.637882, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: 2.8523674, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: 24.245125, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: 45.637882, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: 2.8523674, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 24.245125, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 45.637882, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 34.228413, y: 22.818941, z: 0}
+      - {x: 77.01392, y: 22.818941, z: 0}
+      - {x: 77.01392, y: -42.785515, z: 0}
+      - {x: 34.228413, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 36.074566, y: 24.665094, z: 0}
+      - {x: 78.86008, y: 24.665094, z: 0}
+      - {x: 78.86008, y: -40.93936, z: 0}
+      - {x: 36.074566, y: -40.93936, z: 0}
+      - {x: 32.38226, y: 24.665094, z: 0}
+      - {x: 75.16777, y: 24.665094, z: 0}
+      - {x: 75.16777, y: -40.93936, z: 0}
+      - {x: 32.38226, y: -40.93936, z: 0}
+      - {x: 36.074566, y: 20.972788, z: 0}
+      - {x: 78.86008, y: 20.972788, z: 0}
+      - {x: 78.86008, y: -44.631668, z: 0}
+      - {x: 36.074566, y: -44.631668, z: 0}
+      - {x: 32.38226, y: 20.972788, z: 0}
+      - {x: 75.16777, y: 20.972788, z: 0}
+      - {x: 75.16777, y: -44.631668, z: 0}
+      - {x: 32.38226, y: -44.631668, z: 0}
+      - {x: 32.38226, y: 22.818941, z: 0}
+      - {x: 75.16777, y: 22.818941, z: 0}
+      - {x: 75.16777, y: -42.785515, z: 0}
+      - {x: 32.38226, y: -42.785515, z: 0}
+      - {x: 36.074566, y: 22.818941, z: 0}
+      - {x: 78.86008, y: 22.818941, z: 0}
+      - {x: 78.86008, y: -42.785515, z: 0}
+      - {x: 36.074566, y: -42.785515, z: 0}
+      - {x: 34.228413, y: 24.665094, z: 0}
+      - {x: 77.01392, y: 24.665094, z: 0}
+      - {x: 77.01392, y: -40.93936, z: 0}
+      - {x: 34.228413, y: -40.93936, z: 0}
+      - {x: 34.228413, y: 20.972788, z: 0}
+      - {x: 77.01392, y: 20.972788, z: 0}
+      - {x: 77.01392, y: -44.631668, z: 0}
+      - {x: 34.228413, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 8
+      m_width: 42.78551
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 8
+        m_letter_value_inc_white_space: 8
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 36.074566, y: 24.665094, z: 0}
+      - {x: 78.86008, y: 24.665094, z: 0}
+      - {x: 78.86008, y: -40.93936, z: 0}
+      - {x: 36.074566, y: -40.93936, z: 0}
+      - {x: 32.38226, y: 24.665094, z: 0}
+      - {x: 75.16777, y: 24.665094, z: 0}
+      - {x: 75.16777, y: -40.93936, z: 0}
+      - {x: 32.38226, y: -40.93936, z: 0}
+      - {x: 36.074566, y: 20.972788, z: 0}
+      - {x: 78.86008, y: 20.972788, z: 0}
+      - {x: 78.86008, y: -44.631668, z: 0}
+      - {x: 36.074566, y: -44.631668, z: 0}
+      - {x: 32.38226, y: 20.972788, z: 0}
+      - {x: 75.16777, y: 20.972788, z: 0}
+      - {x: 75.16777, y: -44.631668, z: 0}
+      - {x: 32.38226, y: -44.631668, z: 0}
+      - {x: 32.38226, y: 22.818941, z: 0}
+      - {x: 75.16777, y: 22.818941, z: 0}
+      - {x: 75.16777, y: -42.785515, z: 0}
+      - {x: 32.38226, y: -42.785515, z: 0}
+      - {x: 36.074566, y: 22.818941, z: 0}
+      - {x: 78.86008, y: 22.818941, z: 0}
+      - {x: 78.86008, y: -42.785515, z: 0}
+      - {x: 36.074566, y: -42.785515, z: 0}
+      - {x: 34.228413, y: 24.665094, z: 0}
+      - {x: 77.01392, y: 24.665094, z: 0}
+      - {x: 77.01392, y: -40.93936, z: 0}
+      - {x: 34.228413, y: -40.93936, z: 0}
+      - {x: 34.228413, y: 20.972788, z: 0}
+      - {x: 77.01392, y: 20.972788, z: 0}
+      - {x: 77.01392, y: -44.631668, z: 0}
+      - {x: 34.228413, y: -44.631668, z: 0}
+      - {x: 34.228413, y: 22.818941, z: 0}
+      - {x: 77.01392, y: 22.818941, z: 0}
+      - {x: 77.01392, y: -42.785515, z: 0}
+      - {x: 34.228413, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 55.621166, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: 34.22841, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: 55.621166, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: 77.01392, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: 34.22841, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: 55.621166, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: 77.01392, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: 34.22841, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 55.621166, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 77.01392, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 64.17827, y: 34.228413, z: 0}
+      - {x: 96.9805, y: 34.228413, z: 0}
+      - {x: 96.9805, y: -42.785515, z: 0}
+      - {x: 64.17827, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 66.02442, y: 36.074566, z: 0}
+      - {x: 98.82665, y: 36.074566, z: 0}
+      - {x: 98.82665, y: -40.93936, z: 0}
+      - {x: 66.02442, y: -40.93936, z: 0}
+      - {x: 62.332115, y: 36.074566, z: 0}
+      - {x: 95.134346, y: 36.074566, z: 0}
+      - {x: 95.134346, y: -40.93936, z: 0}
+      - {x: 62.332115, y: -40.93936, z: 0}
+      - {x: 66.02442, y: 32.38226, z: 0}
+      - {x: 98.82665, y: 32.38226, z: 0}
+      - {x: 98.82665, y: -44.631668, z: 0}
+      - {x: 66.02442, y: -44.631668, z: 0}
+      - {x: 62.332115, y: 32.38226, z: 0}
+      - {x: 95.134346, y: 32.38226, z: 0}
+      - {x: 95.134346, y: -44.631668, z: 0}
+      - {x: 62.332115, y: -44.631668, z: 0}
+      - {x: 62.332115, y: 34.228413, z: 0}
+      - {x: 95.134346, y: 34.228413, z: 0}
+      - {x: 95.134346, y: -42.785515, z: 0}
+      - {x: 62.332115, y: -42.785515, z: 0}
+      - {x: 66.02442, y: 34.228413, z: 0}
+      - {x: 98.82665, y: 34.228413, z: 0}
+      - {x: 98.82665, y: -42.785515, z: 0}
+      - {x: 66.02442, y: -42.785515, z: 0}
+      - {x: 64.17827, y: 36.074566, z: 0}
+      - {x: 96.9805, y: 36.074566, z: 0}
+      - {x: 96.9805, y: -40.93936, z: 0}
+      - {x: 64.17827, y: -40.93936, z: 0}
+      - {x: 64.17827, y: 32.38226, z: 0}
+      - {x: 96.9805, y: 32.38226, z: 0}
+      - {x: 96.9805, y: -44.631668, z: 0}
+      - {x: 64.17827, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 9
+      m_width: 32.80223
+      m_height: 77.01393
+      m_progression_variables:
+        m_letter_value: 9
+        m_letter_value_inc_white_space: 9
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 66.02442, y: 36.074566, z: 0}
+      - {x: 98.82665, y: 36.074566, z: 0}
+      - {x: 98.82665, y: -40.93936, z: 0}
+      - {x: 66.02442, y: -40.93936, z: 0}
+      - {x: 62.332115, y: 36.074566, z: 0}
+      - {x: 95.134346, y: 36.074566, z: 0}
+      - {x: 95.134346, y: -40.93936, z: 0}
+      - {x: 62.332115, y: -40.93936, z: 0}
+      - {x: 66.02442, y: 32.38226, z: 0}
+      - {x: 98.82665, y: 32.38226, z: 0}
+      - {x: 98.82665, y: -44.631668, z: 0}
+      - {x: 66.02442, y: -44.631668, z: 0}
+      - {x: 62.332115, y: 32.38226, z: 0}
+      - {x: 95.134346, y: 32.38226, z: 0}
+      - {x: 95.134346, y: -44.631668, z: 0}
+      - {x: 62.332115, y: -44.631668, z: 0}
+      - {x: 62.332115, y: 34.228413, z: 0}
+      - {x: 95.134346, y: 34.228413, z: 0}
+      - {x: 95.134346, y: -42.785515, z: 0}
+      - {x: 62.332115, y: -42.785515, z: 0}
+      - {x: 66.02442, y: 34.228413, z: 0}
+      - {x: 98.82665, y: 34.228413, z: 0}
+      - {x: 98.82665, y: -42.785515, z: 0}
+      - {x: 66.02442, y: -42.785515, z: 0}
+      - {x: 64.17827, y: 36.074566, z: 0}
+      - {x: 96.9805, y: 36.074566, z: 0}
+      - {x: 96.9805, y: -40.93936, z: 0}
+      - {x: 64.17827, y: -40.93936, z: 0}
+      - {x: 64.17827, y: 32.38226, z: 0}
+      - {x: 96.9805, y: 32.38226, z: 0}
+      - {x: 96.9805, y: -44.631668, z: 0}
+      - {x: 64.17827, y: -44.631668, z: 0}
+      - {x: 64.17827, y: 34.228413, z: 0}
+      - {x: 96.9805, y: 34.228413, z: 0}
+      - {x: 96.9805, y: -42.785515, z: 0}
+      - {x: 64.17827, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 80.57939, y: -4.278551, z: 0}
+      m_active_anchor_offset_upper_left: {x: 64.178276, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_center: {x: 80.57939, y: 34.228416, z: 0}
+      m_active_anchor_offset_upper_right: {x: 96.98051, y: 34.228416, z: 0}
+      m_active_anchor_offset_middle_left: {x: 64.178276, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_center: {x: 80.57939, y: -4.278551, z: 0}
+      m_active_anchor_offset_middle_right: {x: 96.98051, y: -4.278551, z: 0}
+      m_active_anchor_offset_lower_left: {x: 64.178276, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 80.57939, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 96.98051, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 82.71866, y: 47.064068, z: 0}
+      - {x: 145.47075, y: 47.064068, z: 0}
+      - {x: 145.47075, y: -42.785515, z: 0}
+      - {x: 82.71866, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 84.56481, y: 48.91022, z: 0}
+      - {x: 147.31691, y: 48.91022, z: 0}
+      - {x: 147.31691, y: -40.93936, z: 0}
+      - {x: 84.56481, y: -40.93936, z: 0}
+      - {x: 80.872505, y: 48.91022, z: 0}
+      - {x: 143.62459, y: 48.91022, z: 0}
+      - {x: 143.62459, y: -40.93936, z: 0}
+      - {x: 80.872505, y: -40.93936, z: 0}
+      - {x: 84.56481, y: 45.217915, z: 0}
+      - {x: 147.31691, y: 45.217915, z: 0}
+      - {x: 147.31691, y: -44.631668, z: 0}
+      - {x: 84.56481, y: -44.631668, z: 0}
+      - {x: 80.872505, y: 45.217915, z: 0}
+      - {x: 143.62459, y: 45.217915, z: 0}
+      - {x: 143.62459, y: -44.631668, z: 0}
+      - {x: 80.872505, y: -44.631668, z: 0}
+      - {x: 80.872505, y: 47.064068, z: 0}
+      - {x: 143.62459, y: 47.064068, z: 0}
+      - {x: 143.62459, y: -42.785515, z: 0}
+      - {x: 80.872505, y: -42.785515, z: 0}
+      - {x: 84.56481, y: 47.064068, z: 0}
+      - {x: 147.31691, y: 47.064068, z: 0}
+      - {x: 147.31691, y: -42.785515, z: 0}
+      - {x: 84.56481, y: -42.785515, z: 0}
+      - {x: 82.71866, y: 48.91022, z: 0}
+      - {x: 145.47075, y: 48.91022, z: 0}
+      - {x: 145.47075, y: -40.93936, z: 0}
+      - {x: 82.71866, y: -40.93936, z: 0}
+      - {x: 82.71866, y: 45.217915, z: 0}
+      - {x: 145.47075, y: 45.217915, z: 0}
+      - {x: 145.47075, y: -44.631668, z: 0}
+      - {x: 82.71866, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 10
+      m_width: 62.75209
+      m_height: 89.84958
+      m_progression_variables:
+        m_letter_value: 10
+        m_letter_value_inc_white_space: 10
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 84.56481, y: 48.91022, z: 0}
+      - {x: 147.31691, y: 48.91022, z: 0}
+      - {x: 147.31691, y: -40.93936, z: 0}
+      - {x: 84.56481, y: -40.93936, z: 0}
+      - {x: 80.872505, y: 48.91022, z: 0}
+      - {x: 143.62459, y: 48.91022, z: 0}
+      - {x: 143.62459, y: -40.93936, z: 0}
+      - {x: 80.872505, y: -40.93936, z: 0}
+      - {x: 84.56481, y: 45.217915, z: 0}
+      - {x: 147.31691, y: 45.217915, z: 0}
+      - {x: 147.31691, y: -44.631668, z: 0}
+      - {x: 84.56481, y: -44.631668, z: 0}
+      - {x: 80.872505, y: 45.217915, z: 0}
+      - {x: 143.62459, y: 45.217915, z: 0}
+      - {x: 143.62459, y: -44.631668, z: 0}
+      - {x: 80.872505, y: -44.631668, z: 0}
+      - {x: 80.872505, y: 47.064068, z: 0}
+      - {x: 143.62459, y: 47.064068, z: 0}
+      - {x: 143.62459, y: -42.785515, z: 0}
+      - {x: 80.872505, y: -42.785515, z: 0}
+      - {x: 84.56481, y: 47.064068, z: 0}
+      - {x: 147.31691, y: 47.064068, z: 0}
+      - {x: 147.31691, y: -42.785515, z: 0}
+      - {x: 84.56481, y: -42.785515, z: 0}
+      - {x: 82.71866, y: 48.91022, z: 0}
+      - {x: 145.47075, y: 48.91022, z: 0}
+      - {x: 145.47075, y: -40.93936, z: 0}
+      - {x: 82.71866, y: -40.93936, z: 0}
+      - {x: 82.71866, y: 45.217915, z: 0}
+      - {x: 145.47075, y: 45.217915, z: 0}
+      - {x: 145.47075, y: -44.631668, z: 0}
+      - {x: 82.71866, y: -44.631668, z: 0}
+      - {x: 82.71866, y: 47.064068, z: 0}
+      - {x: 145.47075, y: 47.064068, z: 0}
+      - {x: 145.47075, y: -42.785515, z: 0}
+      - {x: 82.71866, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 114.0947, y: 2.1392765, z: 0}
+      m_active_anchor_offset_upper_left: {x: 82.71866, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_center: {x: 114.0947, y: 47.064064, z: 0}
+      m_active_anchor_offset_upper_right: {x: 145.47075, y: 47.064064, z: 0}
+      m_active_anchor_offset_middle_left: {x: 82.71866, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_center: {x: 114.0947, y: 2.1392765, z: 0}
+      m_active_anchor_offset_middle_right: {x: 145.47075, y: 2.1392765, z: 0}
+      m_active_anchor_offset_lower_left: {x: 82.71866, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 114.0947, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 145.47075, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 135.48746, y: 51.342617, z: 0}
+      - {x: 166.86351, y: 51.342617, z: 0}
+      - {x: 166.86351, y: -42.785515, z: 0}
+      - {x: 135.48746, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 137.33362, y: 53.18877, z: 0}
+      - {x: 168.70967, y: 53.18877, z: 0}
+      - {x: 168.70967, y: -40.93936, z: 0}
+      - {x: 137.33362, y: -40.93936, z: 0}
+      - {x: 133.6413, y: 53.18877, z: 0}
+      - {x: 165.01735, y: 53.18877, z: 0}
+      - {x: 165.01735, y: -40.93936, z: 0}
+      - {x: 133.6413, y: -40.93936, z: 0}
+      - {x: 137.33362, y: 49.496464, z: 0}
+      - {x: 168.70967, y: 49.496464, z: 0}
+      - {x: 168.70967, y: -44.631668, z: 0}
+      - {x: 137.33362, y: -44.631668, z: 0}
+      - {x: 133.6413, y: 49.496464, z: 0}
+      - {x: 165.01735, y: 49.496464, z: 0}
+      - {x: 165.01735, y: -44.631668, z: 0}
+      - {x: 133.6413, y: -44.631668, z: 0}
+      - {x: 133.6413, y: 51.342617, z: 0}
+      - {x: 165.01735, y: 51.342617, z: 0}
+      - {x: 165.01735, y: -42.785515, z: 0}
+      - {x: 133.6413, y: -42.785515, z: 0}
+      - {x: 137.33362, y: 51.342617, z: 0}
+      - {x: 168.70967, y: 51.342617, z: 0}
+      - {x: 168.70967, y: -42.785515, z: 0}
+      - {x: 137.33362, y: -42.785515, z: 0}
+      - {x: 135.48746, y: 53.18877, z: 0}
+      - {x: 166.86351, y: 53.18877, z: 0}
+      - {x: 166.86351, y: -40.93936, z: 0}
+      - {x: 135.48746, y: -40.93936, z: 0}
+      - {x: 135.48746, y: 49.496464, z: 0}
+      - {x: 166.86351, y: 49.496464, z: 0}
+      - {x: 166.86351, y: -44.631668, z: 0}
+      - {x: 135.48746, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 11
+      m_width: 31.376053
+      m_height: 94.12813
+      m_progression_variables:
+        m_letter_value: 11
+        m_letter_value_inc_white_space: 11
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 137.33362, y: 53.18877, z: 0}
+      - {x: 168.70967, y: 53.18877, z: 0}
+      - {x: 168.70967, y: -40.93936, z: 0}
+      - {x: 137.33362, y: -40.93936, z: 0}
+      - {x: 133.6413, y: 53.18877, z: 0}
+      - {x: 165.01735, y: 53.18877, z: 0}
+      - {x: 165.01735, y: -40.93936, z: 0}
+      - {x: 133.6413, y: -40.93936, z: 0}
+      - {x: 137.33362, y: 49.496464, z: 0}
+      - {x: 168.70967, y: 49.496464, z: 0}
+      - {x: 168.70967, y: -44.631668, z: 0}
+      - {x: 137.33362, y: -44.631668, z: 0}
+      - {x: 133.6413, y: 49.496464, z: 0}
+      - {x: 165.01735, y: 49.496464, z: 0}
+      - {x: 165.01735, y: -44.631668, z: 0}
+      - {x: 133.6413, y: -44.631668, z: 0}
+      - {x: 133.6413, y: 51.342617, z: 0}
+      - {x: 165.01735, y: 51.342617, z: 0}
+      - {x: 165.01735, y: -42.785515, z: 0}
+      - {x: 133.6413, y: -42.785515, z: 0}
+      - {x: 137.33362, y: 51.342617, z: 0}
+      - {x: 168.70967, y: 51.342617, z: 0}
+      - {x: 168.70967, y: -42.785515, z: 0}
+      - {x: 137.33362, y: -42.785515, z: 0}
+      - {x: 135.48746, y: 53.18877, z: 0}
+      - {x: 166.86351, y: 53.18877, z: 0}
+      - {x: 166.86351, y: -40.93936, z: 0}
+      - {x: 135.48746, y: -40.93936, z: 0}
+      - {x: 135.48746, y: 49.496464, z: 0}
+      - {x: 166.86351, y: 49.496464, z: 0}
+      - {x: 166.86351, y: -44.631668, z: 0}
+      - {x: 135.48746, y: -44.631668, z: 0}
+      - {x: 135.48746, y: 51.342617, z: 0}
+      - {x: 166.86351, y: 51.342617, z: 0}
+      - {x: 166.86351, y: -42.785515, z: 0}
+      - {x: 135.48746, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 151.17548, y: 4.278551, z: 0}
+      m_active_anchor_offset_upper_left: {x: 135.48746, y: 51.342613, z: 0}
+      m_active_anchor_offset_upper_center: {x: 151.17548, y: 51.342613, z: 0}
+      m_active_anchor_offset_upper_right: {x: 166.8635, y: 51.342613, z: 0}
+      m_active_anchor_offset_middle_left: {x: 135.48746, y: 4.278551, z: 0}
+      m_active_anchor_offset_middle_center: {x: 151.17548, y: 4.278551, z: 0}
+      m_active_anchor_offset_middle_right: {x: 166.8635, y: 4.278551, z: 0}
+      m_active_anchor_offset_lower_left: {x: 135.48746, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 151.17548, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 166.8635, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 156.88022, y: 22.818941, z: 0}
+      - {x: 202.5181, y: 22.818941, z: 0}
+      - {x: 202.5181, y: -42.785515, z: 0}
+      - {x: 156.88022, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 158.72638, y: 24.665094, z: 0}
+      - {x: 204.36426, y: 24.665094, z: 0}
+      - {x: 204.36426, y: -40.93936, z: 0}
+      - {x: 158.72638, y: -40.93936, z: 0}
+      - {x: 155.03406, y: 24.665094, z: 0}
+      - {x: 200.67194, y: 24.665094, z: 0}
+      - {x: 200.67194, y: -40.93936, z: 0}
+      - {x: 155.03406, y: -40.93936, z: 0}
+      - {x: 158.72638, y: 20.972788, z: 0}
+      - {x: 204.36426, y: 20.972788, z: 0}
+      - {x: 204.36426, y: -44.631668, z: 0}
+      - {x: 158.72638, y: -44.631668, z: 0}
+      - {x: 155.03406, y: 20.972788, z: 0}
+      - {x: 200.67194, y: 20.972788, z: 0}
+      - {x: 200.67194, y: -44.631668, z: 0}
+      - {x: 155.03406, y: -44.631668, z: 0}
+      - {x: 155.03406, y: 22.818941, z: 0}
+      - {x: 200.67194, y: 22.818941, z: 0}
+      - {x: 200.67194, y: -42.785515, z: 0}
+      - {x: 155.03406, y: -42.785515, z: 0}
+      - {x: 158.72638, y: 22.818941, z: 0}
+      - {x: 204.36426, y: 22.818941, z: 0}
+      - {x: 204.36426, y: -42.785515, z: 0}
+      - {x: 158.72638, y: -42.785515, z: 0}
+      - {x: 156.88022, y: 24.665094, z: 0}
+      - {x: 202.5181, y: 24.665094, z: 0}
+      - {x: 202.5181, y: -40.93936, z: 0}
+      - {x: 156.88022, y: -40.93936, z: 0}
+      - {x: 156.88022, y: 20.972788, z: 0}
+      - {x: 202.5181, y: 20.972788, z: 0}
+      - {x: 202.5181, y: -44.631668, z: 0}
+      - {x: 156.88022, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 12
+      m_width: 45.63788
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 12
+        m_letter_value_inc_white_space: 12
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 158.72638, y: 24.665094, z: 0}
+      - {x: 204.36426, y: 24.665094, z: 0}
+      - {x: 204.36426, y: -40.93936, z: 0}
+      - {x: 158.72638, y: -40.93936, z: 0}
+      - {x: 155.03406, y: 24.665094, z: 0}
+      - {x: 200.67194, y: 24.665094, z: 0}
+      - {x: 200.67194, y: -40.93936, z: 0}
+      - {x: 155.03406, y: -40.93936, z: 0}
+      - {x: 158.72638, y: 20.972788, z: 0}
+      - {x: 204.36426, y: 20.972788, z: 0}
+      - {x: 204.36426, y: -44.631668, z: 0}
+      - {x: 158.72638, y: -44.631668, z: 0}
+      - {x: 155.03406, y: 20.972788, z: 0}
+      - {x: 200.67194, y: 20.972788, z: 0}
+      - {x: 200.67194, y: -44.631668, z: 0}
+      - {x: 155.03406, y: -44.631668, z: 0}
+      - {x: 155.03406, y: 22.818941, z: 0}
+      - {x: 200.67194, y: 22.818941, z: 0}
+      - {x: 200.67194, y: -42.785515, z: 0}
+      - {x: 155.03406, y: -42.785515, z: 0}
+      - {x: 158.72638, y: 22.818941, z: 0}
+      - {x: 204.36426, y: 22.818941, z: 0}
+      - {x: 204.36426, y: -42.785515, z: 0}
+      - {x: 158.72638, y: -42.785515, z: 0}
+      - {x: 156.88022, y: 24.665094, z: 0}
+      - {x: 202.5181, y: 24.665094, z: 0}
+      - {x: 202.5181, y: -40.93936, z: 0}
+      - {x: 156.88022, y: -40.93936, z: 0}
+      - {x: 156.88022, y: 20.972788, z: 0}
+      - {x: 202.5181, y: 20.972788, z: 0}
+      - {x: 202.5181, y: -44.631668, z: 0}
+      - {x: 156.88022, y: -44.631668, z: 0}
+      - {x: 156.88022, y: 22.818941, z: 0}
+      - {x: 202.5181, y: 22.818941, z: 0}
+      - {x: 202.5181, y: -42.785515, z: 0}
+      - {x: 156.88022, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 179.69916, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: 156.88022, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: 179.69916, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: 202.5181, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: 156.88022, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: 179.69916, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: 202.5181, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: 156.88022, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 179.69916, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 202.5181, y: -42.785515, z: 0}
+    - m_base_vertices:
+      - {x: 192.53482, y: 22.818941, z: 0}
+      - {x: 235.32033, y: 22.818941, z: 0}
+      - {x: 235.32033, y: -42.785515, z: 0}
+      - {x: 192.53482, y: -42.785515, z: 0}
+      m_base_extra_vertices:
+      - {x: 194.38098, y: 24.665094, z: 0}
+      - {x: 237.16649, y: 24.665094, z: 0}
+      - {x: 237.16649, y: -40.93936, z: 0}
+      - {x: 194.38098, y: -40.93936, z: 0}
+      - {x: 190.68866, y: 24.665094, z: 0}
+      - {x: 233.47417, y: 24.665094, z: 0}
+      - {x: 233.47417, y: -40.93936, z: 0}
+      - {x: 190.68866, y: -40.93936, z: 0}
+      - {x: 194.38098, y: 20.972788, z: 0}
+      - {x: 237.16649, y: 20.972788, z: 0}
+      - {x: 237.16649, y: -44.631668, z: 0}
+      - {x: 194.38098, y: -44.631668, z: 0}
+      - {x: 190.68866, y: 20.972788, z: 0}
+      - {x: 233.47417, y: 20.972788, z: 0}
+      - {x: 233.47417, y: -44.631668, z: 0}
+      - {x: 190.68866, y: -44.631668, z: 0}
+      - {x: 190.68866, y: 22.818941, z: 0}
+      - {x: 233.47417, y: 22.818941, z: 0}
+      - {x: 233.47417, y: -42.785515, z: 0}
+      - {x: 190.68866, y: -42.785515, z: 0}
+      - {x: 194.38098, y: 22.818941, z: 0}
+      - {x: 237.16649, y: 22.818941, z: 0}
+      - {x: 237.16649, y: -42.785515, z: 0}
+      - {x: 194.38098, y: -42.785515, z: 0}
+      - {x: 192.53482, y: 24.665094, z: 0}
+      - {x: 235.32033, y: 24.665094, z: 0}
+      - {x: 235.32033, y: -40.93936, z: 0}
+      - {x: 192.53482, y: -40.93936, z: 0}
+      - {x: 192.53482, y: 20.972788, z: 0}
+      - {x: 235.32033, y: 20.972788, z: 0}
+      - {x: 235.32033, y: -44.631668, z: 0}
+      - {x: 192.53482, y: -44.631668, z: 0}
+      m_using_curved_data: 0
+      m_curve_base_vertices: []
+      m_curve_base_extra_vertices: []
+      m_base_colours:
+        top_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        top_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_right: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+        bottom_left: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_base_extra_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      m_base_indexes: 00000000010000000200000003000000
+      m_visible_character: 1
+      m_stub_instance: 0
+      m_mesh_index: 13
+      m_width: 42.785507
+      m_height: 65.604454
+      m_progression_variables:
+        m_letter_value: 13
+        m_letter_value_inc_white_space: 13
+        m_word_value: 0
+        m_line_value: 0
+      m_current_animated_vertices:
+      - {x: 194.38098, y: 24.665094, z: 0}
+      - {x: 237.16649, y: 24.665094, z: 0}
+      - {x: 237.16649, y: -40.93936, z: 0}
+      - {x: 194.38098, y: -40.93936, z: 0}
+      - {x: 190.68866, y: 24.665094, z: 0}
+      - {x: 233.47417, y: 24.665094, z: 0}
+      - {x: 233.47417, y: -40.93936, z: 0}
+      - {x: 190.68866, y: -40.93936, z: 0}
+      - {x: 194.38098, y: 20.972788, z: 0}
+      - {x: 237.16649, y: 20.972788, z: 0}
+      - {x: 237.16649, y: -44.631668, z: 0}
+      - {x: 194.38098, y: -44.631668, z: 0}
+      - {x: 190.68866, y: 20.972788, z: 0}
+      - {x: 233.47417, y: 20.972788, z: 0}
+      - {x: 233.47417, y: -44.631668, z: 0}
+      - {x: 190.68866, y: -44.631668, z: 0}
+      - {x: 190.68866, y: 22.818941, z: 0}
+      - {x: 233.47417, y: 22.818941, z: 0}
+      - {x: 233.47417, y: -42.785515, z: 0}
+      - {x: 190.68866, y: -42.785515, z: 0}
+      - {x: 194.38098, y: 22.818941, z: 0}
+      - {x: 237.16649, y: 22.818941, z: 0}
+      - {x: 237.16649, y: -42.785515, z: 0}
+      - {x: 194.38098, y: -42.785515, z: 0}
+      - {x: 192.53482, y: 24.665094, z: 0}
+      - {x: 235.32033, y: 24.665094, z: 0}
+      - {x: 235.32033, y: -40.93936, z: 0}
+      - {x: 192.53482, y: -40.93936, z: 0}
+      - {x: 192.53482, y: 20.972788, z: 0}
+      - {x: 235.32033, y: 20.972788, z: 0}
+      - {x: 235.32033, y: -44.631668, z: 0}
+      - {x: 192.53482, y: -44.631668, z: 0}
+      - {x: 192.53482, y: 22.818941, z: 0}
+      - {x: 235.32033, y: 22.818941, z: 0}
+      - {x: 235.32033, y: -42.785515, z: 0}
+      - {x: 192.53482, y: -42.785515, z: 0}
+      m_current_animated_colours:
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0, g: 0, b: 0, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+      m_anchor_offset_middle_center: {x: 213.92758, y: -9.983287, z: 0}
+      m_active_anchor_offset_upper_left: {x: 192.53482, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_center: {x: 213.92758, y: 22.81894, z: 0}
+      m_active_anchor_offset_upper_right: {x: 235.32034, y: 22.81894, z: 0}
+      m_active_anchor_offset_middle_left: {x: 192.53482, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_center: {x: 213.92758, y: -9.983287, z: 0}
+      m_active_anchor_offset_middle_right: {x: 235.32034, y: -9.983287, z: 0}
+      m_active_anchor_offset_lower_left: {x: 192.53482, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_center: {x: 213.92758, y: -42.785515, z: 0}
+      m_active_anchor_offset_lower_right: {x: 235.32034, y: -42.785515, z: 0}
+    m_audio_sources: []
+    m_particle_systems: []
+    m_particle_effect_managers: []
+    m_gameObect: {fileID: 680285888}
+    m_transform: {fileID: 680285889}
+    m_monobehaviour: {fileID: 680285891}
+    m_num_letters: 14
+    m_num_extra_verts_per_letter: 32
+    m_textWidths:
+    - 480.62396
+    m_textHeights:
+    - 94.12813
+    m_current_mesh_verts:
+    - {x: -243.45746, y: 48.91022, z: 0}
+    - {x: -180.70537, y: 48.91022, z: 0}
+    - {x: -180.70537, y: -40.93936, z: 0}
+    - {x: -243.45746, y: -40.93936, z: 0}
+    - {x: -247.14978, y: 48.91022, z: 0}
+    - {x: -184.39769, y: 48.91022, z: 0}
+    - {x: -184.39769, y: -40.93936, z: 0}
+    - {x: -247.14978, y: -40.93936, z: 0}
+    - {x: -243.45746, y: 45.217915, z: 0}
+    - {x: -180.70537, y: 45.217915, z: 0}
+    - {x: -180.70537, y: -44.631668, z: 0}
+    - {x: -243.45746, y: -44.631668, z: 0}
+    - {x: -247.14978, y: 45.217915, z: 0}
+    - {x: -184.39769, y: 45.217915, z: 0}
+    - {x: -184.39769, y: -44.631668, z: 0}
+    - {x: -247.14978, y: -44.631668, z: 0}
+    - {x: -247.14978, y: 47.064068, z: 0}
+    - {x: -184.39769, y: 47.064068, z: 0}
+    - {x: -184.39769, y: -42.785515, z: 0}
+    - {x: -247.14978, y: -42.785515, z: 0}
+    - {x: -243.45746, y: 47.064068, z: 0}
+    - {x: -180.70537, y: 47.064068, z: 0}
+    - {x: -180.70537, y: -42.785515, z: 0}
+    - {x: -243.45746, y: -42.785515, z: 0}
+    - {x: -245.30362, y: 48.91022, z: 0}
+    - {x: -182.55153, y: 48.91022, z: 0}
+    - {x: -182.55153, y: -40.93936, z: 0}
+    - {x: -245.30362, y: -40.93936, z: 0}
+    - {x: -245.30362, y: 45.217915, z: 0}
+    - {x: -182.55153, y: 45.217915, z: 0}
+    - {x: -182.55153, y: -44.631668, z: 0}
+    - {x: -245.30362, y: -44.631668, z: 0}
+    - {x: -190.68866, y: 24.665094, z: 0}
+    - {x: -147.90314, y: 24.665094, z: 0}
+    - {x: -147.90314, y: -40.93936, z: 0}
+    - {x: -190.68866, y: -40.93936, z: 0}
+    - {x: -194.38098, y: 24.665094, z: 0}
+    - {x: -151.59546, y: 24.665094, z: 0}
+    - {x: -151.59546, y: -40.93936, z: 0}
+    - {x: -194.38098, y: -40.93936, z: 0}
+    - {x: -190.68866, y: 20.972788, z: 0}
+    - {x: -147.90314, y: 20.972788, z: 0}
+    - {x: -147.90314, y: -44.631668, z: 0}
+    - {x: -190.68866, y: -44.631668, z: 0}
+    - {x: -194.38098, y: 20.972788, z: 0}
+    - {x: -151.59546, y: 20.972788, z: 0}
+    - {x: -151.59546, y: -44.631668, z: 0}
+    - {x: -194.38098, y: -44.631668, z: 0}
+    - {x: -194.38098, y: 22.818941, z: 0}
+    - {x: -151.59546, y: 22.818941, z: 0}
+    - {x: -151.59546, y: -42.785515, z: 0}
+    - {x: -194.38098, y: -42.785515, z: 0}
+    - {x: -190.68866, y: 22.818941, z: 0}
+    - {x: -147.90314, y: 22.818941, z: 0}
+    - {x: -147.90314, y: -42.785515, z: 0}
+    - {x: -190.68866, y: -42.785515, z: 0}
+    - {x: -192.53482, y: 24.665094, z: 0}
+    - {x: -149.7493, y: 24.665094, z: 0}
+    - {x: -149.7493, y: -40.93936, z: 0}
+    - {x: -192.53482, y: -40.93936, z: 0}
+    - {x: -192.53482, y: 20.972788, z: 0}
+    - {x: -149.7493, y: 20.972788, z: 0}
+    - {x: -149.7493, y: -44.631668, z: 0}
+    - {x: -192.53482, y: -44.631668, z: 0}
+    - {x: -160.7388, y: 36.074566, z: 0}
+    - {x: -127.93658, y: 36.074566, z: 0}
+    - {x: -127.93658, y: -40.93936, z: 0}
+    - {x: -160.7388, y: -40.93936, z: 0}
+    - {x: -164.43112, y: 36.074566, z: 0}
+    - {x: -131.62889, y: 36.074566, z: 0}
+    - {x: -131.62889, y: -40.93936, z: 0}
+    - {x: -164.43112, y: -40.93936, z: 0}
+    - {x: -160.7388, y: 32.38226, z: 0}
+    - {x: -127.93658, y: 32.38226, z: 0}
+    - {x: -127.93658, y: -44.631668, z: 0}
+    - {x: -160.7388, y: -44.631668, z: 0}
+    - {x: -164.43112, y: 32.38226, z: 0}
+    - {x: -131.62889, y: 32.38226, z: 0}
+    - {x: -131.62889, y: -44.631668, z: 0}
+    - {x: -164.43112, y: -44.631668, z: 0}
+    - {x: -164.43112, y: 34.228413, z: 0}
+    - {x: -131.62889, y: 34.228413, z: 0}
+    - {x: -131.62889, y: -42.785515, z: 0}
+    - {x: -164.43112, y: -42.785515, z: 0}
+    - {x: -160.7388, y: 34.228413, z: 0}
+    - {x: -127.93658, y: 34.228413, z: 0}
+    - {x: -127.93658, y: -42.785515, z: 0}
+    - {x: -160.7388, y: -42.785515, z: 0}
+    - {x: -162.58496, y: 36.074566, z: 0}
+    - {x: -129.78273, y: 36.074566, z: 0}
+    - {x: -129.78273, y: -40.93936, z: 0}
+    - {x: -162.58496, y: -40.93936, z: 0}
+    - {x: -162.58496, y: 32.38226, z: 0}
+    - {x: -129.78273, y: 32.38226, z: 0}
+    - {x: -129.78273, y: -44.631668, z: 0}
+    - {x: -162.58496, y: -44.631668, z: 0}
+    - {x: -140.77222, y: 24.665094, z: 0}
+    - {x: -90.8558, y: 24.665094, z: 0}
+    - {x: -90.8558, y: -40.93936, z: 0}
+    - {x: -140.77222, y: -40.93936, z: 0}
+    - {x: -144.46454, y: 24.665094, z: 0}
+    - {x: -94.5481, y: 24.665094, z: 0}
+    - {x: -94.5481, y: -40.93936, z: 0}
+    - {x: -144.46454, y: -40.93936, z: 0}
+    - {x: -140.77222, y: 20.972788, z: 0}
+    - {x: -90.8558, y: 20.972788, z: 0}
+    - {x: -90.8558, y: -44.631668, z: 0}
+    - {x: -140.77222, y: -44.631668, z: 0}
+    - {x: -144.46454, y: 20.972788, z: 0}
+    - {x: -94.5481, y: 20.972788, z: 0}
+    - {x: -94.5481, y: -44.631668, z: 0}
+    - {x: -144.46454, y: -44.631668, z: 0}
+    - {x: -144.46454, y: 22.818941, z: 0}
+    - {x: -94.5481, y: 22.818941, z: 0}
+    - {x: -94.5481, y: -42.785515, z: 0}
+    - {x: -144.46454, y: -42.785515, z: 0}
+    - {x: -140.77222, y: 22.818941, z: 0}
+    - {x: -90.8558, y: 22.818941, z: 0}
+    - {x: -90.8558, y: -42.785515, z: 0}
+    - {x: -140.77222, y: -42.785515, z: 0}
+    - {x: -142.61838, y: 24.665094, z: 0}
+    - {x: -92.70195, y: 24.665094, z: 0}
+    - {x: -92.70195, y: -40.93936, z: 0}
+    - {x: -142.61838, y: -40.93936, z: 0}
+    - {x: -142.61838, y: 20.972788, z: 0}
+    - {x: -92.70195, y: 20.972788, z: 0}
+    - {x: -92.70195, y: -44.631668, z: 0}
+    - {x: -142.61838, y: -44.631668, z: 0}
+    - {x: -106.543816, y: 48.91022, z: 0}
+    - {x: -39.513176, y: 48.91022, z: 0}
+    - {x: -39.513176, y: -40.93936, z: 0}
+    - {x: -106.543816, y: -40.93936, z: 0}
+    - {x: -110.23612, y: 48.91022, z: 0}
+    - {x: -43.205482, y: 48.91022, z: 0}
+    - {x: -43.205482, y: -40.93936, z: 0}
+    - {x: -110.23612, y: -40.93936, z: 0}
+    - {x: -106.543816, y: 45.217915, z: 0}
+    - {x: -39.513176, y: 45.217915, z: 0}
+    - {x: -39.513176, y: -44.631668, z: 0}
+    - {x: -106.543816, y: -44.631668, z: 0}
+    - {x: -110.23612, y: 45.217915, z: 0}
+    - {x: -43.205482, y: 45.217915, z: 0}
+    - {x: -43.205482, y: -44.631668, z: 0}
+    - {x: -110.23612, y: -44.631668, z: 0}
+    - {x: -110.23612, y: 47.064068, z: 0}
+    - {x: -43.205482, y: 47.064068, z: 0}
+    - {x: -43.205482, y: -42.785515, z: 0}
+    - {x: -110.23612, y: -42.785515, z: 0}
+    - {x: -106.543816, y: 47.064068, z: 0}
+    - {x: -39.513176, y: 47.064068, z: 0}
+    - {x: -39.513176, y: -42.785515, z: 0}
+    - {x: -106.543816, y: -42.785515, z: 0}
+    - {x: -108.38997, y: 48.91022, z: 0}
+    - {x: -41.35933, y: 48.91022, z: 0}
+    - {x: -41.35933, y: -40.93936, z: 0}
+    - {x: -108.38997, y: -40.93936, z: 0}
+    - {x: -108.38997, y: 45.217915, z: 0}
+    - {x: -41.35933, y: 45.217915, z: 0}
+    - {x: -41.35933, y: -44.631668, z: 0}
+    - {x: -108.38997, y: -44.631668, z: 0}
+    - {x: -50.92265, y: 36.074566, z: 0}
+    - {x: -18.12042, y: 36.074566, z: 0}
+    - {x: -18.12042, y: -40.93936, z: 0}
+    - {x: -50.92265, y: -40.93936, z: 0}
+    - {x: -54.614956, y: 36.074566, z: 0}
+    - {x: -21.812727, y: 36.074566, z: 0}
+    - {x: -21.812727, y: -40.93936, z: 0}
+    - {x: -54.614956, y: -40.93936, z: 0}
+    - {x: -50.92265, y: 32.38226, z: 0}
+    - {x: -18.12042, y: 32.38226, z: 0}
+    - {x: -18.12042, y: -44.631668, z: 0}
+    - {x: -50.92265, y: -44.631668, z: 0}
+    - {x: -54.614956, y: 32.38226, z: 0}
+    - {x: -21.812727, y: 32.38226, z: 0}
+    - {x: -21.812727, y: -44.631668, z: 0}
+    - {x: -54.614956, y: -44.631668, z: 0}
+    - {x: -54.614956, y: 34.228413, z: 0}
+    - {x: -21.812727, y: 34.228413, z: 0}
+    - {x: -21.812727, y: -42.785515, z: 0}
+    - {x: -54.614956, y: -42.785515, z: 0}
+    - {x: -50.92265, y: 34.228413, z: 0}
+    - {x: -18.12042, y: 34.228413, z: 0}
+    - {x: -18.12042, y: -42.785515, z: 0}
+    - {x: -50.92265, y: -42.785515, z: 0}
+    - {x: -52.768803, y: 36.074566, z: 0}
+    - {x: -19.966574, y: 36.074566, z: 0}
+    - {x: -19.966574, y: -40.93936, z: 0}
+    - {x: -52.768803, y: -40.93936, z: 0}
+    - {x: -52.768803, y: 32.38226, z: 0}
+    - {x: -19.966574, y: 32.38226, z: 0}
+    - {x: -19.966574, y: -44.631668, z: 0}
+    - {x: -52.768803, y: -44.631668, z: 0}
+    - {x: -29.52989, y: 23.23891, z: 0}
+    - {x: 14.681808, y: 23.23891, z: 0}
+    - {x: 14.681808, y: -40.93936, z: 0}
+    - {x: -29.52989, y: -40.93936, z: 0}
+    - {x: -33.2222, y: 23.23891, z: 0}
+    - {x: 10.9895, y: 23.23891, z: 0}
+    - {x: 10.9895, y: -40.93936, z: 0}
+    - {x: -33.2222, y: -40.93936, z: 0}
+    - {x: -29.52989, y: 19.546604, z: 0}
+    - {x: 14.681808, y: 19.546604, z: 0}
+    - {x: 14.681808, y: -44.631668, z: 0}
+    - {x: -29.52989, y: -44.631668, z: 0}
+    - {x: -33.2222, y: 19.546604, z: 0}
+    - {x: 10.9895, y: 19.546604, z: 0}
+    - {x: 10.9895, y: -44.631668, z: 0}
+    - {x: -33.2222, y: -44.631668, z: 0}
+    - {x: -33.2222, y: 21.392757, z: 0}
+    - {x: 10.9895, y: 21.392757, z: 0}
+    - {x: 10.9895, y: -42.785515, z: 0}
+    - {x: -33.2222, y: -42.785515, z: 0}
+    - {x: -29.52989, y: 21.392757, z: 0}
+    - {x: 14.681808, y: 21.392757, z: 0}
+    - {x: 14.681808, y: -42.785515, z: 0}
+    - {x: -29.52989, y: -42.785515, z: 0}
+    - {x: -31.376043, y: 23.23891, z: 0}
+    - {x: 12.835654, y: 23.23891, z: 0}
+    - {x: 12.835654, y: -40.93936, z: 0}
+    - {x: -31.376043, y: -40.93936, z: 0}
+    - {x: -31.376043, y: 19.546604, z: 0}
+    - {x: 12.835654, y: 19.546604, z: 0}
+    - {x: 12.835654, y: -44.631668, z: 0}
+    - {x: -31.376043, y: -44.631668, z: 0}
+    - {x: 4.6985216, y: 24.665094, z: 0}
+    - {x: 47.484035, y: 24.665094, z: 0}
+    - {x: 47.484035, y: -40.93936, z: 0}
+    - {x: 4.6985216, y: -40.93936, z: 0}
+    - {x: 1.0062138, y: 24.665094, z: 0}
+    - {x: 43.79173, y: 24.665094, z: 0}
+    - {x: 43.79173, y: -40.93936, z: 0}
+    - {x: 1.0062138, y: -40.93936, z: 0}
+    - {x: 4.6985216, y: 20.972788, z: 0}
+    - {x: 47.484035, y: 20.972788, z: 0}
+    - {x: 47.484035, y: -44.631668, z: 0}
+    - {x: 4.6985216, y: -44.631668, z: 0}
+    - {x: 1.0062138, y: 20.972788, z: 0}
+    - {x: 43.79173, y: 20.972788, z: 0}
+    - {x: 43.79173, y: -44.631668, z: 0}
+    - {x: 1.0062138, y: -44.631668, z: 0}
+    - {x: 1.0062138, y: 22.818941, z: 0}
+    - {x: 43.79173, y: 22.818941, z: 0}
+    - {x: 43.79173, y: -42.785515, z: 0}
+    - {x: 1.0062138, y: -42.785515, z: 0}
+    - {x: 4.6985216, y: 22.818941, z: 0}
+    - {x: 47.484035, y: 22.818941, z: 0}
+    - {x: 47.484035, y: -42.785515, z: 0}
+    - {x: 4.6985216, y: -42.785515, z: 0}
+    - {x: 2.8523676, y: 24.665094, z: 0}
+    - {x: 45.637882, y: 24.665094, z: 0}
+    - {x: 45.637882, y: -40.93936, z: 0}
+    - {x: 2.8523676, y: -40.93936, z: 0}
+    - {x: 2.8523676, y: 20.972788, z: 0}
+    - {x: 45.637882, y: 20.972788, z: 0}
+    - {x: 45.637882, y: -44.631668, z: 0}
+    - {x: 2.8523676, y: -44.631668, z: 0}
+    - {x: 36.074566, y: 24.665094, z: 0}
+    - {x: 78.86008, y: 24.665094, z: 0}
+    - {x: 78.86008, y: -40.93936, z: 0}
+    - {x: 36.074566, y: -40.93936, z: 0}
+    - {x: 32.38226, y: 24.665094, z: 0}
+    - {x: 75.16777, y: 24.665094, z: 0}
+    - {x: 75.16777, y: -40.93936, z: 0}
+    - {x: 32.38226, y: -40.93936, z: 0}
+    - {x: 36.074566, y: 20.972788, z: 0}
+    - {x: 78.86008, y: 20.972788, z: 0}
+    - {x: 78.86008, y: -44.631668, z: 0}
+    - {x: 36.074566, y: -44.631668, z: 0}
+    - {x: 32.38226, y: 20.972788, z: 0}
+    - {x: 75.16777, y: 20.972788, z: 0}
+    - {x: 75.16777, y: -44.631668, z: 0}
+    - {x: 32.38226, y: -44.631668, z: 0}
+    - {x: 32.38226, y: 22.818941, z: 0}
+    - {x: 75.16777, y: 22.818941, z: 0}
+    - {x: 75.16777, y: -42.785515, z: 0}
+    - {x: 32.38226, y: -42.785515, z: 0}
+    - {x: 36.074566, y: 22.818941, z: 0}
+    - {x: 78.86008, y: 22.818941, z: 0}
+    - {x: 78.86008, y: -42.785515, z: 0}
+    - {x: 36.074566, y: -42.785515, z: 0}
+    - {x: 34.228413, y: 24.665094, z: 0}
+    - {x: 77.01392, y: 24.665094, z: 0}
+    - {x: 77.01392, y: -40.93936, z: 0}
+    - {x: 34.228413, y: -40.93936, z: 0}
+    - {x: 34.228413, y: 20.972788, z: 0}
+    - {x: 77.01392, y: 20.972788, z: 0}
+    - {x: 77.01392, y: -44.631668, z: 0}
+    - {x: 34.228413, y: -44.631668, z: 0}
+    - {x: 66.02442, y: 36.074566, z: 0}
+    - {x: 98.82665, y: 36.074566, z: 0}
+    - {x: 98.82665, y: -40.93936, z: 0}
+    - {x: 66.02442, y: -40.93936, z: 0}
+    - {x: 62.332115, y: 36.074566, z: 0}
+    - {x: 95.134346, y: 36.074566, z: 0}
+    - {x: 95.134346, y: -40.93936, z: 0}
+    - {x: 62.332115, y: -40.93936, z: 0}
+    - {x: 66.02442, y: 32.38226, z: 0}
+    - {x: 98.82665, y: 32.38226, z: 0}
+    - {x: 98.82665, y: -44.631668, z: 0}
+    - {x: 66.02442, y: -44.631668, z: 0}
+    - {x: 62.332115, y: 32.38226, z: 0}
+    - {x: 95.134346, y: 32.38226, z: 0}
+    - {x: 95.134346, y: -44.631668, z: 0}
+    - {x: 62.332115, y: -44.631668, z: 0}
+    - {x: 62.332115, y: 34.228413, z: 0}
+    - {x: 95.134346, y: 34.228413, z: 0}
+    - {x: 95.134346, y: -42.785515, z: 0}
+    - {x: 62.332115, y: -42.785515, z: 0}
+    - {x: 66.02442, y: 34.228413, z: 0}
+    - {x: 98.82665, y: 34.228413, z: 0}
+    - {x: 98.82665, y: -42.785515, z: 0}
+    - {x: 66.02442, y: -42.785515, z: 0}
+    - {x: 64.17827, y: 36.074566, z: 0}
+    - {x: 96.9805, y: 36.074566, z: 0}
+    - {x: 96.9805, y: -40.93936, z: 0}
+    - {x: 64.17827, y: -40.93936, z: 0}
+    - {x: 64.17827, y: 32.38226, z: 0}
+    - {x: 96.9805, y: 32.38226, z: 0}
+    - {x: 96.9805, y: -44.631668, z: 0}
+    - {x: 64.17827, y: -44.631668, z: 0}
+    - {x: 84.56481, y: 48.91022, z: 0}
+    - {x: 147.31691, y: 48.91022, z: 0}
+    - {x: 147.31691, y: -40.93936, z: 0}
+    - {x: 84.56481, y: -40.93936, z: 0}
+    - {x: 80.872505, y: 48.91022, z: 0}
+    - {x: 143.62459, y: 48.91022, z: 0}
+    - {x: 143.62459, y: -40.93936, z: 0}
+    - {x: 80.872505, y: -40.93936, z: 0}
+    - {x: 84.56481, y: 45.217915, z: 0}
+    - {x: 147.31691, y: 45.217915, z: 0}
+    - {x: 147.31691, y: -44.631668, z: 0}
+    - {x: 84.56481, y: -44.631668, z: 0}
+    - {x: 80.872505, y: 45.217915, z: 0}
+    - {x: 143.62459, y: 45.217915, z: 0}
+    - {x: 143.62459, y: -44.631668, z: 0}
+    - {x: 80.872505, y: -44.631668, z: 0}
+    - {x: 80.872505, y: 47.064068, z: 0}
+    - {x: 143.62459, y: 47.064068, z: 0}
+    - {x: 143.62459, y: -42.785515, z: 0}
+    - {x: 80.872505, y: -42.785515, z: 0}
+    - {x: 84.56481, y: 47.064068, z: 0}
+    - {x: 147.31691, y: 47.064068, z: 0}
+    - {x: 147.31691, y: -42.785515, z: 0}
+    - {x: 84.56481, y: -42.785515, z: 0}
+    - {x: 82.71866, y: 48.91022, z: 0}
+    - {x: 145.47075, y: 48.91022, z: 0}
+    - {x: 145.47075, y: -40.93936, z: 0}
+    - {x: 82.71866, y: -40.93936, z: 0}
+    - {x: 82.71866, y: 45.217915, z: 0}
+    - {x: 145.47075, y: 45.217915, z: 0}
+    - {x: 145.47075, y: -44.631668, z: 0}
+    - {x: 82.71866, y: -44.631668, z: 0}
+    - {x: 137.33362, y: 53.18877, z: 0}
+    - {x: 168.70967, y: 53.18877, z: 0}
+    - {x: 168.70967, y: -40.93936, z: 0}
+    - {x: 137.33362, y: -40.93936, z: 0}
+    - {x: 133.6413, y: 53.18877, z: 0}
+    - {x: 165.01735, y: 53.18877, z: 0}
+    - {x: 165.01735, y: -40.93936, z: 0}
+    - {x: 133.6413, y: -40.93936, z: 0}
+    - {x: 137.33362, y: 49.496464, z: 0}
+    - {x: 168.70967, y: 49.496464, z: 0}
+    - {x: 168.70967, y: -44.631668, z: 0}
+    - {x: 137.33362, y: -44.631668, z: 0}
+    - {x: 133.6413, y: 49.496464, z: 0}
+    - {x: 165.01735, y: 49.496464, z: 0}
+    - {x: 165.01735, y: -44.631668, z: 0}
+    - {x: 133.6413, y: -44.631668, z: 0}
+    - {x: 133.6413, y: 51.342617, z: 0}
+    - {x: 165.01735, y: 51.342617, z: 0}
+    - {x: 165.01735, y: -42.785515, z: 0}
+    - {x: 133.6413, y: -42.785515, z: 0}
+    - {x: 137.33362, y: 51.342617, z: 0}
+    - {x: 168.70967, y: 51.342617, z: 0}
+    - {x: 168.70967, y: -42.785515, z: 0}
+    - {x: 137.33362, y: -42.785515, z: 0}
+    - {x: 135.48746, y: 53.18877, z: 0}
+    - {x: 166.86351, y: 53.18877, z: 0}
+    - {x: 166.86351, y: -40.93936, z: 0}
+    - {x: 135.48746, y: -40.93936, z: 0}
+    - {x: 135.48746, y: 49.496464, z: 0}
+    - {x: 166.86351, y: 49.496464, z: 0}
+    - {x: 166.86351, y: -44.631668, z: 0}
+    - {x: 135.48746, y: -44.631668, z: 0}
+    - {x: 158.72638, y: 24.665094, z: 0}
+    - {x: 204.36426, y: 24.665094, z: 0}
+    - {x: 204.36426, y: -40.93936, z: 0}
+    - {x: 158.72638, y: -40.93936, z: 0}
+    - {x: 155.03406, y: 24.665094, z: 0}
+    - {x: 200.67194, y: 24.665094, z: 0}
+    - {x: 200.67194, y: -40.93936, z: 0}
+    - {x: 155.03406, y: -40.93936, z: 0}
+    - {x: 158.72638, y: 20.972788, z: 0}
+    - {x: 204.36426, y: 20.972788, z: 0}
+    - {x: 204.36426, y: -44.631668, z: 0}
+    - {x: 158.72638, y: -44.631668, z: 0}
+    - {x: 155.03406, y: 20.972788, z: 0}
+    - {x: 200.67194, y: 20.972788, z: 0}
+    - {x: 200.67194, y: -44.631668, z: 0}
+    - {x: 155.03406, y: -44.631668, z: 0}
+    - {x: 155.03406, y: 22.818941, z: 0}
+    - {x: 200.67194, y: 22.818941, z: 0}
+    - {x: 200.67194, y: -42.785515, z: 0}
+    - {x: 155.03406, y: -42.785515, z: 0}
+    - {x: 158.72638, y: 22.818941, z: 0}
+    - {x: 204.36426, y: 22.818941, z: 0}
+    - {x: 204.36426, y: -42.785515, z: 0}
+    - {x: 158.72638, y: -42.785515, z: 0}
+    - {x: 156.88022, y: 24.665094, z: 0}
+    - {x: 202.5181, y: 24.665094, z: 0}
+    - {x: 202.5181, y: -40.93936, z: 0}
+    - {x: 156.88022, y: -40.93936, z: 0}
+    - {x: 156.88022, y: 20.972788, z: 0}
+    - {x: 202.5181, y: 20.972788, z: 0}
+    - {x: 202.5181, y: -44.631668, z: 0}
+    - {x: 156.88022, y: -44.631668, z: 0}
+    - {x: 194.38098, y: 24.665094, z: 0}
+    - {x: 237.16649, y: 24.665094, z: 0}
+    - {x: 237.16649, y: -40.93936, z: 0}
+    - {x: 194.38098, y: -40.93936, z: 0}
+    - {x: 190.68866, y: 24.665094, z: 0}
+    - {x: 233.47417, y: 24.665094, z: 0}
+    - {x: 233.47417, y: -40.93936, z: 0}
+    - {x: 190.68866, y: -40.93936, z: 0}
+    - {x: 194.38098, y: 20.972788, z: 0}
+    - {x: 237.16649, y: 20.972788, z: 0}
+    - {x: 237.16649, y: -44.631668, z: 0}
+    - {x: 194.38098, y: -44.631668, z: 0}
+    - {x: 190.68866, y: 20.972788, z: 0}
+    - {x: 233.47417, y: 20.972788, z: 0}
+    - {x: 233.47417, y: -44.631668, z: 0}
+    - {x: 190.68866, y: -44.631668, z: 0}
+    - {x: 190.68866, y: 22.818941, z: 0}
+    - {x: 233.47417, y: 22.818941, z: 0}
+    - {x: 233.47417, y: -42.785515, z: 0}
+    - {x: 190.68866, y: -42.785515, z: 0}
+    - {x: 194.38098, y: 22.818941, z: 0}
+    - {x: 237.16649, y: 22.818941, z: 0}
+    - {x: 237.16649, y: -42.785515, z: 0}
+    - {x: 194.38098, y: -42.785515, z: 0}
+    - {x: 192.53482, y: 24.665094, z: 0}
+    - {x: 235.32033, y: 24.665094, z: 0}
+    - {x: 235.32033, y: -40.93936, z: 0}
+    - {x: 192.53482, y: -40.93936, z: 0}
+    - {x: 192.53482, y: 20.972788, z: 0}
+    - {x: 235.32033, y: 20.972788, z: 0}
+    - {x: 235.32033, y: -44.631668, z: 0}
+    - {x: 192.53482, y: -44.631668, z: 0}
+    - {x: -245.30362, y: 47.064068, z: 0}
+    - {x: -182.55153, y: 47.064068, z: 0}
+    - {x: -182.55153, y: -42.785515, z: 0}
+    - {x: -245.30362, y: -42.785515, z: 0}
+    - {x: -192.53482, y: 22.818941, z: 0}
+    - {x: -149.7493, y: 22.818941, z: 0}
+    - {x: -149.7493, y: -42.785515, z: 0}
+    - {x: -192.53482, y: -42.785515, z: 0}
+    - {x: -162.58496, y: 34.228413, z: 0}
+    - {x: -129.78273, y: 34.228413, z: 0}
+    - {x: -129.78273, y: -42.785515, z: 0}
+    - {x: -162.58496, y: -42.785515, z: 0}
+    - {x: -142.61838, y: 22.818941, z: 0}
+    - {x: -92.70195, y: 22.818941, z: 0}
+    - {x: -92.70195, y: -42.785515, z: 0}
+    - {x: -142.61838, y: -42.785515, z: 0}
+    - {x: -108.38997, y: 47.064068, z: 0}
+    - {x: -41.35933, y: 47.064068, z: 0}
+    - {x: -41.35933, y: -42.785515, z: 0}
+    - {x: -108.38997, y: -42.785515, z: 0}
+    - {x: -52.768803, y: 34.228413, z: 0}
+    - {x: -19.966574, y: 34.228413, z: 0}
+    - {x: -19.966574, y: -42.785515, z: 0}
+    - {x: -52.768803, y: -42.785515, z: 0}
+    - {x: -31.376043, y: 21.392757, z: 0}
+    - {x: 12.835654, y: 21.392757, z: 0}
+    - {x: 12.835654, y: -42.785515, z: 0}
+    - {x: -31.376043, y: -42.785515, z: 0}
+    - {x: 2.8523676, y: 22.818941, z: 0}
+    - {x: 45.637882, y: 22.818941, z: 0}
+    - {x: 45.637882, y: -42.785515, z: 0}
+    - {x: 2.8523676, y: -42.785515, z: 0}
+    - {x: 34.228413, y: 22.818941, z: 0}
+    - {x: 77.01392, y: 22.818941, z: 0}
+    - {x: 77.01392, y: -42.785515, z: 0}
+    - {x: 34.228413, y: -42.785515, z: 0}
+    - {x: 64.17827, y: 34.228413, z: 0}
+    - {x: 96.9805, y: 34.228413, z: 0}
+    - {x: 96.9805, y: -42.785515, z: 0}
+    - {x: 64.17827, y: -42.785515, z: 0}
+    - {x: 82.71866, y: 47.064068, z: 0}
+    - {x: 145.47075, y: 47.064068, z: 0}
+    - {x: 145.47075, y: -42.785515, z: 0}
+    - {x: 82.71866, y: -42.785515, z: 0}
+    - {x: 135.48746, y: 51.342617, z: 0}
+    - {x: 166.86351, y: 51.342617, z: 0}
+    - {x: 166.86351, y: -42.785515, z: 0}
+    - {x: 135.48746, y: -42.785515, z: 0}
+    - {x: 156.88022, y: 22.818941, z: 0}
+    - {x: 202.5181, y: 22.818941, z: 0}
+    - {x: 202.5181, y: -42.785515, z: 0}
+    - {x: 156.88022, y: -42.785515, z: 0}
+    - {x: 192.53482, y: 22.818941, z: 0}
+    - {x: 235.32033, y: 22.818941, z: 0}
+    - {x: 235.32033, y: -42.785515, z: 0}
+    - {x: 192.53482, y: -42.785515, z: 0}
+    m_current_mesh_colours:
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    - {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+    m_current_text: LetsStreetLive
+    m_num_words: 1
+    m_num_lines: 1
+    m_preset_intro:
+      m_preset_effect_settings: []
+      m_active: 0
+      m_start_action: 0
+      m_num_actions: 0
+      m_start_loop: 0
+      m_num_loops: 0
+      m_exit_pause: 0
+      m_exit_pause_duration: 1
+      m_repeat: 0
+      m_repeat_count: 0
+    m_preset_main:
+      m_preset_effect_settings:
+      - m_data_type: 15
+        m_startState: 1
+        m_setting_name: Delay Eased
+        m_animation_idx: 0
+        m_action_idx: 0
+        m_action_progress_state_override: -1
+      - m_data_type: 16
+        m_startState: 1
+        m_setting_name: Duration
+        m_animation_idx: 0
+        m_action_idx: 0
+        m_action_progress_state_override: -1
+      - m_data_type: 7
+        m_startState: 0
+        m_setting_name: Highlight Colour
+        m_animation_idx: 0
+        m_action_idx: 0
+        m_action_progress_state_override: -1
+      - m_data_type: 11
+        m_startState: 0
+        m_setting_name: Shimmer Scale
+        m_animation_idx: 0
+        m_action_idx: 0
+        m_action_progress_state_override: -1
+      - m_data_type: 20
+        m_startState: 1
+        m_setting_name: Num. Iterations
+        m_animation_idx: 0
+        m_action_idx: 0
+        m_action_progress_state_override: -1
+      m_active: 1
+      m_start_action: 0
+      m_num_actions: 1
+      m_start_loop: 0
+      m_num_loops: 1
+      m_exit_pause: 0
+      m_exit_pause_duration: 1
+      m_repeat: 0
+      m_repeat_count: 0
+    m_preset_outro:
+      m_preset_effect_settings: []
+      m_active: 0
+      m_start_action: 2
+      m_num_actions: 0
+      m_start_loop: 1
+      m_num_loops: 0
+      m_exit_pause: 0
+      m_exit_pause_duration: 1
+      m_repeat: 0
+      m_repeat_count: 0
+    m_repeat_all_sections: 0
+    m_repeat_all_sections_count: 0
+    m_preset_effect_settings:
+    - m_data_type: 15
+      m_startState: 1
+      m_setting_name: Delay Eased
+      m_animation_idx: 0
+      m_action_idx: 0
+      m_action_progress_state_override: -1
+    - m_data_type: 16
+      m_startState: 1
+      m_setting_name: Duration
+      m_animation_idx: 0
+      m_action_idx: 0
+      m_action_progress_state_override: -1
+    - m_data_type: 7
+      m_startState: 0
+      m_setting_name: Highlight Colour
+      m_animation_idx: 0
+      m_action_idx: 0
+      m_action_progress_state_override: -1
+    - m_data_type: 11
+      m_startState: 0
+      m_setting_name: Shimmer Scale
+      m_animation_idx: 0
+      m_action_idx: 0
+      m_action_progress_state_override: -1
+    - m_data_type: 20
+      m_startState: 1
+      m_setting_name: Num. Iterations
+      m_animation_idx: 0
+      m_action_idx: 0
+      m_action_progress_state_override: -1
+    m_using_quick_setup: 1
+    m_selected_intro_animation_idx: 0
+    m_selected_main_animation_idx: 3
+    m_selected_outro_animation_idx: 0
+    m_intro_animation_foldout: 0
+    m_main_animation_foldout: 0
+    m_outro_animation_foldout: 0
+    m_effect_name: 
+    m_import_as_section: 0
+  m_gameobject_reference: {fileID: 680285888}
+  m_renderToCurve: 0
+  m_bezierCurve:
+    m_pointData:
+      m_anchor_point_1:
+        m_anchor_point: {x: 0, y: 0, z: 0}
+        m_handle_point: {x: 0, y: 0, z: 0}
+      m_anchor_point_2:
+        m_anchor_point: {x: 0, y: 0, z: 0}
+        m_handle_point: {x: 0, y: 0, z: 0}
+      m_anchor_point_3:
+        m_anchor_point: {x: 0, y: 0, z: 0}
+        m_handle_point: {x: 0, y: 0, z: 0}
+      m_anchor_point_4:
+        m_anchor_point: {x: 0, y: 0, z: 0}
+        m_handle_point: {x: 0, y: 0, z: 0}
+      m_anchor_point_5:
+        m_anchor_point: {x: 0, y: 0, z: 0}
+        m_handle_point: {x: 0, y: 0, z: 0}
+      m_numActiveCurvePoints: 0
+    m_baselineOffset: 0
+    m_editor_visible: 0
+  m_effect_type: 3
+  m_effect_offset: {x: 1, y: 1}
+  m_effect_colour: {r: 0, g: 0, b: 0, a: 1}
+--- !u!222 &680285892
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 680285888}
 --- !u!1 &709949120
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +5241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b0e82ad360d9044859400e4b7b8ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playSwitchAnim: 1
   uiObjects:
   - {fileID: 1815174502}
   _borderShakeCount: 2
