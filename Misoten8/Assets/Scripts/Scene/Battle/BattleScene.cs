@@ -103,7 +103,7 @@ public class BattleScene : SceneBase<BattleScene>
 			yield return null;
 
 		// クライアント全員の生成クラスをアクティブにする
-		_battleSceneNetwork.photonView.RPC("StartupGenerator", PhotonTargets.AllViaServer);
+		_battleSceneNetwork.photonView.RPC("_StartupGenerator", PhotonTargets.AllViaServer);
 	}
 
 	/// <summary>

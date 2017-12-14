@@ -25,7 +25,7 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// 一回のダンスで発生するリクエスト回数
 	/// </summary>
-	public const int REQUEST_COUNT = 10;
+	public const int REQUEST_COUNT = 5;
 
 	/// <summary>
 	/// リクエスト秒数の偏り係数(数値が高い程偏る)

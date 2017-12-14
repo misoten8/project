@@ -26,7 +26,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	/// 生成クラスをアクティブにする
 	/// </summary>
 	[PunRPC]
-	private void StartupGenerator()
+	private void _StartupGenerator()
 	{
 		_battleScene.StartupGenerator();
 	}

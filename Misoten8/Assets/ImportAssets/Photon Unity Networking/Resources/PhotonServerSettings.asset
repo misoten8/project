@@ -51,4 +51,5 @@ MonoBehaviour:
   - SendFanChanges
   - SendFollowChanges
   - CallBackSwitch
+  - _StartupGenerator
   DisableAutoOpenWizard: 1
