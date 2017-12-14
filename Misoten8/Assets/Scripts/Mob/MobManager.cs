@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Misoten8Utility;
 
 /// <summary>
 /// MobManager クラス
@@ -45,7 +46,9 @@ public class MobManager : Photon.MonoBehaviour
 
 	private bool _isScoreChange;
 
-	private int[] _funCount = new int[Define.PLAYER_NUM_MAX + 1] {0, 0, 0, 0, 0};
+	private int[] _funCount = new int[Define.PLAYER_NUM_MAX + 1] { 0, 0, 0, 0, 0 };
+	// ダンスによって変化した人数
+	private int[] _funCountDiff = new int[Define.PLAYER_NUM_MAX + 1] { 0, 0, 0, 0, 0 };
 
 	private List<int> _fanChangeStackID = new List<int>();
 	private List<Define.PlayerType> _fanChangeStackType = new List<Define.PlayerType>();
@@ -56,7 +59,7 @@ public class MobManager : Photon.MonoBehaviour
 	private void Start()
 	{
 		Debug.Log("owner ID:" + photonView.ownerId.ToString());
-		_onScoreChange = () => 
+		_onScoreChange = () =>
 		{
 			_isScoreChange = true;
 		};
@@ -89,9 +92,20 @@ public class MobManager : Photon.MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// プレイヤーごとのファンの人数を取得
+	/// </summary>
 	public int GetFunCount(Define.PlayerType playerType)
-	{	
+	{
 		return _funCount[(int)playerType];
+	}
+
+	/// <summary>
+	/// 直前ダンスによって変化したファンの人数
+	/// </summary>
+	public int GetFunCountDiff(Define.PlayerType playerType)
+	{
+		return _funCountDiff[(int)playerType];
 	}
 
 	public void SetMob(Mob mob)
@@ -140,10 +154,25 @@ public class MobManager : Photon.MonoBehaviour
 			_mobs.First(e => e.photonView.viewID == photonViewIDs[i]).SetFunType(fanTargets[i]);
 		}
 
-		_score.SetScore(Define.PlayerType.First, _mobs.Where(e => e.FunType == Define.PlayerType.First).Count());
-		_score.SetScore(Define.PlayerType.Second, _mobs.Where(e => e.FunType == Define.PlayerType.Second).Count());
-		_score.SetScore(Define.PlayerType.Third, _mobs.Where(e => e.FunType == Define.PlayerType.Third).Count());
-		_score.SetScore(Define.PlayerType.Fourth, _mobs.Where(e => e.FunType == Define.PlayerType.Fourth).Count());
+		// 前回の人数を取得
+		_funCountDiff = _funCount;
+
+		// ファンの人数の更新
+		int targetType = 0;
+		_funCount.Foreach(e =>
+		{
+			e = _mobs.Where(_e => _e.FunType == (Define.PlayerType)targetType).Count();
+
+			// 差分を算出
+			_funCountDiff[targetType] = e - _funCountDiff[targetType];
+
+			// スコアに反映
+			if ((Define.PlayerType)targetType != Define.PlayerType.None)
+				_score.SetScore((Define.PlayerType)targetType, e);
+
+			targetType ++;
+		});
+
 		_isScoreChange = false;
 	}
 

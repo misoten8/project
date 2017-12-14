@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-// TODO:デバッグ時限定でオフラインモードでもプレイできるようにする
+
 /// <summary>
 /// ロビーシーン管理クラス
 /// </summary>

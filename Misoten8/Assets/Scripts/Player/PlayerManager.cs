@@ -63,7 +63,15 @@ public class PlayerManager : Photon.MonoBehaviour
 		if (playerType == Define.PlayerType.None)
 			return null;
 		
-		return _players.First(e => e.Type == playerType);
+		return _players?.First(e => e.Type == playerType);
+	}
+
+	/// <summary>
+	/// ローカル（自身）のプレイヤーを取得する
+	/// </summary>
+	public Player GetLocalPlayer()
+	{
+		return _players?.First(e => e.photonView.owner.ID == PhotonNetwork.player.ID);
 	}
 
 	/// <summary>

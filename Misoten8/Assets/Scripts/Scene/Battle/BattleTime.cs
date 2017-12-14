@@ -37,7 +37,7 @@ public class BattleTime : MonoBehaviour
 
 		_currentTime = 0.0f;
 
-		_battle.Switch(BattleScene.SceneType.Result);
+		_battle?.Switch(BattleScene.SceneType.Result);
 	}
 
 	void OnPhotonSerializeView(PhotonStream i_stream, PhotonMessageInfo i_info)
