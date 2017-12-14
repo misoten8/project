@@ -1,0 +1,1188 @@
+fileFormatVersion: 2
+guid: 4a46284c7447c1c458f2489144078e3e
+timeCreated: 1513217234
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: group1
+    100002: locator1
+    100004: locator2
+    100006: mecanim_born_Chest
+    100008: mecanim_born_Head
+    100010: mecanim_born_Hip
+    100012: mecanim_born_L_Foot
+    100014: mecanim_born_L_Hand
+    100016: mecanim_born_L_index1
+    100018: mecanim_born_L_index2
+    100020: mecanim_born_L_index3
+    100022: mecanim_born_L_little1
+    100024: mecanim_born_L_little2
+    100026: mecanim_born_L_little3
+    100028: mecanim_born_L_LowerArm
+    100030: mecanim_born_L_LowerLeg
+    100032: mecanim_born_L_ring1
+    100034: mecanim_born_L_ring2
+    100036: mecanim_born_L_ring3
+    100038: mecanim_born_L_Shoulder
+    100040: mecanim_born_L_Toes
+    100042: mecanim_born_L_UpperArm
+    100044: mecanim_born_L_UpperLeg
+    100046: mecanim_born_Master
+    100048: mecanim_born_Neck
+    100050: mecanim_born_R_Foot
+    100052: mecanim_born_R_Hand
+    100054: mecanim_born_R_index1
+    100056: mecanim_born_R_index2
+    100058: mecanim_born_R_index3
+    100060: mecanim_born_R_little1
+    100062: mecanim_born_R_little2
+    100064: mecanim_born_R_little3
+    100066: mecanim_born_R_LowerArm
+    100068: mecanim_born_R_LowerLeg
+    100070: mecanim_born_R_ring1
+    100072: mecanim_born_R_ring2
+    100074: mecanim_born_R_ring3
+    100076: mecanim_born_R_Shoulder
+    100078: mecanim_born_R_Toes
+    100080: mecanim_born_R_UpperArm
+    100082: mecanim_born_R_UpperLeg
+    100084: mecanim_born_Spine
+    100086: mecinim_born_L_middle1
+    100088: mecinim_born_L_middle2
+    100090: mecinim_born_L_middle3
+    100092: mecinim_born_R_middle1
+    100094: mecinim_born_R_middle2
+    100096: mecinim_born_R_middle3
+    100098: mecnim_born_L_thumb1
+    100100: mecnim_born_L_thumb2
+    100102: mecnim_born_L_thumb3
+    100104: mecnim_born_R_thumb1
+    100106: mecnim_born_R_thumb2
+    100108: mecnim_born_R_thumb3
+    100110: //RootNode
+    100112: pCylinder18
+    100114: player
+    100116: polySurface81
+    100118: polySurface82
+    100120: polySurface84
+    100122: polySurface85
+    100124: polySurface86
+    100126: pPlane10
+    100128: pPlane11
+    100130: pPlane12
+    100132: pPlane13
+    100134: pPlane14
+    100136: pPlane15
+    100138: pPlane17
+    100140: pPlane18
+    100142: pPlane19
+    100144: pPlane20
+    100146: pPlane24
+    100148: pPlane25
+    100150: pPlane26
+    100152: pPlane27
+    100154: pPlane28
+    100156: pPlane29
+    100158: pPlane30
+    100160: pPlane31
+    100162: pPlane32
+    100164: pPlane33
+    100166: pPlane34
+    100168: pPlane35
+    100170: pPlane36
+    100172: pPlane37
+    100174: pPlane38
+    100176: pPlane39
+    100178: pPlane9
+    100180: pSphere1
+    400000: group1
+    400002: locator1
+    400004: locator2
+    400006: mecanim_born_Chest
+    400008: mecanim_born_Head
+    400010: mecanim_born_Hip
+    400012: mecanim_born_L_Foot
+    400014: mecanim_born_L_Hand
+    400016: mecanim_born_L_index1
+    400018: mecanim_born_L_index2
+    400020: mecanim_born_L_index3
+    400022: mecanim_born_L_little1
+    400024: mecanim_born_L_little2
+    400026: mecanim_born_L_little3
+    400028: mecanim_born_L_LowerArm
+    400030: mecanim_born_L_LowerLeg
+    400032: mecanim_born_L_ring1
+    400034: mecanim_born_L_ring2
+    400036: mecanim_born_L_ring3
+    400038: mecanim_born_L_Shoulder
+    400040: mecanim_born_L_Toes
+    400042: mecanim_born_L_UpperArm
+    400044: mecanim_born_L_UpperLeg
+    400046: mecanim_born_Master
+    400048: mecanim_born_Neck
+    400050: mecanim_born_R_Foot
+    400052: mecanim_born_R_Hand
+    400054: mecanim_born_R_index1
+    400056: mecanim_born_R_index2
+    400058: mecanim_born_R_index3
+    400060: mecanim_born_R_little1
+    400062: mecanim_born_R_little2
+    400064: mecanim_born_R_little3
+    400066: mecanim_born_R_LowerArm
+    400068: mecanim_born_R_LowerLeg
+    400070: mecanim_born_R_ring1
+    400072: mecanim_born_R_ring2
+    400074: mecanim_born_R_ring3
+    400076: mecanim_born_R_Shoulder
+    400078: mecanim_born_R_Toes
+    400080: mecanim_born_R_UpperArm
+    400082: mecanim_born_R_UpperLeg
+    400084: mecanim_born_Spine
+    400086: mecinim_born_L_middle1
+    400088: mecinim_born_L_middle2
+    400090: mecinim_born_L_middle3
+    400092: mecinim_born_R_middle1
+    400094: mecinim_born_R_middle2
+    400096: mecinim_born_R_middle3
+    400098: mecnim_born_L_thumb1
+    400100: mecnim_born_L_thumb2
+    400102: mecnim_born_L_thumb3
+    400104: mecnim_born_R_thumb1
+    400106: mecnim_born_R_thumb2
+    400108: mecnim_born_R_thumb3
+    400110: //RootNode
+    400112: pCylinder18
+    400114: player
+    400116: polySurface81
+    400118: polySurface82
+    400120: polySurface84
+    400122: polySurface85
+    400124: polySurface86
+    400126: pPlane10
+    400128: pPlane11
+    400130: pPlane12
+    400132: pPlane13
+    400134: pPlane14
+    400136: pPlane15
+    400138: pPlane17
+    400140: pPlane18
+    400142: pPlane19
+    400144: pPlane20
+    400146: pPlane24
+    400148: pPlane25
+    400150: pPlane26
+    400152: pPlane27
+    400154: pPlane28
+    400156: pPlane29
+    400158: pPlane30
+    400160: pPlane31
+    400162: pPlane32
+    400164: pPlane33
+    400166: pPlane34
+    400168: pPlane35
+    400170: pPlane36
+    400172: pPlane37
+    400174: pPlane38
+    400176: pPlane39
+    400178: pPlane9
+    400180: pSphere1
+    4300000: polySurface81
+    4300002: pPlane24
+    4300004: pPlane25
+    4300006: pPlane26
+    4300008: pPlane27
+    4300010: pPlane13
+    4300012: pPlane14
+    4300014: pPlane15
+    4300016: pPlane17
+    4300018: pPlane18
+    4300020: pPlane19
+    4300022: pPlane20
+    4300024: pPlane9
+    4300026: pPlane10
+    4300028: pPlane11
+    4300030: pPlane12
+    4300032: pPlane28
+    4300034: pPlane29
+    4300036: pPlane30
+    4300038: pPlane31
+    4300040: pPlane32
+    4300042: pPlane33
+    4300044: pPlane34
+    4300046: pPlane35
+    4300048: pPlane36
+    4300050: pPlane37
+    4300052: pPlane38
+    4300054: pPlane39
+    4300056: pSphere1
+    4300058: pCylinder18
+    4300060: polySurface86
+    4300062: polySurface84
+    4300064: polySurface85
+    4300066: polySurface82
+    9500000: //RootNode
+    13700000: pCylinder18
+    13700002: polySurface81
+    13700004: polySurface82
+    13700006: polySurface84
+    13700008: polySurface85
+    13700010: polySurface86
+    13700012: pPlane10
+    13700014: pPlane11
+    13700016: pPlane12
+    13700018: pPlane13
+    13700020: pPlane14
+    13700022: pPlane15
+    13700024: pPlane17
+    13700026: pPlane18
+    13700028: pPlane19
+    13700030: pPlane20
+    13700032: pPlane24
+    13700034: pPlane25
+    13700036: pPlane26
+    13700038: pPlane27
+    13700040: pPlane28
+    13700042: pPlane29
+    13700044: pPlane30
+    13700046: pPlane31
+    13700048: pPlane32
+    13700050: pPlane33
+    13700052: pPlane34
+    13700054: pPlane35
+    13700056: pPlane36
+    13700058: pPlane37
+    13700060: pPlane38
+    13700062: pPlane39
+    13700064: pPlane9
+    13700066: pSphere1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: mecanim_born_Hip
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_UpperLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_UpperLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_LowerLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_LowerLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_Shoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_Shoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_LowerArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_LowerArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_Toes
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_Toes
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_L_thumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_L_thumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_L_thumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_index1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_index2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_index3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_L_middle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_L_middle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_L_middle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_ring1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_ring2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_ring3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_little1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_little2
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_L_little3
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_R_thumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_R_thumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecnim_born_R_thumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_index1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_index2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_index3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_R_middle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_R_middle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecinim_born_R_middle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_ring1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_ring2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_ring3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_little1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_little2
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: mecanim_born_R_little3
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: NPC(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Master
+      parentName: NPC(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Hip
+      parentName: mecanim_born_Master
+      position: {x: -3.543711e-33, y: 0.75580406, z: -0.026190758}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_UpperLeg
+      parentName: mecanim_born_Hip
+      position: {x: -0.09058759, y: -0.022116935, z: 0.0023816642}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_LowerLeg
+      parentName: mecanim_born_L_UpperLeg
+      position: {x: 1.5126727e-16, y: -0.33918217, z: 0.031303458}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_Foot
+      parentName: mecanim_born_L_LowerLeg
+      position: {x: 4.1911273e-17, y: -0.29646215, z: -0.032040007}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_Toes
+      parentName: mecanim_born_L_Foot
+      position: {x: 9.004066e-18, y: -0.09804279, z: 0.09454564}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_UpperLeg
+      parentName: mecanim_born_Hip
+      position: {x: 0.09058759, y: -0.02211707, z: 0.0023816568}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_LowerLeg
+      parentName: mecanim_born_R_UpperLeg
+      position: {x: -7.105429e-17, y: -0.33918202, z: 0.03130347}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_Foot
+      parentName: mecanim_born_R_LowerLeg
+      position: {x: 3.0683997e-17, y: -0.29646218, z: -0.032039966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_Toes
+      parentName: mecanim_born_R_Foot
+      position: {x: -6.048627e-17, y: -0.0980428, z: 0.0945456}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Spine
+      parentName: mecanim_born_Hip
+      position: {x: -5.021599e-19, y: 0.17710964, z: 0.0060519776}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Chest
+      parentName: mecanim_born_Spine
+      position: {x: -3.822281e-18, y: 0.14616483, z: -0.0019752004}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_Shoulder
+      parentName: mecanim_born_Chest
+      position: {x: -0.057089694, y: 0.0459895, z: 0.026616288}
+      rotation: {x: 0.7454911, y: -0.119138636, z: 0.10348869, w: 0.647564}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_UpperArm
+      parentName: mecanim_born_L_Shoulder
+      position: {x: -0.08473803, y: -1.8318679e-17, z: -2.8865798e-17}
+      rotation: {x: -0.7405799, y: 0.1456725, z: -0.1261029, w: 0.6437539}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_LowerArm
+      parentName: mecanim_born_L_UpperArm
+      position: {x: -0.19718927, y: 5.2395e-17, z: 9.8313235e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_Hand
+      parentName: mecanim_born_L_LowerArm
+      position: {x: -0.14412919, y: 0.001910105, z: -7.0266336e-33}
+      rotation: {x: -0.000000059604645, y: 0.00000064074993, z: 0.005535327, w: 0.99998474}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_L_middle1
+      parentName: mecanim_born_L_Hand
+      position: {x: -0.08607609, y: 0.016557647, z: 0.007919581}
+      rotation: {x: -0.70692736, y: 0.02173385, z: -0.0072248913, w: 0.7069154}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_L_middle2
+      parentName: mecinim_born_L_middle1
+      position: {x: -0.025070684, y: 1.782914e-20, z: 5.436338e-21}
+      rotation: {x: 0.9999963, y: -0.002723898, z: -1.6679066e-19, w: 6.123211e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_L_middle3
+      parentName: mecinim_born_L_middle2
+      position: {x: -0.027649364, y: 1.8700621e-16, z: 1.1991e-20}
+      rotation: {x: -0.70710623, y: 0.00091593916, z: -0.00091593916, w: 0.70710623}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_little1
+      parentName: mecanim_born_L_Hand
+      position: {x: -0.08457187, y: 0.016552312, z: -0.024528915}
+      rotation: {x: -0.7069318, y: 0.021817984, z: -0.0069696344, w: 0.7069108}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_little2
+      parentName: mecanim_born_L_little1
+      position: {x: -0.019913333, y: -1.1345218e-21, z: -4.3180157e-21}
+      rotation: {x: 0, y: 0, z: 0.0018914153, w: 0.9999982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_little3
+      parentName: mecanim_born_L_little2
+      position: {x: -0.019412322, y: -3.6540165e-16, z: 4.2093763e-21}
+      rotation: {x: 0.707102, y: -0.002609197, z: -0.002609197, w: 0.707102}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_index1
+      parentName: mecanim_born_L_Hand
+      position: {x: -0.0865775, y: 0.016559426, z: 0.024322905}
+      rotation: {x: 0.70695233, y: -0.0093247155, z: -0.021079782, w: 0.7068855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_index2
+      parentName: mecanim_born_L_index1
+      position: {x: -0.021775708, y: -1.2497427e-22, z: -4.721854e-21}
+      rotation: {x: 0.9999892, y: -0.004647681, z: -2.845884e-19, w: 6.123168e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_index3
+      parentName: mecanim_born_L_index2
+      position: {x: -0.023853296, y: 1.6407866e-16, z: -3.491489e-32}
+      rotation: {x: 0.7070943, y: 0.00420818, z: 0.00420818, w: 0.7070943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_ring1
+      parentName: mecanim_born_L_Hand
+      position: {x: -0.08600446, y: 0.016557394, z: -0.008340482}
+      rotation: {x: -0.7069288, y: 0.021762928, z: -0.0071358606, w: 0.70691377}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_ring2
+      parentName: mecanim_born_L_ring1
+      position: {x: -0.022993416, y: 6.036594e-20, z: 0}
+      rotation: {x: 0, y: 0, z: 0.007111964, w: 0.9999747}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_L_ring3
+      parentName: mecanim_born_L_ring2
+      position: {x: -0.024787787, y: -9.074412e-17, z: -2.1499978e-20}
+      rotation: {x: 0.70708025, y: -0.006130293, z: -0.006130293, w: 0.70708025}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_L_thumb1
+      parentName: mecanim_born_L_Hand
+      position: {x: -0.024664134, y: -0.0065045278, z: 0.030574173}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_L_thumb2
+      parentName: mecnim_born_L_thumb1
+      position: {x: -0.021449404, y: 0.00007608175, z: 0.021764971}
+      rotation: {x: 0.0004015714, y: 0.113259934, z: -0.0000003243342, w: 0.9935653}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_L_thumb3
+      parentName: mecnim_born_L_thumb2
+      position: {x: -0.020818539, y: 0.00007384405, z: 0.011197921}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_Shoulder
+      parentName: mecanim_born_Chest
+      position: {x: 0.057089698, y: 0.045991454, z: 0.026616288}
+      rotation: {x: -0.6475657, y: 0.10348441, z: 0.11914673, w: 0.745489}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_UpperArm
+      parentName: mecanim_born_R_Shoulder
+      position: {x: 0.08473806, y: -0.0000005331243, z: -0.0000028042455}
+      rotation: {x: -0.740578, y: 0.14567839, z: -0.12610085, w: 0.6437551}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_LowerArm
+      parentName: mecanim_born_R_UpperArm
+      position: {x: 0.19718923, y: 0.000000567554, z: -1.0658141e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_Hand
+      parentName: mecanim_born_R_LowerArm
+      position: {x: 0.14412913, y: -0.0019112396, z: 2.5757173e-16}
+      rotation: {x: -0.000000029802319, y: 0.00000061839813, z: 0.005518816, w: 0.99998486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_R_middle1
+      parentName: mecanim_born_R_Hand
+      position: {x: 0.08607582, y: -0.016555415, z: -0.0079196}
+      rotation: {x: -0.7069275, y: 0.021722162, z: -0.007219328, w: 0.7069156}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_R_middle2
+      parentName: mecinim_born_R_middle1
+      position: {x: 0.025071101, y: -0.000000031428442, z: -2.842171e-16}
+      rotation: {x: 0.9999963, y: -0.002723898, z: -1.8860673e-15, w: -6.637004e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecinim_born_R_middle3
+      parentName: mecinim_born_R_middle2
+      position: {x: 0.027649092, y: -0.000000029533577, z: 0}
+      rotation: {x: -0.70710623, y: 0.00091593916, z: -0.00091593916, w: 0.70710623}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_little1
+      parentName: mecanim_born_R_Hand
+      position: {x: 0.08457182, y: -0.01655008, z: 0.024528898}
+      rotation: {x: -0.70693195, y: 0.021807048, z: -0.0069642956, w: 0.70691097}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_little2
+      parentName: mecanim_born_R_little1
+      position: {x: 0.019913128, y: -0.000000029496212, z: 1.4210854e-16}
+      rotation: {x: 0, y: -1.4791558e-16, z: 0.0018914153, w: 0.9999982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_little3
+      parentName: mecanim_born_R_little2
+      position: {x: 0.019412529, y: 0.000000038006345, z: -1.4210854e-16}
+      rotation: {x: 0.707102, y: -0.002609197, z: -0.002609197, w: 0.707102}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_index1
+      parentName: mecanim_born_R_Hand
+      position: {x: 0.08657681, y: -0.016557192, z: -0.0243229}
+      rotation: {x: 0.7069525, y: -0.00932018, z: -0.021069394, w: 0.70688564}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_index2
+      parentName: mecanim_born_R_index1
+      position: {x: 0.021776117, y: -0.000000031578775, z: 1.4210854e-16}
+      rotation: {x: 0.9999892, y: -0.004647681, z: 2.2536281e-15, w: -5.0758744e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_index3
+      parentName: mecanim_born_R_index2
+      position: {x: 0.02385343, y: -0.00000006126015, z: -1.4210854e-16}
+      rotation: {x: 0.7070943, y: 0.00420818, z: 0.00420818, w: 0.7070943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_ring1
+      parentName: mecanim_born_R_Hand
+      position: {x: 0.08600382, y: -0.01655516, z: 0.008340499}
+      rotation: {x: -0.70692897, y: 0.021754215, z: -0.00713152, w: 0.7069139}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_ring2
+      parentName: mecanim_born_R_ring1
+      position: {x: 0.02299411, y: -0.000000032398596, z: -2.842171e-16}
+      rotation: {x: -6.1631316e-33, y: 5.482714e-15, z: 0.007111964, w: 0.9999747}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_R_ring3
+      parentName: mecanim_born_R_ring2
+      position: {x: 0.024787726, y: 0.000000019650226, z: -1.4210854e-16}
+      rotation: {x: 0.70708025, y: -0.006130293, z: -0.006130293, w: 0.70708025}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_R_thumb1
+      parentName: mecanim_born_R_Hand
+      position: {x: 0.02466422, y: 0.0065025566, z: -0.030574199}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_R_thumb2
+      parentName: mecnim_born_R_thumb1
+      position: {x: 0.021448864, y: -0.00007607984, z: -0.021764928}
+      rotation: {x: 0.0004019125, y: 0.11326636, z: 0.00000003178096, w: 0.99356455}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecnim_born_R_thumb3
+      parentName: mecnim_born_R_thumb2
+      position: {x: 0.02081887, y: -0.00007384523, z: -0.011197969}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Neck
+      parentName: mecanim_born_Chest
+      position: {x: -3.0045327e-17, y: 0.10600242, z: -0.015801603}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mecanim_born_Head
+      parentName: mecanim_born_Neck
+      position: {x: 1.850275e-18, y: 0.04938001, z: 0.015801603}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: player
+      parentName: NPC(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator1
+      parentName: player
+      position: {x: -3.2519494e-17, y: 1.247756, z: -0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: group1
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane9
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane10
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane11
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane12
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane13
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane14
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane15
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane17
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane18
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane19
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane20
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane24
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane25
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane26
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane27
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane28
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane29
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane30
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane31
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane32
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane33
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane34
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane35
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane36
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane37
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane38
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane39
+      parentName: group1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface81
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pSphere1
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locator2
+      parentName: player
+      position: {x: -3.2519494e-17, y: 1.247756, z: -0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder18
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface82
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface84
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface85
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface86
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,269 +1,195 @@
 fileFormatVersion: 2
-guid: a8cba91e794b5c24686e4cb1cbd129e4
-timeCreated: 1513217154
+guid: 6701f498646eba9499d41c3cdf7d0014
+timeCreated: 1513217246
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: Chest
-    100002: group1
-    100004: Head
-    100006: Hip
-    100008: L_Foot
-    100010: L_Hand
-    100012: L_Index
-    100014: L_Index1
-    100016: L_Index2
-    100018: L_Little
-    100020: L_Little1
-    100022: L_Little2
-    100024: L_LowerArm
-    100026: L_LowerLeg
-    100028: L_Middle
-    100030: L_Middle1
-    100032: L_Middle2
-    100034: L_Ring
-    100036: L_Ring1
-    100038: L_Ring2
-    100040: L_Shoulder
-    100042: L_Thumb_Distal
-    100044: L_Thumb_Intermediate
-    100046: L_Thunb_Proximal
-    100048: L_Toes
-    100050: L_UpperArm
-    100052: L_UpperLeg
-    100054: locator1
-    100056: locator2
-    100058: Master
-    100060: Neck
-    100062: pCylinder20
-    100064: player3
-    100066: //RootNode
-    100068: polySurface4
-    100070: polySurface5
-    100072: polySurface7
-    100074: polySurface83
-    100076: polySurface84
-    100078: polySurface88
-    100080: polySurface89
-    100082: polySurface90
-    100084: polySurface91
-    100086: pPlane10
-    100088: pPlane11
-    100090: pPlane12
-    100092: pPlane13
-    100094: pPlane14
-    100096: pPlane15
-    100098: pPlane16
-    100100: pPlane17
-    100102: pPlane18
-    100104: pPlane19
-    100106: pPlane20
-    100108: pPlane21
-    100110: pPlane22
-    100112: pPlane23
-    100114: pPlane24
-    100116: pPlane25
-    100118: pPlane26
-    100120: pPlane27
-    100122: pPlane28
-    100124: pPlane29
-    100126: pPlane4
-    100128: pPlane5
-    100130: pPlane6
-    100132: pPlane7
-    100134: pPlane8
-    100136: pPlane9
-    100138: R_Foot
-    100140: R_Hand
-    100142: R_Index
-    100144: R_Index1
-    100146: R_Index2
-    100148: R_Little
-    100150: R_Little1
-    100152: R_Little2
-    100154: R_LowerArm
-    100156: R_LowerLeg
-    100158: R_Middle
-    100160: R_Middle1
-    100162: R_Middle2
-    100164: R_Ring
-    100166: R_Ring1
-    100168: R_Ring2
-    100170: R_Shoulder
-    100172: R_Thumb_Distal
-    100174: R_Thumb_Intermediate
-    100176: R_Thunb_Proximal
-    100178: R_Toes
-    100180: R_UpperArm
-    100182: R_UpperLeg
-    100184: Spine
+    100002: Head
+    100004: Hip
+    100006: L_Foot
+    100008: L_Hand
+    100010: L_Index
+    100012: L_Index1
+    100014: L_Index2
+    100016: L_Little
+    100018: L_Little1
+    100020: L_Little2
+    100022: L_LowerArm
+    100024: L_LowerLeg
+    100026: L_Middle
+    100028: L_Middle1
+    100030: L_Middle2
+    100032: L_Ring
+    100034: L_Ring1
+    100036: L_Ring2
+    100038: L_Shoulder
+    100040: L_Thumb_Distal
+    100042: L_Thumb_Intermediate
+    100044: L_Thunb_Proximal
+    100046: L_Toes
+    100048: L_UpperArm
+    100050: L_UpperLeg
+    100052: locator1
+    100054: locator2
+    100056: Master
+    100058: Neck
+    100060: //RootNode
+    100062: pCylinder18
+    100064: pCylinder19
+    100066: player
+    100068: polySurface82
+    100070: polySurface85
+    100072: polySurface86
+    100074: polySurface87
+    100076: polySurface88
+    100078: polySurface89
+    100080: polySurface90
+    100082: polySurface91
+    100084: polySurface92
+    100086: pPlane1
+    100088: pPlane2
+    100090: pPlane3
+    100092: pPlane5
+    100094: pPlane6
+    100096: pPlane7
+    100098: pSphere1
+    100100: R_Foot
+    100102: R_Hand
+    100104: R_Index
+    100106: R_Index1
+    100108: R_Index2
+    100110: R_Little
+    100112: R_Little1
+    100114: R_Little2
+    100116: R_LowerArm
+    100118: R_LowerLeg
+    100120: R_Middle
+    100122: R_Middle1
+    100124: R_Middle2
+    100126: R_Ring
+    100128: R_Ring1
+    100130: R_Ring2
+    100132: R_Shoulder
+    100134: R_Thumb_Distal
+    100136: R_Thumb_Intermediate
+    100138: R_Thunb_Proximal
+    100140: R_Toes
+    100142: R_UpperArm
+    100144: R_UpperLeg
+    100146: Spine
     400000: Chest
-    400002: group1
-    400004: Head
-    400006: Hip
-    400008: L_Foot
-    400010: L_Hand
-    400012: L_Index
-    400014: L_Index1
-    400016: L_Index2
-    400018: L_Little
-    400020: L_Little1
-    400022: L_Little2
-    400024: L_LowerArm
-    400026: L_LowerLeg
-    400028: L_Middle
-    400030: L_Middle1
-    400032: L_Middle2
-    400034: L_Ring
-    400036: L_Ring1
-    400038: L_Ring2
-    400040: L_Shoulder
-    400042: L_Thumb_Distal
-    400044: L_Thumb_Intermediate
-    400046: L_Thunb_Proximal
-    400048: L_Toes
-    400050: L_UpperArm
-    400052: L_UpperLeg
-    400054: locator1
-    400056: locator2
-    400058: Master
-    400060: Neck
-    400062: pCylinder20
-    400064: player3
-    400066: //RootNode
-    400068: polySurface4
-    400070: polySurface5
-    400072: polySurface7
-    400074: polySurface83
-    400076: polySurface84
-    400078: polySurface88
-    400080: polySurface89
-    400082: polySurface90
-    400084: polySurface91
-    400086: pPlane10
-    400088: pPlane11
-    400090: pPlane12
-    400092: pPlane13
-    400094: pPlane14
-    400096: pPlane15
-    400098: pPlane16
-    400100: pPlane17
-    400102: pPlane18
-    400104: pPlane19
-    400106: pPlane20
-    400108: pPlane21
-    400110: pPlane22
-    400112: pPlane23
-    400114: pPlane24
-    400116: pPlane25
-    400118: pPlane26
-    400120: pPlane27
-    400122: pPlane28
-    400124: pPlane29
-    400126: pPlane4
-    400128: pPlane5
-    400130: pPlane6
-    400132: pPlane7
-    400134: pPlane8
-    400136: pPlane9
-    400138: R_Foot
-    400140: R_Hand
-    400142: R_Index
-    400144: R_Index1
-    400146: R_Index2
-    400148: R_Little
-    400150: R_Little1
-    400152: R_Little2
-    400154: R_LowerArm
-    400156: R_LowerLeg
-    400158: R_Middle
-    400160: R_Middle1
-    400162: R_Middle2
-    400164: R_Ring
-    400166: R_Ring1
-    400168: R_Ring2
-    400170: R_Shoulder
-    400172: R_Thumb_Distal
-    400174: R_Thumb_Intermediate
-    400176: R_Thunb_Proximal
-    400178: R_Toes
-    400180: R_UpperArm
-    400182: R_UpperLeg
-    400184: Spine
-    4300000: pPlane4
-    4300002: pPlane5
-    4300004: pPlane6
-    4300006: pPlane7
-    4300008: pPlane8
-    4300010: pPlane9
-    4300012: pPlane10
-    4300014: pPlane11
-    4300016: pPlane12
-    4300018: pPlane13
-    4300020: pPlane14
-    4300022: pPlane15
-    4300024: pPlane16
-    4300026: pPlane17
-    4300028: pPlane18
-    4300030: pPlane19
-    4300032: pPlane20
-    4300034: pPlane21
-    4300036: pPlane22
-    4300038: pPlane23
-    4300040: pPlane24
-    4300042: pPlane25
-    4300044: pPlane26
-    4300046: pPlane27
-    4300048: pPlane28
-    4300050: pPlane29
-    4300052: polySurface88
-    4300054: polySurface89
-    4300056: polySurface83
-    4300058: polySurface84
-    4300060: polySurface90
-    4300062: pCylinder20
-    4300064: polySurface4
-    4300066: polySurface5
-    4300068: polySurface91
-    4300070: polySurface7
+    400002: Head
+    400004: Hip
+    400006: L_Foot
+    400008: L_Hand
+    400010: L_Index
+    400012: L_Index1
+    400014: L_Index2
+    400016: L_Little
+    400018: L_Little1
+    400020: L_Little2
+    400022: L_LowerArm
+    400024: L_LowerLeg
+    400026: L_Middle
+    400028: L_Middle1
+    400030: L_Middle2
+    400032: L_Ring
+    400034: L_Ring1
+    400036: L_Ring2
+    400038: L_Shoulder
+    400040: L_Thumb_Distal
+    400042: L_Thumb_Intermediate
+    400044: L_Thunb_Proximal
+    400046: L_Toes
+    400048: L_UpperArm
+    400050: L_UpperLeg
+    400052: locator1
+    400054: locator2
+    400056: Master
+    400058: Neck
+    400060: //RootNode
+    400062: pCylinder18
+    400064: pCylinder19
+    400066: player
+    400068: polySurface82
+    400070: polySurface85
+    400072: polySurface86
+    400074: polySurface87
+    400076: polySurface88
+    400078: polySurface89
+    400080: polySurface90
+    400082: polySurface91
+    400084: polySurface92
+    400086: pPlane1
+    400088: pPlane2
+    400090: pPlane3
+    400092: pPlane5
+    400094: pPlane6
+    400096: pPlane7
+    400098: pSphere1
+    400100: R_Foot
+    400102: R_Hand
+    400104: R_Index
+    400106: R_Index1
+    400108: R_Index2
+    400110: R_Little
+    400112: R_Little1
+    400114: R_Little2
+    400116: R_LowerArm
+    400118: R_LowerLeg
+    400120: R_Middle
+    400122: R_Middle1
+    400124: R_Middle2
+    400126: R_Ring
+    400128: R_Ring1
+    400130: R_Ring2
+    400132: R_Shoulder
+    400134: R_Thumb_Distal
+    400136: R_Thumb_Intermediate
+    400138: R_Thunb_Proximal
+    400140: R_Toes
+    400142: R_UpperArm
+    400144: R_UpperLeg
+    400146: Spine
+    4300000: pPlane1
+    4300002: pCylinder18
+    4300004: pPlane2
+    4300006: pPlane3
+    4300008: pPlane5
+    4300010: pSphere1
+    4300012: polySurface86
+    4300014: polySurface87
+    4300016: pPlane6
+    4300018: pPlane7
+    4300020: pCylinder19
+    4300022: polySurface82
+    4300024: polySurface88
+    4300026: polySurface89
+    4300028: polySurface90
+    4300030: polySurface91
+    4300032: polySurface85
+    4300034: polySurface92
     9500000: //RootNode
-    13700000: pCylinder20
-    13700002: polySurface4
-    13700004: polySurface5
-    13700006: polySurface7
-    13700008: polySurface83
-    13700010: polySurface84
+    13700000: pCylinder18
+    13700002: pCylinder19
+    13700004: polySurface82
+    13700006: polySurface85
+    13700008: polySurface86
+    13700010: polySurface87
     13700012: polySurface88
     13700014: polySurface89
     13700016: polySurface90
     13700018: polySurface91
-    13700020: pPlane10
-    13700022: pPlane11
-    13700024: pPlane12
-    13700026: pPlane13
-    13700028: pPlane14
-    13700030: pPlane15
-    13700032: pPlane16
-    13700034: pPlane17
-    13700036: pPlane18
-    13700038: pPlane19
-    13700040: pPlane20
-    13700042: pPlane21
-    13700044: pPlane22
-    13700046: pPlane23
-    13700048: pPlane24
-    13700050: pPlane25
-    13700052: pPlane26
-    13700054: pPlane27
-    13700056: pPlane28
-    13700058: pPlane29
-    13700060: pPlane4
-    13700062: pPlane5
-    13700064: pPlane6
-    13700066: pPlane7
-    13700068: pPlane8
-    13700070: pPlane9
+    13700020: polySurface92
+    13700022: pPlane1
+    13700024: pPlane2
+    13700026: pPlane3
+    13700028: pPlane5
+    13700030: pPlane6
+    13700032: pPlane7
+    13700034: pSphere1
   materials:
     importMaterials: 1
     materialName: 0
@@ -720,19 +646,19 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: player3(Clone)
+    - name: NPC_female(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Master
-      parentName: player3(Clone)
+      parentName: NPC_female(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hip
       parentName: Master
-      position: {x: -3.543711e-33, y: 0.79451025, z: -0.026190758}
+      position: {x: -3.543711e-33, y: 0.75580406, z: -0.026190758}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_UpperLeg
@@ -747,12 +673,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: L_Foot
       parentName: L_LowerLeg
-      position: {x: 4.1911273e-17, y: -0.30305335, z: -0.032040007}
+      position: {x: 4.1911273e-17, y: -0.29646215, z: -0.032040007}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Toes
       parentName: L_Foot
-      position: {x: 1.7763568e-17, y: -0.107660845, z: 0.09454564}
+      position: {x: 9.004066e-18, y: -0.09804279, z: 0.09454564}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_UpperLeg
@@ -767,12 +693,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Foot
       parentName: R_LowerLeg
-      position: {x: 3.0683997e-17, y: -0.30305338, z: -0.032039966}
+      position: {x: 3.0683997e-17, y: -0.29646218, z: -0.032039966}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Toes
       parentName: R_Foot
-      position: {x: -5.3290704e-17, y: -0.10766085, z: 0.0945456}
+      position: {x: -6.048627e-17, y: -0.0980428, z: 0.0945456}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Spine
@@ -788,182 +714,167 @@ ModelImporter:
     - name: L_Shoulder
       parentName: Chest
       position: {x: -0.057089694, y: 0.0459895, z: 0.026616288}
-      rotation: {x: 0.7454911, y: -0.11913891, z: 0.10348846, w: 0.64756405}
+      rotation: {x: 0.7454911, y: -0.119138636, z: 0.10348869, w: 0.647564}
       scale: {x: 1, y: 1, z: 1}
     - name: L_UpperArm
       parentName: L_Shoulder
       position: {x: -0.08473803, y: -1.8318679e-17, z: -2.8865798e-17}
-      rotation: {x: -0.74057984, y: 0.14567283, z: -0.12610257, w: 0.6437538}
+      rotation: {x: -0.7405832, y: 0.14556992, z: -0.12618434, w: 0.64375734}
       scale: {x: 1, y: 1, z: 1}
     - name: L_LowerArm
       parentName: L_UpperArm
-      position: {x: -0.19718927, y: 5.2395e-17, z: 9.8313235e-17}
-      rotation: {x: 0.99997807, y: -0.006625928, z: 2.7401013e-17, w: 6.141524e-17}
+      position: {x: -0.1805109, y: -0.000059158745, z: 1.1069577e-16}
+      rotation: {x: 0.99997807, y: -0.006625928, z: -3.5151692e-19, w: 6.1231357e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Hand
       parentName: L_LowerArm
-      position: {x: -0.14414184, y: -2.298582e-16, z: -1.3483074e-31}
-      rotation: {x: -0.000000033701664, y: -0.0000005883855, z: -0.0051727546, w: 0.99998665}
+      position: {x: -0.14205012, y: -0.000020300771, z: -2.7086906e-17}
+      rotation: {x: -0.0000000056905485, y: -0.0000011399262, z: -0.0075712707, w: 0.99997133}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Thunb_Proximal
       parentName: L_Hand
-      position: {x: -0.022835946, y: 0.0070887557, z: -0.024270287}
+      position: {x: -0.020666862, y: 0.007067704, z: -0.024371369}
       rotation: {x: 0.6457091, y: -0.28820086, z: 0.28192082, w: 0.64847565}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Thumb_Intermediate
       parentName: L_Thunb_Proximal
       position: {x: -0.03392784, y: 2.4080478e-17, z: 1.9897375e-17}
-      rotation: {x: 0.000000029802322, y: -0.0000013113022, z: -0.03684704, w: 0.9993209}
+      rotation: {x: -0, y: -0.0000009089707, z: -0.03684589, w: 0.999321}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Thumb_Distal
       parentName: L_Thumb_Intermediate
-      position: {x: -0.024056545, y: 5.723463e-17, z: -1.4060607e-18}
+      position: {x: -0.024056545, y: 1.2667576e-16, z: -1.4060607e-18}
       rotation: {x: -0.47080037, y: 0.52758604, z: 0.52758604, w: -0.47080037}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Index
       parentName: L_Hand
-      position: {x: -0.08389433, y: -0.015263133, z: -0.023917634}
-      rotation: {x: 0.99985856, y: 0.014043551, z: 0.009255353, w: 0.000044942703}
+      position: {x: -0.08172524, y: -0.015284183, z: -0.024018716}
+      rotation: {x: 0.9998038, y: 0.016684057, z: 0.01068447, w: 0.000051870957}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Index1
       parentName: L_Index
       position: {x: -0.024698924, y: 5.484263e-18, z: -1.5081723e-17}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Index2
       parentName: L_Index1
       position: {x: -0.024018256, y: -2.2597068e-33, z: -7.091993e-34}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Middle
       parentName: L_Hand
-      position: {x: -0.08568026, y: -0.0152458, z: -0.007875146}
-      rotation: {x: 0.9998586, y: 0.0140422685, z: 0.009255136, w: 0.000044852983}
+      position: {x: -0.08351118, y: -0.015266851, z: -0.007976229}
+      rotation: {x: 0.9998037, y: 0.016684068, z: 0.010684669, w: 0.000051840958}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Middle1
       parentName: L_Middle
       position: {x: -0.025338821, y: -9.1428166e-18, z: 3.375809e-17}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Middle2
       parentName: L_Middle1
       position: {x: -0.027930507, y: -3.3827594e-33, z: 1.1928111e-32}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: L_Ring
-      parentName: L_Hand
-      position: {x: -0.08389433, y: -0.015263133, z: 0.008876}
-      rotation: {x: 0.99985856, y: 0.014042044, z: 0.009254914, w: 0.000044822853}
-      scale: {x: 1, y: 1, z: 1}
-    - name: L_Ring1
-      parentName: L_Ring
-      position: {x: -0.025236525, y: 5.603634e-18, z: -1.5409994e-17}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: L_Ring2
-      parentName: L_Ring1
-      position: {x: -0.024690257, y: -4.2134375e-33, z: 1.2293677e-33}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little
       parentName: L_Hand
-      position: {x: -0.08223885, y: -0.015279199, z: 0.024385888}
-      rotation: {x: 0.9998586, y: 0.014039228, z: 0.009253698, w: 0.00004485089}
+      position: {x: -0.080069765, y: -0.015300251, z: 0.024284804}
+      rotation: {x: 0.99980366, y: 0.016685821, z: 0.010685155, w: 0.000051900104}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little1
       parentName: L_Little
       position: {x: -0.022186827, y: -6.1580813e-18, z: 1.9705861e-17}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little2
       parentName: L_Little1
       position: {x: -0.019723607, y: -1.5491256e-30, z: 8.881784e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Ring
+      parentName: L_Hand
+      position: {x: -0.08172524, y: -0.015284183, z: 0.008774917}
+      rotation: {x: 0.9998037, y: 0.016683599, z: 0.010684312, w: 0.000051871088}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Ring1
+      parentName: L_Ring
+      position: {x: -0.025236525, y: 5.603634e-18, z: -1.5409994e-17}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Ring2
+      parentName: L_Ring1
+      position: {x: -0.024690257, y: -4.2134375e-33, z: 1.2293677e-33}
+      rotation: {x: 1.9228386e-22, y: -5.4209766e-20, z: -8.6736174e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Shoulder
       parentName: Chest
-      position: {x: 0.057089698, y: 0.045992203, z: 0.026616288}
-      rotation: {x: -0.6475656, y: 0.10348462, z: 0.11914643, w: 0.745489}
+      position: {x: 0.057089698, y: 0.045991454, z: 0.026616288}
+      rotation: {x: -0.6475657, y: 0.10348441, z: 0.11914673, w: 0.745489}
       scale: {x: 1, y: 1, z: 1}
     - name: R_UpperArm
       parentName: R_Shoulder
       position: {x: 0.08473806, y: -0.0000005331243, z: -0.0000028042455}
-      rotation: {x: -0.74057806, y: 0.1456784, z: -0.12610085, w: 0.64375496}
+      rotation: {x: -0.7405813, y: 0.14557566, z: -0.12618254, w: 0.64375854}
       scale: {x: 1, y: 1, z: 1}
     - name: R_LowerArm
       parentName: R_UpperArm
-      position: {x: 0.19718923, y: 0.000000567554, z: -1.8651746e-16}
-      rotation: {x: 0.99997807, y: -0.006625928, z: -2.8320183e-17, w: -6.142134e-17}
+      position: {x: 0.18051034, y: 0.00005972815, z: -1.0658141e-16}
+      rotation: {x: 0.99997807, y: -0.006625928, z: -5.612692e-17, w: -6.1605586e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Hand
       parentName: R_LowerArm
-      position: {x: 0.1441418, y: 0.0000011353711, z: -2.5757173e-16}
-      rotation: {x: 0.000000040753147, y: -0.00000059632964, z: -0.0051887874, w: 0.9999865}
+      position: {x: 0.1420499, y: 0.000021437774, z: -2.664535e-16}
+      rotation: {x: 0.0000000035731058, y: -0.0000011474382, z: -0.0075875875, w: 0.9999712}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Thunb_Proximal
       parentName: R_Hand
-      position: {x: 0.02283525, y: -0.0070919446, z: 0.0242703}
+      position: {x: 0.020667352, y: -0.0070709046, z: 0.024371399}
       rotation: {x: 0.6457091, y: -0.28820086, z: 0.28192082, w: 0.64847565}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Thumb_Intermediate
       parentName: R_Thunb_Proximal
-      position: {x: 0.033928007, y: -0.00000022910068, z: 0}
-      rotation: {x: -0.00000005960466, y: 0.0000027716164, z: -0.036850296, w: 0.9993208}
+      position: {x: 0.033928, y: -0.00000023585021, z: -1.4210854e-16}
+      rotation: {x: 0.00000008940696, y: -0.0000014752147, z: -0.03684978, w: 0.9993208}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Thumb_Distal
       parentName: R_Thumb_Intermediate
-      position: {x: 0.02405654, y: 0.0000000143376235, z: 2.842171e-16}
+      position: {x: 0.024056546, y: 0.00000002280892, z: 2.842171e-16}
       rotation: {x: -0.47080037, y: 0.52758604, z: 0.52758604, w: -0.47080037}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Index
       parentName: R_Hand
-      position: {x: 0.08389411, y: 0.015266544, z: 0.0239176}
-      rotation: {x: 0.9998583, y: 0.014059501, z: 0.009261352, w: 0.00004490712}
+      position: {x: 0.08172621, y: 0.015287585, z: 0.0240187}
+      rotation: {x: 0.9998034, y: 0.016700406, z: 0.010690252, w: 0.000051879044}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Index1
       parentName: R_Index
-      position: {x: 0.024698999, y: 0, z: -4.440892e-18}
+      position: {x: 0.024697999, y: 0, z: -4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Index2
       parentName: R_Index1
-      position: {x: 0.024017999, y: 0, z: 0}
+      position: {x: 0.024019, y: 0, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Middle
       parentName: R_Hand
-      position: {x: 0.08568002, y: 0.015249211, z: 0.0078751}
-      rotation: {x: 0.9998584, y: 0.014057594, z: 0.009260615, w: 0.00004487626}
+      position: {x: 0.08351212, y: 0.015270252, z: 0.0079761995}
+      rotation: {x: 0.9998033, y: 0.016703965, z: 0.010691567, w: 0.000051967178}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Middle1
       parentName: R_Middle
-      position: {x: 0.025339, y: -1.4210854e-16, z: -4.440892e-18}
+      position: {x: 0.025337998, y: 1.4210854e-16, z: -4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Middle2
       parentName: R_Middle1
-      position: {x: 0.027929999, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: R_Ring
-      parentName: R_Hand
-      position: {x: 0.08389411, y: 0.015266544, z: -0.008876}
-      rotation: {x: 0.9998583, y: 0.014057586, z: 0.009260696, w: 0.000044816767}
-      scale: {x: 1, y: 1, z: 1}
-    - name: R_Ring1
-      parentName: R_Ring
-      position: {x: 0.025237, y: 0, z: -8.881784e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: R_Ring2
-      parentName: R_Ring1
-      position: {x: 0.02469, y: 0, z: 0}
+      position: {x: 0.027931001, y: 0, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Little
       parentName: R_Hand
-      position: {x: 0.08223818, y: 0.015282616, z: -0.0243859}
-      rotation: {x: 0.9998583, y: 0.014056238, z: 0.009260041, w: 0.000044815828}
+      position: {x: 0.08007029, y: 0.0153036555, z: -0.024284799}
+      rotation: {x: 0.9998034, y: 0.016700435, z: 0.01069029, w: 0.000051878993}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Little1
       parentName: R_Little
@@ -972,7 +883,22 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Little2
       parentName: R_Little1
-      position: {x: 0.019723998, y: 0, z: 0}
+      position: {x: 0.019723, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Ring
+      parentName: R_Hand
+      position: {x: 0.08172621, y: 0.015287585, z: -0.0087749}
+      rotation: {x: 0.99980336, y: 0.016701566, z: 0.010690697, w: 0.000051908413}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Ring1
+      parentName: R_Ring
+      position: {x: 0.025236001, y: 1.4210854e-16, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Ring2
+      parentName: R_Ring1
+      position: {x: 0.02469, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Neck
@@ -982,207 +908,112 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Head
       parentName: Neck
-      position: {x: 1.850275e-18, y: 0.066552624, z: 0.027732052}
+      position: {x: 1.850275e-18, y: 0.04938001, z: 0.015801603}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: player3
-      parentName: player3(Clone)
-      position: {x: -0, y: 0.7399042, z: 0.012045483}
+    - name: player
+      parentName: NPC_female(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: locator1
-      parentName: player3
-      position: {x: -3.2519494e-17, y: 0.5279386, z: -0.022229012}
+      parentName: player
+      position: {x: -3.2519494e-17, y: 1.247756, z: -0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: group1
+    - name: pCylinder18
       parentName: locator1
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: pPlane4
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
+    - name: polySurface86
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface87
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane1
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane2
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pPlane3
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: pPlane5
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: pPlane6
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
+      parentName: locator1
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: pPlane7
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane8
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane9
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane10
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane11
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane12
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane13
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane14
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane15
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane16
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane17
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane18
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane19
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane20
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane21
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane22
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane23
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane24
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane25
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane26
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane27
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane28
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: pPlane29
-      parentName: group1
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: polySurface88
       parentName: locator1
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: polySurface89
+    - name: pSphere1
       parentName: locator1
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: locator2
-      parentName: player3
-      position: {x: -3.2519494e-17, y: 0.5279386, z: -0.022229012}
+      parentName: player
+      position: {x: -3.2519494e-17, y: 1.247756, z: -0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: pCylinder20
+    - name: pCylinder19
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: polySurface4
+    - name: polySurface82
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: polySurface5
+    - name: polySurface85
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: polySurface7
+    - name: polySurface88
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: polySurface83
+    - name: polySurface89
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: polySurface84
-      parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: polySurface90
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: polySurface91
       parentName: locator2
-      position: {x: 3.2519494e-17, y: -1.2678429, z: 0.010183531}
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface92
+      parentName: locator2
+      position: {x: 3.2519494e-17, y: -1.247756, z: 0.010183531}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
