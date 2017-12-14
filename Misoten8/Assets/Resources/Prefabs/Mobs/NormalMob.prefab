@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114124700771963632}
   - component: {fileID: 114818292167235918}
   - component: {fileID: 114367314524118280}
+  - component: {fileID: 195662008165811076}
   m_Layer: 0
   m_Name: NormalMob
   m_TagString: Mob
@@ -116,7 +117,6 @@ MonoBehaviour:
   _funType: 0
   _fanLevel: 1
   _mobController: {fileID: 114050216218602054}
-  _modelSkinnidMeshs: {fileID: 0}
   _modelPlaceObject: {fileID: 4211657359280324}
 --- !u!114 &114367314524118280
 MonoBehaviour:
@@ -169,3 +169,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195662008165811076
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133852973740148}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
