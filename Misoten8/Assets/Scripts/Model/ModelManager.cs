@@ -33,7 +33,7 @@ public class ModelManager : SingletonMonoBehaviour<ModelManager>
 	/// </summary>
 	private static readonly Dictionary<ModelType, string> _MODEL_DIRECTORY = new Dictionary<ModelType, string>
 	{
-		{ ModelType.Player1, "Prefabs/Players/Player1" },
+		{ ModelType.Player1, "Prefabs/Players/player1" },
 		{ ModelType.Player2, "Prefabs/Players/player2" },
 		{ ModelType.Player3, "Prefabs/Players/player3" },
 		{ ModelType.Mob1, "Prefabs/Players/NPC" }
