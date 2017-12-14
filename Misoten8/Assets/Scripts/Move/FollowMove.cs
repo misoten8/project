@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 追従移動 クラス
@@ -39,18 +40,23 @@ public class FollowMove : MonoBehaviour, IMove
 
 	private Transform _target = null;
 
-	/// <summary>
+    private NavMeshAgent _agent = null;
+	
+    /// <summary>
 	/// 初期化処理
 	/// </summary>
 	public void OnStart(Transform target)
 	{
 		_target = target;
 		enabled = true;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true;
 	}
 
 	void OnDisable()
 	{
 		_target = null;
+        _agent = null;
 	}
 
 	void Update()
@@ -62,19 +68,13 @@ public class FollowMove : MonoBehaviour, IMove
 			return;
 		}
 
-		Vector3 moveDirection = Vector3.Normalize(_target.position - transform.position);
-		float distance = Vector3.Distance(_target.position, transform.position);
-
-		// 回転処理
-		transform.rotation = Quaternion.LookRotation(moveDirection);
-
-		// 速度計算処理
-		float velocity = _velocity * Mathf.Min((distance - _stopDistance) / _slowDistance, 1.0f);
-
-		// 移動処理
-		transform.position += new Vector3(moveDirection.x * velocity, 0.0f, moveDirection.z * velocity);
-
-		// 遷移チェック
+        // 目標座標設定
+        Vector3 goal = _target.position;
+        goal.x += -Mathf.Sin(( _target.rotation.y - 180.0f ) * Mathf.PI) * 4.0f;
+        goal.z += -Mathf.Cos(( _target.rotation.y - 180.0f ) * Mathf.PI) * 4.0f;
+        _agent.SetDestination(goal);
+		
+        // 遷移チェック
 		_onTransCheck?.Invoke();
 	}
 }
