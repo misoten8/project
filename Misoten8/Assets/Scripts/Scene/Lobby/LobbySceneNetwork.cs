@@ -12,6 +12,9 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	[SerializeField]
 	private LobbyScene _lobbyScene;
 
+	[SerializeField]
+	private bool _offlineMode = false;
+
 	/// <summary>
 	/// メッセージの種類とメッセージの紐付けマップ
 	/// </summary>
@@ -52,13 +55,16 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 	private void Start () 
 	{
-#if UNITY_EDITOR
-		PhotonNetwork.offlineMode = true;
-		PhotonNetwork.player.CustomProperties = Define.defaultRoomPropaties;
-		_currentState = State.WaitMember;
-#else
-		PhotonNetwork.offlineMode = false;
-#endif
+		if (_offlineMode)
+		{
+			PhotonNetwork.offlineMode = true;
+			PhotonNetwork.player.CustomProperties = Define.defaultRoomPropaties;
+			_currentState = State.WaitMember;
+		}
+		else
+		{
+			PhotonNetwork.offlineMode = false;
+		}
 
 		if (!PhotonNetwork.connected)
 		{
