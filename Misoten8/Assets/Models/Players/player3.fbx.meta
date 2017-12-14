@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d47c7082c4b0f5446a7848ae23531cf7
-timeCreated: 1512622337
+guid: a8cba91e794b5c24686e4cb1cbd129e4
+timeCreated: 1513217154
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -798,7 +798,7 @@ ModelImporter:
     - name: L_LowerArm
       parentName: L_UpperArm
       position: {x: -0.19718927, y: 5.2395e-17, z: 9.8313235e-17}
-      rotation: {x: 0.99997807, y: -0.006625928, z: -4.0572105e-19, w: 6.123099e-17}
+      rotation: {x: 0.99997807, y: -0.006625928, z: 2.7401013e-17, w: 6.141524e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Hand
       parentName: L_LowerArm
@@ -893,7 +893,7 @@ ModelImporter:
     - name: R_LowerArm
       parentName: R_UpperArm
       position: {x: 0.19718923, y: 0.000000567554, z: -1.8651746e-16}
-      rotation: {x: 0.99997807, y: -0.006625928, z: -3.163859e-17, w: -6.1443327e-17}
+      rotation: {x: 0.99997807, y: -0.006625928, z: -2.8320183e-17, w: -6.142134e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Hand
       parentName: R_LowerArm
