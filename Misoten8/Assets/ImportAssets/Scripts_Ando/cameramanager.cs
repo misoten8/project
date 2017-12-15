@@ -13,7 +13,6 @@ public class cameramanager : MonoBehaviour {
         DANCE1,
         DANCE2,
         DANCE3,
-        DANCE4,
         PLAYER,
         END
     };
