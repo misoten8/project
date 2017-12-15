@@ -17,7 +17,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	/// シーン遷移する
 	/// </summary>
 	[PunRPC]
-	public void CallBackSwitch(byte nextScene)
+	public void CallBackSwitchBattleScene(byte nextScene)
 	{
 		_battleScene.CallBackSwitch((BattleScene.SceneType)nextScene);
 	}
@@ -26,7 +26,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	/// 生成クラスをアクティブにする
 	/// </summary>
 	[PunRPC]
-	private void StartupGenerator()
+	private void StartupGeneratorBattleScene()
 	{
 		_battleScene.StartupGenerator();
 	}
@@ -45,7 +45,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 			.Where(e => e.ID == player.ID)
 			.Select(e =>
 			{
-
+				Debug.Log("プレイヤー" + player.ID.ToString() + "のプロパティが変化しました");
 				e.SetCustomProperties(properties);
 				return default(IEnumerable);
 			});

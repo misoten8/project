@@ -27,28 +27,20 @@ MonoBehaviour:
   NetworkLogging: 1
   RunInBackground: 1
   RpcList:
+  - CallBackSwitchBattleScene
+  - CallBackSwitchLobbyScene
   - Chat
-  - ColorRpc
+  - DanceBegin
+  - DanceCancel
   - DestroyRpc
-  - DoJump
-  - Flash
   - InstantiateRpc
-  - Marco
   - PickupItemInit
-  - Polo
   - PunPickup
   - PunPickupSimple
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
-  - TaggedPlayer
-  - SetPlayer
-  - StartupGenerator
-  - TransScene
-  - LoadBattleScene
-  - DanceBegin
-  - DanceCancel
   - SendFanChanges
   - SendFollowChanges
-  - CallBackSwitch
+  - StartupGeneratorBattleScene
   DisableAutoOpenWizard: 1

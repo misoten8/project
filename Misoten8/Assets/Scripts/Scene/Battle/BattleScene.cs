@@ -66,7 +66,7 @@ public class BattleScene : SceneBase<BattleScene>
 		duringTransScene = true;
 
 		// シーン遷移処理呼び出し
-		_battleSceneNetwork.photonView.RPC("CallBackSwitch", PhotonTargets.AllViaServer, (byte)nextScene);
+		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
 	}
 
 	/// <summary>
@@ -103,7 +103,7 @@ public class BattleScene : SceneBase<BattleScene>
 			yield return null;
 
 		// クライアント全員の生成クラスをアクティブにする
-		_battleSceneNetwork.photonView.RPC("StartupGenerator", PhotonTargets.AllViaServer);
+		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
 	}
 
 	/// <summary>

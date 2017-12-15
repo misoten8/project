@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+//TODO:カスタムプロパティが正常に値が入っているか確認する
 /// <summary>
 /// ロビーシーン管理クラスで利用する通信処理
 /// </summary>
@@ -48,7 +49,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// シーン切り替え
 	/// </summary>
 	[PunRPC]
-	public void CallBackSwitch(LobbyScene.SceneType nextScene)
+	public void CallBackSwitchLobbyScene(LobbyScene.SceneType nextScene)
 	{
 		_lobbyScene.CallBackSwitch(nextScene);
 	}
