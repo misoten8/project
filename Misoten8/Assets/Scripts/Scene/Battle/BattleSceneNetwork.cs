@@ -19,6 +19,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	[PunRPC]
 	public void CallBackSwitchBattleScene(byte nextScene)
 	{
+		Debug.Log("よばれたぜ");
 		_battleScene.CallBackSwitch((BattleScene.SceneType)nextScene);
 	}
 
@@ -28,6 +29,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	[PunRPC]
 	private void StartupGeneratorBattleScene()
 	{
+		Debug.Log("よばれたぜ");
 		_battleScene.StartupGenerator();
 	}
 
@@ -41,6 +43,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 		var player = i_playerAndUpdatedProps[0] as PhotonPlayer;
 		var properties = i_playerAndUpdatedProps[1] as ExitGames.Client.Photon.Hashtable;
 
+		Debug.Log("誰かのプロパティが変化しました！");
 		PhotonNetwork.playerList
 			.Where(e => e.ID == player.ID)
 			.Select(e =>

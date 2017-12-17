@@ -102,6 +102,8 @@ public class BattleScene : SceneBase<BattleScene>
 		while (IsWaiting())
 			yield return null;
 
+		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
+
 		// クライアント全員の生成クラスをアクティブにする
 		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
 	}
@@ -118,13 +120,16 @@ public class BattleScene : SceneBase<BattleScene>
 
 	private bool IsWaiting()
 	{
+		// TODO:プレイヤー2のカスタムプロパティがnullだったので調査する
 		foreach (var player in PhotonNetwork.playerList)
 		{
 			bool? isBattleSceneLoaded = player.CustomProperties[Define.RoomPropaties.IsBattleSceneLoaded] as bool?;
 			if (isBattleSceneLoaded == null)
-				continue;
+				// 待機
+				return true;
 
 			if (isBattleSceneLoaded == true)
+				// 他のプレイヤーがシーン遷移できたかどうか引き続き調べる
 				continue;
 
 			// 待機
