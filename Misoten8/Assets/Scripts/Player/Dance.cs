@@ -69,7 +69,7 @@ public class Dance : MonoBehaviour
 	[SerializeField]
 	private MeshRenderer _danceFloor;
 
-	private cameramanager _cameramanager;
+	private playercamera _playercamera;
 
 	private int _dancePoint = 100;
 
@@ -97,7 +97,7 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void OnAwake()
 	{
-		_cameramanager = GameObject.Find("Cameras/cameramanager").GetComponent<cameramanager>();
+		_playercamera = GameObject.Find("Cameras/playercamera").GetComponent<playercamera>();
 		_danceCollider.enabled = true;
 		_danceUI.OnAwake();
 		_danceUI.NotActive();
@@ -146,7 +146,7 @@ public class Dance : MonoBehaviour
 			_isPlaing = true;
 			_player.Animator.SetBool("PlayDance", true);
 
-			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.DANCE_INTRO);
+			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 			StartCoroutine("StepDo");
 		}
 	}
@@ -178,7 +178,7 @@ public class Dance : MonoBehaviour
 					// スコアを設定する
 					_dancePoint = 0;
 					_player.Animator.SetBool("PlayDance", false);
-					_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
+					_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 				});
 		}
 	}
@@ -204,7 +204,7 @@ public class Dance : MonoBehaviour
 			// スコアを設定する
 			_dancePoint = 0;
 			_player.Animator.SetBool("PlayDance", false);
-			_cameramanager?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
+			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			StopCoroutine("StepDo");
 		}
 	}

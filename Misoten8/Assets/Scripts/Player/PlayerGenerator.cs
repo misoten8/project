@@ -15,7 +15,7 @@ public class PlayerGenerator : Photon.MonoBehaviour
 	{
 		public MobManager mobManager;
 		public PlayerManager playerManager;
-		public cameramanager cameramanager;
+		public playercamera playercamera;
 	}
 
 	public PlayerCaches Caches
@@ -29,7 +29,7 @@ public class PlayerGenerator : Photon.MonoBehaviour
 	{
 		_caches.mobManager = GetComponent<MobManager>();
 		_caches.playerManager = GetComponent<PlayerManager>();
-		_caches.cameramanager = GameObject.Find("Cameras/cameramanager").GetComponent<cameramanager>();
+		_caches.playercamera = GameObject.Find("Cameras/playercamera").GetComponent<playercamera>();
 
 		if (!PhotonNetwork.isMasterClient)
 			return;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DanceCamera : MonoBehaviour {
     private Cinemachine.CinemachineVirtualCamera vcam;
-
     public void SetPriority(int priority)
     {
         if (vcam == null)
