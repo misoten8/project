@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Cinemachine;
-using UnityEditor;
+//using UnityEditor;
 
 public class cameramove : MonoBehaviour
 {
@@ -35,8 +35,8 @@ public class cameramove : MonoBehaviour
         {
            
             // TODO: replace this with something that does not depend on editor
-            AnimationUtility.SetKeyLeftTangentMode(curve, i, AnimationUtility.TangentMode.Linear);
-            AnimationUtility.SetKeyRightTangentMode(curve, i, AnimationUtility.TangentMode.Linear);
+            //AnimationUtility.SetKeyLeftTangentMode(curve, i, AnimationUtility.TangentMode.Linear);
+            //AnimationUtility.SetKeyRightTangentMode(curve, i, AnimationUtility.TangentMode.Linear);
         }
         #endif
     
