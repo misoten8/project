@@ -74,7 +74,7 @@ public class Player : Photon.PunBehaviour
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
 		_playerColor = Define.playerColor[(int)_type];
-		_dance.OnAwake(_cameramanager);
+		_dance.OnAwake(_playercamera);
 
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
 		// プレイヤー自身だけに実行される処理

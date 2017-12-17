@@ -137,7 +137,7 @@ public class Dance : MonoBehaviour
 	/// <summary>
 	/// playerに呼び出してもらう
 	/// </summary>
-	public void OnAwake(cameramanager playerCamera)
+	public void OnAwake(playercamera playerCamera)
 	{
 		_playercamera = playerCamera;
 
@@ -169,59 +169,7 @@ public class Dance : MonoBehaviour
 	{
 		//if (Player.photonView.isMine)
 		{
-			shakeparameter.ResetShakeParameter();
-
-			// ダンスの振付時間を乱数で決定する
-			_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
-
-			// 合計
-			float sum = _requestTime.Sum();
-
-			// 正規化
-			_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
-
-			_isTransing = false;
-			_isSuccess = false;
-			_dancePoint = 0;
-			_danceUI.Active();
-			_danceFloor.enabled = true;
-			_isPlaing = true;
-			_player.Animator.SetBool("PlayDance", true);
-
-			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 			StartCoroutine("StepDo");
-		}
-	}
-
-	/// <summary>
-	/// ダンス終了
-	/// </summary>
-	public void End()
-	{
-		//if (Player.photonView.isMine)
-		{
-			onEndDance?.Invoke(false, IsSuccess);
-			onEndDance = null;
-			_danceUI.SetResult(IsSuccess);
-			_isTransing = true;
-			shakeparameter.ResetShakeParameter();
-			StopCoroutine("StepDo");
-			Observable
-				.Timer(TimeSpan.FromSeconds(3))
-				.Subscribe(_ =>
-				{
-					if (Player.photonView.isMine)
-						shakeparameter.ResetShakeParameter();
-
-					_isPlaing = false;
-					_isTransing = false;
-					_danceUI.NotActive();
-					_danceFloor.enabled = false;
-					// スコアを設定する
-					_dancePoint = 0;
-					_player.Animator.SetBool("PlayDance", false);
-					_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
-				});
 		}
 	}
 
@@ -300,7 +248,7 @@ public class Dance : MonoBehaviour
 		_isPlaing = true;
 		_player.Animator.SetBool("PlayDance", true);
 
-		_playercamera?.SetCameraMode(cameramanager.CAMERAMODE.DANCE_INTRO);
+		_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 	}
 
 	private void PhasePlay()
@@ -329,7 +277,7 @@ public class Dance : MonoBehaviour
 		// スコアを設定する
 		_dancePoint = 0;
 		_player.Animator.SetBool("PlayDance", false);
-		_playercamera?.SetCameraMode(cameramanager.CAMERAMODE.NORMAL);
+		_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 	}
 
 	private void PhasePenetration()
