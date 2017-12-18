@@ -34,6 +34,22 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	}
 
 	/// <summary>
+	/// バトルシーンの読み込みが終わった事を一定間隔で通知する
+	/// </summary>
+	/// <remarks>
+	/// 一般クライアントが送信する
+	/// </remarks>
+	[PunRPC]
+	private void LoadedBattleSceneSendToMasterClient(byte playerId)
+	{
+		// マスタークライアントのみが処理を実行する
+		if (!PhotonNetwork.isMasterClient)
+			return;
+
+		
+	}
+
+	/// <summary>
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }

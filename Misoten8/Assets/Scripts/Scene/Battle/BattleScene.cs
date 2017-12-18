@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
+using Misoten8Utility;
 
 /// <summary>
 /// バトルシーン管理クラス
@@ -34,6 +36,12 @@ public class BattleScene : SceneBase<BattleScene>
 	private BattleSceneCache _sceneCache;
 
 	/// <summary>
+	/// 一般プレイヤー分存在する
+	/// マスタークライアントのみが使用する
+	/// </summary>
+	private bool[] _isBattleSceneLoaded = null;
+
+	/// <summary>
 	/// 派生クラスのインスタンスを取得
 	/// </summary>
 	protected override BattleScene GetOverrideInstance()
@@ -43,6 +51,8 @@ public class BattleScene : SceneBase<BattleScene>
 
 	private void Start()
 	{
+		_isBattleSceneLoaded = new bool[PhotonNetwork.otherPlayers.Length];
+		_isBattleSceneLoaded?.Foreach(e => e = false);
 		StartCoroutine(DelayInstance());
 		AudioManager.PlayBGM("DJ Striden - Lights [Dream Trance]");
 	}
@@ -109,6 +119,18 @@ public class BattleScene : SceneBase<BattleScene>
 	}
 
 	/// <summary>
+	/// 一定間隔で通知する
+	/// </summary>
+	/// <remarks>
+	/// 一般クライアントが送信する
+	/// </remarks>
+	private IEnumerator RepeatNotification()
+	{
+
+		yield return null;
+	}
+
+	/// <summary>
 	/// 生成クラスをアクティブにする
 	/// </summary>
 	public void StartupGenerator()
@@ -118,25 +140,13 @@ public class BattleScene : SceneBase<BattleScene>
 		_battleTime.enabled = true;
 	}
 
+	public void LoadedBattleSceneSendToMasterClient()
+	{
+
+	}
+
 	private bool IsWaiting()
 	{
-		// TODO:プレイヤー2のカスタムプロパティがnullだったので調査する
-		foreach (var player in PhotonNetwork.playerList)
-		{
-			bool? isBattleSceneLoaded = player.CustomProperties[Define.RoomPropaties.IsBattleSceneLoaded] as bool?;
-			if (isBattleSceneLoaded == null)
-				// 待機
-				return true;
-
-			if (isBattleSceneLoaded == true)
-				// 他のプレイヤーがシーン遷移できたかどうか引き続き調べる
-				continue;
-
-			// 待機
-			return true;
-		}
-		// 待機終了
-		return false;
-		// 全員がシーン遷移が完了したかどうかのチェックする
+		return _isBattleSceneLoaded.All(e => e == true);
 	}
 }
