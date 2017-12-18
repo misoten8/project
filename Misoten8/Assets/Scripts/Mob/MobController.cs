@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// モブキャラ操作 クラス
@@ -16,6 +17,11 @@ public class MobController : MonoBehaviour
 	[SerializeField]
 	private WanderMove _wanderMove;
 
+    [SerializeField]
+    private Animator _animator;
+
+    [SerializeField]
+    private NavMeshAgent _agent;
 	/// <summary>
 	/// 現在の移動処理
 	/// </summary>
@@ -78,6 +84,15 @@ public class MobController : MonoBehaviour
 
 		// 最初は徘徊移動モードにする
 		_wanderMove.OnStart();
+
+        //TODO: ゲーム再生中にInspectorの「Apply RootMotion」のチェックを変更しないとモーションが動かないバグあり
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true;
+        _animator = GetComponent<Animator>();
 	}
 
+    void Update()
+    {
+        _animator.SetFloat("Velocity", _agent.velocity.sqrMagnitude);
+    }
 }
