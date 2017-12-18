@@ -169,7 +169,9 @@ public class Mob : Photon.PunBehaviour
 		Dance playerDance = other.gameObject.GetComponent<Dance>();
 
 		// プレイヤーがダンス中であれば、視聴する
-		if (playerDance.IsPlaying && !playerDance.IsTransing)
+		if (playerDance.IsPlaying && 
+			playerDance.DancePhase != Dance.Phase.End &&
+			playerDance.DancePhase != Dance.Phase.Finish)
 		{
 			// モブ停止イベント実行
 			onDanceWatchMob?.Invoke();

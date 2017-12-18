@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114530930771725634}
   - component: {fileID: 114783742172560974}
   - component: {fileID: 114094976133074562}
+  - component: {fileID: 195729558165677586}
   m_Layer: 0
   m_Name: HardMob
   m_TagString: Mob
@@ -114,7 +115,6 @@ MonoBehaviour:
   _funType: 0
   _fanLevel: 2
   _mobController: {fileID: 114766974231680274}
-  _modelSkinnidMeshs: {fileID: 0}
   _modelPlaceObject: {fileID: 4821788879302480}
 --- !u!114 &114530930771725634
 MonoBehaviour:
@@ -169,3 +169,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195729558165677586
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750030278906678}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

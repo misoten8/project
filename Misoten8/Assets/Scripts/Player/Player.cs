@@ -50,7 +50,7 @@ public class Player : Photon.PunBehaviour
 
 	private MobManager _mobManager;
 
-	private cameramanager _cameramanager;
+	private playercamera _playercamera;
 
 
 	private bool canPlayDance = true;
@@ -67,21 +67,21 @@ public class Player : Photon.PunBehaviour
 		var caches = GameObject.Find("SystemObjects/BattleManager").GetComponent<PlayerGenerator>().Caches;
 		_playerManager = caches.playerManager;
 		_mobManager = caches.mobManager;
-		_cameramanager = caches.cameramanager;
+		_playercamera = caches.playercamera;
 
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
 		_playerColor = Define.playerColor[(int)_type];
-		_dance.OnAwake();
+		_dance.OnAwake(_playercamera);
 
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
 		// プレイヤー自身だけに実行される処理
 		if ((int)photonView.instantiationData[0] == PhotonNetwork.player.ID)
 		{
-			_cameramanager.SetFollowTarget(transform);
-			_cameramanager.SetLookAtTarget(transform);
+			_playercamera.SetFollowTarget(transform);
+			_playercamera.SetLookAtTarget(transform);
 		}
 
 		// モデルの設定
@@ -107,7 +107,8 @@ public class Player : Photon.PunBehaviour
 				_rb.AddForce(-transform.forward * _power);
 			if (shakeparameter.IsOverWithValue(3))
 			{
-				photonView.RPC("DanceBegin", PhotonTargets.AllViaServer);
+                _playercamera.SetDollyPosition(transform);//ドリーの位置設定
+                photonView.RPC("DanceBegin", PhotonTargets.AllViaServer);
 				shakeparameter.ResetShakeParameter();
 			}
 		}
@@ -123,7 +124,8 @@ public class Player : Photon.PunBehaviour
 
 		// 移動量の減衰
 		_rb.velocity -= velocity * 0.1f;
-	}
+
+    }
 
 	/// <summary>
 	/// ダンス開始
@@ -145,7 +147,6 @@ public class Player : Photon.PunBehaviour
 	{
 		if (!photonView.isMine)
 			return;
-
 		_dance.Cancel();
 	}
 

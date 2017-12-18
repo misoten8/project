@@ -82,6 +82,8 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 	{
 		duringTransScene = true;
 
+		shakeparameter.ResetShakeParameter();
+
 		DisplayManager.OnSceneEnd();
 
 		// ディスプレイ解放待ち
@@ -89,6 +91,8 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 			yield return null;
 
 		SceneManager.LoadSceneAsync(SCENE_MAP[nextScene], LoadSceneMode.Single);
+
+		shakeparameter.ResetShakeParameter();
 	}
 
 	private void Awake()
