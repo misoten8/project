@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114783742172560974}
   - component: {fileID: 114094976133074562}
   - component: {fileID: 195729558165677586}
+  - component: {fileID: 95168418211106878}
   m_Layer: 0
   m_Name: HardMob
   m_TagString: Mob
@@ -75,6 +76,23 @@ Transform:
   m_Father: {fileID: 4153846062043606}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95168418211106878
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750030278906678}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4a46284c7447c1c458f2489144078e3e, type: 3}
+  m_Controller: {fileID: 9100000, guid: b32ac3630b166864bb9c4ddcdf08ce6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114094976133074562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +162,8 @@ MonoBehaviour:
   _mob: {fileID: 114378701927149390}
   _followMove: {fileID: 114530930771725634}
   _wanderMove: {fileID: 114783742172560974}
+  _animator: {fileID: 0}
+  _agent: {fileID: 0}
 --- !u!114 &114783742172560974
 MonoBehaviour:
   m_ObjectHideFlags: 1
