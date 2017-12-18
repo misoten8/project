@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using System.Collections;
 
+//TODO:カスタムプロパティが正常に値が入っているか確認する
 /// <summary>
 /// ロビーシーン管理クラスで利用する通信処理
 /// </summary>
@@ -48,7 +51,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// シーン切り替え
 	/// </summary>
 	[PunRPC]
-	public void CallBackSwitch(LobbyScene.SceneType nextScene)
+	public void CallBackSwitchLobbyScene(LobbyScene.SceneType nextScene)
 	{
 		_lobbyScene.CallBackSwitch(nextScene);
 	}
@@ -170,7 +173,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		// 入室ログ表示  
 		Debug.Log("player" + newPlayer.ID.ToString() + "が入室しました");
 
-		if(PhotonNetwork.countOfPlayers == Define.PLAYER_NUM_MAX)
+		if(PhotonNetwork.room?.PlayerCount == Define.PLAYER_NUM_MAX)
 		{
 			_currentState = State.Ready;
 		}
@@ -183,7 +186,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	{
 		Debug.Log("player" + leavePlayer.ID.ToString() + "が退室しました");
 
-		if (PhotonNetwork.countOfPlayers != Define.PLAYER_NUM_MAX)
+		if (PhotonNetwork.room?.PlayerCount != Define.PLAYER_NUM_MAX)
 		{
 			_currentState = State.WaitMember;
 		}
@@ -198,12 +201,36 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	{
 		var boxSize = new Vector2(400.0f, 120.0f);
 		var rect = new Rect(new Vector2(Screen.width * 0.5f - boxSize.x * 0.5f, Screen.height * 0.8f - boxSize.y * 0.5f), boxSize);
-		string message = 
-			_messageMap[_currentState] + "\n" +
-			"現在のルーム接続人数：" + PhotonNetwork.room?.PlayerCount.ToString() + "人\n" +
-			"このルームの最大接続人数：" + PhotonNetwork.room?.MaxPlayers.ToString() + "人\n" +
-			"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です";
+		string message = "";
+		if (!_offlineMode)
+		{
+			message = _messageMap[_currentState] + "\n" +
+				"現在のルーム接続人数：" + PhotonNetwork.room?.PlayerCount.ToString() + "人\n" +
+				"このルームの最大接続人数：" + PhotonNetwork.room?.MaxPlayers.ToString() + "人\n" +
+				"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です";
+		}
+		else
+		{
+			message = "オフラインモードです\n" +
+				"いつでもゲームを開始できます";
+		}
 		// UI表示
 		GUI.Box(rect, message);
+	}
+
+	public void OnPhotonPlayerPropertiesChanged(object[] i_playerAndUpdatedProps)
+	{
+		var player = i_playerAndUpdatedProps[0] as PhotonPlayer;
+		var properties = i_playerAndUpdatedProps[1] as ExitGames.Client.Photon.Hashtable;
+
+		Debug.Log("誰かのプロパティが変化しました！");
+		PhotonNetwork.playerList
+			.Where(e => e.ID == player.ID)
+			.Select(e =>
+			{
+				Debug.Log("プレイヤー" + player.ID.ToString() + "のプロパティが変化しました");
+				e.SetCustomProperties(properties);
+				return default(IEnumerable);
+			});
 	}
 }
