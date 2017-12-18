@@ -85,5 +85,22 @@ namespace Misoten8Utility
 				action?.Invoke(t);
 			}
 		}
+
+		/// <summary>
+		/// 条件が一致した要素の順番を取得する
+		/// </summary>
+		public static int Index<T>(this T[] array, Func<T, bool> action)
+		{
+			int index = 0;
+			foreach (T t in array)
+			{
+				if(action?.Invoke(t) == true)
+				{
+					return index;
+				}
+				index++;
+			}
+			return index;
+		}
 	}
 }

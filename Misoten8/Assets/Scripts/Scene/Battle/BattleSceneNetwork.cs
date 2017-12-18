@@ -46,7 +46,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 		if (!PhotonNetwork.isMasterClient)
 			return;
 
-		
+		_battleScene.LoadedBattleSceneSendToMasterClient(playerId);
 	}
 
 	/// <summary>

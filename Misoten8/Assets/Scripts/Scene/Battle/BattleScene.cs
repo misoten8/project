@@ -53,7 +53,15 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_isBattleSceneLoaded = new bool[PhotonNetwork.otherPlayers.Length];
 		_isBattleSceneLoaded?.Foreach(e => e = false);
-		StartCoroutine(DelayInstance());
+		
+		if (PhotonNetwork.isMasterClient)
+		{
+			StartCoroutine(DelayInstance());
+		}
+		else
+		{
+			StartCoroutine(RepeatNotification());
+		}
 		AudioManager.PlayBGM("DJ Striden - Lights [Dream Trance]");
 	}
 
@@ -101,13 +109,11 @@ public class BattleScene : SceneBase<BattleScene>
 	/// <summary>
 	/// 生成コルーチン
 	/// </summary>
+	/// <remarks>
+	/// マスタークライアントのみが送信する
+	/// </remarks>
 	private IEnumerator DelayInstance()
 	{
-		PhotonNetwork.player.CustomProperties[Define.RoomPropaties.IsBattleSceneLoaded] = true;
-
-		if (!PhotonNetwork.isMasterClient)
-			yield break;
-
 		// 全員が遷移を完了するまで、待機する
 		while (IsWaiting())
 			yield return null;
@@ -126,8 +132,11 @@ public class BattleScene : SceneBase<BattleScene>
 	/// </remarks>
 	private IEnumerator RepeatNotification()
 	{
-
-		yield return null;
+		do
+		{
+			_battleSceneNetwork.photonView.RPC("LoadedBattleSceneSendToMasterClient", PhotonTargets.MasterClient, (byte)PhotonNetwork.player.ID);
+			yield return new WaitForSeconds(0.5f);
+		} while (true);	
 	}
 
 	/// <summary>
@@ -140,13 +149,20 @@ public class BattleScene : SceneBase<BattleScene>
 		_battleTime.enabled = true;
 	}
 
-	public void LoadedBattleSceneSendToMasterClient()
+	/// <summary>
+	/// フラグを受け取る
+	/// </summary>
+	public void LoadedBattleSceneSendToMasterClient(byte playerID)
 	{
-
+		int? index = PhotonNetwork.otherPlayers?.Index(e => e.ID == playerID);
+		if (_isBattleSceneLoaded != null)
+		{
+			_isBattleSceneLoaded[index ?? 0] = true;
+		}
 	}
 
 	private bool IsWaiting()
 	{
-		return _isBattleSceneLoaded.All(e => e == true);
+		return !_isBattleSceneLoaded.All(e => e == true);
 	}
 }

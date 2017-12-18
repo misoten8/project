@@ -43,4 +43,5 @@ MonoBehaviour:
   - SendFanChanges
   - SendFollowChanges
   - StartupGeneratorBattleScene
+  - LoadedBattleSceneSendToMasterClient
   DisableAutoOpenWizard: 1
