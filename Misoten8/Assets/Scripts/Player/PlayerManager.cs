@@ -20,7 +20,7 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// ダンス時間
 	/// </summary>
-	public const float DANCE_TIME = 10.0f;
+	public const float DANCE_TIME = 20.0f;
 
 	/// <summary>
 	/// 一回のダンスで発生するリクエスト回数
