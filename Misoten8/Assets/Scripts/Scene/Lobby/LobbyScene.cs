@@ -55,7 +55,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 		duringTransScene = true;
 
 		// シーン遷移処理呼び出し
-		_lobbySceneNetwork.photonView.RPC("CallBackSwitch", PhotonTargets.AllViaServer, (byte)nextScene);
+		_lobbySceneNetwork.photonView.RPC("CallBackSwitchLobbyScene", PhotonTargets.AllViaServer, (byte)nextScene);
 	}
 
 	/// <summary>
