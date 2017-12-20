@@ -142,8 +142,12 @@ public class Dance : MonoBehaviour
 		_playercamera = playerCamera;
 
 		_danceCollider.enabled = true;
-		_danceUI.OnAwake();
-		_danceUI.NotActive();
+
+		if (Player.photonView.isMine)
+		{
+			_danceUI.OnAwake();
+			_danceUI.NotActive();
+		}
 		_dancePoint = 0;
 	}
 
