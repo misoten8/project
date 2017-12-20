@@ -96,7 +96,7 @@ public class WanderMove : MonoBehaviour, IMove
         _onCheck?.Invoke();
 
         // 目標座標変更処理
-        if (_agent.remainingDistance < 50.0f)
+        if (_agent.remainingDistance < 5.0f || (_agent.velocity.x + _agent.velocity.z) < 0.1f)
         {
             int targetNum;
             targetNum = _marker.GotoNextPoint(_agent);
