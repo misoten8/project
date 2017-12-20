@@ -34,8 +34,9 @@ public class playercamera : MonoBehaviour {
     public const int PRIORITY_LOW       = PRIORITY_HIGH - 1; // HIGHより低ければなんでもOK
     public const int CAMERA_MAX  = (int)CAMERATYPE.END; //カメラの最大数
     private const int CHANGE_TIME = 4;//モードを変える時間
-    private float changetime;   //動きを更新する時刻
+    private float changetime;   //動きを更新する時刻 
     private CinemachineBrain brain;
+    private int cameratypeold;
     public static CAMERAMODE m_mode;
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
 	[SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
@@ -48,6 +49,7 @@ public class playercamera : MonoBehaviour {
     void Start ()
     {
         m_mode = CAMERAMODE.NORMAL;
+        cameratypeold = 0;
     }
     //=======================================
     //関数名 Update
@@ -83,11 +85,15 @@ public class playercamera : MonoBehaviour {
             case CAMERAMODE.DANCE:
                 if (changetime < Time.time)
                 {
-                    Setblend(0);
+                    Setblend(0);                   
                     int random = Random.Range(0, CAMERA_MAX - 1);
-                    Debug.Log(random);
+                    while (random == cameratypeold)
+                    {
+                        random = Random.Range(0, CAMERA_MAX - 1);
+                    }      
                     cameramove.SetCameraNum(random);
                     SetCameraPriority(random);
+                    cameratypeold = random;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
                 }
          
