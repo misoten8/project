@@ -75,6 +75,10 @@ public class Mob : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
+    // フォロワーになった順番
+    // TODO:ここにフォロワーのインデックス番号
+    public int _followInex;
+
 	/// <summary>
 	/// マテリアルを設定する対象メッシュ
 	/// </summary>
