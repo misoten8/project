@@ -7,13 +7,13 @@ using UnityEngine;
 /// </summary>
 public class BeatController : MonoBehaviour
 {
-	public BeatControllerSections this[int index]
+	public BeatControllerSections.Section this[int index]
 	{
 		get
 		{
 			if (0 <= index && index < SectionCount_)
 			{
-				return Sections[index];
+				return Sections.SectionList[index];
 			}
 			else
 			{
@@ -24,7 +24,7 @@ public class BeatController : MonoBehaviour
 	}
 
 	#region editor params
-	public List<BeatControllerSections> Sections;
+	public BeatControllerSections Sections;
 
 	/// <summary>
 	/// Just for music that doesn't start with the first timesample.
@@ -150,7 +150,7 @@ public class BeatController : MonoBehaviour
 		{
 			if (i + 1 < SectionCount)
 			{
-				if (timing.Bar < this[i + 1].StartBar)
+				if (timing.Bar < this[i + 1].startBar)
 				{
 					index = i;
 					break;
@@ -170,8 +170,8 @@ public class BeatController : MonoBehaviour
 		{
 			if (i < endIndex)
 			{
-				musicalTime += this[i + 1].StartBar * this[i].UnitPerBar - currentTiming.GetMusicalTime(this[i]);
-				currentTiming.Set(this[i + 1].StartBar);
+				musicalTime += this[i + 1].startBar * this[i].unitPerBar - currentTiming.GetMusicalTime(this.Sections.SectionList[i]);
+				currentTiming.Set(this[i + 1].startBar);
 			}
 			else
 			{
@@ -214,17 +214,17 @@ public class BeatController : MonoBehaviour
 	public int UnitPerBar { get { return UnitPerBar_; } }
 	public int UnitPerBeat { get { return UnitPerBeat_; } }
 	public AudioSource CurrentSource { get { return musicSource_; } }
-	public BeatControllerSections CurrentSection { get { return CurrentSection_; } }
+	public BeatControllerSections.Section CurrentSection { get { return CurrentSection_; } }
 	public int CurrentSectionIndex { get { return sectionIndex_; } }
 	public int SectionCount { get { return SectionCount_; } }
 	public string CurrentMusicName { get { return name; } }
-	public BeatControllerSections GetSection(int index)
+	public BeatControllerSections.Section GetSection(int index)
 	{
 		return this[index];
 	}
-	public BeatControllerSections GetSection(string sectionName)
+	public BeatControllerSections.Section GetSection(string sectionName)
 	{
-		return Sections.Find((BeatControllerSections s) => s.Name == sectionName);
+		return Sections.SectionList.Find((BeatControllerSections.Section s) => s.Name == sectionName);
 	}
 	/// <summary>
 	/// this will only work when CreateSectionClips == true.
@@ -255,10 +255,10 @@ public class BeatController : MonoBehaviour
 	}
 	public bool IsJustChangedSection(string sectionName = "")
 	{
-		BeatControllerSections targetSection = (sectionName == "" ? CurrentSection : GetSection(sectionName));
+		BeatControllerSections.Section targetSection = (sectionName == "" ? CurrentSection : GetSection(sectionName));
 		if (targetSection != null)
 		{
-			return IsJustChangedAt(targetSection.StartBar);
+			return IsJustChangedAt(targetSection.startBar);
 		}
 		else
 		{
@@ -321,12 +321,12 @@ public class BeatController : MonoBehaviour
 	}
 	public void Seek(Timing timing)
 	{
-		BeatControllerSections section = null;
+		BeatControllerSections.Section section = null;
 		for (int i = 0; i < SectionCount; ++i)
 		{
 			if (i + 1 < SectionCount)
 			{
-				if (timing.Bar < this[i + 1].StartBar)
+				if (timing.Bar < this[i + 1].startBar)
 				{
 					section = this[i];
 				}
@@ -336,8 +336,8 @@ public class BeatController : MonoBehaviour
 				section = this[i];
 			}
 		}
-		int deltaMT = (timing.GetMusicalTime(section) - section.StartBar * section.UnitPerBar);
-		musicSource_.timeSamples = section.StartTimeSamples + (int)(deltaMT * MusicTimeUnit * samplingRate_);
+		int deltaMT = (timing.GetMusicalTime(section) - section.startBar * section.unitPerBar);
+		musicSource_.timeSamples = section.startTimeSamples + (int)(deltaMT * MusicTimeUnit * samplingRate_);
 	}
 	public void SeekToSection(string sectionName)
 	{
@@ -372,7 +372,7 @@ public class BeatController : MonoBehaviour
 	}
 	public void SetNextSection(string name, SyncType syncType = SyncType.NextBar)
 	{
-		SetNextSection(Sections.FindIndex((BeatControllerSections s) => s.Name == name), syncType);
+		SetNextSection(Sections.SectionList.FindIndex((BeatControllerSections.Section s) => s.Name == name), syncType);
 	}
 	#endregion
 
@@ -430,14 +430,14 @@ public class BeatController : MonoBehaviour
 	}
 	private double LagUnit_ { get { return Lag / musicTimeUnit_; } }
 	private float MusicalTime_ { get { return (float)(just_.GetMusicalTime(CurrentSection_) + timeSecFromJust_ / musicTimeUnit_); } }
-	private float MusicalTimeBar_ { get { return MusicalTime_ / CurrentSection_.UnitPerBar; } }
+	private float MusicalTimeBar_ { get { return MusicalTime_ / CurrentSection_.unitPerBar; } }
 	private float AudioTimeSec_ { get { return musicSource_.time; } }
 	private int TimeSamples_ { get { return musicSource_.timeSamples; } }
-	private int SectionCount_ { get { return Sections.Count; } }
-	private int UnitPerBar_ { get { return CurrentSection.UnitPerBar; } }
-	private int UnitPerBeat_ { get { return CurrentSection.UnitPerBeat; } }
+	private int SectionCount_ { get { return Sections.SectionList.Count; } }
+	private int UnitPerBar_ { get { return CurrentSection.unitPerBar; } }
+	private int UnitPerBeat_ { get { return CurrentSection.unitPerBeat; } }
 	private bool IsPlaying_ { get { return (musicSource_ != null && musicSource_.isPlaying); } }
-	private BeatControllerSections CurrentSection_ { get { return Sections[sectionIndex_]; } }
+	private BeatControllerSections.Section CurrentSection_ { get { return Sections.SectionList[sectionIndex_]; } }
 	#endregion
 
 	#region private predicates
@@ -484,28 +484,29 @@ public class BeatController : MonoBehaviour
 		if (musicSource_.loop)
 		{
 			samplesInLoop_ = musicSource_.clip.samples;
-			BeatControllerSections lastSection = Sections[Sections.Count - 1];
-			double beatSec = (60.0 / lastSection.Tempo);
-			int samplesPerBar = (int)(samplingRate_ * lastSection.UnitPerBar * (beatSec / lastSection.UnitPerBeat));
-			numLoopBar_ = lastSection.StartBar + Mathf.RoundToInt((float)(samplesInLoop_ - lastSection.StartTimeSamples) / (float)samplesPerBar);
+			BeatControllerSections.Section lastSection = Sections.SectionList[Sections.SectionList.Count - 1];
+			double beatSec = (60.0 / lastSection.tempo);
+			int samplesPerBar = (int)(samplingRate_ * lastSection.unitPerBar * (beatSec / lastSection.unitPerBeat));
+			numLoopBar_ = lastSection.startBar + Mathf.RoundToInt((float)(samplesInLoop_ - lastSection.startTimeSamples) / (float)samplesPerBar);
 		}
 
 		if (CreateSectionClips)
 		{
-			AudioClip[] clips = new AudioClip[Sections.Count];
+			int listCount = Sections.SectionList.Count;
+			AudioClip[] clips = new AudioClip[listCount];
 			int previousSectionSample = 0;
-			for (int i = 0; i < Sections.Count; ++i)
+			for (int i = 0; i < listCount; ++i)
 			{
-				int nextSectionSample = (i + 1 < Sections.Count ? Sections[i + 1].StartTimeSamples : musicSource_.clip.samples);
-				clips[i] = AudioClip.Create(Sections[i].Name + "_clip", nextSectionSample - previousSectionSample, musicSource_.clip.channels, musicSource_.clip.frequency, false);
+				int nextSectionSample = (i + 1 < listCount ? Sections.SectionList[i + 1].startTimeSamples : musicSource_.clip.samples);
+				clips[i] = AudioClip.Create(Sections.SectionList[i].Name + "_clip", nextSectionSample - previousSectionSample, musicSource_.clip.channels, musicSource_.clip.frequency, false);
 				previousSectionSample = nextSectionSample;
 				float[] waveData = new float[clips[i].samples * clips[i].channels];
-				musicSource_.clip.GetData(waveData, Sections[i].StartTimeSamples);
+				musicSource_.clip.GetData(waveData, Sections.SectionList[i].startTimeSamples);
 				clips[i].SetData(waveData, 0);
-				AudioSource sectionSource = new GameObject("section_" + Sections[i].Name, typeof(AudioSource)).GetComponent<AudioSource>();
+				AudioSource sectionSource = new GameObject("section_" + Sections.SectionList[i].Name, typeof(AudioSource)).GetComponent<AudioSource>();
 				sectionSource.transform.parent = this.transform;
 				sectionSource.clip = clips[i];
-				sectionSource.loop = Sections[i].LoopType == BeatControllerSections.ClipType.Loop;
+				sectionSource.loop = Sections.SectionList[i].loopType == BeatControllerSections.ClipType.Loop;
 				sectionSource.outputAudioMixerGroup = musicSource_.outputAudioMixerGroup;
 				sectionSource.volume = musicSource_.volume;
 				sectionSource.pitch = musicSource_.pitch;
@@ -546,20 +547,20 @@ public class BeatController : MonoBehaviour
 
 	void OnSectionChanged()
 	{
-		if (Sections == null || Sections.Count == 0)
+		if (Sections == null || Sections.SectionList.Count == 0)
 			return;
-		if (CurrentSection_.Tempo > 0.0f)
+		if (CurrentSection_.tempo > 0.0f)
 		{
-			double beatSec = (60.0 / CurrentSection_.Tempo);
-			samplesPerUnit_ = (int)(samplingRate_ * (beatSec / CurrentSection_.UnitPerBeat));
+			double beatSec = (60.0 / CurrentSection_.tempo);
+			samplesPerUnit_ = (int)(samplingRate_ * (beatSec / CurrentSection_.unitPerBeat));
 			samplesPerBeat_ = (int)(samplingRate_ * beatSec);
-			samplesPerBar_ = (int)(samplingRate_ * CurrentSection_.UnitPerBar * (beatSec / CurrentSection_.UnitPerBeat));
+			samplesPerBar_ = (int)(samplingRate_ * CurrentSection_.unitPerBar * (beatSec / CurrentSection_.unitPerBeat));
 			musicTimeUnit_ = (double)samplesPerUnit_ / (double)samplingRate_;
 			if (CreateSectionClips)
 			{
 				samplesInLoop_ = musicSource_.clip.samples;
 				numLoopBar_ = Mathf.RoundToInt(samplesInLoop_ / (float)samplesPerBar_);
-				if (CurrentSection_.LoopType == BeatControllerSections.ClipType.Through)
+				if (CurrentSection_.loopType == BeatControllerSections.ClipType.Through)
 				{
 					SetNextSection_(sectionIndex_ + 1, SyncType.SectionEnd);
 				}
@@ -586,7 +587,7 @@ public class BeatController : MonoBehaviour
 		{
 			if (CreateSectionClips)
 			{
-				int index = Sections.FindIndex((BeatControllerSections s) => s.Name == sectionName);
+				int index = Sections.SectionList.FindIndex((BeatControllerSections.Section s) => s.Name == sectionName);
 				if (index >= 0)
 				{
 					musicSource_ = sectionSources_[index];
@@ -608,11 +609,11 @@ public class BeatController : MonoBehaviour
 
 	void SeekToSection_(string sectionName)
 	{
-		BeatControllerSections targetSection = GetSection(sectionName);
+		BeatControllerSections.Section targetSection = GetSection(sectionName);
 		if (targetSection != null)
 		{
-			musicSource_.timeSamples = targetSection.StartTimeSamples;
-			sectionIndex_ = Sections.IndexOf(targetSection);
+			musicSource_.timeSamples = targetSection.startTimeSamples;
+			sectionIndex_ = Sections.SectionList.IndexOf(targetSection);
 			OnSectionChanged();
 		}
 		else
@@ -670,12 +671,12 @@ public class BeatController : MonoBehaviour
 				break;
 			case SyncType.SectionEnd:
 				syncUnit = samplesInLoop_;
-				transitionTiming_.Bar = CurrentSection_.StartBar + numLoopBar_;
+				transitionTiming_.Bar = CurrentSection_.startBar + numLoopBar_;
 				transitionTiming_.Beat = transitionTiming_.Unit = 0;
 				break;
 		}
 		transitionTiming_.Fix(CurrentSection_);
-		if (CurrentSection_.LoopType == BeatControllerSections.ClipType.Loop && transitionTiming_.Bar >= CurrentSection_.StartBar + numLoopBar_)
+		if (CurrentSection_.loopType == BeatControllerSections.ClipType.Loop && transitionTiming_.Bar >= CurrentSection_.startBar + numLoopBar_)
 		{
 			transitionTiming_.Bar -= numLoopBar_;
 		}
@@ -719,7 +720,7 @@ public class BeatController : MonoBehaviour
 		{
 			int oldSample = currentSample_;
 			currentSample_ = musicSource_.timeSamples;
-			if (sectionIndex_ + 1 >= Sections.Count)
+			if (sectionIndex_ + 1 >= Sections.SectionList.Count)
 			{
 				if (currentSample_ < oldSample)
 				{
@@ -728,7 +729,7 @@ public class BeatController : MonoBehaviour
 			}
 			else
 			{
-				if (Sections[sectionIndex_ + 1].StartTimeSamples <= currentSample_)
+				if (Sections.SectionList[sectionIndex_ + 1].startTimeSamples <= currentSample_)
 				{
 					newIndex = sectionIndex_ + 1;
 				}
@@ -744,35 +745,35 @@ public class BeatController : MonoBehaviour
 		// calc current timing
 		isNearChanged_ = false;
 		isJustChanged_ = false;
-		int sectionSample = currentSample_ - (CreateSectionClips ? 0 : CurrentSection_.StartTimeSamples);
+		int sectionSample = currentSample_ - (CreateSectionClips ? 0 : CurrentSection_.startTimeSamples);
 		if (sectionSample >= 0)
 		{
-			just_.Bar = (int)(sectionSample / samplesPerBar_) + CurrentSection_.StartBar;
+			just_.Bar = (int)(sectionSample / samplesPerBar_) + CurrentSection_.startBar;
 			just_.Beat = (int)((sectionSample % samplesPerBar_) / samplesPerBeat_);
 			just_.Unit = (int)(((sectionSample % samplesPerBar_) % samplesPerBeat_) / samplesPerUnit_);
 			just_.Fix(CurrentSection_);
 			if (CreateSectionClips)
 			{
-				if (CurrentSection_.LoopType == BeatControllerSections.ClipType.Loop && numLoopBar_ > 0)
+				if (CurrentSection_.loopType == BeatControllerSections.ClipType.Loop && numLoopBar_ > 0)
 				{
-					just_.Bar -= CurrentSection_.StartBar;
+					just_.Bar -= CurrentSection_.startBar;
 					while (just_.Bar >= numLoopBar_)
 					{
 						just_.Decrement(CurrentSection_);
 					}
-					just_.Bar += CurrentSection_.StartBar;
+					just_.Bar += CurrentSection_.startBar;
 				}
 
 				if (isTransitioning_ && just_.Equals(transitionTiming_))
 				{
-					if (CurrentSection_.LoopType == BeatControllerSections.ClipType.Loop && just_.Bar == CurrentSection_.StartBar)
-						just_.Bar = CurrentSection_.StartBar + numLoopBar_;
+					if (CurrentSection_.loopType == BeatControllerSections.ClipType.Loop && just_.Bar == CurrentSection_.startBar)
+						just_.Bar = CurrentSection_.startBar + numLoopBar_;
 					just_.Decrement(CurrentSection_);
 				}
 			}
 			else
 			{
-				if (sectionIndex_ + 1 >= Sections.Count)
+				if (sectionIndex_ + 1 >= Sections.SectionList.Count)
 				{
 					if (numLoopBar_ > 0)
 					{
@@ -784,17 +785,17 @@ public class BeatController : MonoBehaviour
 				}
 				else
 				{
-					while (just_.Bar >= Sections[sectionIndex_ + 1].StartBar)
+					while (just_.Bar >= Sections.SectionList[sectionIndex_ + 1].startBar)
 					{
 						just_.Decrement(CurrentSection_);
 					}
 				}
 			}
 
-			just_.Bar -= CurrentSection_.StartBar;
+			just_.Bar -= CurrentSection_.startBar;
 			timeSecFromJust_ = (double)(sectionSample - just_.Bar * samplesPerBar_ - just_.Beat * samplesPerBeat_ - just_.Unit * samplesPerUnit_) / (double)samplingRate_;
 			isFormerHalf_ = (timeSecFromJust_ * samplingRate_) < samplesPerUnit_ / 2;
-			just_.Bar += CurrentSection_.StartBar;
+			just_.Bar += CurrentSection_.startBar;
 
 			near_.Copy(just_);
 			if (!isFormerHalf_)
@@ -816,7 +817,7 @@ public class BeatController : MonoBehaviour
 		if (DebugText != null)
 		{
 			DebugText.text = "Just = " + Just.ToString() + ", MusicalTime = " + MusicalTime_;
-			if (Sections.Count > 0)
+			if (Sections.SectionList.Count > 0)
 			{
 				DebugText.text += System.Environment.NewLine + "section[" + sectionIndex_ + "] = " + CurrentSection_.ToString();
 			}
@@ -908,44 +909,45 @@ public class Timing : IComparable<Timing>, IEquatable<Timing>
 
 	public int Bar, Beat, Unit;
 
-	public int CurrentMusicalTime
+	//TODO:後で修正する
+	//public int CurrentMusicalTime
+	//{
+	//	get { return GetMusicalTime(_beatController.CurrentSection.Sections); }
+	//}
+	public int GetMusicalTime(BeatControllerSections.Section section)
 	{
-		get { return GetMusicalTime(_beatController.CurrentSection); }
+		return Bar * section.unitPerBar + Beat * section.unitPerBeat + Unit;
 	}
-	public int GetMusicalTime(BeatControllerSections section)
+	public void Fix(BeatControllerSections.Section section)
 	{
-		return Bar * section.UnitPerBar + Beat * section.UnitPerBeat + Unit;
+		int totalUnit = Bar * section.unitPerBar + Beat * section.unitPerBeat + Unit;
+		Bar = totalUnit / section.unitPerBar;
+		Beat = (totalUnit - Bar * section.unitPerBar) / section.unitPerBeat;
+		Unit = (totalUnit - Bar * section.unitPerBar - Beat * section.unitPerBeat);
 	}
-	public void Fix(BeatControllerSections section)
-	{
-		int totalUnit = Bar * section.UnitPerBar + Beat * section.UnitPerBeat + Unit;
-		Bar = totalUnit / section.UnitPerBar;
-		Beat = (totalUnit - Bar * section.UnitPerBar) / section.UnitPerBeat;
-		Unit = (totalUnit - Bar * section.UnitPerBar - Beat * section.UnitPerBeat);
-	}
-	public void Increment(BeatControllerSections section)
+	public void Increment(BeatControllerSections.Section section)
 	{
 		Unit++;
 		Fix(section);
 	}
-	public void Decrement(BeatControllerSections section)
+	public void Decrement(BeatControllerSections.Section section)
 	{
 		Unit--;
 		Fix(section);
 	}
-	public void IncrementBeat(BeatControllerSections section)
+	public void IncrementBeat(BeatControllerSections.Section section)
 	{
 		Beat++;
 		Fix(section);
 	}
-	public void Add(Timing t, BeatControllerSections section)
+	public void Add(Timing t, BeatControllerSections.Section section)
 	{
 		Bar += t.Bar;
 		Beat += t.Beat;
 		Unit += t.Unit;
 		Fix(section);
 	}
-	public void Subtract(Timing t, BeatControllerSections section)
+	public void Subtract(Timing t, BeatControllerSections.Section section)
 	{
 		Bar -= t.Bar;
 		Beat -= t.Beat;

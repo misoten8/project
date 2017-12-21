@@ -28,6 +28,11 @@ public class LobbyScene : SceneBase<LobbyScene>
 		return this;
 	}
 
+	void Start()
+	{
+		AudioManager.Play(BGMType.Lobby);
+	}
+
 	void Update () 
 	{
 		if (shakeparameter.IsOverWithValue(2))

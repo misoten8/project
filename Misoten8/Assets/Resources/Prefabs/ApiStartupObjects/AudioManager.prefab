@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4342277650680800}
   - component: {fileID: 114336732242176184}
+  - component: {fileID: 114777306576885768}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -51,6 +52,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ccf5f04b0aa154a94097a19bcafc1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BGMPrefab: {fileID: 1647627277447620, guid: 52d84e83bef2fef4f87c9bea833abb4b,
-    type: 2}
-  m_SEPrefab: {fileID: 1090345050617022, guid: ab5d96d706704df4982967187c6313c4, type: 2}
+  SEPrefab: {fileID: 1090345050617022, guid: ab5d96d706704df4982967187c6313c4, type: 2}
+  m_beatController: {fileID: 114777306576885768}
+--- !u!114 &114777306576885768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1588434186354158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ca2811be963cf458eed98fa9249f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sections: {fileID: 0}
+  EntryPointSample: 0
+  DebugText: {fileID: 0}
+  CreateSectionClips: 0
+  musicSource_: {fileID: 0}

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -10,14 +9,37 @@ using System.Linq;
 public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
 	[SerializeField]
-	GameObject m_BGMPrefab;
+	private GameObject SEPrefab;
 	[SerializeField]
-	GameObject m_SEPrefab;
+	private BeatController m_beatController;
+
+	private static readonly Dictionary<BGMType, string> _BGM_PATH_MAP = new Dictionary<BGMType, string>
+	{
+		{ BGMType.Title, "TitleBGM" },
+		{ BGMType.Lobby, "LobbyBGM" },
+		{ BGMType.Battle, "BattleBGM" },
+		{ BGMType.Result, "ResultBGM" }
+	};
+
+	private static readonly Dictionary<SEType, string> _SE_PATH_MAP = new Dictionary<SEType, string>
+	{
+		{ SEType.Click, "button" },
+	};
+
+	private const string _BGM_PATH = "Prefab/Audios/BGM/";
+	private const string _SE_PATH = "Audios/SE/";
+
+	/// <summary>
+	/// BGMのキャッシュリスト
+	/// </summary>
+	private Dictionary<BGMType, AudioBGM> _bgms = new Dictionary<BGMType, AudioBGM>();
+
+	private Dictionary<BGMType, GameObject> _BGMPrefabs = new Dictionary<BGMType, GameObject>();
 
 	/// <summary>
 	/// サウンドのAudioClipキャッシュリスト
 	/// </summary>
-	List<AudioClip> m_SECacheList = new List<AudioClip>();
+	private List<AudioClip> m_SECacheList = new List<AudioClip>();
 
 	void Start()
 	{
@@ -29,11 +51,27 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 	/// </summary>
 	public static void Load()
 	{
-		// サウンドは事前に読み込んでキャッシュする
-		if (Instance.m_SECacheList.Count > 0) return;
-		foreach (AudioClip audioClip in Resources.LoadAll<AudioClip>("Audios/SE"))
+		// BGM
+		if (Instance._bgms.Count == 0)
 		{
-			Instance.m_SECacheList.Add(audioClip);
+			//foreach (var audioMap in Resources.LoadAll<GameObject>(_BGM_PATH))
+			//{
+			//	string path = _BGM_PATH + audioMap.Value;
+			//	var audioPrefab = Resources.Load(path) as GameObject;
+			//	if(audioPrefab == null)
+			//	{
+			//		Debug.LogWarning("audioPrefabが取得できませんでした	指定パス：" + path);
+			//	}
+			//	Instance._BGMPrefabs.Add(audioMap.Key, audioPrefab);
+			//}
+		}
+		// SE
+		if (Instance.m_SECacheList.Count == 0)
+		{
+			foreach (AudioClip audioClip in Resources.LoadAll<AudioClip>(_SE_PATH))
+			{
+				Instance.m_SECacheList.Add(audioClip);
+			}
 		}
 	}
 
@@ -41,36 +79,34 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 	/// BGMを再生
 	/// </summary>
 	/// <param name="fileName">ファイル名</param>
-	public static void PlayBGM(string fileName)
+	public static void Play(BGMType type)
 	{
-		GameObject obj = Instantiate(Instance.m_BGMPrefab, Instance.transform);
-		obj.name = "BGM_" + fileName;
-		AudioSource audioSource = obj.GetComponent<AudioSource>();
-		audioSource.clip = Resources.Load<AudioClip>("Audios/BGM/" + fileName);
-		audioSource.volume = 0.5f;
-		if (audioSource.clip == null)
+		GameObject obj = Instantiate(Instance._BGMPrefabs[type].gameObject, Instance.transform);
+		obj.name = "BGM_" + _BGM_PATH_MAP[type];
+		AudioBGM audio = obj.GetComponent<AudioBGM>();
+		if (audio == null)
 		{
-			Debug.LogWarning("指定された名前のオーディオファイルが見つかりませんでした　ファイル名：" + fileName);
+			Debug.LogWarning("指定された名前のBGMファイルが見つかりませんでした　ファイル名：" + _BGM_PATH_MAP[type]);
 			Destroy(obj);
 			return;
 		}
-		audioSource.Play();
+		audio.AudioSource.Play();
 	}
 
 	/// <summary>
 	/// SEを再生
 	/// </summary>
 	/// <param name="fileName">ファイル名</param>
-	public static void PlaySE(string fileName)
+	public static void Play(SEType type)
 	{
-		GameObject obj = Instantiate(Instance.m_SEPrefab, Instance.transform);
-		obj.name = "SE_" + fileName;
+		GameObject obj = Instantiate(Instance.SEPrefab, Instance.transform);
+		obj.name = "SE_" + _SE_PATH_MAP[type];
 		AudioSource audioSource = obj.GetComponent<AudioSource>();
-		audioSource.clip = Instance.m_SECacheList.Where(e => e.name == fileName).FirstOrDefault();
+		audioSource.clip = Instance.m_SECacheList.Where(e => e.name == _SE_PATH_MAP[type]).FirstOrDefault();
 		audioSource.volume = 1.0f;
 		if (audioSource.clip == null)
 		{
-			Debug.LogWarning("指定された名前のオーディオファイルが見つかりませんでした　ファイル名：" + fileName);
+			Debug.LogWarning("指定された名前のオーディオファイルが見つかりませんでした　ファイル名：" + _SE_PATH_MAP[type]);
 			Destroy(obj);
 			return;
 		}
