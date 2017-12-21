@@ -11,8 +11,9 @@ public class dancecameradolly : MonoBehaviour {
     public void SetPosition(Transform transf)
     {
         Vector3 pos = transf.position;
-        pos.y += 3;
-        pos.z += 10;
+        pos.x += 5;
+        pos.y += 1;
+        pos.z += 4;
         transform.position = pos;
     }
 }
