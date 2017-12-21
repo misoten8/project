@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 徘徊移動 クラス
@@ -8,123 +9,98 @@ using UnityEngine;
 /// </summary>
 public class WanderMove : MonoBehaviour, IMove
 {
-	private enum State
-	{
-		Move,
-		Stop
-	}
+    private enum State
+    {
+        Move,
+        Stop
+    }
 
-	private State _state = State.Move;
 
-	/// <summary>
-	/// 遷移条件判定イベント
-	/// Updateのタイミングで呼ばれます
-	/// </summary>
-	public Action OnCheck
-	{
-		set { _onCheck += value; }
-	}
+    
+    private State _state = State.Move;
 
-	private Action _onCheck;
+    private MarkerManager _marker;
+    private NavMeshAgent _agent = null;
 
-	/// <summary>
-	/// 遷移時実行イベント
-	/// </summary>
-	public Action OnTrans
-	{
-		set { _onTrans += value; }
-	}
+    /// <summary>
+    /// 遷移条件判定イベント
+    /// Updateのタイミングで呼ばれます
+    /// </summary>
+    public Action OnCheck
+    {
+        set { _onCheck += value; }
+    }
 
-	private Action _onTrans;
+    private Action _onCheck;
 
-	/// <summary>
-	/// 移動する速度
-	/// </summary>
-	[SerializeField]
-	private float _velocity;
+    /// <summary>
+    /// 遷移時実行イベント
+    /// </summary>
+    public Action OnTrans
+    {
+        set { _onTrans += value; }
+    }
 
-	/// <summary>
-	/// 最大速度
-	/// </summary>
-	[SerializeField]
-	private float _maxVelocity;
+    private Action _onTrans;
 
-	/// <summary>
-	/// 移動方向
-	/// </summary>
-	private Vector3 _moveDirection;
+    /// <summary>
+    /// 移動する速度
+    /// </summary>
+    [SerializeField]
+    private float _velocity;
 
-	/// <summary>
-	/// 最初に呼ばれるフレームかどうか
-	/// </summary>
-	private bool _isFirstFrame = true;
+    /// <summary>
+    /// 最大速度
+    /// </summary>
+    [SerializeField]
+    private float _maxVelocity;
 
-	/// <summary>
-	/// 中断時にuniRxのパイプラインを解放する
-	/// </summary>
-	private IDisposable _disposable;
+    /// <summary>
+    /// 移動方向
+    /// </summary>
+    private Vector3 _moveDirection;
 
-	/// <summary>
-	/// 初期化処理
-	/// </summary>
-	public void OnStart()
-	{
-		enabled = true;
-		_isFirstFrame = true;
-		_state = State.Move;
-	}
+    /// <summary>
+    /// 最初に呼ばれるフレームかどうか
+    /// </summary>
+    private bool _isFirstFrame = true;
 
-	private void OnDisable()
-	{
-		// 破棄
-		_disposable?.Dispose();
-	}
+    /// <summary>
+    /// 中断時にuniRxのパイプラインを解放する
+    /// </summary>
+    private IDisposable _disposable;
 
-	void Update()
-	{
-		switch (_state)
-		{
-			case State.Move:
-				if (_isFirstFrame)
-				{
-					_isFirstFrame = false;
-					// 移動方向を決める
-					float rotationY = UnityEngine.Random.Range(-10.0f, 10.0f);
-					_moveDirection = new Vector3(Mathf.Sin(rotationY) * 1, 0, Mathf.Cos(rotationY) * 1);
+    /// <summary>
+    /// 初期化処理
+    /// </summary>
+    public void OnStart()
+    {
+        enabled = true;
+        _isFirstFrame = true;
+        _state = State.Move;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.enabled = true;
+        _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
+        _marker.GotoNextPoint(_agent);
+    }
 
-					_disposable = Observable
-						.Timer(TimeSpan.FromSeconds(UnityEngine.Random.Range(1, 3)))
-						.Subscribe(e => 
-						{
-							_state = State.Stop;
-							_isFirstFrame = true;
-						});
-				}
-				// 回転処理
-				transform.rotation = Quaternion.LookRotation(_moveDirection);
+    private void OnDisable()
+    {
+        // 破棄
+        _disposable?.Dispose();
+    }
 
-				// 移動処理
-				transform.position += new Vector3(_moveDirection.x * _velocity, 0.0f, _moveDirection.z * _velocity);
+    void Update()
+    {
+        // 遷移チェック
+        _onCheck?.Invoke();
 
-				// 遷移チェック
-				_onCheck?.Invoke();
-				break;
-			case State.Stop:
-				if (_isFirstFrame)
-				{
-					_isFirstFrame = false;
-
-					_disposable = Observable
-						.Timer(TimeSpan.FromSeconds(UnityEngine.Random.Range(1, 3)))
-						.Subscribe(e =>
-						{
-							_state = State.Move;
-							_isFirstFrame = true;
-						});
-				}
-				// 遷移チェック
-				_onCheck?.Invoke();
-				break;
-		}
-	}
+        // 目標座標変更処理
+        if (_agent.remainingDistance < 5.0f || (_agent.velocity.x + _agent.velocity.z) < 0.1f)
+        {
+            int targetNum;
+            targetNum = _marker.GotoNextPoint(_agent);
+            // TODO:ここにMobの目標マーカー番号送信処理？
+        }
+    }
 }
