@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// BeatControllerSection クラス
 /// </summary>
-public class BeatControllerSection : MonoBehaviour 
+public class BeatControllerSections : MonoBehaviour 
 {
 	public enum ClipType
 	{
