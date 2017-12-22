@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections;
 
 //TODO:乱入に対応する
+//TODO:各ユーザーのPhaseを同期する
 /// <summary>
 /// ダンス クラス
 /// 製作者：実川
@@ -135,6 +136,11 @@ public class Dance : MonoBehaviour
 	private float[] _requestTime = new float[PlayerManager.REQUEST_COUNT];
 
 	/// <summary>
+	/// ステップ実行のコルーチンインスタンス
+	/// </summary>
+	private Coroutine _coroutine = null;
+
+	/// <summary>
 	/// playerに呼び出してもらう
 	/// </summary>
 	public void OnAwake(playercamera playerCamera)
@@ -143,7 +149,7 @@ public class Dance : MonoBehaviour
 
 		_danceCollider.enabled = true;
 
-		if (Player.photonView.isMine)
+		if (Player.IsMine)
 		{
 			_danceUI.OnAwake();
 			_danceUI.NotActive();
@@ -158,8 +164,7 @@ public class Dance : MonoBehaviour
 			case Phase.Play:
 				if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
 				{
-					ChangeFanPoint(_isRequestShake ? 1 : -1);
-					ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
+					Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 				}
 				_danceUI.SetPointUpdate(_dancePoint);
 				break;
@@ -167,39 +172,20 @@ public class Dance : MonoBehaviour
 	}
 
 	/// <summary>
+	/// 振った時の処理
+	/// </summary>
+	public void Shake()
+	{
+		ChangeFanPoint(_isRequestShake ? 1 : -1);
+		ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
+	}
+
+	/// <summary>
 	/// ダンス開始
 	/// </summary>
 	public void Begin()
 	{
-		//if (Player.photonView.isMine)
-		{
-			StartCoroutine("StepDo");
-		}
-	}
-
-	/// <summary>
-	/// ダンスを中断する
-	/// </summary>
-	public void Cancel()
-	{
-		//if (Player.photonView.isMine)
-		{
-			if (_phase == Phase.None)
-				return;
-
-			shakeparameter.ResetShakeParameter();
-
-			onEndDance?.Invoke(true, IsSuccess);
-			onEndDance = null;
-			_danceUI.NotActive();
-			_danceFloor.enabled = false;
-			// スコアを設定する
-			_dancePoint = 0;
-			_player.Animator.SetBool("PlayDance", false);
-			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
-			StopCoroutine("StepDo");
-			PhaseNone();
-		}
+		_coroutine = StartCoroutine("StepDo");
 	}
 
 	/// <summary>
@@ -247,12 +233,15 @@ public class Dance : MonoBehaviour
 
 		_isSuccess = false;
 		_dancePoint = 0;
-		_danceUI.Active();
 		_danceFloor.enabled = true;
 		_isPlaing = true;
 		_player.Animator.SetBool("PlayDance", true);
 
-		_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
+		if (Player.IsMine)
+		{
+			_danceUI.Active();
+			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
+		}
 	}
 
 	private void PhasePlay()
@@ -265,23 +254,29 @@ public class Dance : MonoBehaviour
 		_phase = Phase.Finish;
 		onEndDance?.Invoke(false, IsSuccess);
 		onEndDance = null;
-		_danceUI.SetResult(IsSuccess);
-		shakeparameter.ResetShakeParameter();
+
+		if (Player.IsMine)
+		{
+			_danceUI.SetResult(IsSuccess);
+			shakeparameter.ResetShakeParameter();
+		}
 	}
 
 	private void PhaseEnd()
 	{
 		_phase = Phase.End;
 
-		if (Player.photonView.isMine)
+		if (Player.IsMine)
+		{
 			shakeparameter.ResetShakeParameter();
-
-		_danceUI.NotActive();
+			_danceUI.NotActive();
+			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
+		}
+		
 		_danceFloor.enabled = false;
 		// スコアを設定する
 		_dancePoint = 0;
 		_player.Animator.SetBool("PlayDance", false);
-		_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 	}
 
 	private void PhasePenetration()
@@ -292,11 +287,13 @@ public class Dance : MonoBehaviour
 	private void ChangeFanPoint(int addValue)
 	{
 		_dancePoint += addValue;
-		_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
+		if (Player.IsMine)
+			_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			_isSuccess = true;
-			_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
+			if(Player.IsMine)
+				_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
 		}
 	}
 
@@ -314,7 +311,10 @@ public class Dance : MonoBehaviour
 		for (int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
 		{
 			_isRequestShake = !_isRequestShake;
-			_danceUI.SetRequestShake(_isRequestShake);
+			if(Player.IsMine)
+			{
+				_danceUI.SetRequestShake(_isRequestShake);
+			}
 			yield return new WaitForSeconds(_requestTime[callCount]);
 		}
 
