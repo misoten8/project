@@ -23,7 +23,8 @@ public class ModelManager : SingletonMonoBehaviour<ModelManager>
 		/// 実況モデル
 		/// </summary>
 		Nav,
-		Mob1
+		Mob1,
+		Mob2
 	}
 
 	private Dictionary<ModelType, GameObject> _modelCaches = new Dictionary<ModelType, GameObject>();
@@ -36,7 +37,8 @@ public class ModelManager : SingletonMonoBehaviour<ModelManager>
 		{ ModelType.Player1, "Prefabs/Players/player1" },
 		{ ModelType.Player2, "Prefabs/Players/player2" },
 		{ ModelType.Player3, "Prefabs/Players/player3" },
-		{ ModelType.Mob1, "Prefabs/Players/NPC" }
+		{ ModelType.Mob1, "Prefabs/Players/NPC" },
+		{ ModelType.Mob2, "Prefabs/Players/NPC_female" }
 	};
 
 	/// <summary>
