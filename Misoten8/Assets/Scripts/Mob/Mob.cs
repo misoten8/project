@@ -274,6 +274,15 @@ public class Mob : Photon.PunBehaviour
 	}
 
 	/// <summary>
+	/// 
+	/// </summary>
+	[PunRPC]
+	public void MoveMarkerChange(byte mobId, byte markerIndex)
+	{
+
+	}
+
+	/// <summary>
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }

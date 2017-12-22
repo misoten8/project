@@ -34,7 +34,7 @@ public class MobController : MonoBehaviour
 		{
 			if (_mob.FllowTarget == Define.PlayerType.None)
 			{
-				_wanderMove.OnStart();
+				_wanderMove.OnStart(_mob);
 			}
 			else
 			{
@@ -69,7 +69,7 @@ public class MobController : MonoBehaviour
 			}
 			else
 			{
-				_wanderMove.OnStart();
+				_wanderMove.OnStart(_mob);
 				_followMove.enabled = false;
 			}
 		};
@@ -83,7 +83,7 @@ public class MobController : MonoBehaviour
 		};
 
 		// 最初は徘徊移動モードにする
-		_wanderMove.OnStart();
+		_wanderMove.OnStart(_mob);
 
         //TODO: ゲーム再生中にInspectorの「Apply RootMotion」のチェックを変更しないとモーションが動かないバグあり
         _agent = GetComponent<NavMeshAgent>();

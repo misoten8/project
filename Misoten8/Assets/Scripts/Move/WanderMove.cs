@@ -60,11 +60,17 @@ public class WanderMove : MonoBehaviour, IMove
     /// </summary>
     private Vector3 _moveDirection;
 
+	/// <summary>
+	/// NPCキャッシュ
+	/// </summary>
+	private Mob _mob = null;
+
     /// <summary>
     /// 初期化処理
     /// </summary>
-    public void OnStart()
+    public void OnStart(Mob mob)
     {
+		_mob = mob;
         enabled = true;
         _state = State.Move;
         _agent = GetComponent<NavMeshAgent>();

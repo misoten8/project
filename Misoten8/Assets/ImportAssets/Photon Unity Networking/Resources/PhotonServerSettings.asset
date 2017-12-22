@@ -45,4 +45,5 @@ MonoBehaviour:
   - StartupGeneratorBattleScene
   - LoadedBattleSceneSendToMasterClient
   - DanceShake
+  - MoveMarkerChange
   DisableAutoOpenWizard: 1
