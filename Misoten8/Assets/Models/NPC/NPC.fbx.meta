@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c5d9c5e98d8e1f24ea09db7075b2f12f
-timeCreated: 1513670803
+guid: 4d5e1081f1708a742b0c224af20851d0
+timeCreated: 1513893099
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -790,7 +790,7 @@ ModelImporter:
     - name: mecanim_born_L_LowerArm
       parentName: mecanim_born_L_UpperArm
       position: {x: -0.19718927, y: 5.2395e-17, z: 9.8313235e-17}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 5.551119e-17, y: -1.9298812e-17, z: -2.1900884e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecanim_born_L_Hand
       parentName: mecanim_born_L_LowerArm
@@ -860,7 +860,7 @@ ModelImporter:
     - name: mecnim_born_L_thumb1
       parentName: mecanim_born_L_Hand
       position: {x: -0.024664134, y: -0.0065045278, z: 0.030574173}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 5.551119e-17, y: -1.9298812e-17, z: -2.1900884e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecnim_born_L_thumb2
       parentName: mecnim_born_L_thumb1
@@ -870,7 +870,7 @@ ModelImporter:
     - name: mecnim_born_L_thumb3
       parentName: mecnim_born_L_thumb2
       position: {x: -0.020818539, y: 0.00007384405, z: 0.011197921}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: 5.551119e-17, y: -1.9298812e-17, z: -2.1900884e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecanim_born_R_Shoulder
       parentName: mecanim_born_Chest
@@ -885,7 +885,7 @@ ModelImporter:
     - name: mecanim_born_R_LowerArm
       parentName: mecanim_born_R_UpperArm
       position: {x: 0.19718923, y: 0.000000567554, z: -1.0658141e-16}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -1.2246469e-16, y: 4.824703e-18, z: -3.6862874e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecanim_born_R_Hand
       parentName: mecanim_born_R_LowerArm
@@ -955,7 +955,7 @@ ModelImporter:
     - name: mecnim_born_R_thumb1
       parentName: mecanim_born_R_Hand
       position: {x: 0.02466422, y: 0.0065025566, z: -0.030574199}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -1.2246469e-16, y: 4.824703e-18, z: -3.6862874e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecnim_born_R_thumb2
       parentName: mecnim_born_R_thumb1
@@ -965,7 +965,7 @@ ModelImporter:
     - name: mecnim_born_R_thumb3
       parentName: mecnim_born_R_thumb2
       position: {x: 0.02081887, y: -0.00007384523, z: -0.011197969}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      rotation: {x: -1.2246469e-16, y: 4.824703e-18, z: -3.6862874e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mecanim_born_Neck
       parentName: mecanim_born_Chest

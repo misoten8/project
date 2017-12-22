@@ -34,9 +34,10 @@ public class playercamera : MonoBehaviour {
     public const int PRIORITY_LOW       = PRIORITY_HIGH - 1; // HIGHより低ければなんでもOK
     public const int CAMERA_MAX  = (int)CAMERATYPE.END; //カメラの最大数
     private const int CHANGE_TIME = 4;//モードを変える時間
-    private float changetime;   //動きを更新する時刻
+    private float changetime;   //動きを更新する時刻 
     private CinemachineBrain brain;
-    private CAMERAMODE g_mode;
+    private int cameratypeold;
+    public static CAMERAMODE m_mode;
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
 	[SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private dancecameradolly dancecameradolly;
@@ -47,7 +48,8 @@ public class playercamera : MonoBehaviour {
     //=======================================
     void Start ()
     {
-        g_mode = CAMERAMODE.NORMAL;
+        m_mode = CAMERAMODE.NORMAL;
+        cameratypeold = 0;
     }
     //=======================================
     //関数名 Update
@@ -56,7 +58,7 @@ public class playercamera : MonoBehaviour {
     //=======================================
     void Update()
     {
-        switch (g_mode)
+        switch (m_mode)
         {     
             //===========================
             //後ろから追従するカメラ
@@ -73,7 +75,7 @@ public class playercamera : MonoBehaviour {
                 //一定時間経過でランダム
                 if (changetime < Time.time)
                 {
-                    g_mode = CAMERAMODE.DANCE;
+                    m_mode = CAMERAMODE.DANCE;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
                 }
                 break;
@@ -83,12 +85,18 @@ public class playercamera : MonoBehaviour {
             case CAMERAMODE.DANCE:
                 if (changetime < Time.time)
                 {
-                    Setblend(0);
-                    int random = Random.Range(0, CAMERA_MAX-1);
-                    Debug.Log(random);
+                    Setblend(0);                   
+                    int random = Random.Range(0, CAMERA_MAX - 1);
+                    while (random == cameratypeold)
+                    {
+                        random = Random.Range(0, CAMERA_MAX - 1);
+                    }      
+                    cameramove.SetCameraNum(random);
                     SetCameraPriority(random);
+                    cameratypeold = random;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
                 }
+         
                 break;
         }
 
@@ -124,7 +132,7 @@ public class playercamera : MonoBehaviour {
     //=======================================
     public void SetCameraMode(CAMERAMODE mode)
     {
-        g_mode = mode;
+        m_mode = mode;
     }
     //=======================================
     //関数名 ChangeCameraMode
@@ -133,14 +141,14 @@ public class playercamera : MonoBehaviour {
     //=======================================
     public void ChangeCameraMode()
     {
-        if (g_mode == CAMERAMODE.NORMAL)
+        if (m_mode == CAMERAMODE.NORMAL)
         {
-            g_mode = CAMERAMODE.DANCE_INTRO;
+            m_mode = CAMERAMODE.DANCE_INTRO;
             return;
         }
-        else if(g_mode == CAMERAMODE.DANCE || g_mode == CAMERAMODE.DANCE_INTRO)
+        else if(m_mode == CAMERAMODE.DANCE || m_mode == CAMERAMODE.DANCE_INTRO)
         {
-            g_mode = CAMERAMODE.NORMAL;
+            m_mode = CAMERAMODE.NORMAL;
             return;
         }
 
@@ -159,5 +167,9 @@ public class playercamera : MonoBehaviour {
     public void SetDollyPosition(Transform transform)
     {
         dancecameradolly.SetPosition(transform);
+    }
+    public static CAMERAMODE GetCameraMode()
+    {
+        return m_mode;
     }
 }
