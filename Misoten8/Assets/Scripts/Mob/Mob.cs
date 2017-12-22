@@ -117,6 +117,11 @@ public class Mob : Photon.PunBehaviour
 	/// <summary>
 	/// 既にダンスを視聴中かどうか
 	/// </summary>
+    public bool IsViewingInDance
+    {
+        get { return _isViewingInDance; }
+    }
+
 	private bool _isViewingInDance;
 
 	/// <summary>
