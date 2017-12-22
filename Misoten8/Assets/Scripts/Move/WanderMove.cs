@@ -61,33 +61,16 @@ public class WanderMove : MonoBehaviour, IMove
     private Vector3 _moveDirection;
 
     /// <summary>
-    /// 最初に呼ばれるフレームかどうか
-    /// </summary>
-    private bool _isFirstFrame = true;
-
-    /// <summary>
-    /// 中断時にuniRxのパイプラインを解放する
-    /// </summary>
-    private IDisposable _disposable;
-
-    /// <summary>
     /// 初期化処理
     /// </summary>
     public void OnStart()
     {
         enabled = true;
-        _isFirstFrame = true;
         _state = State.Move;
         _agent = GetComponent<NavMeshAgent>();
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
         _marker.GotoNextPoint(_agent);
-    }
-
-    private void OnDisable()
-    {
-        // 破棄
-        _disposable?.Dispose();
     }
 
     void Update()
