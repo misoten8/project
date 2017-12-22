@@ -86,7 +86,7 @@ public static class Define
 		Max
 	}
 
-	public enum PlayerType
+	public enum PlayerType : byte
 	{
 		/// <summary>
 		/// 無所属
