@@ -55,6 +55,14 @@ public class Player : Photon.PunBehaviour
 
 	private bool canPlayDance = true;
 
+    // ファン追従用オブジェ
+    public Transform TargetObj
+    {
+        get { return _targetObj; }
+    }
+    [SerializeField]
+    private Transform _targetObj;
+
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
