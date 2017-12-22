@@ -10,6 +10,7 @@ public class playercamera : MonoBehaviour {
     //=======================================
     public enum CAMERATYPE
     {
+        WAITING,
         DANCE1,
         DANCE2,
         DANCE3,
@@ -22,6 +23,7 @@ public class playercamera : MonoBehaviour {
     //=======================================
     public enum CAMERAMODE
     {
+        WAITING,
         NORMAL,
         DANCE_INTRO,
         DANCE,
@@ -41,6 +43,8 @@ public class playercamera : MonoBehaviour {
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
 	[SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private dancecameradolly dancecameradolly;
+
+
     //=======================================
     //関数名 Start
     //引き数
@@ -48,7 +52,7 @@ public class playercamera : MonoBehaviour {
     //=======================================
     void Start ()
     {
-        m_mode = CAMERAMODE.NORMAL;
+        m_mode = CAMERAMODE.WAITING;
         cameratypeold = 0;
     }
     //=======================================
@@ -59,7 +63,14 @@ public class playercamera : MonoBehaviour {
     void Update()
     {
         switch (m_mode)
-        {     
+        {
+            //===========================
+            //後ろから追従するカメラ
+            //===========================
+            case CAMERAMODE.WAITING:
+                Setblend(1);
+                SetCameraPriority((int)CAMERATYPE.WAITING);
+                break;
             //===========================
             //後ろから追従するカメラ
             //===========================
