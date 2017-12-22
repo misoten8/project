@@ -47,7 +47,7 @@ public class Towncameramove : MonoBehaviour
             dolly.m_PathPosition = curve.Evaluate(currentDistance);
         }
 
-        dollytime += 0.2f;
+        dollytime += 0.10f;
         
     }
 

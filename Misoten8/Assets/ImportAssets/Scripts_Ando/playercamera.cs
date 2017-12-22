@@ -68,6 +68,7 @@ public class playercamera : MonoBehaviour {
             case CAMERAMODE.WAITING:
                 Setblend(1);
                 SetCameraPriority((int)CAMERATYPE.WAITING);
+                //SetCameraMode(CAMERAMODE.NORMAL);
                 break;
             //===========================
             //後ろから追従するカメラ
