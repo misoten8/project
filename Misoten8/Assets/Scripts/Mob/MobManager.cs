@@ -11,16 +11,6 @@ using UnityEngine;
 public class MobManager : Photon.MonoBehaviour
 {
 	/// <summary>
-	/// 使用するモデルの紐付けマップ
-	/// </summary>
-	public static readonly Dictionary<Define.FanLevel, ModelManager.ModelType> MODEL_MAP = new Dictionary<Define.FanLevel, ModelManager.ModelType>
-	{
-		{ Define.FanLevel.Easy, ModelManager.ModelType.Mob1 },
-		{ Define.FanLevel.Normal, ModelManager.ModelType.Mob1 },
-		{ Define.FanLevel.Hard, ModelManager.ModelType.Mob1 }
-	};
-
-	/// <summary>
 	/// スコア変化時に通知する
 	/// </summary>
 	public Action OnScoreChange
@@ -87,6 +77,16 @@ public class MobManager : Photon.MonoBehaviour
 			_fanChangeStackType.Clear();
 			_fanChangeStackID.Clear();
 		}
+	}
+
+	public ModelManager.ModelType GetRandomModelType()
+	{
+		int number = UnityEngine.Random.Range(0, 2);
+		if (number == 0)
+			return ModelManager.ModelType.Mob1;
+		if (number == 1)
+			return ModelManager.ModelType.Mob2;
+		return ModelManager.ModelType.Mob1;
 	}
 
 	public int GetFunCount(Define.PlayerType playerType)

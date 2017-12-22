@@ -149,7 +149,7 @@ public class Mob : Photon.PunBehaviour
 		onMoveMob?.Invoke();
 
 		// モデルの設定
-		GameObject model = Instantiate(ModelManager.GetCache(MobManager.MODEL_MAP[_fanLevel]));
+		GameObject model = Instantiate(ModelManager.GetCache(_mobManager.GetRandomModelType()));
 		model.transform.SetParent(_modelPlaceObject);
 		model.transform.localPosition = Vector3.zero;
 		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();
