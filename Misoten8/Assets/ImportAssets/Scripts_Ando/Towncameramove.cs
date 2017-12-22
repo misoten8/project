@@ -9,10 +9,9 @@ public class Towncameramove : MonoBehaviour
     public AnimationCurve curve;
     // public float velocity;
     public static float currentDistance = 0;
-    public static int cameraNum = 0;
     private float pathLength;
-    private static CinemachineTrackedDolly dolly;
-    public static float dollytime = 0.0f;
+    private CinemachineTrackedDolly dolly;
+    private float dollytime = 0.0f;
 
     void SamplePath(int stepsPerSegment)
     {
@@ -34,11 +33,9 @@ public class Towncameramove : MonoBehaviour
     }
     void Start()
     {
-        cameraNum = 0;
         dolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
         if (path != null)
             SamplePath(path.m_Appearance.steps); // TODO: decouple numSteps from appearance setting
-        currentDistance = 0;
     }
     void Update()
     {
@@ -50,7 +47,7 @@ public class Towncameramove : MonoBehaviour
             dolly.m_PathPosition = curve.Evaluate(currentDistance);
         }
 
-        dollytime += 0.3f;
+        dollytime += 0.2f;
         
     }
 

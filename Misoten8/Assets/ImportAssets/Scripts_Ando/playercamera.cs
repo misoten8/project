@@ -10,12 +10,12 @@ public class playercamera : MonoBehaviour {
     //=======================================
     public enum CAMERATYPE
     {
-        WAITING,
         DANCE1,
         DANCE2,
         DANCE3,
         DANCE4,
         PLAYER,
+        WAITING,
         END
     };
     //=======================================
@@ -41,10 +41,8 @@ public class playercamera : MonoBehaviour {
     private int cameratypeold;
     public static CAMERAMODE m_mode;
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
-	[SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
+    [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private dancecameradolly dancecameradolly;
-
-
     //=======================================
     //関数名 Start
     //引き数
@@ -97,17 +95,16 @@ public class playercamera : MonoBehaviour {
                 if (changetime < Time.time)
                 {
                     Setblend(0);                   
-                    int random = Random.Range(0, CAMERA_MAX - 1);
+                    int random = Random.Range(0, CAMERA_MAX - 2);//プレイヤーカメラ、ウェイトカメラを抽選対象から除外
                     while (random == cameratypeold)
                     {
-                        random = Random.Range(0, CAMERA_MAX - 1);
+                        random = Random.Range(0, CAMERA_MAX - 2);
                     }      
                     cameramove.SetCameraNum(random);
                     SetCameraPriority(random);
                     cameratypeold = random;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
                 }
-         
                 break;
         }
 
@@ -162,7 +159,6 @@ public class playercamera : MonoBehaviour {
             m_mode = CAMERAMODE.NORMAL;
             return;
         }
-
     }
 	public void SetFollowTarget(Transform transform)
 	{
