@@ -4,6 +4,7 @@ using UniRx;
 using WiimoteApi;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 //TODO:乱入に対応する
 //TODO:各ユーザーのPhaseを同期する
@@ -84,6 +85,14 @@ public class Dance : MonoBehaviour
 	}
 
 	/// <summary>
+	/// 対戦相手のリスト
+	/// </summary>
+	public List<Define.PlayerType> BattleTargetList
+	{
+		get { return _battleTargetList; }
+	}
+
+	/// <summary>
 	/// ダンス終了時実行イベント
 	/// bool型引数 -> このダンスが中断されたかどうか
 	/// </summary>
@@ -115,6 +124,8 @@ public class Dance : MonoBehaviour
 
 	private bool _isRequestShake = false;
 
+
+
 	/// <summary>
 	/// 乱入している or されているかどうか
 	/// </summary>
@@ -139,6 +150,11 @@ public class Dance : MonoBehaviour
 	/// ステップ実行のコルーチンインスタンス
 	/// </summary>
 	private Coroutine _coroutine = null;
+
+	/// <summary>
+	/// 対戦相手のリスト
+	/// </summary>
+	private List<Define.PlayerType> _battleTargetList = new List<Define.PlayerType>();
 
 	/// <summary>
 	/// playerに呼び出してもらう
@@ -179,7 +195,7 @@ public class Dance : MonoBehaviour
 		ChangeFanPoint(_isRequestShake ? 1 : -1);
 		ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
 	}
-
+	//TODO:begin関数を複数用意するか、playerTypeのListを引数として受け取るようにする
 	/// <summary>
 	/// ダンス開始
 	/// </summary>
@@ -272,7 +288,7 @@ public class Dance : MonoBehaviour
 			_danceUI.NotActive();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 		}
-		
+
 		_danceFloor.enabled = false;
 		// スコアを設定する
 		_dancePoint = 0;
@@ -292,9 +308,34 @@ public class Dance : MonoBehaviour
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			_isSuccess = true;
-			if(Player.IsMine)
+			if (Player.IsMine)
 				_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
 		}
+	}
+
+	/// <summary>
+	/// ダンスの効果範囲にいるプレイヤーを挑戦相手として登録する
+	/// </summary>
+	private void OnTriggerEnter(Collider other)
+	{
+		if (!Player.IsMine)
+			return;
+
+		if (other.tag != "DanceRange")
+			return;
+
+		Dance playerDance = other.gameObject.GetComponent<Dance>();
+
+		// 既にダンス中なら登録しない
+		if (playerDance.IsPlaying)
+			return;
+
+		// 既に登録済みなら終了する
+		if (_battleTargetList.Contains(playerDance.PlayerType))
+			return;
+
+		// 対戦相手リストに登録する
+		_battleTargetList.Add(playerDance.PlayerType);
 	}
 
 	/// <summary>
@@ -303,7 +344,7 @@ public class Dance : MonoBehaviour
 	private IEnumerator StepDo()
 	{
 		PhaseStart();
-		
+
 		yield return new WaitForSeconds(1.0f);
 
 		PhasePlay();
@@ -311,7 +352,7 @@ public class Dance : MonoBehaviour
 		for (int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
 		{
 			_isRequestShake = !_isRequestShake;
-			if(Player.IsMine)
+			if (Player.IsMine)
 			{
 				_danceUI.SetRequestShake(_isRequestShake);
 			}

@@ -163,6 +163,7 @@ public class Player : Photon.PunBehaviour
 			if (shakeparameter.IsOverWithValue(3))
 			{
                 _playercamera.SetDollyPosition(transform);//ドリーの位置設定
+				//TODO:ダンス開始処理を切り替える
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				shakeparameter.ResetShakeParameter();
 			}
@@ -184,6 +185,34 @@ public class Player : Photon.PunBehaviour
 	public void DanceBegin(byte playerType)
 	{
 		if (_type == (Define.PlayerType)playerType)
+		{
+			_dance.Begin();
+		}
+	}
+	
+	/// <summary>
+	/// 1vs1のダンスバトル開始
+	/// </summary>
+	/// <param name="hostPlayerType">仕掛けたプレイヤーのタイプ</param>
+	/// <param name="targetPlayerType">仕掛けられたプレイヤーのタイプ</param>
+	[PunRPC]
+	public void DanceBattleBegin(byte hostPlayerType, byte targetPlayerType)
+	{
+		if (_type == (Define.PlayerType)hostPlayerType)
+		{
+			_dance.Begin();
+		}
+	}
+
+	/// <summary>
+	/// プレイヤー全員でのダンスバトル開始
+	/// </summary>
+	/// <param name="hostPlayerType">仕掛けたプレイヤーのタイプ</param>
+	/// <param name="targetPlayerType">仕掛けられたプレイヤーのタイプ</param>
+	[PunRPC]
+	public void DanceBattleAllBegin(byte hostPlayerType)
+	{
+		if (_type == (Define.PlayerType)hostPlayerType)
 		{
 			_dance.Begin();
 		}
