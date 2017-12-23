@@ -43,6 +43,7 @@ public class playercamera : MonoBehaviour {
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
     [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private dancecameradolly dancecameradolly;
+    Transform retChild; 
     //=======================================
     //関数名 Start
     //引き数
@@ -52,6 +53,8 @@ public class playercamera : MonoBehaviour {
     {
         m_mode = CAMERAMODE.WAITING;
         cameratypeold = 0;
+
+
     }
     //=======================================
     //関数名 Update
@@ -85,6 +88,9 @@ public class playercamera : MonoBehaviour {
                 //一定時間経過でランダム
                 if (changetime < Time.time)
                 {
+                    retChild = GameObject.Find("Player1").transform.FindChild("player1").transform.FindChild("locator1").transform;
+                    SetFollowTarget(retChild);
+                    SetLookAtTarget(retChild);
                     m_mode = CAMERAMODE.DANCE;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
                 }
@@ -100,7 +106,9 @@ public class playercamera : MonoBehaviour {
                     while (random == cameratypeold)
                     {
                         random = Random.Range(0, CAMERA_MAX - 2);
-                    }      
+                    }
+            
+                    Debug.Log(random);
                     cameramove.SetCameraNum(random);
                     SetCameraPriority(random);
                     cameratypeold = random;

@@ -16,7 +16,7 @@ public class PlayerManager : Photon.MonoBehaviour
 		{ Define.PlayerType.Second, ModelManager.ModelType.Player2 },
 		{ Define.PlayerType.Third, ModelManager.ModelType.Player3 }
 	};
-
+    
 	/// <summary>
 	/// ダンス時間
 	/// </summary>
