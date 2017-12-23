@@ -8,6 +8,16 @@ using UnityEngine.AI;
 /// </summary>
 public class MobController : MonoBehaviour
 {
+	public FollowMove FollowMove
+	{
+		get { return _followMove; }
+	}
+
+	public WanderMove WanderMove
+	{
+		get { return _wanderMove; }
+	}
+
 	[SerializeField]
 	private Mob _mob;
 

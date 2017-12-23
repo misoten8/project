@@ -274,12 +274,15 @@ public class Mob : Photon.PunBehaviour
 	}
 
 	/// <summary>
-	/// 
+	/// 移動目標を変更する
 	/// </summary>
+	/// <remarks>
+	/// この関数を呼び出すのは所有権のあるクライアントのみ
+	/// </remarks>
 	[PunRPC]
-	public void MoveMarkerChange(byte mobId, byte markerIndex)
+	public void MoveMarkerChange(byte markerIndex)
 	{
-
+		// 移動するマーカーを直接指定したい
 	}
 
 	/// <summary>

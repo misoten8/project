@@ -9,7 +9,12 @@ using UnityEngine.AI;
 /// </summary>
 public class WanderMove : MonoBehaviour, IMove
 {
-    private enum State
+	public NavMeshAgent NavMeshAgent
+	{
+		get { return _agent; }
+	}
+
+	private enum State
     {
         Move,
         Stop
@@ -76,7 +81,11 @@ public class WanderMove : MonoBehaviour, IMove
         _agent = GetComponent<NavMeshAgent>();
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
-        _marker.GotoNextPoint(_agent);
+		if (_marker == null)
+		{
+			Debug.LogWarning("MarkerManagerが取得できませんでした");
+		}
+		_marker.GotoNextPoint(_agent);
     }
 
     void Update()
@@ -84,12 +93,18 @@ public class WanderMove : MonoBehaviour, IMove
         // 遷移チェック
         _onCheck?.Invoke();
 
-        // 目標座標変更処理
-        if (_agent.remainingDistance < 5.0f )
+		// 所有権のないクライアントの場合処理をスキップする
+		if (!_mob.photonView.isMine)
+		{
+			return;
+		}
+
+		// 目標座標変更処理
+		if (_agent.remainingDistance < 5.0f )
         {
             int targetNum;
-            targetNum = _marker.GotoNextPoint(_agent);
-            // TODO:ここにMobの目標マーカー番号送信処理？
+            targetNum = _marker.GotoNextPoint(_agent);// 内部で次の目標が指定されているので、分離して欲しい
+			_mob.photonView.RPC("MoveMarkerChange", PhotonTargets.AllViaServer);
         }
     }
 }
