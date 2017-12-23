@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using WiimoteApi;
+using System.Collections;
 
 /// <summary>
 /// Player クラス
@@ -106,12 +107,20 @@ public class Player : Photon.PunBehaviour
 		{
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
+			StartCoroutine(WaitOnFrame());
 		}
-
+		
 		// モデルの設定
 		GameObject model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
 		model.transform.SetParent(_modelPlaceObject);
 		_animator = model.GetComponent<Animator>();
+	}
+
+	private IEnumerator WaitOnFrame()
+	{
+		yield return null;
+		// カメラのプレイヤー設定処理と重なると動作しないため、１フレーム遅らせる
+		_playercamera.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 	}
 
 	private void Update()
