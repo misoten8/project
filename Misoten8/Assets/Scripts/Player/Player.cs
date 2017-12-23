@@ -46,6 +46,19 @@ public class Player : Photon.PunBehaviour
 
 	private bool _isMine = false;
 
+	/// <summary>
+	/// プレイヤーのモデルオブジェクト
+	/// </summary>
+	/// <remarks>
+	/// Player1,Player2等のプレハブと同等のオブジェクトを受け取る事ができます
+	/// </remarks>
+	public GameObject Model
+	{
+		get { return _model; }
+	}
+
+	private GameObject _model = null;
+
 	[SerializeField]
 	private Rigidbody _rb;
 
@@ -102,19 +115,12 @@ public class Player : Photon.PunBehaviour
 		_dance.OnAwake(_playercamera);
 
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
-		// プレイヤー自身だけに実行される処理
-		if (_isMine)
-		{
-			_playercamera.SetFollowTarget(transform);
-			_playercamera.SetLookAtTarget(transform);
-			StartCoroutine(WaitOnFrame());
-		}
 		
 		// モデルの設定
-		GameObject model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
-		model.transform.SetParent(_modelPlaceObject);
-		_animator = model.GetComponent<Animator>();
-		var playerAnimEvent = model.GetComponent<PlayerAnimEvent>();
+		_model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
+		_model.transform.SetParent(_modelPlaceObject);
+		_animator = _model.GetComponent<Animator>();
+		var playerAnimEvent = _model.GetComponent<PlayerAnimEvent>();
 		if(playerAnimEvent == null)
 		{
 			Debug.LogWarning("プレイヤーのアニメーションイベントクラスを取得できませんでした。");
@@ -122,6 +128,13 @@ public class Player : Photon.PunBehaviour
 		else
 		{
 			playerAnimEvent.Player = this;
+		}
+		// プレイヤー自身だけに実行される処理
+		if (_isMine)
+		{
+			_playercamera.SetFollowTarget(transform);
+			_playercamera.SetLookAtTarget(transform);
+			StartCoroutine(WaitOnFrame());
 		}
 	}
 
