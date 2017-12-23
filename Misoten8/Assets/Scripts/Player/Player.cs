@@ -114,6 +114,15 @@ public class Player : Photon.PunBehaviour
 		GameObject model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
 		model.transform.SetParent(_modelPlaceObject);
 		_animator = model.GetComponent<Animator>();
+		var playerAnimEvent = model.GetComponent<PlayerAnimEvent>();
+		if(playerAnimEvent == null)
+		{
+			Debug.LogWarning("プレイヤーのアニメーションイベントクラスを取得できませんでした。");
+		}
+		else
+		{
+			playerAnimEvent.Player = this;
+		}
 	}
 
 	private IEnumerator WaitOnFrame()
