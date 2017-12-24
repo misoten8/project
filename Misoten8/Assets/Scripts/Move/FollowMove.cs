@@ -9,36 +9,36 @@ using UnityEngine.AI;
 /// </summary>
 public class FollowMove : MonoBehaviour, IMove
 {
-	/// <summary>
-	/// 遷移条件判定イベント
-	/// FixedUpdateのタイミングで呼ばれます
-	/// </summary>
-	public Action OnTransCheck
-	{
-		set { _onTransCheck += value; }
-	}
+    /// <summary>
+    /// 遷移条件判定イベント
+    /// FixedUpdateのタイミングで呼ばれます
+    /// </summary>
+    public Action OnTransCheck
+    {
+        set { _onTransCheck += value; }
+    }
 
-	private Action _onTransCheck;
+    private Action _onTransCheck;
 
-	/// <summary>
-	/// 移動する速度
-	/// </summary>
-	[SerializeField]
-	private float _velocity;
+    /// <summary>
+    /// 移動する速度
+    /// </summary>
+    [SerializeField]
+    private float _velocity;
 
-	/// <summary>
-	/// 移動を中止する距離
-	/// </summary>
-	[SerializeField]
-	private float _stopDistance;
+    /// <summary>
+    /// 移動を中止する距離
+    /// </summary>
+    [SerializeField]
+    private float _stopDistance;
 
-	/// <summary>
-	/// 速度の減少を開始する距離
-	/// </summary>
-	[SerializeField]
-	private float _slowDistance;
+    /// <summary>
+    /// 速度の減少を開始する距離
+    /// </summary>
+    [SerializeField]
+    private float _slowDistance;
 
-	private Transform _target = null;
+    private Transform _target = null;
 
     private NavMeshAgent _agent = null;
 
@@ -54,68 +54,55 @@ public class FollowMove : MonoBehaviour, IMove
 	/// 初期化処理
 	/// </summary>
 	public void OnStart(Transform target)
-	{
-		_target = target;
+    {
+        _target = target;
         _player = _target.GetComponent<Player>();
-		enabled = true;
+        enabled = true;
         _agent = GetComponent<NavMeshAgent>();
         _agent.enabled = true;
         _mob = GetComponent<Mob>();
         mobInterval = 2.0f;
-	}
+    }
 
-	void OnDisable()
-	{
-		_target = null;
+    void OnDisable()
+    {
+        _target = null;
         _agent = null;
-	}
+    }
 
-	void Update()
-	{
-		if (_target == null)
-		{
-			Debug.Log("追従対象が見つからない為、非アクティブになります");
-			enabled = false;
-			return;
-		}
-
-        // 目標座標設定
-        Vector3 goal = _target.position;
-        float angle = Mathf.PI * 0.75f;
-        float angle2 = angle * 2;
-        bool debugMode = true;
-        float rot = SetDirection(_target.position, _player.TargetObj.position);
-
-        if (_mob.IsViewingInDance || debugMode)
+    void Update()
+    {
+        if (_target == null)
         {
-            // プレイヤーダンス中追従
-            goal.x += Mathf.Sin(rot + angle - ((fanNum % 2) * angle2)) * (-mobInterval * (fanNum % cutNum + 1)) +
-                        Mathf.Sin(rot) * ((mobInterval) * (fanNum / cutNum));
+            Debug.Log("追従対象が見つからない為、非アクティブになります");
+            enabled = false;
+            return;
+        }
+        Vector3 goal = _player.TargetObj.position;
+        goal.z = -goal.z;
+        _agent.SetDestination(_player.TargetObj.position);
 
-            goal.z += Mathf.Cos(rot + angle - ((fanNum % 2) * angle2)) * (-mobInterval * (fanNum % cutNum + 1)) +
-                        Mathf.Cos(rot) * ((mobInterval) * (fanNum / cutNum));
-
-            _agent.SetDestination(goal);
+        if (_agent.remainingDistance < 1.0f + (_mob._followInex * mobInterval))
+        {
+            _agent.isStopped = true;
         }
         else
         {
-            // プレイヤー移動中追従
-            goal.x += -Mathf.Sin((rot) * (Mathf.PI * 0.5f)) * 4.0f + (-Mathf.Sin(rot) * ((mobInterval) * (fanNum / cutNum)));
-            goal.z += -Mathf.Cos((rot) * (Mathf.PI * 0.5f)) * 4.0f + (-Mathf.Cos(rot) * ((mobInterval) * (fanNum / cutNum)));
-            _agent.SetDestination(goal);
+            _agent.isStopped = false;
         }
-
-            // 遷移チェック
-            _onTransCheck?.Invoke();
-	}
+        // 遷移チェック
+        _onTransCheck?.Invoke();
+    }
 
     // 
     float SetDirection(Vector3 p1, Vector3 p2)
     {
+        Debug.Log("Target: " + p2);
         float dx, dy;
         dx = p1.x - p2.x;
-        dy = p1.y - p2.y;
+        dy = p1.z - p2.z;
         float rad = Mathf.Atan2(dy, dx);
+        Debug.Log("rot : " + rad);
         return rad * Mathf.Rad2Deg;
     }
 }

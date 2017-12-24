@@ -30,7 +30,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 
 	void Update () 
 	{
-		if (shakeparameter.IsOverWithValue(2))
+		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
 			if (PhotonNetwork.inRoom)
 			{

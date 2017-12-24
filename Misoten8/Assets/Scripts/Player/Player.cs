@@ -106,14 +106,14 @@ public class Player : Photon.PunBehaviour
 		_playerManager = caches.playerManager;
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
-
+        _targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
+        WiimoteManager.Wiimotes[0].SetLED((int)_type);
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
-
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
 		
 		// モデルの設定
@@ -160,7 +160,7 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (shakeparameter.IsOverWithValue(3))
+			if (shakeparameter.IsOverWithValue(2))
 			{
                 _playercamera.SetDollyPosition(transform);//ドリーの位置設定
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
