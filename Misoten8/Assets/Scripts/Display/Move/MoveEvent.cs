@@ -13,4 +13,20 @@ public class MoveEvents : EventsBase
     /// 例：onTimeUp...タイムアップ時実行イベント（これなら、複数のUIオブジェクトを登録できる）
     /// </remarks>
     public Action onCallEvent;
+	/// <summary>
+	/// バトル開始準備時実行イベント
+	/// </summary>
+	public Action onBattleReady;
+	/// <summary>
+	/// バトル開始時実行イベント
+	/// </summary>
+	public Action onBattleStart;
+	/// <summary>
+	/// バトル終了時実行イベント
+	/// </summary>
+	public Action onBattleEnd;
+	/// <summary>
+	/// ダンスゲージカンスト時実行イベント
+	/// </summary>
+	public Action onDanceGaugeMax;
 }

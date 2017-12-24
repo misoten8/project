@@ -27,25 +27,28 @@ public class DanceRequester : UIBase
 		if (_cross == null)
 			Debug.LogWarning("crossが取得できませんでした");
 
-		events.onDanceStart += () =>
+		if (events != null)
 		{
-			_arrow.enabled = false;
-			_cross.enabled = false;
-		};
-		events.onRequestShake += () =>
-		{
-			_arrow.enabled = true;
-			_cross.enabled = false;
-		};
-		events.onRequestStop += () =>
-		{
-			_arrow.enabled = false;
-			_cross.enabled = true;
-		};
-		events.onDanceEnd += () =>
-		{
-			_arrow.enabled = false;
-			_cross.enabled = false;
+			events.onDanceStart += () =>
+			{
+				_arrow.enabled = false;
+				_cross.enabled = false;
+			};
+			events.onRequestShake += () =>
+			{
+				_arrow.enabled = true;
+				_cross.enabled = false;
+			};
+			events.onRequestStop += () =>
+			{
+				_arrow.enabled = false;
+				_cross.enabled = true;
+			};
+			events.onDanceFinished += () =>
+			{
+				_arrow.enabled = false;
+				_cross.enabled = false;
+			};
 		};
 	}
 }

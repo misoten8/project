@@ -17,6 +17,7 @@ public class DanceDisplayDebugEvent : DisplayDebugEventBase
 			.eventList = new List<DisplayDebugger.DebugEvents.Element>()
 			{
 				new DisplayDebugger.DebugEvents.Element(e.onDanceStart, nameof(e.onDanceStart)),
+				new DisplayDebugger.DebugEvents.Element(e.onDanceFinished, nameof(e.onDanceFinished)),
 				new DisplayDebugger.DebugEvents.Element(e.onDanceEnd, nameof(e.onDanceEnd)),
 				new DisplayDebugger.DebugEvents.Element(e.onDanceSuccess, nameof(e.onDanceSuccess)),
 				new DisplayDebugger.DebugEvents.Element(e.onDanceFailled, nameof(e.onDanceFailled)),

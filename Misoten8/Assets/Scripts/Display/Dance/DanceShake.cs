@@ -22,12 +22,15 @@ public class DanceShake : UIBase
 		if (_textFx == null)
 			Debug.LogWarning("_textFxが取得できませんでした");
 
-		events.onRequestShake += () =>
+		if (events != null)
 		{
-			_textFx.enabled = true;
-			_textFx.AnimationManager.PlayAnimation();
-		};
-		events.onRequestStop += () => _textFx.enabled = false;
-		events.onDanceEnd += () => _textFx.enabled = false;
+			events.onRequestShake += () =>
+			{
+				_textFx.enabled = true;
+				_textFx.AnimationManager.PlayAnimation();
+			};
+			events.onRequestStop += () => _textFx.enabled = false;
+			events.onDanceFinished += () => _textFx.enabled = false;
+		}
 	}
 }

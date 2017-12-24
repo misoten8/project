@@ -147,6 +147,7 @@ public class BattleScene : SceneBase<BattleScene>
 		_mobGenerator.enabled = true;
 		_playerGenerator.enabled = true;
 		_battleTime.enabled = true;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart();
 	}
 
 	/// <summary>

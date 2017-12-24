@@ -4113,7 +4113,7 @@ MonoBehaviour:
           m_action_index: 0
     m_begin_on_start: 0
     m_on_finish_action: 0
-    m_animation_speed_factor: 1
+    m_animation_speed_factor: 2
     m_begin_delay: 0
     m_animate_per: 0
     m_time_type: 0
@@ -10391,7 +10391,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467969804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4a0f777f88d47f744b369917b9b45d30, type: 2}
   m_CullingMode: 0
@@ -14219,7 +14219,7 @@ MonoBehaviour:
           m_action_index: 0
     m_begin_on_start: 0
     m_on_finish_action: 0
-    m_animation_speed_factor: 1
+    m_animation_speed_factor: 2
     m_begin_delay: 0
     m_animate_per: 0
     m_time_type: 0
@@ -15213,7 +15213,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 809459279}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -15281,7 +15281,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 905046810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

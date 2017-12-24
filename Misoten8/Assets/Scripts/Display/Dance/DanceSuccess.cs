@@ -12,6 +12,8 @@ public class DanceSuccess : UIBase
 
 	private TextFxUGUI _textFx;
 
+	private int startFunCount;
+
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
 		base.OnAwake(cache, displayEvents);
@@ -38,6 +40,7 @@ public class DanceSuccess : UIBase
 
 		if (events != null)
 		{
+			events.onDanceStart += () => startFunCount = _mobManager.GetFunCount(_localPlayer.Type);
 			events.onDanceSuccess += () =>
 			{
 				if (_mobManager == null)
@@ -46,7 +49,7 @@ public class DanceSuccess : UIBase
 				}
 				else
 				{
-					int diff = _mobManager.GetFunCountDiff(_localPlayer.Type);
+					int diff = _mobManager.GetFunCount(_localPlayer.Type) - startFunCount;
 					_textFx.SetText("Success!!\n+" + diff.ToString() + "!");
 				}
 				_textFx.AnimationManager.PlayAnimation();

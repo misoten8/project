@@ -14,6 +14,8 @@ public class DanceFailure : UIBase
 
 	private TextFxUGUI _textFx;
 
+	private int startFunCount;
+
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
 		base.OnAwake(cache, displayEvents);
@@ -40,6 +42,7 @@ public class DanceFailure : UIBase
 
 		if (events != null)
 		{
+			events.onDanceStart += () => startFunCount = _mobManager.GetFunCount(_localPlayer.Type);
 			events.onDanceFailled += () =>
 			{
 				if (_mobManager == null)
@@ -48,8 +51,10 @@ public class DanceFailure : UIBase
 				}
 				else
 				{
-					int diff = _mobManager.GetFunCountDiff(_localPlayer.Type);
-					_textFx.SetText("Failure...\n-" + diff.ToString() + "...");
+					_textFx.SetText("Failure...");
+					//TODO:ダンスバトル時はファンが減るため、表示する
+					//int diff = _mobManager.GetFunCount(_localPlayer.Type);
+					//_textFx.SetText("Failure...\n-" + diff.ToString() + "...");
 				}
 				_textFx.AnimationManager.PlayAnimation();
 			};

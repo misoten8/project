@@ -10,6 +10,13 @@ public class DanceEvents : EventsBase
 	/// </summary>
 	public Action onDanceStart;
 	/// <summary>
+	/// ダンスフィニッシュ時実行イベント
+	/// </summary>
+	/// <remarks>
+	/// ダンス終了イベントよりも早く呼ばれる
+	/// </remarks>
+	public Action onDanceFinished;
+	/// <summary>
 	/// ダンス終了時実行イベント
 	/// </summary>
 	public Action onDanceEnd;

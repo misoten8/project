@@ -21,12 +21,15 @@ public class DanceStop : UIBase
 		if (_textFx == null)
 			Debug.LogWarning("_textFxが取得できませんでした");
 
-		events.onRequestShake += () => _textFx.enabled = false;
-		events.onRequestStop += () =>
+		if (events != null)
 		{
-			_textFx.enabled = true;
-			_textFx.AnimationManager.PlayAnimation();
+			events.onRequestShake += () => _textFx.enabled = false;
+			events.onRequestStop += () =>
+			{
+				_textFx.enabled = true;
+				_textFx.AnimationManager.PlayAnimation();
+			};
+			events.onDanceFinished += () => _textFx.enabled = false;
 		};
-		events.onDanceEnd += () => _textFx.enabled = false;
 	}
 }
