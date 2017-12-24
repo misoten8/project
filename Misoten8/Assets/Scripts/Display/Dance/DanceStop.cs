@@ -15,7 +15,9 @@ public class DanceStop : UIBase
 		if (events != null)
 		{
 			events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
-			events.onRequestFailled += () => uiObjects[0].color = UnityEngine.Color.white;
+			events.onRequestShake += () => uiObjects[0].color = UnityEngine.Color.clear;
+			events.onRequestStop += () => uiObjects[0].color = UnityEngine.Color.white;
+			events.onRequestFailled += () => uiObjects[0].color = UnityEngine.Color.clear;
 		}
 	}
 }

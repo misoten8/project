@@ -22,6 +22,14 @@ public class DanceEvents : EventsBase
 	/// </summary>
 	public Action onDanceFailled;
 	/// <summary>
+	/// シェイクリクエスト実行イベント
+	/// </summary>
+	public Action onRequestShake;
+	/// <summary>
+	/// ストップリクエスト実行イベント
+	/// </summary>
+	public Action onRequestStop;
+	/// <summary>
 	/// リクエスト成功時実行イベント
 	/// </summary>
 	public Action onRequestSuccess;

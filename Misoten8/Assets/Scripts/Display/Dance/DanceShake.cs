@@ -13,10 +13,9 @@ public class DanceShake : UIBase
 		base.OnAwake(cache, displayEvents);
 		var events = displayEvents as DanceEvents;
 
-		if (events != null)
-		{
-			events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
-			events.onRequestSuccess += () => uiObjects[0].color = UnityEngine.Color.white;
-		}
+		events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
+		events.onRequestShake += () => uiObjects[0].color = UnityEngine.Color.white;
+		events.onRequestStop += () => uiObjects[0].color = UnityEngine.Color.clear;
+		events.onRequestFailled += () => uiObjects[0].color = UnityEngine.Color.clear;
 	}
 }
