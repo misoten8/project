@@ -6,8 +6,7 @@ using UnityEngine.UI;
 /// </summary>
 public class ShakeIcon : UIBase 
 {
-	[SerializeField]
-	private int _borderShakeCount;
+	private int _borderShakeCount = Define.SCENE_TRANCE_VALUE;
 	private Image _image;
 	private float _drawValue = 0.0f;
 
