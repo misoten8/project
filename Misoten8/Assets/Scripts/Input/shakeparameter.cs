@@ -10,27 +10,35 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
     //マクロ定義
     //=====================================
     private const int REDUCTION_TIME = 1;//モードを変える時間
+    //=======================================
+    //構造体
+    //=======================================
+    private enum PARAMETERMODE
+    {
+        NORMAL,
+        NOT_DECREASE,
+        END
+    };
     //=====================================
     //変数
     //=====================================
     private float _shakeparameter;
-
+    private PARAMETERMODE _mode;
+    private float _changetime;
     //=====================================
     // Use this for initialization
     //=====================================
     void Start ()
 	{
         _shakeparameter = 0;
+        _mode = PARAMETERMODE.NORMAL;
+        _changetime = 0;
 	}
     //=====================================
     // Update is called once per frame
     //=====================================
     void Update ()
 	{
-
-		//時間経過で数値が０になるようにする
-		_shakeparameter -= Time.deltaTime;
-
 		//0以下にならないようにする
 		_shakeparameter = Mathf.Max(_shakeparameter, 0.0f);
 
@@ -38,6 +46,24 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
 		if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))  
         {
             _shakeparameter += 1.0f;
+            _mode = PARAMETERMODE.NOT_DECREASE;
+        }
+
+        //一定時間たつとゲージが減るように戻る
+        switch (_mode)
+        {
+            case PARAMETERMODE.NOT_DECREASE:
+                _changetime += Time.deltaTime;
+                if (_changetime >= REDUCTION_TIME)
+                {
+                    _mode = PARAMETERMODE.NORMAL;
+                    _changetime = 0.0f;
+                }
+                break;
+            case PARAMETERMODE.NORMAL:
+                _shakeparameter -= Time.deltaTime;
+                break;
+
         }
 	}
     //=====================================
