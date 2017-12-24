@@ -69,6 +69,8 @@ public class DisplayManager : SingletonMonoBehaviour<DisplayManager>
 		{ DisplayType.None, "None" },
 		{ DisplayType.Title, "TitleDisplay" },
 		{ DisplayType.Lobby, "LobbyDisplay" },
+		{ DisplayType.Move, "MoveDisplay" },
+		{ DisplayType.Dance, "DanceDisplay" },
 		{ DisplayType.Result, "ResultDisplay" }
 	};
 

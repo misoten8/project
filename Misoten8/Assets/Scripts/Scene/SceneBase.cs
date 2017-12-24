@@ -84,6 +84,7 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 		duringTransScene = true;
 
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(false);
 
 		DisplayManager.OnSceneEnd();
 
@@ -100,6 +101,7 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 	{
 		// シェイクカウンタの初期化
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
 
 		// シーン情報を渡す
 		DisplayManager.OnSceneStart(GetOverrideInstance());

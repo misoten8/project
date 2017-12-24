@@ -80,7 +80,6 @@ public class Player : Photon.PunBehaviour
 
 	private playercamera _playercamera;
 
-
 	private bool canPlayDance = true;
 
     // ファン追従用オブジェ
@@ -106,7 +105,8 @@ public class Player : Photon.PunBehaviour
 		_playerManager = caches.playerManager;
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
-        _targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
+
+		_targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
@@ -160,11 +160,14 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (shakeparameter.IsOverWithValue(2))
+			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
-                _playercamera.SetDollyPosition(transform);//ドリーの位置設定
+				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax();
+
+				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				shakeparameter.ResetShakeParameter();
+				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
 		}
 

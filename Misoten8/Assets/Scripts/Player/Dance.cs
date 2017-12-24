@@ -221,6 +221,9 @@ public class Dance : MonoBehaviour
 		_phase = Phase.Start;
 
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
+
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart();
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -259,6 +262,8 @@ public class Dance : MonoBehaviour
 		{
 			_danceUI.SetResult(IsSuccess);
 			shakeparameter.ResetShakeParameter();
+			shakeparameter.SetActive(false);
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished();
 		}
 	}
 
@@ -268,9 +273,10 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			shakeparameter.ResetShakeParameter();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
 			_danceUI.NotActive();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
+			DisplayManager.Switch(DisplayManager.DisplayType.Move);
 		}
 		
 		_danceFloor.enabled = false;
@@ -314,6 +320,14 @@ public class Dance : MonoBehaviour
 			if(Player.IsMine)
 			{
 				_danceUI.SetRequestShake(_isRequestShake);
+				if(_isRequestShake)
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake();
+				}
+				else
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop();
+				}
 			}
 			yield return new WaitForSeconds(_requestTime[callCount]);
 		}
