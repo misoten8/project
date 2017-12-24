@@ -43,7 +43,8 @@ public class playercamera : MonoBehaviour {
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
     [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private dancecameradolly dancecameradolly;
-    Transform retChild; 
+    Transform retChild;
+    private Player player;
     //=======================================
     //関数名 Start
     //引き数
@@ -88,8 +89,8 @@ public class playercamera : MonoBehaviour {
                 //一定時間経過でランダム
                 if (changetime < Time.time)
                 {
-                    retChild = GameObject.Find("Player1").transform.FindChild("player1").transform.FindChild("locator1").transform;
-                    SetFollowTarget(retChild);
+
+                    SetFollowTarget(player.Model.transform);
                     SetLookAtTarget(retChild);
                     m_mode = CAMERAMODE.DANCE;
                     changetime = Time.time + CHANGE_TIME;  //次の更新時刻を決める
@@ -187,5 +188,9 @@ public class playercamera : MonoBehaviour {
     public static CAMERAMODE GetCameraMode()
     {
         return m_mode;
+    }
+    public void SetPlayer(Player target)
+    {
+        player = target;
     }
 }

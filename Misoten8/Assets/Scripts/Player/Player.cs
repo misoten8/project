@@ -134,6 +134,7 @@ public class Player : Photon.PunBehaviour
 		{
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
+            _playercamera.SetPlayer(this);
 			StartCoroutine(WaitOnFrame());
 		}
 	}
