@@ -30,15 +30,7 @@ public class DanceEvents : EventsBase
 	/// </summary>
 	public Action onRequestStop;
 	/// <summary>
-	/// リクエスト成功時実行イベント
+	/// リクエストノルマ達成時実行イベント
 	/// </summary>
-	public Action onRequestSuccess;
-	/// <summary>
-	/// リクエスト失敗時実行イベント
-	/// </summary>
-	public Action onRequestFailled;
-	/// <summary>
-	/// プレイヤー乱入時実行イベント
-	/// </summary>
-	public Action onPenetrationPlayer;
+	public Action onRequestNolmaComplate;
 }

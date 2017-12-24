@@ -15,10 +15,19 @@ public class DanceShake : UIBase
 	{
 		base.OnAwake(cache, displayEvents);
 		var events = displayEvents as DanceEvents;
+		if (events == null)
+			Debug.LogWarning("DanceEventsが取得できませんでした");
 
-		events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
-		events.onRequestShake += () => uiObjects[0].color = UnityEngine.Color.white;
-		events.onRequestStop += () => uiObjects[0].color = UnityEngine.Color.clear;
-		events.onRequestFailled += () => uiObjects[0].color = UnityEngine.Color.clear;
+		_textFx = uiObjects[0] as TextFxUGUI;
+		if (_textFx == null)
+			Debug.LogWarning("_textFxが取得できませんでした");
+
+		events.onRequestShake += () =>
+		{
+			_textFx.enabled = true;
+			_textFx.AnimationManager.PlayAnimation();
+		};
+		events.onRequestStop += () => _textFx.enabled = false;
+		events.onDanceEnd += () => _textFx.enabled = false;
 	}
 }

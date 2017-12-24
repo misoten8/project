@@ -20,9 +20,9 @@ public class DanceDisplayDebugEvent : DisplayDebugEventBase
 				new DisplayDebugger.DebugEvents.Element(e.onDanceEnd, nameof(e.onDanceEnd)),
 				new DisplayDebugger.DebugEvents.Element(e.onDanceSuccess, nameof(e.onDanceSuccess)),
 				new DisplayDebugger.DebugEvents.Element(e.onDanceFailled, nameof(e.onDanceFailled)),
-				new DisplayDebugger.DebugEvents.Element(e.onRequestSuccess, nameof(e.onRequestSuccess)),
-				new DisplayDebugger.DebugEvents.Element(e.onRequestFailled, nameof(e.onRequestFailled)),
-				new DisplayDebugger.DebugEvents.Element(e.onPenetrationPlayer, nameof(e.onPenetrationPlayer))
+				new DisplayDebugger.DebugEvents.Element(e.onRequestShake, nameof(e.onRequestShake)),
+				new DisplayDebugger.DebugEvents.Element(e.onRequestStop, nameof(e.onRequestStop)),
+				new DisplayDebugger.DebugEvents.Element(e.onRequestNolmaComplate, nameof(e.onRequestNolmaComplate))
 			};
 	}
 }

@@ -42,15 +42,16 @@ public class DanceFailure : UIBase
 		{
 			events.onDanceFailled += () =>
 			{
-				_textFx.AnimationManager.PlayAnimation();
 				if (_mobManager == null)
 				{
-					// 文字編集
+					_textFx.SetText("Failure...");
 				}
 				else
 				{
-					_mobManager.GetFunCountDiff(_localPlayer.Type);
+					int diff = _mobManager.GetFunCountDiff(_localPlayer.Type);
+					_textFx.SetText("Failure...\n-" + diff.ToString() + "...");
 				}
+				_textFx.AnimationManager.PlayAnimation();
 			};
 		}
 	}

@@ -1,8 +1,11 @@
-﻿/// <summary>
+﻿using UnityEngine.UI;
+/// <summary>
 /// DancePoint クラス
 /// </summary>
 public class DancePoint : UIBase 
 {
+	private Image _image;
+
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
 		base.OnAwake(cache, displayEvents);

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TextFx;
 using UnityEngine;
 
 /// <summary>
@@ -7,17 +8,25 @@ using UnityEngine;
 /// </summary>
 public class DanceStop : UIBase
 {
+	private TextFxUGUI _textFx;
+
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
 		base.OnAwake(cache, displayEvents);
 		var events = displayEvents as DanceEvents;
+		if (events == null)
+			Debug.LogWarning("DanceEventsが取得できませんでした");
 
-		if (events != null)
+		_textFx = uiObjects[0] as TextFxUGUI;
+		if (_textFx == null)
+			Debug.LogWarning("_textFxが取得できませんでした");
+
+		events.onRequestShake += () => _textFx.enabled = false;
+		events.onRequestStop += () =>
 		{
-			events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
-			events.onRequestShake += () => uiObjects[0].color = UnityEngine.Color.clear;
-			events.onRequestStop += () => uiObjects[0].color = UnityEngine.Color.white;
-			events.onRequestFailled += () => uiObjects[0].color = UnityEngine.Color.clear;
-		}
+			_textFx.enabled = true;
+			_textFx.AnimationManager.PlayAnimation();
+		};
+		events.onDanceEnd += () => _textFx.enabled = false;
 	}
 }
