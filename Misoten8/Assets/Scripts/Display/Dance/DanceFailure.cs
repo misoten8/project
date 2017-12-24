@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TextFx;
 using UnityEngine;
 
 /// <summary>
@@ -10,6 +11,8 @@ public class DanceFailure : UIBase
 	private Player _localPlayer;
 
 	private MobManager _mobManager;
+
+	private TextFxUGUI _textFx;
 
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
@@ -31,12 +34,15 @@ public class DanceFailure : UIBase
 		if (_mobManager == null)
 			Debug.LogWarning("mobManagerが取得できませんでした");
 
+		_textFx = uiObjects[0] as TextFxUGUI;
+		if (_textFx == null)
+			Debug.LogWarning("_textFxが取得できませんでした");
+
 		if (events != null)
 		{
-			events.onDanceStart += () => uiObjects[0].color = UnityEngine.Color.clear;
 			events.onDanceFailled += () =>
 			{
-				uiObjects[0].color = UnityEngine.Color.white;
+				_textFx.AnimationManager.PlayAnimation();
 				if (_mobManager == null)
 				{
 					// 文字編集
@@ -46,7 +52,6 @@ public class DanceFailure : UIBase
 					_mobManager.GetFunCountDiff(_localPlayer.Type);
 				}
 			};
-			events.onDanceEnd += () => uiObjects[0].color = Color.clear;
 		}
 	}
 }
