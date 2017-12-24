@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using WiimoteApi;
+using System.Collections;
 
 /// <summary>
 /// Player クラス
@@ -31,6 +32,33 @@ public class Player : Photon.PunBehaviour
 
 	private Animator _animator;
 
+	/// <summary>
+	/// このプレイヤーがクライアント自身かどうか(PhotonView.isMineを使用しないこと)
+	/// </summary>
+	/// <remarks>
+	/// PhotonView.isMineを利用しないのは、このプレイヤーの初期化処理で所有権の変更を行うため、
+	/// 変更されるまでタイムラグがあり、isMineである確証が得られないため。
+	/// </remarks>
+	public bool IsMine
+	{
+		get { return _isMine; }
+	}
+
+	private bool _isMine = false;
+
+	/// <summary>
+	/// プレイヤーのモデルオブジェクト
+	/// </summary>
+	/// <remarks>
+	/// Player1,Player2等のプレハブと同等のオブジェクトを受け取る事ができます
+	/// </remarks>
+	public GameObject Model
+	{
+		get { return _model; }
+	}
+
+	private GameObject _model = null;
+
 	[SerializeField]
 	private Rigidbody _rb;
 
@@ -55,6 +83,14 @@ public class Player : Photon.PunBehaviour
 
 	private bool canPlayDance = true;
 
+    // ファン追従用オブジェ
+    public Transform TargetObj
+    {
+        get { return _targetObj; }
+    }
+    [SerializeField]
+    private Transform _targetObj;
+
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
@@ -64,30 +100,49 @@ public class Player : Photon.PunBehaviour
 	/// </remarks>
 	public override void OnPhotonInstantiate(PhotonMessageInfo info)
 	{
+		_isMine = (int)photonView.instantiationData[0] == PhotonNetwork.player.ID;
+
 		var caches = GameObject.Find("SystemObjects/BattleManager").GetComponent<PlayerGenerator>().Caches;
 		_playerManager = caches.playerManager;
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
-
+        _targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
+        WiimoteManager.Wiimotes[0].SetLED((int)_type);
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
-
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
+		
+		// モデルの設定
+		_model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
+		_model.transform.SetParent(_modelPlaceObject);
+		_animator = _model.GetComponent<Animator>();
+		var playerAnimEvent = _model.GetComponent<PlayerAnimEvent>();
+		if(playerAnimEvent == null)
+		{
+			Debug.LogWarning("プレイヤーのアニメーションイベントクラスを取得できませんでした。");
+		}
+		else
+		{
+			playerAnimEvent.Player = this;
+		}
 		// プレイヤー自身だけに実行される処理
-		if ((int)photonView.instantiationData[0] == PhotonNetwork.player.ID)
+		if (_isMine)
 		{
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
+			StartCoroutine(WaitOnFrame());
 		}
+	}
 
-		// モデルの設定
-		GameObject model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
-		model.transform.SetParent(_modelPlaceObject);
-		_animator = model.GetComponent<Animator>();
+	private IEnumerator WaitOnFrame()
+	{
+		yield return null;
+		// カメラのプレイヤー設定処理と重なると動作しないため、１フレーム遅らせる
+		_playercamera.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 	}
 
 	private void Update()
@@ -105,17 +160,12 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (shakeparameter.IsOverWithValue(3))
+			if (shakeparameter.IsOverWithValue(2))
 			{
                 _playercamera.SetDollyPosition(transform);//ドリーの位置設定
-                photonView.RPC("DanceBegin", PhotonTargets.AllViaServer);
+                photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				shakeparameter.ResetShakeParameter();
 			}
-		}
-		else
-		{
-			if (Input.GetKeyDown("k") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_ONE))
-				photonView.RPC("DanceCancel", PhotonTargets.AllViaServer);
 		}
 
 		Vector3 velocity = _rb.velocity;
@@ -131,23 +181,24 @@ public class Player : Photon.PunBehaviour
 	/// ダンス開始
 	/// </summary>
 	[PunRPC]
-	public void DanceBegin()
+	public void DanceBegin(byte playerType)
 	{
-		if (!photonView.isMine)
-			return;
-
-		_dance.Begin();
+		if (_type == (Define.PlayerType)playerType)
+		{
+			_dance.Begin();
+		}
 	}
 
 	/// <summary>
-	/// ダンスキャンセル
+	/// 振った時の処理
 	/// </summary>
 	[PunRPC]
-	public void DanceCancel()
+	public void DanceShake(byte playerType)
 	{
-		if (!photonView.isMine)
-			return;
-		_dance.Cancel();
+		if (_type == (Define.PlayerType)playerType)
+		{
+			_dance.Shake();
+		}
 	}
 
 	/// <summary>

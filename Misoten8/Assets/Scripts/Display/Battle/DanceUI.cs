@@ -4,6 +4,9 @@
 /// DanceUI クラス
 /// 製作者：実川
 /// </summary>
+/// <remarks>
+/// クライアントの情報しか表示しない
+/// </remarks>
 public class DanceUI : MonoBehaviour
 {
 	[SerializeField]
@@ -27,7 +30,7 @@ public class DanceUI : MonoBehaviour
 		_textMesh.color = Define.playerColor[(int)_player.Type];
 		_textMesh.text = ((int)_player.Type).ToString() + "P";
 
-		if (_player.photonView.isMine)
+		if (_player.IsMine)
 		{
 			_dm = GameObject.Find("Canvas/Display").GetComponent<DisplayMediator>();
 			_dm.DanceSuccess.enabled = false;
@@ -42,7 +45,7 @@ public class DanceUI : MonoBehaviour
 	{
 		_mesh.enabled = false;
 
-		if (_player.photonView.isMine)
+		if (_player.IsMine)
 		{
 			_dm.DancePoint.enabled = true;
 			_dm.GaugeUI.SetActive(false);
@@ -53,7 +56,7 @@ public class DanceUI : MonoBehaviour
 	{
 		_mesh.enabled = true;
 
-		if (_player.photonView.isMine)
+		if (_player.IsMine)
 		{
 			_dm.DancePoint.enabled = false;
 			_dm.DanceSuccess.enabled = false;
@@ -70,14 +73,14 @@ public class DanceUI : MonoBehaviour
 		{
 			ParticleManager.Play("DanceEndClear", new Vector3(), transform);
 
-			if (_player.photonView.isMine)
+			if (_player.IsMine)
 				_dm.DanceSuccess.enabled = true;
 		}
 		else
 		{
 			ParticleManager.Play("DanceEndFailed", new Vector3(), transform);
 
-			if (_player.photonView.isMine)
+			if (_player.IsMine)
 				_dm.DanceFailure.enabled = true;
 		}
 	}
@@ -94,7 +97,7 @@ public class DanceUI : MonoBehaviour
 
 	public void SetRequestShake(bool isRequestShake)
 	{
-		if (_player.photonView.isMine)
+		if (_player.IsMine)
 		{
 			if (isRequestShake)
 			{

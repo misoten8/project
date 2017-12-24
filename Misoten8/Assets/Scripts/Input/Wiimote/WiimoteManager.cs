@@ -48,8 +48,6 @@ namespace WiimoteApi
                 Wiimote wm = Wiimotes[wiiNumber];
                 wm.InitWiiMotionPlus();
                 wm.Speaker.Init();
-                int i = wiiNumber + 1;
-                wm.SendPlayerLED(i == 1, i == 2, i == 3, i == 4);
                 Rumble(wiiNumber, false);
             }
         }
@@ -146,6 +144,7 @@ namespace WiimoteApi
         {
             if (remote != null)
             {
+                remote.Uninit();
                 if (remote.hidapi_handle != IntPtr.Zero)
                 {
                     HIDapi.hid_close(remote.hidapi_handle);

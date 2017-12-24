@@ -26,6 +26,9 @@ public static class Define
 
 	public const int FAN_SCORE_HARD = 100;
 
+
+
+    public const int SCENE_TRANCE_VALUE = 16;
 	/// <summary>
 	/// ファンポイント最大値(この値によって各プレイヤーに割り振られるスコアポイントが決まる)
 	/// </summary>
@@ -86,7 +89,7 @@ public static class Define
 		Max
 	}
 
-	public enum PlayerType
+	public enum PlayerType : byte
 	{
 		/// <summary>
 		/// 無所属

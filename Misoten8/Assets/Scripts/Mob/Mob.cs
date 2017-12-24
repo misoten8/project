@@ -75,6 +75,10 @@ public class Mob : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
+    // フォロワーになった順番
+    // TODO:ここにフォロワーのインデックス番号
+    public int _followInex;
+
 	/// <summary>
 	/// マテリアルを設定する対象メッシュ
 	/// </summary>
@@ -113,6 +117,11 @@ public class Mob : Photon.PunBehaviour
 	/// <summary>
 	/// 既にダンスを視聴中かどうか
 	/// </summary>
+    public bool IsViewingInDance
+    {
+        get { return _isViewingInDance; }
+    }
+
 	private bool _isViewingInDance;
 
 	/// <summary>
@@ -145,7 +154,7 @@ public class Mob : Photon.PunBehaviour
 		onMoveMob?.Invoke();
 
 		// モデルの設定
-		GameObject model = Instantiate(ModelManager.GetCache(MobManager.MODEL_MAP[_fanLevel]));
+		GameObject model = Instantiate(ModelManager.GetCache(_mobManager.GetRandomModelType()));
 		model.transform.SetParent(_modelPlaceObject);
 		model.transform.localPosition = Vector3.zero;
 		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();

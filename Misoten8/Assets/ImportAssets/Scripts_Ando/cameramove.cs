@@ -7,11 +7,12 @@ public class cameramove : MonoBehaviour
     public CinemachineVirtualCamera virtualCamera;
     public CinemachinePath path;
     public AnimationCurve curve;
-    public float velocity;
-    public float currentDistance;
-
+   // public float velocity;
+    public static float currentDistance = 0;
+    public static int cameraNum = 0;
     private float pathLength;
-    private CinemachineTrackedDolly dolly;
+    private static CinemachineTrackedDolly dolly;
+    public static float dollytime = 0.0f;
 
     void SamplePath(int stepsPerSegment)
     {
@@ -38,25 +39,43 @@ public class cameramove : MonoBehaviour
             //AnimationUtility.SetKeyRightTangentMode(curve, i, AnimationUtility.TangentMode.Linear);
         }
         #endif
-
     }
-
     void Start()
     {
+        cameraNum = 0;
         dolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
         if (path != null)
             SamplePath(path.m_Appearance.steps); // TODO: decouple numSteps from appearance setting
+        currentDistance = 0;
     }
-
     void Update()
     {
         int numKeys = (curve != null && curve.keys != null) ? curve.keys.Length : 0;
         if (dolly != null && numKeys > 0 && pathLength > Vector3.kEpsilon)
         {
-            currentDistance += velocity * Time.deltaTime;
+            currentDistance = dollytime;
             currentDistance = currentDistance % pathLength;
             dolly.m_PathPosition = curve.Evaluate(currentDistance);
         }
+        if (cameraNum == 2 && playercamera.GetCameraMode() == playercamera.CAMERAMODE.DANCE)
+        {
+            dollytime += 0.06f;
+        }
+        else
+        {
+            InitDolly();
+        }
     }
+    void InitDolly()
+    {
+        dolly.m_PathPosition = 0.00f;
+        dollytime = 0.00f;
+        currentDistance = 0.00f;
+    }
+    public static void SetCameraNum(int num)
+    {
+        cameraNum = num;
+    }
+
 }
 
