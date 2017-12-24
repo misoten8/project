@@ -4,7 +4,15 @@ timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: Barricades_001
+    400000: //RootNode
+    400002: Barricades_001
+    2300000: Barricades_001
+    3300000: Barricades_001
     4300000: Barricades_001
+    7400000: Default Take
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
