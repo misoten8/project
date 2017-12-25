@@ -14,8 +14,11 @@ public class ResultScene : SceneBase<ResultScene>
 	{
 		get { return _sceneCache; }
 	}
-
-	[SerializeField]
+    private void Start()
+    {
+        AudioManager.PlayBGM("リザルト");
+    }
+    [SerializeField]
 	private ResultSceneCache _sceneCache;
 
 	/// <summary>
