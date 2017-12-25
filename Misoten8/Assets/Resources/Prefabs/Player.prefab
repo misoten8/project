@@ -55,7 +55,6 @@ GameObject:
   - component: {fileID: 4663462923389204}
   - component: {fileID: 23244437294731530}
   - component: {fileID: 102816663810282894}
-  - component: {fileID: 114568481468565872}
   m_Layer: 0
   m_Name: MeterBillboard
   m_TagString: Untagged
@@ -438,20 +437,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114568481468565872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115760464099182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c063ad436468eb441b899f5cf84c9006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mesh: {fileID: 23244437294731530}
-  _textMesh: {fileID: 102816663810282894}
-  _player: {fileID: 114876991752507334}
 --- !u!114 &114596458515795774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,6 +465,7 @@ MonoBehaviour:
   _rotatePower: 6
   _dance: {fileID: 114916743764748960}
   _modelPlaceObject: {fileID: 4382545515770120}
+  _textMesh: {fileID: 102816663810282894}
   _targetObj: {fileID: 4223089959755462}
 --- !u!114 &114916743764748960
 MonoBehaviour:
@@ -494,7 +480,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 114876991752507334}
   _danceCollider: {fileID: 135802525566596308}
-  _danceUI: {fileID: 114568481468565872}
   _danceFloor: {fileID: 23013123418670414}
 --- !u!114 &114947051991646484
 MonoBehaviour:
