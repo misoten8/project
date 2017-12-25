@@ -62,7 +62,7 @@ public class BattleScene : SceneBase<BattleScene>
 		{
 			StartCoroutine(RepeatNotification());
 		}
-		AudioManager.PlayBGM("DJ Striden - Lights [Dream Trance]");
+		AudioManager.PlayBGM("gronx");
 	}
 
 	/// <summary>
