@@ -219,7 +219,7 @@ public class Dance : MonoBehaviour
 		shakeparameter.ResetShakeParameter();
 		shakeparameter.SetActive(true);
 
-		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -259,13 +259,13 @@ public class Dance : MonoBehaviour
 			shakeparameter.SetActive(false);
 			if(_isSuccess)
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess();
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
 			}
 			else
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled();
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
 			}
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished?.Invoke();
 		}
 	}
 
@@ -275,7 +275,7 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			//DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd?.Invoke();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
 			shakeparameter.SetActive(true);
@@ -305,7 +305,7 @@ public class Dance : MonoBehaviour
 			return;
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate?.Invoke();
 			_isSuccess = true;
 		}
 	}
@@ -328,11 +328,11 @@ public class Dance : MonoBehaviour
 			{
 				if(_isRequestShake)
 				{
-					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake();
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake?.Invoke();
 				}
 				else
 				{
-					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop();
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop?.Invoke();
 				}
 			}
 			yield return new WaitForSeconds(_requestTime[callCount]);

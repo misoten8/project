@@ -20,9 +20,9 @@ public class MoveTimer : UIBase
 		if (sceneCache == null)
 			Debug.LogWarning("BattleSceneCacheが取得できませんでした");
 
-		var events = displayEvents as DanceEvents;
+		var events = displayEvents as MoveEvents;
 		if (events == null)
-			Debug.LogWarning("DanceEventsが取得できませんでした");
+			Debug.LogWarning("MoveEventsが取得できませんでした");
 
 		_textFx = uiObjects[0] as TextFxUGUI;
 		if (_textFx == null)

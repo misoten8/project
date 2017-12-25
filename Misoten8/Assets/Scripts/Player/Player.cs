@@ -80,7 +80,7 @@ public class Player : Photon.PunBehaviour
 	private Transform _modelPlaceObject;
 
 	[SerializeField]
-	private TextMesh _textMesh;
+	private PlayerBillboard _billboard;
 
 	private PlayerManager _playerManager;
 
@@ -140,7 +140,8 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
-			_textMesh.text = ((int)_type).ToString() + "P";
+			_billboard.OnAwake(_playercamera.CameraBrain.transform, this);
+			//TODO:実行すると不具合が発生するため、要修正(戸部)
 			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
@@ -172,7 +173,7 @@ public class Player : Photon.PunBehaviour
 				_rb.AddForce(-transform.forward * _power);
 			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
-				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax();
+				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
 
 				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
