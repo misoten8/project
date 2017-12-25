@@ -29,10 +29,18 @@ public class playercamera : MonoBehaviour {
         DANCE,
         END
     };
-    //=======================================
-    //グローバル変数
-    //=======================================
-    public const int PRIORITY_HIGH      = 15; // 優先度 高
+	//=======================================
+	//プロパティ
+	//=======================================
+	public CinemachineBrain CameraBrain
+	{
+		get { return brain; }
+	}
+
+	//=======================================
+	//グローバル変数
+	//=======================================
+	public const int PRIORITY_HIGH      = 15; // 優先度 高
     public const int PRIORITY_LOW       = PRIORITY_HIGH - 1; // HIGHより低ければなんでもOK
     public const int CAMERA_MAX  = (int)CAMERATYPE.END; //カメラの最大数
     private const int CHANGE_TIME = 4;//モードを変える時間

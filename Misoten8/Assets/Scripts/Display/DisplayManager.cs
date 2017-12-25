@@ -126,9 +126,17 @@ public class DisplayManager : SingletonMonoBehaviour<DisplayManager>
 	/// </summary>
 	public static T GetInstanceDisplayEvents<T>() where T : class, IEvents
 	{
-		T events = Instance._currentdisplay.DisplayEvents as T;
+		IDisplay display = Instance._currentdisplay;
 
-		return events != null ? events : default(T);
+		if(display == null)
+		{
+			Debug.LogWarning("ディスプレイが読み込まれていません");
+			return null;
+		}
+
+		T events = display.DisplayEvents as T;
+
+		return events != null ? events : null;
 	}
 
 	public static bool IsEmpty()

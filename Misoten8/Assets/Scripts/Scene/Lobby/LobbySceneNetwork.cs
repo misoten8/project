@@ -217,20 +217,4 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		// UI表示
 		GUI.Box(rect, message);
 	}
-
-	public void OnPhotonPlayerPropertiesChanged(object[] i_playerAndUpdatedProps)
-	{
-		var player = i_playerAndUpdatedProps[0] as PhotonPlayer;
-		var properties = i_playerAndUpdatedProps[1] as ExitGames.Client.Photon.Hashtable;
-
-		Debug.Log("誰かのプロパティが変化しました！");
-		PhotonNetwork.playerList
-			.Where(e => e.ID == player.ID)
-			.Select(e =>
-			{
-				Debug.Log("プレイヤー" + player.ID.ToString() + "のプロパティが変化しました");
-				e.SetCustomProperties(properties);
-				return default(IEnumerable);
-			});
-	}
 }

@@ -121,9 +121,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4666793063285624}
-  - component: {fileID: 114550486091340868}
+  - component: {fileID: 114697074069467072}
   m_Layer: 0
-  m_Name: DanceUI
+  m_Name: Billboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,18 +398,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &114550486091340868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1883656377705044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ddfcc93104ff794d85bf16d8cc3e6ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetDisplayIndex: 0
 --- !u!114 &114550676932033066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +437,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spectrum: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114697074069467072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1883656377705044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5532662e8b1c634db4eae9316e636ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textMesh: {fileID: 102816663810282894}
 --- !u!114 &114876991752507334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,7 +465,7 @@ MonoBehaviour:
   _rotatePower: 6
   _dance: {fileID: 114916743764748960}
   _modelPlaceObject: {fileID: 4382545515770120}
-  _textMesh: {fileID: 102816663810282894}
+  _billboard: {fileID: 114697074069467072}
   _targetObj: {fileID: 4223089959755462}
 --- !u!114 &114916743764748960
 MonoBehaviour:

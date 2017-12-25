@@ -50,6 +50,7 @@ public class DanceSuccess : UIBase
 				else
 				{
 					_textFx.SetText("Success!!");
+					//TODO:クリア時に何人増えたか表示する
 					//int diff = _mobManager.GetFunCount(_localPlayer.Type) - startFunCount;
 					//_textFx.SetText("Success!!\n+" + diff.ToString() + "!");
 				}
