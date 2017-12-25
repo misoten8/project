@@ -257,6 +257,14 @@ public class Dance : MonoBehaviour
 		{
 			shakeparameter.ResetShakeParameter();
 			shakeparameter.SetActive(false);
+			if(_isSuccess)
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess();
+			}
+			else
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled();
+			}
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished();
 		}
 	}
@@ -286,10 +294,18 @@ public class Dance : MonoBehaviour
 
 	private void ChangeFanPoint(int addValue)
 	{
-		_dancePoint += addValue;
-		if (Player.IsMine)
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
+			return;
+		}
+		_dancePoint += addValue;
+		_dancePoint = Math.Max(_dancePoint, 0);
+
+		if (!Player.IsMine)
+			return;
+		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
+		{
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate();
 			_isSuccess = true;
 		}
 	}

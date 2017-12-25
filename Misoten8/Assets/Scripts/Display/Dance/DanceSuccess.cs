@@ -49,8 +49,9 @@ public class DanceSuccess : UIBase
 				}
 				else
 				{
-					int diff = _mobManager.GetFunCount(_localPlayer.Type) - startFunCount;
-					_textFx.SetText("Success!!\n+" + diff.ToString() + "!");
+					_textFx.SetText("Success!!");
+					//int diff = _mobManager.GetFunCount(_localPlayer.Type) - startFunCount;
+					//_textFx.SetText("Success!!\n+" + diff.ToString() + "!");
 				}
 				_textFx.AnimationManager.PlayAnimation();
 			};
