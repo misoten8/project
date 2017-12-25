@@ -74,6 +74,9 @@ public class Player : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
+	[SerializeField]
+	private TextMesh _textMesh;
+
 	private PlayerManager _playerManager;
 
 	private MobManager _mobManager;
@@ -111,7 +114,7 @@ public class Player : Photon.PunBehaviour
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
-        WiimoteManager.Wiimotes[0].SetLED((int)_type);
+        
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
@@ -132,6 +135,8 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
+			_textMesh.text = ((int)_type).ToString() + "P";
+			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());

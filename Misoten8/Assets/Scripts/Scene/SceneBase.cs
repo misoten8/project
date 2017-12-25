@@ -121,11 +121,11 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 			return;
 
         // Wiiリモコン終了処理
-        if (WiimoteManager.Wiimotes[0] != null)
-        {
-            WiimoteManager.Cleanup(WiimoteManager.Wiimotes[0]);
-            WiimoteManager.Wiimotes[0] = null;
-        }
+        //if (WiimoteManager.Wiimotes[0] != null)
+        //{
+        //    WiimoteManager.Cleanup(WiimoteManager.Wiimotes[0]);
+        //    WiimoteManager.Wiimotes[0] = null;
+        //}
 		// ルーム退室  
 		PhotonNetwork.LeaveRoom();
 		// ネットワーク切断

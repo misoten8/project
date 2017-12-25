@@ -100,16 +100,18 @@ public class Dance : MonoBehaviour
 	private SphereCollider _danceCollider;
 
 	[SerializeField]
-	private DanceUI _danceUI;
-
-	[SerializeField]
 	private MeshRenderer _danceFloor;
 
 	private playercamera _playercamera;
 
 	private Phase _phase = Phase.None;
 
-	private int _dancePoint = 100;
+	public int DancePoint
+	{
+		get { return _dancePoint; }
+	}
+
+	private int _dancePoint = 0;
 
 	private bool _isSuccess = false;
 
@@ -149,11 +151,6 @@ public class Dance : MonoBehaviour
 
 		_danceCollider.enabled = true;
 
-		if (Player.IsMine)
-		{
-			_danceUI.OnAwake();
-			_danceUI.NotActive();
-		}
 		_dancePoint = 0;
 	}
 
@@ -166,7 +163,6 @@ public class Dance : MonoBehaviour
 				{
 					Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 				}
-				_danceUI.SetPointUpdate(_dancePoint);
 				break;
 		}
 	}
@@ -242,7 +238,6 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			_danceUI.Active();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
 	}
@@ -260,7 +255,6 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			_danceUI.SetResult(IsSuccess);
 			shakeparameter.ResetShakeParameter();
 			shakeparameter.SetActive(false);
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished();
@@ -274,7 +268,6 @@ public class Dance : MonoBehaviour
 		if (Player.IsMine)
 		{
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
-			_danceUI.NotActive();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
 		}
@@ -294,12 +287,9 @@ public class Dance : MonoBehaviour
 	{
 		_dancePoint += addValue;
 		if (Player.IsMine)
-			_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			_isSuccess = true;
-			if(Player.IsMine)
-				_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
 		}
 	}
 
@@ -319,7 +309,6 @@ public class Dance : MonoBehaviour
 			_isRequestShake = !_isRequestShake;
 			if(Player.IsMine)
 			{
-				_danceUI.SetRequestShake(_isRequestShake);
 				if(_isRequestShake)
 				{
 					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake();
