@@ -67,7 +67,7 @@ public class BattleScene : SceneBase<BattleScene>
 
 	private void OnGUI()
 	{
-		GUI.Label(new Rect(new Vector2(0, 0), new Vector2(300, 200)), "Battle Scene");
+		//GUI.Label(new Rect(new Vector2(0, 0), new Vector2(300, 200)), "Battle Scene");
 	}
 
 	/// <summary>
