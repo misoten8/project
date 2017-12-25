@@ -215,7 +215,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				"いつでもゲームを開始できます";
 		}
 		// UI表示
-		GUI.Box(rect, message);
+		//GUI.Box(rect, message);
 	}
 
 	public void OnPhotonPlayerPropertiesChanged(object[] i_playerAndUpdatedProps)
