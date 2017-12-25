@@ -270,6 +270,7 @@ public class Dance : MonoBehaviour
 			//DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
+			shakeparameter.SetActive(true);
 		}
 		
 		_danceFloor.enabled = false;

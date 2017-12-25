@@ -59,6 +59,11 @@ public class Player : Photon.PunBehaviour
 
 	private GameObject _model = null;
 
+	public Dance Dance
+	{
+		get { return _dance; }
+	}
+
 	[SerializeField]
 	private Rigidbody _rb;
 

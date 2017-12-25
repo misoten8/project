@@ -31,8 +31,12 @@ public class DancePoint : UIBase
 		if (_clearGauge == null)
 			Debug.LogWarning("clearGaugeが取得できませんでした");
 
-		//var sceneCahce = cache as BattleSceneCache;
-		//sceneCahce.playerManager.GetPlayer( Define.PlayerType);
+		var sceneCahce = cache as BattleSceneCache;
+		if(sceneCahce == null)
+			Debug.LogWarning("sceneCahceが取得できませんでした");
+
+		_dance = sceneCahce.playerManager.GetLocalPlayer().Dance;
+		_gauge.fillAmount = _drawValue;
 
 		if (events != null)
 		{
@@ -47,7 +51,7 @@ public class DancePoint : UIBase
 
 	public override bool IsDrawUpdate()
 	{
-		float value = Mathf.Min(shakeparameter.GetShakeParameter(), _borderShakeCount) / _borderShakeCount;
+		float value = (float)Mathf.Min(_dance.DancePoint, PlayerManager.SHAKE_NORMA) / (float)PlayerManager.SHAKE_NORMA;
 		if (_drawValue != value)
 		{
 			_drawValue = value;
