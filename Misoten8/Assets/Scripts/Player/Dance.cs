@@ -267,7 +267,7 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
+			//DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
 		}

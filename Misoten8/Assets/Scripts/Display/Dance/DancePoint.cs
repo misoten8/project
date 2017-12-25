@@ -10,6 +10,7 @@ public class DancePoint : UIBase
 	private Image _clearText;
 	private Image _clearGauge;
 	private float _drawValue = 0.0f;
+	private Dance _dance = null;
 
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
@@ -29,6 +30,9 @@ public class DancePoint : UIBase
 		_clearGauge = uiObjects[3] as Image;
 		if (_clearGauge == null)
 			Debug.LogWarning("clearGaugeが取得できませんでした");
+
+		//var sceneCahce = cache as BattleSceneCache;
+		//sceneCahce.playerManager.GetPlayer( Define.PlayerType);
 
 		if (events != null)
 		{
