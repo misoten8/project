@@ -25,8 +25,11 @@ public class TitleScene : SceneBase<TitleScene>
 	{
 		return this;
 	}
-
-	void Update()
+    private void Start()
+    {
+        AudioManager.PlayBGM("タイトル");
+    }
+    void Update()
 	{
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
