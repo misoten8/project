@@ -161,6 +161,7 @@ public class Mob : Photon.PunBehaviour
 		model.transform.localPosition = Vector3.zero;
 		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();
 		_animator.avatar = model.GetComponent<Animator>().avatar;
+		_animator.runtimeAnimatorController = model.GetComponent<Animator>().runtimeAnimatorController;
 		// アニメーションの設定
 		_mobController.OnStart(_animator);
 
