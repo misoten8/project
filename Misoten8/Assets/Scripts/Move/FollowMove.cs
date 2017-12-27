@@ -20,55 +20,46 @@ public class FollowMove : MonoBehaviour, IMove
 
     private Action _onTransCheck;
 
-    /// <summary>
-    /// 移動する速度
-    /// </summary>
-    [SerializeField]
-    private float _velocity;
-
-    /// <summary>
-    /// 移動を中止する距離
-    /// </summary>
-    [SerializeField]
-    private float _stopDistance;
-
-    /// <summary>
-    /// 速度の減少を開始する距離
-    /// </summary>
-    [SerializeField]
-    private float _slowDistance;
-
     private Transform _target = null;
 
-    private NavMeshAgent _agent = null;
+	private Animator _animator = null;
 
-    private Mob _mob = null;
-    private Player _player = null;
-    public int cutNum = 10;      // 列を区切る番号
+	private NavMeshAgent _agent = null;
 
-    private float mobInterval = 1.5f;
-    public int fanNum = 0;
-    public float testRot = 0.0f;
+	private Mob _mob = null;
+    private int cutNum = 10;      // 列を区切る番号
 
-    /// <summary>
+	[SerializeField]
+    private float _mobInterval = 0.5f;
+
+	private float _angle = 0.2f;
+	private float _angle2 = -0.2f;
+	private Vector3 _targetPosition;
+    //public int fanNum = 0;
+    //public float testRot = 0.0f;
+
+	private static int _animIdIsStop = Animator.StringToHash("IsStop");
+	private static int _animIdDistance = Animator.StringToHash("Distance");
+
+	/// <summary>
 	/// 初期化処理
 	/// </summary>
-	public void OnStart(Transform target)
+	public void OnStart(Transform target, Animator animator, NavMeshAgent agent, Mob mob)
     {
         _target = target;
-        _player = _target.GetComponent<Player>();
         enabled = true;
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.enabled = true;
-        _mob = GetComponent<Mob>();
-        mobInterval = 2.0f;
-    }
+		_animator = animator;
+		_mob = mob;
+		_agent = agent;
+		_mobInterval = 2.0f;
+		
+	}
 
     void OnDisable()
     {
         _target = null;
-        _agent = null;
-    }
+		_animator = null;
+	}
 
     void Update()
     {
@@ -78,31 +69,51 @@ public class FollowMove : MonoBehaviour, IMove
             enabled = false;
             return;
         }
-        Vector3 goal = _player.TargetObj.position;
-        goal.z = -goal.z;
-        _agent.SetDestination(_player.TargetObj.position);
 
-        if (_agent.remainingDistance < 1.0f + (_mob._followInex * mobInterval))
-        {
-            _agent.isStopped = true;
-        }
-        else
-        {
-            _agent.isStopped = false;
-        }
-        // 遷移チェック
-        _onTransCheck?.Invoke();
+		_targetPosition = _target.position + GetPlayerOffset(_mob._followInex);
+
+		// ナビメッシュの移動目標座標を設定する
+		_agent.SetDestination(_targetPosition);
+
+		float distance = Vector3.Distance(_targetPosition, transform.position);
+		bool isStopped = false;
+
+		// 距離を設定
+		_animator.SetFloat(_animIdDistance, distance);
+
+		// 一定の距離より近づいた場合true
+		isStopped = distance < 0.5f ? true : false;
+
+		// フラグが変化した場合にみアニメーションに変更を通知する
+		if(isStopped != _animator.GetBool(_animIdIsStop))
+		{
+			_animator.SetBool(_animIdIsStop, isStopped);
+		}
+
+		// 遷移チェック
+		_onTransCheck?.Invoke();
     }
 
-    // 
-    float SetDirection(Vector3 p1, Vector3 p2)
-    {
-        Debug.Log("Target: " + p2);
-        float dx, dy;
-        dx = p1.x - p2.x;
-        dy = p1.z - p2.z;
-        float rad = Mathf.Atan2(dy, dx);
-        Debug.Log("rot : " + rad);
-        return rad * Mathf.Rad2Deg;
-    }
+	/// <summary>
+	/// 追従番号に応じたプレイヤーの相対座標を取得する
+	/// </summary>
+	private Vector3 GetPlayerOffset(int followIndex)
+	{
+		return new Vector3(
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)),
+		0.0f,
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)));
+	}
+
+	// Gizmo描画
+	void OnDrawGizmos()
+	{
+		if (!enabled)
+			return;
+
+		Gizmos.color = Color.green;
+		Gizmos.DrawSphere(_targetPosition, 0.5f);
+	}
 }

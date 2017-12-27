@@ -6904,7 +6904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lobbyScene: {fileID: 2128661441}
-  _offlineMode: 0
+  _offlineMode: 1
 --- !u!114 &2128661441
 MonoBehaviour:
   m_ObjectHideFlags: 0

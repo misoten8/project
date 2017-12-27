@@ -69,8 +69,9 @@ public class MobGenerator : Photon.MonoBehaviour
 
 	private void Create()
 	{
+		//TODO:マーカーの座標にスポーンさせる
 		PhotonNetwork.InstantiateSceneObject(
-			"Prefabs/Mobs/" + _peplePrefab[Random.Range(0, 3)].name, 
+			"Prefabs/Mobs/" + _peplePrefab[0].name, 
 			transform.position + new Vector3(Random.Range(-_rangeSize.x, _rangeSize.x),
 			0, 
 			Random.Range(-_rangeSize.y, _rangeSize.y)), 
