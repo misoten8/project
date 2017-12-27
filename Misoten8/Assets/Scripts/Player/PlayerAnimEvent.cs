@@ -21,8 +21,9 @@ public class PlayerAnimEvent : MonoBehaviour
 	{
 		if(isMine ?? false)
 		{
-			//足音再生
-		}
+            //足音再生
+            AudioManager.PlaySE("足音");
+        }
 	}
 
 	/// <summary>
@@ -32,7 +33,8 @@ public class PlayerAnimEvent : MonoBehaviour
 	{
 		if (isMine ?? false)
 		{
-			//足音再生
-		}
+            //足音再生
+            AudioManager.PlaySE("足音");
+        }
 	}
 }

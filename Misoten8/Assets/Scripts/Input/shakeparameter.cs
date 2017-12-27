@@ -52,6 +52,7 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
             {
                 _shakeparameter += 1.0f;
                 _mode = PARAMETERMODE.NOT_DECREASE;
+
             }
 
             //一定時間たつとゲージが減るように戻る
