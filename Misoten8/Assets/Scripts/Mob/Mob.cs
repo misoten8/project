@@ -71,13 +71,15 @@ public class Mob : Photon.PunBehaviour
 	[SerializeField]
 	private MobController _mobController;
 
+	[SerializeField]
+	private Animator _animator;
 
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
     // フォロワーになった順番
     // TODO:ここにフォロワーのインデックス番号
-    public int _followInex;
+    public int _followInex = 0;
 
 	/// <summary>
 	/// マテリアルを設定する対象メッシュ
@@ -158,6 +160,9 @@ public class Mob : Photon.PunBehaviour
 		model.transform.SetParent(_modelPlaceObject);
 		model.transform.localPosition = Vector3.zero;
 		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();
+		_animator.avatar = model.GetComponent<Animator>().avatar;
+		// アニメーションの設定
+		_mobController.OnStart(_animator);
 
 		// アウトラインの更新
 		_modelSkinnidMeshs.SkinnedMeshs.Foreach(e => e.materials[1].color = new Color(0.2f, 0.2f, 0.2f));

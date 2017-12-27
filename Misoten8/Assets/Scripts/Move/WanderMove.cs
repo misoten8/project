@@ -66,11 +66,6 @@ public class WanderMove : MonoBehaviour, IMove
     private bool _isFirstFrame = true;
 
     /// <summary>
-    /// 中断時にuniRxのパイプラインを解放する
-    /// </summary>
-    private IDisposable _disposable;
-
-    /// <summary>
     /// 初期化処理
     /// </summary>
     public void OnStart()
@@ -82,12 +77,6 @@ public class WanderMove : MonoBehaviour, IMove
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
         _marker.GotoNextPoint(_agent);
-    }
-
-    private void OnDisable()
-    {
-        // 破棄
-        _disposable?.Dispose();
     }
 
     void Update()

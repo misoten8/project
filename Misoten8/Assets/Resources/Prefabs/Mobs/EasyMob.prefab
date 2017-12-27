@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114493943385594224}
   - component: {fileID: 114781223953285348}
   - component: {fileID: 195579788771698494}
-  - component: {fileID: 95453582788780426}
+  - component: {fileID: 95463852801502588}
   m_Layer: 0
   m_Name: EasyMob
   m_TagString: Mob
@@ -76,7 +76,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95453582788780426
+--- !u!95 &95463852801502588
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -84,11 +84,11 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881428418422116}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4a46284c7447c1c458f2489144078e3e, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b32ac3630b166864bb9c4ddcdf08ce6a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -107,8 +107,7 @@ MonoBehaviour:
   _mob: {fileID: 114669695057850480}
   _followMove: {fileID: 114739631158529240}
   _wanderMove: {fileID: 114493943385594224}
-  _animator: {fileID: 0}
-  _agent: {fileID: 0}
+  _agent: {fileID: 195579788771698494}
 --- !u!114 &114493943385594224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +135,9 @@ MonoBehaviour:
   _funType: 0
   _fanLevel: 0
   _mobController: {fileID: 114452835143322282}
+  _animator: {fileID: 95463852801502588}
   _modelPlaceObject: {fileID: 4368371678324800}
+  _followInex: 0
 --- !u!114 &114739631158529240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +152,7 @@ MonoBehaviour:
   _velocity: 0.1
   _stopDistance: 2
   _slowDistance: 3
+  cutNum: 10
 --- !u!114 &114781223953285348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,7 +197,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881428418422116}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -204,7 +206,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
