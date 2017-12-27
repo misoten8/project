@@ -14,8 +14,11 @@ public class ResultScene : SceneBase<ResultScene>
 	{
 		get { return _sceneCache; }
 	}
-
-	[SerializeField]
+    private void Start()
+    {
+        AudioManager.PlayBGM("リザルト");
+    }
+    [SerializeField]
 	private ResultSceneCache _sceneCache;
 
 	/// <summary>
@@ -28,7 +31,7 @@ public class ResultScene : SceneBase<ResultScene>
 
 	void Update ()
 	{
-		if (shakeparameter.IsOverWithValue(2))
+		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
 			Switch(SceneType.Title);
 		}

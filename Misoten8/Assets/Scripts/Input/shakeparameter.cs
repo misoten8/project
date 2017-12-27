@@ -10,34 +10,66 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
     //マクロ定義
     //=====================================
     private const int REDUCTION_TIME = 1;//モードを変える時間
+    //=======================================
+    //構造体
+    //=======================================
+    private enum PARAMETERMODE
+    {
+        NORMAL,
+        NOT_DECREASE,
+        END
+    };
     //=====================================
     //変数
     //=====================================
     private float _shakeparameter;
-
+    private PARAMETERMODE _mode;
+    private float _changetime;
+    public static bool _active;
     //=====================================
     // Use this for initialization
     //=====================================
     void Start ()
 	{
         _shakeparameter = 0;
+        _mode = PARAMETERMODE.NORMAL;
+        _changetime = 0;
+        _active = true;
+       
 	}
     //=====================================
     // Update is called once per frame
     //=====================================
     void Update ()
 	{
-
-		//時間経過で数値が０になるようにする
-		_shakeparameter -= Time.deltaTime;
-
-		//0以下にならないようにする
-		_shakeparameter = Mathf.Max(_shakeparameter, 0.0f);
-
-		//リモコンを振るとゲージが足される
-		if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))  
+        if (_active == true)
         {
-            _shakeparameter += 1.0f;
+            //0以下にならないようにする
+            _shakeparameter = Mathf.Max(_shakeparameter, 0.0f);
+
+            //リモコンを振るとゲージが足される
+            if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
+            {
+                _shakeparameter += 1.0f;
+                _mode = PARAMETERMODE.NOT_DECREASE;
+            }
+
+            //一定時間たつとゲージが減るように戻る
+            switch (_mode)
+            {
+                case PARAMETERMODE.NOT_DECREASE:
+                    _changetime += Time.deltaTime;
+                    if (_changetime >= REDUCTION_TIME)
+                    {
+                        _mode = PARAMETERMODE.NORMAL;
+                        _changetime = 0.0f;
+                    }
+                    break;
+                case PARAMETERMODE.NORMAL:
+                    _shakeparameter -= Time.deltaTime;
+                    break;
+
+            }
         }
 	}
     //=====================================
@@ -74,4 +106,12 @@ public class shakeparameter : SingletonMonoBehaviour<shakeparameter>
 	{
 		Instance._shakeparameter = 0.0f;
 	}
+    //=====================================
+    //関数名：SetActive
+    //説明　：_shakeparameterの有効/非有効の切り替え
+    //=====================================
+    public static void SetActive(bool active)
+    {
+        _active = active;
+    }
 }

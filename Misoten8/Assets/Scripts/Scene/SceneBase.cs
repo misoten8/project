@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using WiimoteApi;
 
 /// <summary>
 /// シーン基底クラス
@@ -83,6 +84,7 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 		duringTransScene = true;
 
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(false);
 
 		DisplayManager.OnSceneEnd();
 
@@ -99,6 +101,7 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 	{
 		// シェイクカウンタの初期化
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
 
 		// シーン情報を渡す
 		DisplayManager.OnSceneStart(GetOverrideInstance());
@@ -117,6 +120,12 @@ public abstract class SceneBase<T> : MonoBehaviour where T : SceneBase<T>
 		if (PhotonNetwork.room == null)
 			return;
 
+        // Wiiリモコン終了処理
+        //if (WiimoteManager.Wiimotes[0] != null)
+        //{
+        //    WiimoteManager.Cleanup(WiimoteManager.Wiimotes[0]);
+        //    WiimoteManager.Wiimotes[0] = null;
+        //}
 		// ルーム退室  
 		PhotonNetwork.LeaveRoom();
 		// ネットワーク切断

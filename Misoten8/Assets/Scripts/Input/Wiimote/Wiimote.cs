@@ -243,6 +243,17 @@ public class Wiimote
         }
     }
 
+        public void Uninit()
+        {
+            _Accel = null;
+            _Button = null;
+            _Accel = null;
+            _Button = null;
+            _Ir = null;
+            _Status = null;
+            _Extension = null;
+        }
+
     #region Setups
 
     /// \brief Performs a series of coperations to initialize the IR camera.
@@ -905,5 +916,11 @@ public class Wiimote
             RequestIdentifyWiiMotionPlus();
             ActivateWiiMotionPlus();
        }
+
+        // LEDê›íËä÷êî
+        public void SetLED(int ledNum)
+        {
+            SendPlayerLED(ledNum == 1, ledNum == 2, ledNum == 3, ledNum == 4);
+        }
     }
 }

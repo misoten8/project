@@ -9,113 +9,111 @@ using UnityEngine.AI;
 /// </summary>
 public class FollowMove : MonoBehaviour, IMove
 {
-	/// <summary>
-	/// 遷移条件判定イベント
-	/// FixedUpdateのタイミングで呼ばれます
-	/// </summary>
-	public Action OnTransCheck
-	{
-		set { _onTransCheck += value; }
-	}
-
-	private Action _onTransCheck;
-
-	/// <summary>
-	/// 移動する速度
-	/// </summary>
-	[SerializeField]
-	private float _velocity;
-
-	/// <summary>
-	/// 移動を中止する距離
-	/// </summary>
-	[SerializeField]
-	private float _stopDistance;
-
-	/// <summary>
-	/// 速度の減少を開始する距離
-	/// </summary>
-	[SerializeField]
-	private float _slowDistance;
-
-	private Transform _target = null;
-
-    private NavMeshAgent _agent = null;
-
-    private Mob _mob = null;
-    private Player _player = null;
-    public int cutNum = 10;      // 列を区切る番号
-
-    private float mobInterval = 1.5f;
-    public int fanNum = 0;
-    public float testRot = 0.0f;
-
     /// <summary>
+    /// 遷移条件判定イベント
+    /// FixedUpdateのタイミングで呼ばれます
+    /// </summary>
+    public Action OnTransCheck
+    {
+        set { _onTransCheck += value; }
+    }
+
+    private Action _onTransCheck;
+
+    private Transform _target = null;
+
+	private Animator _animator = null;
+
+	private NavMeshAgent _agent = null;
+
+	private Mob _mob = null;
+    private int cutNum = 10;      // 列を区切る番号
+
+	[SerializeField]
+    private float _mobInterval = 0.5f;
+
+	private float _angle = 0.2f;
+	private float _angle2 = -0.2f;
+	private Vector3 _targetPosition;
+    //public int fanNum = 0;
+    //public float testRot = 0.0f;
+
+	private static int _animIdIsStop = Animator.StringToHash("IsStop");
+	private static int _animIdDistance = Animator.StringToHash("Distance");
+
+	/// <summary>
 	/// 初期化処理
 	/// </summary>
-	public void OnStart(Transform target)
-	{
-		_target = target;
-        _player = _target.GetComponent<Player>();
-		enabled = true;
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.enabled = true;
-        _mob = GetComponent<Mob>();
-        mobInterval = 2.0f;
+	public void OnStart(Transform target, Animator animator, NavMeshAgent agent, Mob mob)
+    {
+        _target = target;
+        enabled = true;
+		_animator = animator;
+		_mob = mob;
+		_agent = agent;
+		_mobInterval = 2.0f;
+		
 	}
 
-	void OnDisable()
-	{
-		_target = null;
-        _agent = null;
+    void OnDisable()
+    {
+        _target = null;
+		_animator = null;
 	}
 
-	void Update()
-	{
-		if (_target == null)
+    void Update()
+    {
+        if (_target == null)
+        {
+            Debug.Log("追従対象が見つからない為、非アクティブになります");
+            enabled = false;
+            return;
+        }
+
+		_targetPosition = _target.position + GetPlayerOffset(_mob._followInex);
+
+		// ナビメッシュの移動目標座標を設定する
+		_agent.SetDestination(_targetPosition);
+
+		float distance = Vector3.Distance(_targetPosition, transform.position);
+		bool isStopped = false;
+
+		// 距離を設定
+		_animator.SetFloat(_animIdDistance, distance);
+
+		// 一定の距離より近づいた場合true
+		isStopped = distance < 0.5f ? true : false;
+
+		// フラグが変化した場合にみアニメーションに変更を通知する
+		if(isStopped != _animator.GetBool(_animIdIsStop))
 		{
-			Debug.Log("追従対象が見つからない為、非アクティブになります");
-			enabled = false;
-			return;
+			_animator.SetBool(_animIdIsStop, isStopped);
 		}
 
-        // 目標座標設定
-        Vector3 goal = _target.position;
-        float angle = Mathf.PI * 0.75f;
-        float angle2 = angle * 2;
-        bool debugMode = true;
-        float rot = SetDirection(_target.position, _player.TargetObj.position);
+		// 遷移チェック
+		_onTransCheck?.Invoke();
+    }
 
-        if (_mob.IsViewingInDance || debugMode)
-        {
-            // プレイヤーダンス中追従
-            goal.x += Mathf.Sin(rot + angle - ((fanNum % 2) * angle2)) * (-mobInterval * (fanNum % cutNum + 1)) +
-                        Mathf.Sin(rot) * ((mobInterval) * (fanNum / cutNum));
-
-            goal.z += Mathf.Cos(rot + angle - ((fanNum % 2) * angle2)) * (-mobInterval * (fanNum % cutNum + 1)) +
-                        Mathf.Cos(rot) * ((mobInterval) * (fanNum / cutNum));
-
-            _agent.SetDestination(goal);
-        }
-        else
-        {
-            // プレイヤー移動中追従
-            goal.x += -Mathf.Sin((rot) * (Mathf.PI * 0.5f)) * 4.0f + (-Mathf.Sin(rot) * ((mobInterval) * (fanNum / cutNum)));
-            goal.z += -Mathf.Cos((rot) * (Mathf.PI * 0.5f)) * 4.0f + (-Mathf.Cos(rot) * ((mobInterval) * (fanNum / cutNum)));
-            _agent.SetDestination(goal);
-        }
-
-            // 遷移チェック
-            _onTransCheck?.Invoke();
+	/// <summary>
+	/// 追従番号に応じたプレイヤーの相対座標を取得する
+	/// </summary>
+	private Vector3 GetPlayerOffset(int followIndex)
+	{
+		return new Vector3(
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)),
+		0.0f,
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)));
 	}
 
-    // 
-    float SetDirection(Vector3 p1, Vector3 p2)
-    {
-        float dx, dy;
-        dx = p1.x - p2.x;
-        dy = p1.y - p2.y;
-        float rad = Mathf.Atan2(dy, dx);
-        return rad * Mathf.Rad2Deg;
-    }
+	// Gizmo描画
+	void OnDrawGizmos()
+	{
+		if (!enabled)
+			return;
+
+		Gizmos.color = Color.green;
+		Gizmos.DrawSphere(_targetPosition, 0.5f);
+	}
 }

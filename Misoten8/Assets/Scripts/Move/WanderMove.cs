@@ -9,12 +9,7 @@ using UnityEngine.AI;
 /// </summary>
 public class WanderMove : MonoBehaviour, IMove
 {
-	public NavMeshAgent NavMeshAgent
-	{
-		get { return _agent; }
-	}
-
-	private enum State
+    private enum State
     {
         Move,
         Stop
@@ -65,27 +60,23 @@ public class WanderMove : MonoBehaviour, IMove
     /// </summary>
     private Vector3 _moveDirection;
 
-	/// <summary>
-	/// NPCキャッシュ
-	/// </summary>
-	private Mob _mob = null;
+    /// <summary>
+    /// 最初に呼ばれるフレームかどうか
+    /// </summary>
+    private bool _isFirstFrame = true;
 
     /// <summary>
     /// 初期化処理
     /// </summary>
-    public void OnStart(Mob mob)
+    public void OnStart()
     {
-		_mob = mob;
         enabled = true;
+        _isFirstFrame = true;
         _state = State.Move;
         _agent = GetComponent<NavMeshAgent>();
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
-		if (_marker == null)
-		{
-			Debug.LogWarning("MarkerManagerが取得できませんでした");
-		}
-		_marker.GotoNextPoint(_agent);
+        _marker.GotoNextPoint(_agent);
     }
 
     void Update()
@@ -93,18 +84,12 @@ public class WanderMove : MonoBehaviour, IMove
         // 遷移チェック
         _onCheck?.Invoke();
 
-		// 所有権のないクライアントの場合処理をスキップする
-		if (!_mob.photonView.isMine)
-		{
-			return;
-		}
-
-		// 目標座標変更処理
-		if (_agent.remainingDistance < 5.0f )
+        // 目標座標変更処理
+        if (_agent.remainingDistance < 5.0f )
         {
             int targetNum;
-            targetNum = _marker.GotoNextPoint(_agent);// 内部で次の目標が指定されているので、分離して欲しい
-			_mob.photonView.RPC("MoveMarkerChange", PhotonTargets.AllViaServer);
+            targetNum = _marker.GotoNextPoint(_agent);
+            // TODO:ここにMobの目標マーカー番号送信処理？
         }
     }
 }

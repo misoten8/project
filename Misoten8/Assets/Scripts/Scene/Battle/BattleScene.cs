@@ -62,12 +62,7 @@ public class BattleScene : SceneBase<BattleScene>
 		{
 			StartCoroutine(RepeatNotification());
 		}
-		AudioManager.PlayBGM("DJ Striden - Lights [Dream Trance]");
-	}
-
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(new Vector2(0, 0), new Vector2(300, 200)), "Battle Scene");
+		AudioManager.PlayBGM("gronx");
 	}
 
 	/// <summary>
@@ -104,8 +99,6 @@ public class BattleScene : SceneBase<BattleScene>
 		StartCoroutine(SwitchAsync(nextScene));
 	}
 
-	//TODO:バトルシーン開始時にカメラで街を見渡す処理を挟む
-	//参加プレイヤー全員のシーン遷移が完了するまで、プレイヤーオブジェクトが生成されないため。
 	/// <summary>
 	/// 生成コルーチン
 	/// </summary>
@@ -147,6 +140,7 @@ public class BattleScene : SceneBase<BattleScene>
 		_mobGenerator.enabled = true;
 		_playerGenerator.enabled = true;
 		_battleTime.enabled = true;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 	}
 
 	/// <summary>

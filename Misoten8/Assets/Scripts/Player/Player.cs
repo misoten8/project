@@ -59,6 +59,11 @@ public class Player : Photon.PunBehaviour
 
 	private GameObject _model = null;
 
+	public Dance Dance
+	{
+		get { return _dance; }
+	}
+
 	[SerializeField]
 	private Rigidbody _rb;
 
@@ -74,12 +79,14 @@ public class Player : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
+	[SerializeField]
+	private PlayerBillboard _billboard;
+
 	private PlayerManager _playerManager;
 
 	private MobManager _mobManager;
 
 	private playercamera _playercamera;
-
 
 	private bool canPlayDance = true;
 
@@ -107,13 +114,14 @@ public class Player : Photon.PunBehaviour
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
 
+		_targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
+        
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
-
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
 		
 		// モデルの設定
@@ -132,9 +140,12 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
+			//TODO:実行すると不具合が発生するため、要修正(戸部)
+			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());
+			_billboard.OnAwake(_playercamera.CameraBrain?.transform, this);
 		}
 	}
 
@@ -160,11 +171,14 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				_rb.AddForce(-transform.forward * _power);
-			if (shakeparameter.IsOverWithValue(3))
+			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
-                _playercamera.SetDollyPosition(transform);//ドリーの位置設定
+				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
+
+				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				shakeparameter.ResetShakeParameter();
+				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
 		}
 

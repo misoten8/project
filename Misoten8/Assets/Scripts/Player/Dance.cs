@@ -100,16 +100,18 @@ public class Dance : MonoBehaviour
 	private SphereCollider _danceCollider;
 
 	[SerializeField]
-	private DanceUI _danceUI;
-
-	[SerializeField]
 	private MeshRenderer _danceFloor;
 
 	private playercamera _playercamera;
 
 	private Phase _phase = Phase.None;
 
-	private int _dancePoint = 100;
+	public int DancePoint
+	{
+		get { return _dancePoint; }
+	}
+
+	private int _dancePoint = 0;
 
 	private bool _isSuccess = false;
 
@@ -149,11 +151,6 @@ public class Dance : MonoBehaviour
 
 		_danceCollider.enabled = true;
 
-		if (Player.IsMine)
-		{
-			_danceUI.OnAwake();
-			_danceUI.NotActive();
-		}
 		_dancePoint = 0;
 	}
 
@@ -166,7 +163,6 @@ public class Dance : MonoBehaviour
 				{
 					Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 				}
-				_danceUI.SetPointUpdate(_dancePoint);
 				break;
 		}
 	}
@@ -221,6 +217,9 @@ public class Dance : MonoBehaviour
 		_phase = Phase.Start;
 
 		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
+
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -239,7 +238,6 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			_danceUI.Active();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
 	}
@@ -257,8 +255,17 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			_danceUI.SetResult(IsSuccess);
 			shakeparameter.ResetShakeParameter();
+			shakeparameter.SetActive(false);
+			if(_isSuccess)
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
+			}
+			else
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
+			}
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished?.Invoke();
 		}
 	}
 
@@ -268,9 +275,10 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			shakeparameter.ResetShakeParameter();
-			_danceUI.NotActive();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd?.Invoke();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
+			DisplayManager.Switch(DisplayManager.DisplayType.Move);
+			shakeparameter.SetActive(true);
 		}
 		
 		_danceFloor.enabled = false;
@@ -286,14 +294,19 @@ public class Dance : MonoBehaviour
 
 	private void ChangeFanPoint(int addValue)
 	{
-		_dancePoint += addValue;
-		if (Player.IsMine)
-			_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
+			return;
+		}
+		_dancePoint += addValue;
+		_dancePoint = Math.Max(_dancePoint, 0);
+
+		if (!Player.IsMine)
+			return;
+		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
+		{
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate?.Invoke();
 			_isSuccess = true;
-			if(Player.IsMine)
-				_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
 		}
 	}
 
@@ -313,7 +326,14 @@ public class Dance : MonoBehaviour
 			_isRequestShake = !_isRequestShake;
 			if(Player.IsMine)
 			{
-				_danceUI.SetRequestShake(_isRequestShake);
+				if(_isRequestShake)
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake?.Invoke();
+				}
+				else
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop?.Invoke();
+				}
 			}
 			yield return new WaitForSeconds(_requestTime[callCount]);
 		}

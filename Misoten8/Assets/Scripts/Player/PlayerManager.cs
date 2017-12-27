@@ -38,6 +38,11 @@ public class PlayerManager : Photon.MonoBehaviour
 	public const int SHAKE_NORMA = 10;
 
 	/// <summary>
+	/// ダンス開始に必要なシェイク数
+	/// </summary>
+	public const int DANCE_START_SHAKE_COUNT = 20;
+
+	/// <summary>
 	/// プレイヤーキャッシュリスト
 	/// </summary>
 	public List<Player> Players
@@ -63,7 +68,15 @@ public class PlayerManager : Photon.MonoBehaviour
 		if (playerType == Define.PlayerType.None)
 			return null;
 		
-		return _players.First(e => e.Type == playerType);
+		return _players?.First(e => e.Type == playerType);
+	}
+
+	/// <summary>
+	/// ローカル（自身）のプレイヤーを取得する
+	/// </summary>
+	public Player GetLocalPlayer()
+	{
+		return _players?.First(e => e.photonView.owner.ID == PhotonNetwork.player.ID);
 	}
 
 	/// <summary>
