@@ -163,9 +163,9 @@ public class Player : Photon.PunBehaviour
 
 		if (!_dance.IsPlaying)
 		{
-			if (Input.GetKey("up") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
-				_rb.AddForce(transform.forward * _power);
-			if (Input.GetKey("left") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
+            if (Input.GetKey("up") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
+                _rb.AddForce(transform.forward * _power);
+            if (Input.GetKey("left") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
 				transform.Rotate(Vector3.up, -_rotatePower);
 			if (Input.GetKey("right") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_DOWN))
 				transform.Rotate(Vector3.up, _rotatePower);

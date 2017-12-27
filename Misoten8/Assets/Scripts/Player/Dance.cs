@@ -227,6 +227,7 @@ public class Dance : MonoBehaviour
 		// 合計
 		float sum = _requestTime.Sum();
 
+
 		// 正規化
 		_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
 
@@ -240,7 +241,8 @@ public class Dance : MonoBehaviour
 		{
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
-	}
+        AudioManager.PlaySE("Lets_dance_3");
+    }
 
 	private void PhasePlay()
 	{
@@ -260,11 +262,15 @@ public class Dance : MonoBehaviour
 			if(_isSuccess)
 			{
 				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
-			}
+                AudioManager.PlaySE("ダンス成功");
+                AudioManager.PlaySE("モブ歓声＿ダンス成功");
+            }
 			else
 			{
 				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
-			}
+                AudioManager.PlaySE("ダンス失敗");
+                AudioManager.PlaySE("モブ歓声＿ダンス失敗");
+            }
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished?.Invoke();
 		}
 	}

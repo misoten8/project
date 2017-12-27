@@ -33,7 +33,8 @@ public class TitleScene : SceneBase<TitleScene>
 	{
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
-			Switch(SceneType.Lobby);
+            AudioManager.PlaySE("決定１");
+            Switch(SceneType.Lobby);
 		}
 	}
 }
