@@ -64,6 +64,33 @@ public class Player : Photon.PunBehaviour
 		get { return _dance; }
 	}
 
+	/// <summary>
+	/// ファンの人数
+	/// </summary>
+	public int FanCount
+	{
+		get { return _fanCount; }
+		set { _fanCount = value; }
+	}
+
+	private int _fanCount = 0;
+
+	public float RankAngleLeft
+	{
+		get { return _rankAngleLeft; }
+	}
+
+	[SerializeField]
+	private float _rankAngleLeft = 0.5f;
+
+	public float RankAngleRight
+	{
+		get { return _rankAngleRight; }
+	}
+
+	[SerializeField]
+	private float _rankAngleRight = 1.0f;
+
 	[SerializeField]
 	private Rigidbody _rb;
 

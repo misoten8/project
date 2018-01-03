@@ -61,6 +61,14 @@ public class PlayerManager : Photon.MonoBehaviour
 	}
 
 	/// <summary>
+	/// ファンを登録し、ファン番号を返す
+	/// </summary>
+	public int SetFan(Define.PlayerType playerType)
+	{
+		return 0;
+	}
+
+	/// <summary>
 	/// プレイヤーを取得する
 	/// </summary>
 	public Player GetPlayer(Define.PlayerType playerType)

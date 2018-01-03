@@ -26,17 +26,32 @@ public class FollowMove : MonoBehaviour, IMove
 
 	private NavMeshAgent _agent = null;
 
+	private PlayerManager _playerManager = null;
+
+	private Player _player = null;
+
 	private Mob _mob = null;
     private int cutNum = 10;      // 列を区切る番号
 
+	/// <summary>
+	/// モブ同士の位置間隔
+	/// </summary>
 	[SerializeField]
-    private float _mobInterval = 0.5f;
+    private float _mobInterval = 0.025f;
 
-	private float _angle = 0.2f;
-	private float _angle2 = -0.2f;
+	/// <summary>
+	/// 移動を停止する目標座標までの距離
+	/// </summary>
+	[SerializeField]
+	private float _toStopDistance = 0.25f;
+
+	//private float _angle = 0.2f;
+	//private float _angle2 = -0.2f;
+
+	/// <summary>
+	/// 移動目標座標
+	/// </summary>
 	private Vector3 _targetPosition;
-    //public int fanNum = 0;
-    //public float testRot = 0.0f;
 
 	private static int _animIdIsStop = Animator.StringToHash("IsStop");
 	private static int _animIdDistance = Animator.StringToHash("Distance");
@@ -50,6 +65,8 @@ public class FollowMove : MonoBehaviour, IMove
         enabled = true;
 		_animator = animator;
 		_mob = mob;
+		_playerManager = _mob.PlayerManager;
+		_player = _playerManager.GetPlayer(_mob.FllowTarget);
 		_agent = agent;
 		_mobInterval = 2.0f;
 		
@@ -70,26 +87,38 @@ public class FollowMove : MonoBehaviour, IMove
             return;
         }
 
-		_targetPosition = _target.position + GetPlayerOffset(_mob._followInex);
+		// 一致しない場合再取得する
+		if(_mob.FllowTarget != _player?.Type)
+		{
+			_player = _playerManager.GetPlayer(_mob.FllowTarget);
+		}
 
-		// ナビメッシュの移動目標座標を設定する
-		_agent.SetDestination(_targetPosition);
+		// 隊列座標を求める
+		Vector3 targetPosition = _target.position + GetPlayerOffset(_mob._followInex);
+
+		// 座標が変化した場合のみナビメッシュに変更を通知する
+		if(_targetPosition != targetPosition)
+		{
+			_targetPosition = targetPosition;
+
+			// ナビメッシュの移動目標座標を設定する
+			_agent.SetDestination(_targetPosition);
+		}
 
 		float distance = Vector3.Distance(_targetPosition, transform.position);
-		bool isStopped = false;
 
 		// 距離を設定
 		_animator.SetFloat(_animIdDistance, distance);
 
-		// 一定の距離より近づいた場合true
-		isStopped = distance < 0.5f ? true : false;
+		// 距離判定
+		bool isStopped = distance < _toStopDistance ? true : false;
 
-		// フラグが変化した場合にみアニメーションに変更を通知する
+		// フラグが変化した場合のみアニメーションに変更を通知する
 		if(isStopped != _animator.GetBool(_animIdIsStop))
 		{
 			_animator.SetBool(_animIdIsStop, isStopped);
 		}
-
+		
 		// 遷移チェック
 		_onTransCheck?.Invoke();
     }
@@ -99,12 +128,20 @@ public class FollowMove : MonoBehaviour, IMove
 	/// </summary>
 	private Vector3 GetPlayerOffset(int followIndex)
 	{
+		float
+			angleLeft = _player?.RankAngleLeft ?? 0.5f,
+			angleRight = _player?.RankAngleRight ?? 1.0f;
+
 		return new Vector3(
-		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
-		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)),
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
+		(-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * 
+		((-_mobInterval) * (followIndex / cutNum)),
 		0.0f,
-		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + _angle - ((followIndex % 2) * _angle2)) * (-_mobInterval * (followIndex % cutNum + 1)) +
-		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * ((_mobInterval) * (followIndex / cutNum)));
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
+		(-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * 
+		((-_mobInterval) * (followIndex / cutNum)));
 	}
 
 	// Gizmo描画
