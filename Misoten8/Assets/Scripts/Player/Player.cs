@@ -91,6 +91,13 @@ public class Player : Photon.PunBehaviour
 
 	private float _rankAngleRight = 1.0f;
 
+	public MobManager MobManager
+	{
+		get { return _mobManager; }
+	}
+
+	private MobManager _mobManager;
+
 	[SerializeField]
 	private Rigidbody _rb;
 
@@ -110,8 +117,6 @@ public class Player : Photon.PunBehaviour
 	private PlayerBillboard _billboard;
 
 	private PlayerManager _playerManager;
-
-	private MobManager _mobManager;
 
 	private playercamera _playercamera;
 

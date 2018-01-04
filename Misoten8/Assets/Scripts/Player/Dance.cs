@@ -84,11 +84,12 @@ public class Dance : MonoBehaviour
 	}
 
 	/// <summary>
-	/// ダンス終了時実行イベント
-	/// bool型引数 -> このダンスが中断されたかどうか
+	/// ダンス終了時のファン増減数
 	/// </summary>
-	public event Action<bool, bool> onEndDance;
-
+	public int ChangeFanCountAtComplateDance
+	{
+		get { return _changeFanCountAtComplateDance; }
+	}
 
 	[SerializeField]
 	private Player _player;
@@ -141,6 +142,8 @@ public class Dance : MonoBehaviour
 	/// ステップ実行のコルーチンインスタンス
 	/// </summary>
 	private Coroutine _coroutine = null;
+
+	private int _changeFanCountAtComplateDance;
 
 	/// <summary>
 	/// playerに呼び出してもらう
@@ -215,7 +218,15 @@ public class Dance : MonoBehaviour
 	private void PhaseStart()
 	{
 		_phase = Phase.Start;
-
+		// 追従してきたモブ全員のダンス開始イベントを呼び出す
+		_player.MobManager
+			.Mobs.Where(e => e.FllowTarget == PlayerType)
+			.Select(e =>
+			{
+				e.OnBeginDance();
+				return e;
+			})
+			.Count();
 		shakeparameter.ResetShakeParameter();
 		shakeparameter.SetActive(true);
 
@@ -255,8 +266,15 @@ public class Dance : MonoBehaviour
 	private void PhaseFinish()
 	{
 		_phase = Phase.Finish;
-		onEndDance?.Invoke(false, IsSuccess);
-		onEndDance = null;
+		// 追従対処のモブ全員のダンス終了イベントを実行する
+		_changeFanCountAtComplateDance = _player.MobManager
+			.Mobs.Where(e => e.FllowTarget == PlayerType)
+			.Select(e => 
+			{
+				e.OnEndDance(false, IsSuccess);
+				return e;
+			})
+			.Count();
 
 		if (Player.IsMine)
 		{

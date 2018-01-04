@@ -132,6 +132,11 @@ public class Mob : Photon.PunBehaviour
 	private bool _isPlayChangeFollowTraget = true;
 
 	/// <summary>
+	/// 接触したプレイヤーのダンスコンポーネント
+	/// </summary>
+	private Dance _playerDance = null;
+
+	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
 	/// <remarks>
@@ -178,58 +183,19 @@ public class Mob : Photon.PunBehaviour
 		if (_isViewingInDance)
 			return;
 
-		Dance playerDance = other.gameObject.GetComponent<Dance>();
+		_playerDance = other.gameObject.GetComponent<Dance>();
 
-		// プレイヤーがダンス中であれば、視聴する
-		if (playerDance.IsPlaying && 
-			playerDance.DancePhase != Dance.Phase.End &&
-			playerDance.DancePhase != Dance.Phase.Finish)
+		// ダンスが再生フェーズなら視聴する
+		if (_playerDance.DancePhase == Dance.Phase.Play)
 		{
-			// モブ停止イベント実行
-			onDanceWatchMob?.Invoke();
-
-			// ダンス視聴中エフェクト再生
-			_danceNowEffect = ParticleManager.Play("DanceNow", new Vector3(), transform);
-
-			_isViewingInDance = true;
-
-			// ダンス終了イベントにメソッドを登録する
-			playerDance.onEndDance += (isCancel, isSuccess) =>
-			{
-				_isViewingInDance = false;
-
-				if (!isCancel)
-				{
-					// モブキャラ管理クラスにスコア変更を通知
-					_mobManager.OnScoreChange();
-
-					// ファンタイプが変更したかチェックする
-					Define.PlayerType newFunType = isSuccess ? playerDance.Player.Type : Define.PlayerType.None;
-					if (FunType != newFunType)
-					{
-						_mobManager.FanChangeStack(newFunType, photonView.viewID);
-					}
-				}
-				else
-				{
-					if (IsFollowTargetChange(playerDance))
-					{
-						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-						_isPlayChangeFollowTraget = false;
-					}
-				}
-
-				// モブ再生イベント実行
-				onMoveMob?.Invoke();
-
-				Destroy(_danceNowEffect);
-			};
+			// ダンス開始イベント実行
+			OnBeginDance();
 		}
 		else
 		{
-			if (IsFollowTargetChange(playerDance))
+			if (IsFollowTargetChange(_playerDance))
 			{
-				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
 				_isPlayChangeFollowTraget = false;
 			}
 		}
@@ -276,6 +242,65 @@ public class Mob : Photon.PunBehaviour
 		}
 	}
 
+	/// <summary>
+	/// ダンス開始時実行イベント
+	/// </summary>
+	public void OnBeginDance()
+	{
+		// モブ停止イベント実行
+		onDanceWatchMob?.Invoke();
+
+		// ダンス視聴中エフェクト再生
+		_danceNowEffect = ParticleManager.Play("DanceNow", new Vector3(), transform);
+
+		_isViewingInDance = true;
+	}
+
+	/// <summary>
+	/// ダンス終了時実行イベント
+	/// </summary>
+	public void OnEndDance(bool isCancel, bool isSuccess)
+	{
+		if (_playerDance == null)
+		{
+			Debug.LogWarning("ダンスコンポーネントがnullです\n処理を中断しました");
+			return;
+		}
+
+		_isViewingInDance = false;
+
+		if (!isCancel)
+		{
+			// モブキャラ管理クラスにスコア変更を通知
+			_mobManager.OnScoreChange();
+
+			// ファンタイプが変更したかチェックする
+			Define.PlayerType newFunType = isSuccess ? _playerDance.Player.Type : Define.PlayerType.None;
+			if (FunType != newFunType)
+			{
+				_mobManager.FanChangeStack(newFunType, photonView.viewID);
+			}
+		}
+		else
+		{
+			if (IsFollowTargetChange(_playerDance))
+			{
+				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
+				_isPlayChangeFollowTraget = false;
+			}
+		}
+
+		// モブ再生イベント実行
+		onMoveMob?.Invoke();
+
+		Destroy(_danceNowEffect);
+
+		_playerDance = null;
+	}
+
+	/// <summary>
+	/// 追従対処が変化したかどうか
+	/// </summary>
 	private bool IsFollowTargetChange(Dance playerDance)
 	{
 		if (!_isPlayChangeFollowTraget)
