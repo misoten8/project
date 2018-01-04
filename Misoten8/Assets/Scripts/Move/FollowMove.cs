@@ -62,6 +62,10 @@ public class FollowMove : MonoBehaviour, IMove
 	/// </summary>
 	private float _startEulerAngle = 0.0f;
 	/// <summary>
+	/// ターン終了時のオイラー角
+	/// </summary>
+	private float _endEulerAngle = 0.0f;
+	/// <summary>
 	/// ターン完了までの残り時間
 	/// </summary>
 	/// <remarks>
@@ -140,8 +144,17 @@ public class FollowMove : MonoBehaviour, IMove
 
 			// ターン開始
 			if(isStopped)
-			{
+			{		
 				_startEulerAngle = transform.eulerAngles.y;
+				if (_player.Dance.IsPlaying)
+				{
+					Vector3 diff = _player.transform.position - transform.position;
+					_endEulerAngle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
+				}
+				else
+				{
+					_endEulerAngle = _player.transform.eulerAngles.y;
+				}
 				_isTurn = true;
 				_limitTime = _TURN_TIME;
 				_agent.updateRotation = false;
@@ -189,7 +202,7 @@ public class FollowMove : MonoBehaviour, IMove
 			{
 				_limitTime -= Time.deltaTime;
 				_limitTime = Mathf.Max(_limitTime, 0.0f);
-				transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.LerpAngle(_startEulerAngle, _player.transform.eulerAngles.y, 1.0f - _limitTime / _TURN_TIME), transform.eulerAngles.z);
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.LerpAngle(_startEulerAngle, _endEulerAngle, 1.0f - _limitTime / _TURN_TIME), transform.eulerAngles.z);
 
 				if (_limitTime <= 0.0f)
 				{
