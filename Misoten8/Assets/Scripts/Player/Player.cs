@@ -131,14 +131,19 @@ public class Player : Photon.PunBehaviour
 
 	private bool canPlayDance = true;
 
-    // ファン追従用オブジェ
-    public Transform TargetObj
+    public Transform TargetForward
     {
-        get { return _targetObj; }
+        get { return _targetForward; }
     }
     [SerializeField]
-    private Transform _targetObj;
+    private Transform _targetForward;
 
+	public Transform TargetBack
+	{
+		get { return _targetBack; }
+	}
+	[SerializeField]
+	private Transform _targetBack;
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
@@ -155,7 +160,6 @@ public class Player : Photon.PunBehaviour
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
 
-		_targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
