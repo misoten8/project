@@ -227,8 +227,6 @@ public class Dance : MonoBehaviour
 				return e;
 			})
 			.Count();
-		shakeparameter.ResetShakeParameter();
-		shakeparameter.SetActive(true);
 
 		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
 
@@ -238,7 +236,6 @@ public class Dance : MonoBehaviour
 		// 合計
 		float sum = _requestTime.Sum();
 
-
 		// 正規化
 		_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
 
@@ -246,21 +243,28 @@ public class Dance : MonoBehaviour
 		_dancePoint = 0;
 		_danceFloor.enabled = true;
 		_isPlaing = true;
-		_player.Animator.SetBool("PlayDance", true);
+		
 
 		if (Player.IsMine)
 		{
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
-        AudioManager.PlaySE("Lets_dance_3");
 		// 隊列の角度の設定
 		Player.RankAngleLeft = 2.0f;
 		Player.RankAngleRight = 4.0f;
+		Player.RankPosOffsetZ = -5.0f;
 	}
 
 	private void PhasePlay()
 	{
 		_phase = Phase.Play;
+
+		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
+
+		_player.Animator.SetBool("PlayDance", true);
+
+		AudioManager.PlaySE("Lets_dance_3");
 	}
 
 	private void PhaseFinish()
@@ -311,6 +315,7 @@ public class Dance : MonoBehaviour
 		// 隊列の角度の設定
 		Player.RankAngleLeft = 0.5f;
 		Player.RankAngleRight = 1.5f;
+		Player.RankPosOffsetZ = 0.0f;
 
 		_danceFloor.enabled = false;
 		// スコアを設定する
@@ -348,7 +353,7 @@ public class Dance : MonoBehaviour
 	{
 		PhaseStart();
 		
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds(5.0f);
 
 		PhasePlay();
 

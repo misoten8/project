@@ -91,6 +91,15 @@ public class Player : Photon.PunBehaviour
 
 	private float _rankAngleRight = 1.0f;
 
+	public float RankPosOffsetZ
+	{
+		get { return _rankPosOffsetZ; }
+		set { _rankPosOffsetZ = value; }
+	}
+
+	[SerializeField]
+	private float _rankPosOffsetZ = 0.0f;
+
 	public MobManager MobManager
 	{
 		get { return _mobManager; }

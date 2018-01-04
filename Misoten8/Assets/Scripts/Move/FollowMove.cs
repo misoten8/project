@@ -177,19 +177,18 @@ public class FollowMove : MonoBehaviour, IMove
 		float
 			angleLeft = _player?.RankAngleLeft ?? 0.5f,
 			angleRight = _player?.RankAngleRight ?? 1.0f,
-			offsetZ = _player?.Dance.IsPlaying ?? false ? -3.0f : 0.0f;// ダンス視聴中なら隊列を後ろに下げる
+			offsetZ = _player?.RankPosOffsetZ ?? 0.0f;
 
 		return new Vector3(
 		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
 		(-_mobInterval * (followIndex % cutNum + 1)) +
 		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * 
-		((-_mobInterval) * (followIndex / cutNum)),
+		((-_mobInterval * (followIndex / cutNum)) + offsetZ),
 		0.0f,
 		(Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
 		(-_mobInterval * (followIndex % cutNum + 1)) +
 		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * 
-		((-_mobInterval) * (followIndex / cutNum))) +
-		offsetZ);
+		((-_mobInterval * (followIndex / cutNum)) + offsetZ)));
 	}
 
 	/// <summary>
