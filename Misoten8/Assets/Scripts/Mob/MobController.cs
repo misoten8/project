@@ -53,13 +53,6 @@ public class MobController : MonoBehaviour
 			}
 		};
 
-		// モブ停止イベントで実行する処理を追加
-		_mob.onDanceWatchMob += () =>
-		{
-			_followMove.enabled = false;
-			_wanderMove.enabled = false;
-		};
-
 		// 追従対象プレイヤー変更イベント
 		_mob.onChangeFllowPlayer += () =>
 		{

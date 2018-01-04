@@ -56,11 +56,6 @@ public class Mob : Photon.PunBehaviour
 	public event Action onMoveMob;
 
 	/// <summary>
-	/// モブがダンス視聴状態になった時に呼ぶイベント
-	/// </summary>
-	public event Action onDanceWatchMob;
-
-	/// <summary>
 	/// プレイヤー追従対象が変化した時に呼ぶイベント
 	/// </summary>
 	public event Action onChangeFllowPlayer;
@@ -247,9 +242,6 @@ public class Mob : Photon.PunBehaviour
 	/// </summary>
 	public void OnBeginDance()
 	{
-		// モブ停止イベント実行
-		onDanceWatchMob?.Invoke();
-
 		// ダンス視聴中エフェクト再生
 		_danceNowEffect = ParticleManager.Play("DanceNow", new Vector3(), transform);
 
