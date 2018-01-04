@@ -242,7 +242,10 @@ public class Dance : MonoBehaviour
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
         AudioManager.PlaySE("Lets_dance_3");
-    }
+		// 隊列の角度の設定
+		Player.RankAngleLeft = 2.0f;
+		Player.RankAngleRight = 4.0f;
+	}
 
 	private void PhasePlay()
 	{
@@ -286,7 +289,11 @@ public class Dance : MonoBehaviour
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
 			shakeparameter.SetActive(true);
 		}
-		
+
+		// 隊列の角度の設定
+		Player.RankAngleLeft = 0.5f;
+		Player.RankAngleRight = 1.5f;
+
 		_danceFloor.enabled = false;
 		// スコアを設定する
 		_dancePoint = 0;

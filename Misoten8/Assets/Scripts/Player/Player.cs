@@ -78,17 +78,17 @@ public class Player : Photon.PunBehaviour
 	public float RankAngleLeft
 	{
 		get { return _rankAngleLeft; }
+		set { _rankAngleLeft = value; }
 	}
 
-	[SerializeField]
 	private float _rankAngleLeft = 0.5f;
 
 	public float RankAngleRight
 	{
 		get { return _rankAngleRight; }
+		set { _rankAngleRight = value; }
 	}
 
-	[SerializeField]
 	private float _rankAngleRight = 1.0f;
 
 	[SerializeField]
