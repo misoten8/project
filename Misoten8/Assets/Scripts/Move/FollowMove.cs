@@ -37,13 +37,13 @@ public class FollowMove : MonoBehaviour, IMove
 	/// モブ同士の位置間隔
 	/// </summary>
 	[SerializeField]
-    private float _mobInterval = 0.025f;
+    private float _mobInterval = 0.0f;
 
 	/// <summary>
 	/// 移動を停止する目標座標までの距離
 	/// </summary>
 	[SerializeField]
-	private float _toStopDistance = 0.25f;
+	private float _toStopDistance = 0.0f;
 
 	//private float _angle = 0.2f;
 	//private float _angle2 = -0.2f;
@@ -53,6 +53,25 @@ public class FollowMove : MonoBehaviour, IMove
 	/// </summary>
 	private Vector3 _targetPosition;
 
+	/// <summary>
+	/// ターン中かどうか
+	/// </summary>
+	private bool _isTurn = false;
+	/// <summary>
+	/// ターン開始時のオイラー角
+	/// </summary>
+	private float _startEulerAngle = 0.0f;
+	/// <summary>
+	/// ターン完了までの残り時間
+	/// </summary>
+	/// <remarks>
+	/// ターン時間は1秒
+	/// </remarks>
+	private float _limitTime = _TURN_TIME;
+	/// <summary>
+	/// ターン時間
+	/// </summary>
+	private const float _TURN_TIME = 1.0f;
 	private static int _animIdIsStop = Animator.StringToHash("IsStop");
 	private static int _animIdDistance = Animator.StringToHash("Distance");
 
@@ -68,8 +87,6 @@ public class FollowMove : MonoBehaviour, IMove
 		_playerManager = _mob.PlayerManager;
 		_player = _playerManager.GetPlayer(_mob.FllowTarget);
 		_agent = agent;
-		_mobInterval = 2.0f;
-		
 	}
 
     void OnDisable()
@@ -113,10 +130,26 @@ public class FollowMove : MonoBehaviour, IMove
 		// 距離判定
 		bool isStopped = distance < _toStopDistance ? true : false;
 
+		// ターン処理
+		Turn(isStopped);
+
 		// フラグが変化した場合のみアニメーションに変更を通知する
-		if(isStopped != _animator.GetBool(_animIdIsStop))
+		if (isStopped != _animator.GetBool(_animIdIsStop))
 		{
 			_animator.SetBool(_animIdIsStop, isStopped);
+
+			// ターン開始
+			if(isStopped)
+			{
+				_startEulerAngle = transform.eulerAngles.y;
+				_isTurn = true;
+				_limitTime = _TURN_TIME;
+				_agent.updateRotation = false;
+			}
+			else
+			{
+				_agent.updateRotation = true;
+			}
 		}
 		
 		// 遷移チェック
@@ -142,6 +175,34 @@ public class FollowMove : MonoBehaviour, IMove
 		(-_mobInterval * (followIndex % cutNum + 1)) +
 		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * 
 		((-_mobInterval) * (followIndex / cutNum)));
+	}
+
+	/// <summary>
+	/// ターン処理
+	/// </summary>
+	private void Turn(bool isStopped)
+	{
+		if (_isTurn)
+		{
+			// 停止中のみターンする
+			if (isStopped)
+			{
+				_limitTime -= Time.deltaTime;
+				_limitTime = Mathf.Max(_limitTime, 0.0f);
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.LerpAngle(_startEulerAngle, _player.transform.eulerAngles.y, 1.0f - _limitTime / _TURN_TIME), transform.eulerAngles.z);
+
+				if (_limitTime <= 0.0f)
+				{
+					// ターン終了
+					_isTurn = false;
+				}
+			}
+			else
+			{
+				// ターン終了
+				_isTurn = false;
+			}
+		}
 	}
 
 	// Gizmo描画
