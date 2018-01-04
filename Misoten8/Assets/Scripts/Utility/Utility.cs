@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using System.Threading;
-using System.Threading.Tasks;
 using System;
 
 /// <summary>
@@ -39,7 +36,8 @@ namespace Misoten8Utility
 					foreach (Decimal num2 in e)
 						num1 += num2;
 					return num1;
-				})).ToArray();
+				}))
+				.ToArray();
 
 			return result;
 		}
@@ -101,6 +99,21 @@ namespace Misoten8Utility
 				index++;
 			}
 			return index;
+		}
+	}
+
+	public static class UtilityExtensions
+	{
+		public static bool IsEmpty<T>(this T element)
+		{
+			if(element == null)
+			{
+#if DEBUG
+				UnityEngine.Debug.LogWarning(nameof(T) + "がNullです");
+#endif
+				return true;
+			}
+			return false;
 		}
 	}
 }

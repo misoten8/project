@@ -87,9 +87,6 @@ public class MobController : MonoBehaviour
 
 		// 最初は徘徊移動モードにする
 		_wanderMove.OnStart();
-
-        //TODO: ゲーム再生中にInspectorの「Apply RootMotion」のチェックを変更しないとモーションが動かないバグあり
-        //_agent.enabled = true;
 	}
 
     void Update()
@@ -97,8 +94,6 @@ public class MobController : MonoBehaviour
 		// 初期化したかどうか
 		if (_animator == null)
 			return;
-
-        //_animator.SetFloat("Velocity", _agent.velocity.sqrMagnitude);
 
 		// ナビメッシュ上の目標座標を現在の座標に合わせる
 		_agent.nextPosition = transform.position;

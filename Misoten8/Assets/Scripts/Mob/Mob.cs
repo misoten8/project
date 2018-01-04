@@ -171,9 +171,6 @@ public class Mob : Photon.PunBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		//if (!photonView.isMine)
-		//	return;
-
 		if (other.tag != "DanceRange")
 			return;
 
@@ -215,15 +212,10 @@ public class Mob : Photon.PunBehaviour
 				}
 				else
 				{
-					// プレイヤーが客引き状態の場合、追従判定を行う
-					if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
-					|| _fllowTarget == Define.PlayerType.None)
+					if (IsFollowTargetChange(playerDance))
 					{
-						if (FunType == Define.PlayerType.None)
-						{
-							_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-							_isPlayChangeFollowTraget = false;
-						}
+						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+						_isPlayChangeFollowTraget = false;
 					}
 				}
 
@@ -235,18 +227,10 @@ public class Mob : Photon.PunBehaviour
 		}
 		else
 		{
-			if (_isPlayChangeFollowTraget)
+			if (IsFollowTargetChange(playerDance))
 			{
-				// プレイヤーが客引き状態の場合、追従判定を行う
-				if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
-				|| _fllowTarget == Define.PlayerType.None)
-				{
-					if (FunType == Define.PlayerType.None)
-					{
-						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-						_isPlayChangeFollowTraget = false;
-					}
-				}
+				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+				_isPlayChangeFollowTraget = false;
 			}
 		}
 	}
@@ -261,6 +245,9 @@ public class Mob : Photon.PunBehaviour
 			// 推しているプレイヤーの更新
 			_funPlayer = PlayerManager.GetPlayer(type);
 
+			// ファン番号を初期化(最後尾にする)
+			_followInex = 999;
+
 			// 追従対象の更新
 			_fllowTarget = type;
 
@@ -274,9 +261,33 @@ public class Mob : Photon.PunBehaviour
 
 	public void SetFollowType(Define.PlayerType type)
 	{
-		_fllowTarget = type;
-		onChangeFllowPlayer?.Invoke();
-		_isPlayChangeFollowTraget = true;
+		if (_fllowTarget != type)
+		{
+			// ファン番号を初期化(最後尾にする)
+			_followInex = 999;
+
+			// 追従対象の更新
+			_fllowTarget = type;
+
+			// モブ移動動作の変更
+			onChangeFllowPlayer?.Invoke();
+
+			_isPlayChangeFollowTraget = true;
+		}
+	}
+
+	private bool IsFollowTargetChange(Dance playerDance)
+	{
+		if (!_isPlayChangeFollowTraget)
+			return false;
+
+		if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
+				|| _fllowTarget == Define.PlayerType.None)
+		{
+			if (FunType == Define.PlayerType.None)
+				return true;
+		}
+		return false;
 	}
 
 	/// <summary>
