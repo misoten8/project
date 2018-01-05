@@ -40,7 +40,7 @@ public class DanceSuccess : UIBase
 
 		if (events != null)
 		{
-			events.onDanceStart += () => startFunCount = _mobManager.GetFunCount(_localPlayer.Type);
+			events.onDanceStart += () => startFunCount = _mobManager?.GetFunCount(_localPlayer.Type) ?? 0;
 			events.onDanceSuccess += () =>
 			{
 				if (_mobManager == null)
