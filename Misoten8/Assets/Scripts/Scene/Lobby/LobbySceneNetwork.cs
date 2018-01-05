@@ -18,34 +18,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	[SerializeField]
 	private bool _offlineMode = false;
 
-	/// <summary>
-	/// メッセージの種類とメッセージの紐付けマップ
-	/// </summary>
-	private static readonly Dictionary<State, string> _messageMap = new Dictionary<State, string>
-	{
-		{ State.Start, "" },
-		{ State.ConnectingLobby, "ネットワークに接続中です" },
-		{ State.CreatingRoom, "ルームを作成しています" },
-		{ State.JoingRoom, "ルームに入室しています" },
-		{ State.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
-		{ State.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" }
-	};
-
-	/// <summary>
-	/// メッセージの種類
-	/// </summary>
-	private enum State
-	{
-		Start = 0,
-		ConnectingLobby,
-		CreatingRoom,
-		JoingRoom,
-		WaitMember,
-		Ready,
-		Max
-	}
-
-	private State _currentState = State.Start;
+	private LobbyScene.State _currentState = LobbyScene.State.Start;
 
 	/// <summary>
 	/// シーン切り替え
@@ -58,11 +31,25 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 	private void Start () 
 	{
+		StartCoroutine(BeginConnect());
+	}
+
+	/// <summary>
+	/// 接続処理
+	/// </summary>
+	private IEnumerator BeginConnect()
+	{
+		// UIの切り替えが完了するまで待機する
+		while(DisplayManager.IsSwitching)
+		{
+			yield return null;
+		}
+
 		if (_offlineMode)
 		{
 			PhotonNetwork.offlineMode = true;
 			PhotonNetwork.player.CustomProperties = Define.defaultRoomPropaties;
-			_currentState = State.WaitMember;
+			_currentState = LobbyScene.State.Offline;
 		}
 		else
 		{
@@ -71,7 +58,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 		if (!PhotonNetwork.connected)
 		{
-			_currentState = State.ConnectingLobby;
+			_currentState = LobbyScene.State.ConnectingLobby;
 
 			// マスターサーバーへ接続  
 			PhotonNetwork.ConnectUsingSettings("v0.1");
@@ -91,15 +78,16 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				};
 				// ルームの作成
 				PhotonNetwork.CreateRoom("Battle Room", roomOptions, new TypedLobby());
-				_currentState = State.CreatingRoom;
+				_currentState = LobbyScene.State.CreatingRoom;
 			}
 			else
 			{
 				// ルーム入室
 				PhotonNetwork.JoinRoom("Battle Room");
-				_currentState = State.JoingRoom;
+				_currentState = LobbyScene.State.JoingRoom;
 			}
 		}
+		yield return null;
 	}
 
 	/// <summary>  
@@ -109,7 +97,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	{
 		if (PhotonNetwork.inRoom)
 		{
-			_currentState = State.WaitMember;
+			_currentState = LobbyScene.State.WaitMember;
 			Debug.Log("既にルームに入室しています");
 			// カスタムプロパティの初期化
 			PhotonNetwork.SetPlayerCustomProperties(Define.defaultRoomPropaties);
@@ -129,13 +117,13 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 			};
 			// ルームの作成
 			PhotonNetwork.CreateRoom("Battle Room", roomOptions, new TypedLobby());
-			_currentState = State.CreatingRoom;
+			_currentState = LobbyScene.State.CreatingRoom;
 		}
 		else
 		{
 			// ルーム入室
 			PhotonNetwork.JoinRoom("Battle Room");
-			_currentState = State.JoingRoom;
+			_currentState = LobbyScene.State.JoingRoom;
 		}
 	}
 
@@ -146,7 +134,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 		// ルーム入室
 		PhotonNetwork.JoinRoom("Battle Room");
-		_currentState = State.JoingRoom;
+		_currentState = LobbyScene.State.JoingRoom;
 	}
 
 	/// <summary>  
@@ -154,8 +142,35 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// </summary>  
 	private void OnJoinedRoom()
 	{
-		_currentState = State.WaitMember;
+		_currentState = LobbyScene.State.WaitMember;
 		Debug.Log("ルームに入室しました あなたはplayer" + PhotonNetwork.player.ID.ToString() + "です");
+
+		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
+
+		// プレイヤー入室UIを表示
+		if (_offlineMode)
+		{
+			if(PhotonNetwork.player.ID == 1)
+				events?.onPlayer1Online?.Invoke();
+		}
+		else
+		{
+			foreach(var player in PhotonNetwork.playerList)
+			{
+				switch (player.ID)
+				{
+					case 1:
+						events?.onPlayer1Online?.Invoke();
+						break;
+					case 2:
+						events?.onPlayer2Online?.Invoke();
+						break;
+					case 3:
+						events?.onPlayer3Online?.Invoke();
+						break;
+				}
+			}
+		}
 		// カスタムプロパティの初期化
 		PhotonNetwork.SetPlayerCustomProperties(Define.defaultRoomPropaties);
 	}
@@ -173,9 +188,24 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		// 入室ログ表示  
 		Debug.Log("player" + newPlayer.ID.ToString() + "が入室しました");
 
-		if(PhotonNetwork.room?.PlayerCount == Define.PLAYER_NUM_MAX)
+		// プレイヤー入室UIを表示
+		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
+		switch (newPlayer.ID)
 		{
-			_currentState = State.Ready;
+			case 1:
+				events?.onPlayer1Online?.Invoke();
+				break;
+			case 2:
+				events?.onPlayer2Online?.Invoke();
+				break;
+			case 3:
+				events?.onPlayer3Online?.Invoke();
+				break;
+		}
+
+		if (PhotonNetwork.room?.PlayerCount == Define.PLAYER_NUM_MAX)
+		{
+			_currentState = LobbyScene.State.Ready;
 		}
 	}
 
@@ -186,9 +216,24 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	{
 		Debug.Log("player" + leavePlayer.ID.ToString() + "が退室しました");
 
+		// プレイヤー入室UIを表示
+		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
+		switch (leavePlayer.ID)
+		{
+			case 1:
+				events?.onPlayer1Offline?.Invoke();
+				break;
+			case 2:
+				events?.onPlayer2Offline?.Invoke();
+				break;
+			case 3:
+				events?.onPlayer3Offline?.Invoke();
+				break;
+		}
+
 		if (PhotonNetwork.room?.PlayerCount != Define.PLAYER_NUM_MAX)
 		{
-			_currentState = State.WaitMember;
+			_currentState = LobbyScene.State.WaitMember;
 		}
 	}
 
@@ -204,15 +249,15 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		string message = "";
 		if (!_offlineMode)
 		{
-			message = _messageMap[_currentState] + "\n" +
+			message = LobbyScene.MessageMap[_currentState] + "\n" +
 				"現在のルーム接続人数：" + PhotonNetwork.room?.PlayerCount.ToString() + "人\n" +
 				"このルームの最大接続人数：" + PhotonNetwork.room?.MaxPlayers.ToString() + "人\n" +
 				"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です";
 		}
 		else
 		{
-			message = "オフラインモードです\n" +
-				"いつでもゲームを開始できます";
+			message = LobbyScene.MessageMap[_currentState] +
+				"\nいつでもゲームを開始できます";
 		}
 		// UI表示
 		GUI.Box(rect, message);

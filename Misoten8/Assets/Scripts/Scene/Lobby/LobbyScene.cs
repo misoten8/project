@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// ロビーシーン管理クラス
@@ -15,6 +16,35 @@ public class LobbyScene : SceneBase<LobbyScene>
 	public override ISceneCache SceneCache
 	{
 		get { return _sceneCache; }
+	}
+
+	/// <summary>
+	/// メッセージの種類とメッセージの紐付けマップ
+	/// </summary>
+	public static readonly Dictionary<State, string> MessageMap = new Dictionary<State, string>
+	{
+		{ State.Start, "" },
+		{ State.ConnectingLobby, "ネットワークに接続中です" },
+		{ State.CreatingRoom, "ルームを作成しています" },
+		{ State.JoingRoom, "ルームに入室しています" },
+		{ State.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
+		{ State.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" },
+		{ State.Offline, "オフラインモード" },
+	};
+
+	/// <summary>
+	/// メッセージの種類
+	/// </summary>
+	public enum State
+	{
+		Start = 0,
+		ConnectingLobby,
+		CreatingRoom,
+		JoingRoom,
+		WaitMember,
+		Ready,
+		Offline,
+		Max
 	}
 
 	[SerializeField]
