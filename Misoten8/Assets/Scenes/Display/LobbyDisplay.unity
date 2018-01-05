@@ -161,7 +161,6 @@ MonoBehaviour:
   playSwitchAnim: 1
   uiObjects:
   - {fileID: 823504307}
-  _borderShakeCount: 2
 --- !u!114 &191464503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +411,8 @@ GameObject:
   m_Component:
   - component: {fileID: 415159370}
   - component: {fileID: 415159369}
+  - component: {fileID: 415159371}
+  - component: {fileID: 415159372}
   m_Layer: 0
   m_Name: DebugObject
   m_TagString: Untagged
@@ -431,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _display: {fileID: 422738907}
-  _sceneCache: {fileID: 0}
-  _debugEvents: {fileID: 0}
+  _sceneCache: {fileID: 415159371}
+  _debugEvents: {fileID: 415159372}
 --- !u!4 &415159370
 Transform:
   m_ObjectHideFlags: 0
@@ -446,6 +447,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &415159371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415159368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d984c23d268f3cc47a18c638e8c4d742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &415159372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415159368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e903bf01e016004db67ba696994a712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lobbyDisplay: {fileID: 422738907}
 --- !u!1 &422738905
 GameObject:
   m_ObjectHideFlags: 0
