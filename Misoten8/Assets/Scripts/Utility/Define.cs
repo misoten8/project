@@ -102,4 +102,32 @@ public static class Define
 		Color.green,
 		Color.yellow
 	};
+
+	/// <summary>
+	/// プレイヤー名取得マップ
+	/// </summary>
+	public static readonly Dictionary<PlayerType, string> playerNameMap = new Dictionary<PlayerType, string>
+	{
+		{ PlayerType.First, "Player1" },
+		{ PlayerType.Second, "Player2" },
+		{ PlayerType.Third, "Player3" },
+		{ PlayerType.Camera, "Nav" },
+	};
+
+	/// <summary>
+	/// バトルに参加したプレイヤーの数
+	/// </summary>
+	public static int JoinBattlePlayerNum
+	{
+		get { return _joinBattlePlayerNum; }
+		set
+		{
+			_joinBattlePlayerNum = value;
+#if DEBUG
+			Debug.Log("バトルに参加したプレイヤーの数が設定されました。設定数:" + _joinBattlePlayerNum.ToString());
+#endif
+		}
+	}
+
+	private static int _joinBattlePlayerNum = 2;
 }
