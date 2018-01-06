@@ -38,11 +38,6 @@ public class ResultScene : SceneBase<ResultScene>
 		}
 	}
 
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(new Vector2(0,0), new Vector2(300, 200)), "Result Scene");
-	}
-
 	public void TransScene()
 	{
 		SceneManager.LoadScene("Title");
