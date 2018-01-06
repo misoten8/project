@@ -7,15 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof(LobbySceneCache))]
 public class LobbyScene : SceneBase<LobbyScene>
 {
-	[SerializeField]
-	private LobbySceneNetwork _lobbySceneNetwork;
-
-	/// <summary>
-	/// 現在の接続状況
-	/// </summary>
-	public LobbyScene.ConnectState CurrentState
+	public LobbyNetworkParameters LobbyNetworkCustomizer
 	{
-		get { return _lobbySceneNetwork.CurrentState; }
+		get { return _lobbyNetworkCustomizer; }
 	}
 
 	/// <summary>
@@ -26,34 +20,11 @@ public class LobbyScene : SceneBase<LobbyScene>
 		get { return _sceneCache; }
 	}
 
-	/// <summary>
-	/// メッセージの種類とメッセージの紐付けマップ
-	/// </summary>
-	public static readonly Dictionary<ConnectState, string> MessageMap = new Dictionary<ConnectState, string>
-	{
-		{ ConnectState.Start, "" },
-		{ ConnectState.ConnectingLobby, "ネットワークに接続中です" },
-		{ ConnectState.CreatingRoom, "ルームを作成しています" },
-		{ ConnectState.JoingRoom, "ルームに入室しています" },
-		{ ConnectState.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
-		{ ConnectState.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" },
-		{ ConnectState.Offline, "オフラインモード" },
-	};
+	[SerializeField]
+	private LobbySceneNetwork _lobbySceneNetwork;
 
-	/// <summary>
-	/// 接続メッセージの種類
-	/// </summary>
-	public enum ConnectState
-	{
-		Start = 0,
-		ConnectingLobby,
-		CreatingRoom,
-		JoingRoom,
-		WaitMember,
-		Ready,
-		Offline,
-		Max
-	}
+	[SerializeField]
+	private LobbyNetworkParameters _lobbyNetworkCustomizer;
 
 	[SerializeField]
 	private LobbySceneCache _sceneCache;
