@@ -11,6 +11,14 @@ public class LobbyScene : SceneBase<LobbyScene>
 	private LobbySceneNetwork _lobbySceneNetwork;
 
 	/// <summary>
+	/// 現在の接続状況
+	/// </summary>
+	public LobbyScene.ConnectState CurrentState
+	{
+		get { return _lobbySceneNetwork.CurrentState; }
+	}
+
+	/// <summary>
 	/// 外部シーンが利用できるデータキャッシュ
 	/// </summary>
 	public override ISceneCache SceneCache
@@ -21,21 +29,21 @@ public class LobbyScene : SceneBase<LobbyScene>
 	/// <summary>
 	/// メッセージの種類とメッセージの紐付けマップ
 	/// </summary>
-	public static readonly Dictionary<State, string> MessageMap = new Dictionary<State, string>
+	public static readonly Dictionary<ConnectState, string> MessageMap = new Dictionary<ConnectState, string>
 	{
-		{ State.Start, "" },
-		{ State.ConnectingLobby, "ネットワークに接続中です" },
-		{ State.CreatingRoom, "ルームを作成しています" },
-		{ State.JoingRoom, "ルームに入室しています" },
-		{ State.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
-		{ State.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" },
-		{ State.Offline, "オフラインモード" },
+		{ ConnectState.Start, "" },
+		{ ConnectState.ConnectingLobby, "ネットワークに接続中です" },
+		{ ConnectState.CreatingRoom, "ルームを作成しています" },
+		{ ConnectState.JoingRoom, "ルームに入室しています" },
+		{ ConnectState.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
+		{ ConnectState.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" },
+		{ ConnectState.Offline, "オフラインモード" },
 	};
 
 	/// <summary>
-	/// メッセージの種類
+	/// 接続メッセージの種類
 	/// </summary>
-	public enum State
+	public enum ConnectState
 	{
 		Start = 0,
 		ConnectingLobby,
