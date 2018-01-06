@@ -13,4 +13,8 @@ public class ResultEvents : EventsBase
 	/// スコアパネルオープン時実行イベント
 	/// </summary>
 	public Action onOpneScorePanel;
+	/// <summary>
+	/// タイトル遷移可能時実行イベント
+	/// </summary>
+	public Action onTransTitleReady;
 }

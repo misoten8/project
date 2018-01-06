@@ -18,6 +18,7 @@ public class ResultDisplayDebugEvent : DisplayDebugEventBase
 			{
 				new DisplayDebugger.DebugEvents.Element(e.onPlayWinnerPanel, nameof(e.onPlayWinnerPanel)),
 				new DisplayDebugger.DebugEvents.Element(e.onOpneScorePanel, nameof(e.onOpneScorePanel)),
+				new DisplayDebugger.DebugEvents.Element(e.onTransTitleReady, nameof(e.onTransTitleReady))
 			};
 	}
 }
