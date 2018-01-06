@@ -78,6 +78,8 @@ public class BattleScene : SceneBase<BattleScene>
 
 		duringTransScene = true;
 
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
+
 		// シーン遷移処理呼び出し
 		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
 	}

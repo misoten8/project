@@ -37,7 +37,6 @@ public class BattleTime : MonoBehaviour
 
 		_currentTime = 0.0f;
 
-		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
 		_battle?.Switch(BattleScene.SceneType.Result);
 	}
 
