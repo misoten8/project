@@ -44,12 +44,11 @@ public class LobbyScene : SceneBase<LobbyScene>
 	{
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
-			if (PhotonNetwork.inRoom)
+			if (_lobbySceneNetwork.IsReady())
 			{
 				Switch(SceneType.Battle);
 				return;
 			}
-			Debug.LogWarning("まだゲーム開始の準備ができていません");
 		}
 	}
 

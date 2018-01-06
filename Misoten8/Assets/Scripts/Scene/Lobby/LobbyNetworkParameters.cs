@@ -11,13 +11,13 @@ public class LobbyNetworkParameters : MonoBehaviour
 	/// </summary>
 	public static readonly Dictionary<ConnectState, string> MessageMap = new Dictionary<ConnectState, string>
 	{
-		{ ConnectState.Start, "" },
-		{ ConnectState.ConnectingLobby, "ネットワークに接続中です" },
-		{ ConnectState.CreatingRoom, "ルームを作成しています" },
-		{ ConnectState.JoingRoom, "ルームに入室しています" },
-		{ ConnectState.WaitMember, "メンバーが揃うまで待機します(デバッグ時は開始できます)" },
-		{ ConnectState.Ready, "メンバーが揃いました、ボタンを押してゲームを開始してください" },
-		{ ConnectState.Offline, "オフラインモード" },
+		{ ConnectState.Start, "ロビー" },
+		{ ConnectState.ConnectingLobby, "セツゾクチュウ" },
+		{ ConnectState.CreatingRoom, "ルームをつくっています" },
+		{ ConnectState.JoingRoom, "ルームにはいっています" },
+		{ ConnectState.WaitMember, "ほかのひとをまっています" },
+		{ ConnectState.Ready, "じゅんびができました!リモコンをふってスタート!" },
+		{ ConnectState.Offline, "オフラインモード!リモコンをふってスタート!" },
 	};
 
 	/// <summary>
@@ -55,5 +55,6 @@ public class LobbyNetworkParameters : MonoBehaviour
 	[SerializeField]
 	private bool _offlineMode = false;
 
+	[SerializeField]
 	private ConnectState _currentState = ConnectState.Start;
 }

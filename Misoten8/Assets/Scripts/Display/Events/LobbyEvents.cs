@@ -37,4 +37,11 @@ public class LobbyEvents : EventsBase
 	/// 実況ナビオフライン時実行イベント
 	/// </summary>
 	public Action onNavOffline;
+	/// <summary>
+	/// ネットワーク接続開始時実行イベント
+	/// </summary>
+	/// <remarks>
+	/// オフラインモード時にも呼ばれる
+	/// </remarks>
+	public Action onBeginConnect;
 }

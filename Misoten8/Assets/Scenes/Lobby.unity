@@ -7006,3 +7006,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offlineMode: 1
+  _currentState: 0

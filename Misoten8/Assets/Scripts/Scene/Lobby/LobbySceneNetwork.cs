@@ -16,6 +16,29 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	private LobbyNetworkParameters _networkParameters;
 
 	/// <summary>
+	/// バトル開始の準備ができたかどうか
+	/// </summary>
+	public bool IsReady()
+	{
+		//TODO:バトル開始の条件式は後々変更する
+		if (PhotonNetwork.inRoom)
+		{
+			return true;
+		}
+		// 以下の条件式が正しい(調整するかも)
+		//if (_networkParameters.OfflineMode)
+		//{
+		//	return true;
+		//}
+		//if (PhotonNetwork.playerList.Length == Define.PLAYER_NUM_MAX)
+		//{
+		//	return true;
+		//}
+		Debug.LogWarning("まだゲーム開始の準備ができていません");
+		return false;
+	}
+
+	/// <summary>
 	/// シーン切り替え
 	/// </summary>
 	[PunRPC]
@@ -44,10 +67,13 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 			yield return null;
 		}
 
+		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
+
 		if (_lobbyScene.LobbyNetworkCustomizer.OfflineMode)
 		{
 			PhotonNetwork.offlineMode = true;
 			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.Offline;
+			events?.onBeginConnect?.Invoke();
 		}
 		else
 		{
@@ -60,6 +86,8 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 			// マスターサーバーへ接続  
 			PhotonNetwork.ConnectUsingSettings("v0.1");
+
+			events?.onBeginConnect?.Invoke();
 		}
 		else
 		{
@@ -74,13 +102,18 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				};
 				// ルームの作成
 				PhotonNetwork.CreateRoom("Battle Room", roomOptions, new TypedLobby());
-				_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.CreatingRoom;
+				if (!_lobbyScene.LobbyNetworkCustomizer.OfflineMode)
+				{
+					_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.CreatingRoom;
+					events?.onBeginConnect?.Invoke();
+				}
 			}
 			else
 			{
 				// ルーム入室
 				PhotonNetwork.JoinRoom("Battle Room");
 				_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.JoingRoom;
+				events?.onBeginConnect?.Invoke();
 			}
 		}
 		yield return null;
@@ -98,6 +131,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 			return;
 		}
 
+		// ルームが既に作成されているかどうか
 		if(PhotonNetwork.countOfRooms == 0)
 		{
 			// ルーム作成
@@ -119,6 +153,9 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// ルーム作成失敗時
+	/// </summary>
 	void OnPhotonCreateRoomFailed(object[] codeAndMsg)
 	{
 		Debug.LogWarning("既にルームが作成されているので、ルームの作成が出来ませんでした。" +
@@ -134,8 +171,10 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// </summary>  
 	private void OnJoinedRoom()
 	{
-		_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.WaitMember;
-		Debug.Log("ルームに入室しました あなたはplayer" + PhotonNetwork.player.ID.ToString() + "です");
+		if(!_networkParameters.OfflineMode)
+			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.WaitMember;
+		Debug.Log("ルームに入室しました あなたはplayer" + PhotonNetwork.player.ID.ToString() + "で\n" + 
+			"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です");
 
 		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
 
@@ -231,25 +270,4 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
-
-	private void OnGUI()
-	{
-		var boxSize = new Vector2(400.0f, 120.0f);
-		var rect = new Rect(new Vector2(Screen.width * 0.5f - boxSize.x * 0.5f, Screen.height * 0.8f - boxSize.y * 0.5f), boxSize);
-		string message = "";
-		if (!_lobbyScene.LobbyNetworkCustomizer.OfflineMode)
-		{
-			message = LobbyNetworkParameters.MessageMap[_networkParameters.CurrentState] + "\n" +
-				"現在のルーム接続人数：" + PhotonNetwork.room?.PlayerCount.ToString() + "人\n" +
-				"このルームの最大接続人数：" + PhotonNetwork.room?.MaxPlayers.ToString() + "人\n" +
-				"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です";
-		}
-		else
-		{
-			message = LobbyNetworkParameters.MessageMap[_networkParameters.CurrentState] +
-				"\nいつでもゲームを開始できます";
-		}
-		// UI表示
-		GUI.Box(rect, message);
-	}
 }

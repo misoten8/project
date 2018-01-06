@@ -24,6 +24,7 @@ public class LobbyDisplayDebugEvent : DisplayDebugEventBase
 				new DisplayDebugger.DebugEvents.Element(e.onPlayer2Offline, nameof(e.onPlayer2Offline)),
 				new DisplayDebugger.DebugEvents.Element(e.onPlayer3Offline, nameof(e.onPlayer3Offline)),
 				new DisplayDebugger.DebugEvents.Element(e.onNavOffline, nameof(e.onNavOffline)),
+				new DisplayDebugger.DebugEvents.Element(e.onBeginConnect, nameof(e.onBeginConnect)),
 			};
 	}
 }
