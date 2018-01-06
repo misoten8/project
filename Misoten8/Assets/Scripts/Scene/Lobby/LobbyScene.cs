@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// ロビーシーン管理クラス
@@ -6,8 +7,10 @@
 [RequireComponent(typeof(LobbySceneCache))]
 public class LobbyScene : SceneBase<LobbyScene>
 {
-	[SerializeField]
-	private LobbySceneNetwork _lobbySceneNetwork;
+	public LobbyNetworkParameters LobbyNetworkCustomizer
+	{
+		get { return _lobbyNetworkCustomizer; }
+	}
 
 	/// <summary>
 	/// 外部シーンが利用できるデータキャッシュ
@@ -16,6 +19,12 @@ public class LobbyScene : SceneBase<LobbyScene>
 	{
 		get { return _sceneCache; }
 	}
+
+	[SerializeField]
+	private LobbySceneNetwork _lobbySceneNetwork;
+
+	[SerializeField]
+	private LobbyNetworkParameters _lobbyNetworkCustomizer;
 
 	[SerializeField]
 	private LobbySceneCache _sceneCache;
@@ -35,12 +44,11 @@ public class LobbyScene : SceneBase<LobbyScene>
 	{
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
-			if (PhotonNetwork.inRoom)
+			if (_lobbySceneNetwork.IsReady())
 			{
 				Switch(SceneType.Battle);
 				return;
 			}
-			Debug.LogWarning("まだゲーム開始の準備ができていません");
 		}
 	}
 
