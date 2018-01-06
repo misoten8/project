@@ -56,7 +56,6 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		if (_offlineMode)
 		{
 			PhotonNetwork.offlineMode = true;
-			PhotonNetwork.player.CustomProperties = Define.defaultRoomPropaties;
 			_currentState = LobbyScene.ConnectState.Offline;
 		}
 		else
@@ -80,9 +79,7 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				{
 					IsVisible = true,
 					IsOpen = true,
-					MaxPlayers = Define.PLAYER_NUM_MAX,
-					CustomRoomProperties = Define.defaultRoomPropaties,
-					CustomRoomPropertiesForLobby = new string[] { "CustomProperties" }
+					MaxPlayers = Define.PLAYER_NUM_MAX
 				};
 				// ルームの作成
 				PhotonNetwork.CreateRoom("Battle Room", roomOptions, new TypedLobby());
@@ -107,8 +104,6 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		{
 			_currentState = LobbyScene.ConnectState.WaitMember;
 			Debug.Log("既にルームに入室しています");
-			// カスタムプロパティの初期化
-			PhotonNetwork.SetPlayerCustomProperties(Define.defaultRoomPropaties);
 			return;
 		}
 
@@ -120,8 +115,6 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				IsVisible = true,
 				IsOpen = true,
 				MaxPlayers = Define.PLAYER_NUM_MAX,
-				CustomRoomProperties = Define.defaultRoomPropaties,
-				CustomRoomPropertiesForLobby = new string[] { "CustomProperties" }
 			};
 			// ルームの作成
 			PhotonNetwork.CreateRoom("Battle Room", roomOptions, new TypedLobby());
@@ -179,8 +172,6 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 				}
 			}
 		}
-		// カスタムプロパティの初期化
-		PhotonNetwork.SetPlayerCustomProperties(Define.defaultRoomPropaties);
 	}
 
 	void OnPhotonJoinRoomFailed(object[] codeAndMsg)
