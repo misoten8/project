@@ -62,7 +62,6 @@ public class BattleScene : SceneBase<BattleScene>
 		{
 			StartCoroutine(RepeatNotification());
 		}
-		AudioManager.PlayBGM("gronx");
 	}
 
 	/// <summary>
@@ -168,6 +167,7 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
+		AudioManager.PlayBGM("bgm_main_kari");
 	}
 
 	/// <summary>
