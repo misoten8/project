@@ -78,16 +78,19 @@ namespace WiimoteApi {
 
         public MotionPlusData(Wiimote Owner) : base(Owner) { }
 
-        private float _timeLeft = 0.0f;                 // 時間カウント
-        private int _swingCount = 0;                    // 1秒間に振った回数
-        private const int SWING_RIMIT = 6;              // 1秒間に受け付ける振った判定の限界
-        private const float SWING_ACCEL_SPEED = 250.0f; // 振った判定になるスピード
+        private float _accelOld = 0.0f;                 // 振った時の速度を保存
+        private bool _isSwing = false;                  // 振った判定
+        private bool _isSwingOld = false;               // ある程度スピードが落ちるまで判定を制御
+        private const float SWING_ACCEL_SPEED = 200.0f; // 振った判定になるスピード
+        private const float SWING_RESET_SPEED = 150.0f;  // 振った判定をリセットするスピード
 
         // 更新処理のような物
         public override bool InterpretData(byte[] data)
         {
             if (data == null || data.Length < 6)
                 return false;
+
+            _isSwingOld = _isSwing;
 
             _YawSpeedRaw    = data[0];
             _YawSpeedRaw   |= (data[3] & 0xfc) << 6;
@@ -115,14 +118,18 @@ namespace WiimoteApi {
             if (!RollSlow)
                 _RollSpeed *= 2000f / 440f;
 
-            // 時間経過でカウントをリセット
-            _timeLeft -= Time.deltaTime;
-            if (_timeLeft <= 0.0f)
+            // 振動判定
+            if (RollSpeed > SWING_ACCEL_SPEED)
             {
-                _swingCount = 0;
-                _timeLeft = 1.0f;
+                _isSwing = true;
+                _accelOld = RollSpeed;
             }
-                return true;
+            // 振動判定をリセット
+            if (RollSpeed < SWING_RESET_SPEED )
+            {
+                _isSwing = false;
+            }
+            return true;
         }
 
         /// Calibrates the zero values of the Wii Motion Plus in the Pitch, Yaw, and Roll directions.
@@ -145,17 +152,11 @@ namespace WiimoteApi {
             _RollSpeed = 0;
         }
 
+        // 振った判定
 		public bool GetSwing( int num)
 		{
-			if (!WiimoteManager.HasWiimote(num) || _swingCount > SWING_RIMIT )return false;
-            bool swing = false;
-
-            if( RollSpeed > SWING_ACCEL_SPEED)
-            { 
-                swing = true;
-                _swingCount++;
-            }
-            return swing;
+			if (_isSwingOld)return false;
+            return _isSwing;
 		}
     }
 }
