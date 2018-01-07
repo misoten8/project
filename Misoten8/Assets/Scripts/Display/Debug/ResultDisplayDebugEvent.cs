@@ -9,8 +9,13 @@ public class ResultDisplayDebugEvent : DisplayDebugEventBase
 	[SerializeField]
 	private ResultDisplay _resultDisplay;
 
+	[SerializeField]
+	private int _joinBattlePlayerNum;
+
 	public override void OnAwake()
 	{
+		Define.JoinBattlePlayerNum = _joinBattlePlayerNum;
+
 		ResultEvents e = _resultDisplay._events;
 
 		debugEvents

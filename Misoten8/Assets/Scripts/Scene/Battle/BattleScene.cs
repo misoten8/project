@@ -78,6 +78,9 @@ public class BattleScene : SceneBase<BattleScene>
 
 		duringTransScene = true;
 
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
+
 		// シーン遷移処理呼び出し
 		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
 	}
@@ -113,6 +116,10 @@ public class BattleScene : SceneBase<BattleScene>
 
 		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
 
+		// ディスプレイの読み込みが完了するまで待機する
+		while (DisplayManager.IsSwitching)
+			yield return null;
+
 		// クライアント全員の生成クラスをアクティブにする
 		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
 	}
@@ -132,6 +139,15 @@ public class BattleScene : SceneBase<BattleScene>
 		} while (true);	
 	}
 
+	private IEnumerator DelayBegin()
+	{
+		//TODO:モブ等の生成が終わってからバトルを開始する
+		yield return new WaitForSeconds(3.0f);
+
+		// クライアント全員にバトル開始を通知する
+		_battleSceneNetwork.photonView.RPC("BeginGameBattleScene", PhotonTargets.AllViaServer);
+	}
+
 	/// <summary>
 	/// 生成クラスをアクティブにする
 	/// </summary>
@@ -139,6 +155,17 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_mobGenerator.enabled = true;
 		_playerGenerator.enabled = true;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleReady?.Invoke();
+
+		if (PhotonNetwork.isMasterClient)
+			StartCoroutine(DelayBegin());
+	}
+
+	/// <summary>
+	/// バトル開始する
+	/// </summary>
+	public void Begin()
+	{
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 	}

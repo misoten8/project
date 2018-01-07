@@ -129,5 +129,5 @@ public static class Define
 		}
 	}
 
-	private static int _joinBattlePlayerNum = 2;
+	private static int _joinBattlePlayerNum = 0;
 }
