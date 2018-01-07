@@ -79,6 +79,7 @@ public class BattleScene : SceneBase<BattleScene>
 		duringTransScene = true;
 
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
 
 		// シーン遷移処理呼び出し
 		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
@@ -114,6 +115,10 @@ public class BattleScene : SceneBase<BattleScene>
 			yield return null;
 
 		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
+
+		// ディスプレイの読み込みが完了するまで待機する
+		while (DisplayManager.IsSwitching)
+			yield return null;
 
 		// クライアント全員の生成クラスをアクティブにする
 		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
