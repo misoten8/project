@@ -25,17 +25,17 @@ public class TitleScene : SceneBase<TitleScene>
 	{
 		return this;
 	}
-
-	void Update()
+    private void Start()
+    {
+		Define.JoinBattlePlayerNum = 0;
+        AudioManager.PlayBGM("タイトル");
+    }
+    void Update()
 	{
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
-			Switch(SceneType.Lobby);
+            AudioManager.PlaySE("決定１");
+            Switch(SceneType.Lobby);
 		}
-	}
-
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(new Vector2(0, 0), new Vector2(300, 200)), "Title Scene");
 	}
 }

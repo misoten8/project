@@ -6885,6 +6885,7 @@ GameObject:
   - component: {fileID: 2128661443}
   - component: {fileID: 2128661444}
   - component: {fileID: 2128661445}
+  - component: {fileID: 2128661446}
   m_Layer: 0
   m_Name: LobbyScene
   m_TagString: Untagged
@@ -6904,7 +6905,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lobbyScene: {fileID: 2128661441}
-  _offlineMode: 1
 --- !u!114 &2128661441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6918,6 +6918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstUsingDisplay: 2
   _lobbySceneNetwork: {fileID: 2128661440}
+  _lobbyNetworkCustomizer: {fileID: 2128661446}
   _sceneCache: {fileID: 2128661445}
 --- !u!4 &2128661442
 Transform:
@@ -6992,3 +6993,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d984c23d268f3cc47a18c638e8c4d742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lobbyNetworkParameters: {fileID: 2128661446}
+--- !u!114 &2128661446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128661439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89689a2ad2ff3e7479fc0cee3e1c3609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offlineMode: 1
+  _currentState: 0

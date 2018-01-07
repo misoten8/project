@@ -40,4 +40,8 @@ public class DanceEvents : EventsBase
 	/// リクエストノルマ達成時実行イベント
 	/// </summary>
 	public Action onRequestNolmaComplate;
+	/// <summary>
+	/// バトル終了時実行イベント
+	/// </summary>
+	public Action onBattleEnd;
 }

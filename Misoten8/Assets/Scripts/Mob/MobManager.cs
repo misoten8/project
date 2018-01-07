@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Misoten8Utility;
 
 /// <summary>
 /// MobManager クラス
@@ -43,6 +44,8 @@ public class MobManager : Photon.MonoBehaviour
 	private List<int> _followChangeStackID = new List<int>();
 	private List<Define.PlayerType> _followChangeStackType = new List<Define.PlayerType>();
 
+	private PlayerManager _playerManager = null;
+
 	private void Start()
 	{
 		Debug.Log("owner ID:" + photonView.ownerId.ToString());
@@ -50,6 +53,13 @@ public class MobManager : Photon.MonoBehaviour
 		{
 			_isScoreChange = true;
 		};
+
+		_playerManager = GetComponent<PlayerManager>();
+
+		if (_playerManager == null)
+		{
+			Debug.LogWarning("PlayerManagerが取得できませんでした");
+		}
 	}
 
 	private void Update()
@@ -62,7 +72,6 @@ public class MobManager : Photon.MonoBehaviour
 		{
 			if (_followChangeStackType.Count > 0)
 			{
-				Debug.Log(_followChangeStackType.Count.ToString() + "人のモブの追従変更情報が送信されるドン！");
 				photonView.RPC("SendFollowChanges", PhotonTargets.AllViaServer, _followChangeStackType.ToArray(), _followChangeStackID.ToArray());
 				_followChangeStackType.Clear();
 				_followChangeStackID.Clear();
@@ -72,7 +81,6 @@ public class MobManager : Photon.MonoBehaviour
 
 		if (_fanChangeStackType.Count > 0)
 		{
-			Debug.Log(_fanChangeStackType.Count.ToString() + "人のモブのファン変更情報が送信されるドン！");
 			photonView.RPC("SendFanChanges", PhotonTargets.AllViaServer, _fanChangeStackType.ToArray(), _fanChangeStackID.ToArray());
 			_fanChangeStackType.Clear();
 			_fanChangeStackID.Clear();
@@ -132,7 +140,10 @@ public class MobManager : Photon.MonoBehaviour
 	private void SendFanChanges(Define.PlayerType[] fanTargets, int[] photonViewIDs)
 	{
 		if (fanTargets.Count() != photonViewIDs.Count())
+		{
+			Debug.LogWarning("二つの配列のサイズが一致していません。\n正常にデータを受信できませんでした");
 			return;
+		}
 
 		int max = fanTargets.Count();
 		for (int i = 0; i < max; i++)
@@ -140,10 +151,30 @@ public class MobManager : Photon.MonoBehaviour
 			_mobs.First(e => e.photonView.viewID == photonViewIDs[i]).SetFunType(fanTargets[i]);
 		}
 
-		_score.SetScore(Define.PlayerType.First, _mobs.Where(e => e.FunType == Define.PlayerType.First).Count());
-		_score.SetScore(Define.PlayerType.Second, _mobs.Where(e => e.FunType == Define.PlayerType.Second).Count());
-		_score.SetScore(Define.PlayerType.Third, _mobs.Where(e => e.FunType == Define.PlayerType.Third).Count());
-		_score.SetScore(Define.PlayerType.Fourth, _mobs.Where(e => e.FunType == Define.PlayerType.Fourth).Count());
+		// ファン情報を再設定
+		foreach (var player in _playerManager.Players)
+		{
+			int count = 0;
+
+			// 配置番号の更新とファン人数の更新
+			player.FanCount = _mobs
+				// 指定されたプレイヤーのファンのみを選別
+				.Where(e => e.FunType == player.Type)
+				// 配置番号を昇順に並べ替える
+				.OrderBy(e => e._followInex)
+				// 配置番号の設定
+				.Select(e =>
+				{
+					e._followInex = count;
+					count++;
+					return e;
+				})
+				.Count();
+
+			// スコアを更新
+			_score.SetScore(player.Type, player.FanCount);
+		}
+
 		_isScoreChange = false;
 	}
 
@@ -154,12 +185,40 @@ public class MobManager : Photon.MonoBehaviour
 	private void SendFollowChanges(Define.PlayerType[] followTargets, int[] photonViewIDs)
 	{
 		if (followTargets.Count() != photonViewIDs.Count())
+		{
+			Debug.LogWarning("二つの配列のサイズが一致していません。\n正常にデータを受信できませんでした");
 			return;
+		}
 
 		int max = followTargets.Count();
 		for (int i = 0; i < max; i++)
 		{
 			_mobs.First(e => e.photonView.viewID == photonViewIDs[i]).SetFollowType(followTargets[i]);
+		}
+
+		foreach(var followType in new Define.PlayerType[]
+		{
+			Define.PlayerType.First,
+			Define.PlayerType.Second,
+			Define.PlayerType.Third
+		})
+		{
+			int count = 0;
+
+			// 配置番号の更新
+			int result = _mobs
+				// 指定されたプレイヤーのファンのみを選別
+				.Where(e => e.FllowTarget == followType)
+				// 配置番号を昇順に並べ替える
+				.OrderBy(e => e._followInex)
+				// 配置番号の設定
+				.Select(e =>
+				{
+					e._followInex = count;
+					count++;
+					return e;
+				})
+				.Count();
 		}
 	}
 

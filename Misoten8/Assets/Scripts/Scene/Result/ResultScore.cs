@@ -4,5 +4,5 @@
 /// </summary>
 public static class ResultScore 
 {
-	public static int[] scoreArray = new int[Define.METER_NUM_MAX] { 0, 0, 0, 0, 0 };
+	public static int[] scoreArray = new int[Define.METER_NUM_MAX] { 1, 2, 3, 4, 5 };
 }

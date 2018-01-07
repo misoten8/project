@@ -50,32 +50,6 @@ public static class Define
 	};
 
 	/// <summary>
-	/// ルームカスタムプロパティ
-	/// </summary>
-	/// <remarks>
-	/// 転送サイズの軽減やタイプミスを考慮して列挙型を定義
-	/// </remarks>
-	public enum RoomPropaties : byte
-	{
-		/// <summary>
-		/// nullを返します
-		/// </summary>
-		None = 0,
-		/// <summary>
-		/// ロビーシーンが読み込み完了したかどうか(bool)
-		/// </summary>
-		IsLobbySceneLoaded,
-		/// <summary>
-		/// ルームでのマッチングが完了し、バトルを開始できる状態かどうか(bool)
-		/// </summary>
-		RoomMatchingComplete,
-		/// <summary>
-		/// バトルシーンが読み込み完了したかどうか(bool)
-		/// </summary>
-		IsBattleSceneLoaded,
-	}
-
-	/// <summary>
 	/// ファン化難易度
 	/// </summary>
 	public enum FanLevel
@@ -118,16 +92,6 @@ public static class Define
 	}
 
 	/// <summary>
-	/// ルーム作成時に設定されるカスタムプロパティ
-	/// </summary>
-	public static readonly ExitGames.Client.Photon.Hashtable defaultRoomPropaties = new ExitGames.Client.Photon.Hashtable
-	{
-		{ RoomPropaties.IsLobbySceneLoaded, false },
-		{ RoomPropaties.RoomMatchingComplete, false },
-		{ RoomPropaties.IsBattleSceneLoaded, false },
-	};
-
-	/// <summary>
 	/// プレイヤーの色
 	/// </summary>
 	public static readonly Color[] playerColor = new Color[]
@@ -138,4 +102,32 @@ public static class Define
 		Color.green,
 		Color.yellow
 	};
+
+	/// <summary>
+	/// プレイヤー名取得マップ
+	/// </summary>
+	public static readonly Dictionary<PlayerType, string> playerNameMap = new Dictionary<PlayerType, string>
+	{
+		{ PlayerType.First, "Player1" },
+		{ PlayerType.Second, "Player2" },
+		{ PlayerType.Third, "Player3" },
+		{ PlayerType.Camera, "Nav" },
+	};
+
+	/// <summary>
+	/// バトルに参加したプレイヤーの数
+	/// </summary>
+	public static int JoinBattlePlayerNum
+	{
+		get { return _joinBattlePlayerNum; }
+		set
+		{
+			_joinBattlePlayerNum = value;
+#if DEBUG
+			Debug.Log("バトルに参加したプレイヤーの数が設定されました。設定数:" + _joinBattlePlayerNum.ToString());
+#endif
+		}
+	}
+
+	private static int _joinBattlePlayerNum = 0;
 }

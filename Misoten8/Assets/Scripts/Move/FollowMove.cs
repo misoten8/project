@@ -20,55 +20,84 @@ public class FollowMove : MonoBehaviour, IMove
 
     private Action _onTransCheck;
 
-    /// <summary>
-    /// 移動する速度
-    /// </summary>
-    [SerializeField]
-    private float _velocity;
-
-    /// <summary>
-    /// 移動を中止する距離
-    /// </summary>
-    [SerializeField]
-    private float _stopDistance;
-
-    /// <summary>
-    /// 速度の減少を開始する距離
-    /// </summary>
-    [SerializeField]
-    private float _slowDistance;
-
     private Transform _target = null;
 
-    private NavMeshAgent _agent = null;
+	private Animator _animator = null;
 
-    private Mob _mob = null;
-    private Player _player = null;
-    public int cutNum = 10;      // 列を区切る番号
+	private NavMeshAgent _agent = null;
 
-    private float mobInterval = 1.5f;
-    public int fanNum = 0;
-    public float testRot = 0.0f;
+	private PlayerManager _playerManager = null;
 
-    /// <summary>
+	private Player _player = null;
+
+	private Mob _mob = null;
+    private int cutNum = 10;      // 列を区切る番号
+
+	/// <summary>
+	/// モブ同士の位置間隔
+	/// </summary>
+	[SerializeField]
+    private float _mobInterval = 0.0f;
+
+	/// <summary>
+	/// 移動を停止する目標座標までの距離
+	/// </summary>
+	[SerializeField]
+	private float _toStopDistance = 0.0f;
+
+	//private float _angle = 0.2f;
+	//private float _angle2 = -0.2f;
+
+	/// <summary>
+	/// 移動目標座標
+	/// </summary>
+	private Vector3 _targetPosition;
+
+	/// <summary>
+	/// ターン中かどうか
+	/// </summary>
+	private bool _isTurn = false;
+	/// <summary>
+	/// ターン開始時のオイラー角
+	/// </summary>
+	private float _startEulerAngle = 0.0f;
+	/// <summary>
+	/// ターン終了時のオイラー角
+	/// </summary>
+	private float _endEulerAngle = 0.0f;
+	/// <summary>
+	/// ターン完了までの残り時間
+	/// </summary>
+	/// <remarks>
+	/// ターン時間は1秒
+	/// </remarks>
+	private float _limitTime = _TURN_TIME;
+	/// <summary>
+	/// ターン時間
+	/// </summary>
+	private const float _TURN_TIME = 1.0f;
+	private static int _animIdIsStop = Animator.StringToHash("IsStop");
+	private static int _animIdDistance = Animator.StringToHash("Distance");
+
+	/// <summary>
 	/// 初期化処理
 	/// </summary>
-	public void OnStart(Transform target)
+	public void OnStart(Transform target, Animator animator, NavMeshAgent agent, Mob mob)
     {
         _target = target;
-        _player = _target.GetComponent<Player>();
         enabled = true;
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.enabled = true;
-        _mob = GetComponent<Mob>();
-        mobInterval = 2.0f;
-    }
+		_animator = animator;
+		_mob = mob;
+		_playerManager = _mob.PlayerManager;
+		_player = _playerManager.GetPlayer(_mob.FllowTarget);
+		_agent = agent;
+	}
 
     void OnDisable()
     {
         _target = null;
-        _agent = null;
-    }
+		_animator = null;
+	}
 
     void Update()
     {
@@ -78,31 +107,125 @@ public class FollowMove : MonoBehaviour, IMove
             enabled = false;
             return;
         }
-        Vector3 goal = _player.TargetObj.position;
-        goal.z = -goal.z;
-        _agent.SetDestination(_player.TargetObj.position);
 
-        if (_agent.remainingDistance < 1.0f + (_mob._followInex * mobInterval))
-        {
-            _agent.isStopped = true;
-        }
-        else
-        {
-            _agent.isStopped = false;
-        }
-        // 遷移チェック
-        _onTransCheck?.Invoke();
+		// 一致しない場合再取得する
+		if(_mob.FllowTarget != _player?.Type)
+		{
+			_player = _playerManager.GetPlayer(_mob.FllowTarget);
+		}
+
+		// 隊列座標を求める
+		Vector3 targetPosition = _target.position + GetPlayerOffset(_mob._followInex);
+
+		// 座標が変化した場合のみナビメッシュに変更を通知する
+		if(_targetPosition != targetPosition)
+		{
+			_targetPosition = targetPosition;
+
+			// ナビメッシュの移動目標座標を設定する
+			_agent.SetDestination(_targetPosition);
+		}
+
+		float distance = Vector3.Distance(_targetPosition, transform.position);
+
+		// 距離を設定
+		_animator.SetFloat(_animIdDistance, distance);
+
+		// 距離判定
+		bool isStopped = distance < _toStopDistance ? true : false;
+
+		// ターン処理
+		Turn(isStopped);
+
+		// フラグが変化した場合のみアニメーションに変更を通知する
+		if (isStopped != _animator.GetBool(_animIdIsStop))
+		{
+			_animator.SetBool(_animIdIsStop, isStopped);
+
+			// ターン開始
+			if(isStopped)
+			{		
+				_startEulerAngle = transform.eulerAngles.y;
+				if (_player.Dance.IsPlaying)
+				{
+					Vector3 diff = _player.transform.position - transform.position;
+					_endEulerAngle = Mathf.Atan2(diff.x, diff.z) * Mathf.Rad2Deg;
+				}
+				else
+				{
+					_endEulerAngle = _player.transform.eulerAngles.y;
+				}
+				_isTurn = true;
+				_limitTime = _TURN_TIME;
+				_agent.updateRotation = false;
+			}
+			else
+			{
+				_agent.updateRotation = true;
+			}
+		}
+		
+		// 遷移チェック
+		_onTransCheck?.Invoke();
     }
 
-    // 
-    float SetDirection(Vector3 p1, Vector3 p2)
-    {
-        Debug.Log("Target: " + p2);
-        float dx, dy;
-        dx = p1.x - p2.x;
-        dy = p1.z - p2.z;
-        float rad = Mathf.Atan2(dy, dx);
-        Debug.Log("rot : " + rad);
-        return rad * Mathf.Rad2Deg;
-    }
+	/// <summary>
+	/// 追従番号に応じたプレイヤーの相対座標を取得する
+	/// </summary>
+	private Vector3 GetPlayerOffset(int followIndex)
+	{
+		float
+			angleLeft = _player?.RankAngleLeft ?? 0.5f,
+			angleRight = _player?.RankAngleRight ?? 1.0f,
+			offsetZ = _player?.RankPosOffsetZ ?? 0.0f;
+
+		return new Vector3(
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
+		(-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Sin(_target.eulerAngles.y * Mathf.Deg2Rad) * 
+		((-_mobInterval * (followIndex / cutNum)) + offsetZ),
+		0.0f,
+		(Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad + angleLeft - ((followIndex % 2) * angleRight)) * 
+		(-_mobInterval * (followIndex % cutNum + 1)) +
+		Mathf.Cos(_target.eulerAngles.y * Mathf.Deg2Rad) * 
+		((-_mobInterval * (followIndex / cutNum)) + offsetZ)));
+	}
+
+	/// <summary>
+	/// ターン処理
+	/// </summary>
+	private void Turn(bool isStopped)
+	{
+		if (_isTurn)
+		{
+			// 停止中のみターンする
+			if (isStopped)
+			{
+				_limitTime -= Time.deltaTime;
+				_limitTime = Mathf.Max(_limitTime, 0.0f);
+				transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.LerpAngle(_startEulerAngle, _endEulerAngle, 1.0f - _limitTime / _TURN_TIME), transform.eulerAngles.z);
+
+				if (_limitTime <= 0.0f)
+				{
+					// ターン終了
+					_isTurn = false;
+				}
+			}
+			else
+			{
+				// ターン終了
+				_isTurn = false;
+			}
+		}
+	}
+
+	// Gizmo描画
+	void OnDrawGizmos()
+	{
+		if (!enabled)
+			return;
+
+		Gizmos.color = Color.green;
+		Gizmos.DrawSphere(_targetPosition, 0.5f);
+	}
 }

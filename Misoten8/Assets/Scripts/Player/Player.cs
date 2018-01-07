@@ -29,7 +29,7 @@ public class Player : Photon.PunBehaviour
 	{
 		get { return _animator; }
 	}
-
+	[SerializeField]
 	private Animator _animator;
 
 	/// <summary>
@@ -59,11 +59,53 @@ public class Player : Photon.PunBehaviour
 
 	private GameObject _model = null;
 
-	[SerializeField]
-	private Rigidbody _rb;
+	public Dance Dance
+	{
+		get { return _dance; }
+	}
+
+	/// <summary>
+	/// ファンの人数
+	/// </summary>
+	public int FanCount
+	{
+		get { return _fanCount; }
+		set { _fanCount = value; }
+	}
+
+	private int _fanCount = 0;
+
+	public float RankAngleLeft
+	{
+		get { return _rankAngleLeft; }
+		set { _rankAngleLeft = value; }
+	}
+
+	private float _rankAngleLeft = 0.5f;
+
+	public float RankAngleRight
+	{
+		get { return _rankAngleRight; }
+		set { _rankAngleRight = value; }
+	}
+
+	private float _rankAngleRight = 1.0f;
+
+	public float RankPosOffsetZ
+	{
+		get { return _rankPosOffsetZ; }
+		set { _rankPosOffsetZ = value; }
+	}
 
 	[SerializeField]
-	private float _power;
+	private float _rankPosOffsetZ = 0.0f;
+
+	public MobManager MobManager
+	{
+		get { return _mobManager; }
+	}
+
+	private MobManager _mobManager;
 
 	[SerializeField]
 	private float _rotatePower;
@@ -74,21 +116,28 @@ public class Player : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
-	private PlayerManager _playerManager;
+	[SerializeField]
+	private PlayerBillboard _billboard;
 
-	private MobManager _mobManager;
+	private PlayerManager _playerManager;
 
 	private playercamera _playercamera;
 
 	private bool canPlayDance = true;
 
-    // ファン追従用オブジェ
-    public Transform TargetObj
+    public Transform TargetForward
     {
-        get { return _targetObj; }
+        get { return _targetForward; }
     }
     [SerializeField]
-    private Transform _targetObj;
+    private Transform _targetForward;
+
+	public Transform TargetBack
+	{
+		get { return _targetBack; }
+	}
+	[SerializeField]
+	private Transform _targetBack;
 
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
@@ -106,12 +155,11 @@ public class Player : Photon.PunBehaviour
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
 
-		_targetObj.localPosition = new Vector3( _targetObj.localPosition.x, _targetObj.localPosition.y,-_targetObj.localPosition.z);
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
 		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
-        WiimoteManager.Wiimotes[0].SetLED((int)_type);
+        
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
@@ -119,8 +167,9 @@ public class Player : Photon.PunBehaviour
 		// モデルの設定
 		_model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
 		_model.transform.SetParent(_modelPlaceObject);
-		_animator = _model.GetComponent<Animator>();
-		var playerAnimEvent = _model.GetComponent<PlayerAnimEvent>();
+		_animator.avatar = _model.GetComponent<Animator>().avatar;
+		_animator.runtimeAnimatorController = _model.GetComponent<Animator>().runtimeAnimatorController;
+		var playerAnimEvent = GetComponent<PlayerAnimEvent>();
 		if(playerAnimEvent == null)
 		{
 			Debug.LogWarning("プレイヤーのアニメーションイベントクラスを取得できませんでした。");
@@ -132,9 +181,13 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
+			//TODO:実行すると不具合が発生するため、要修正(戸部)
+			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
+			Define.JoinBattlePlayerNum++;
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());
+			_billboard.OnAwake(_playercamera.CameraBrain?.transform, this);
 		}
 	}
 
@@ -152,31 +205,43 @@ public class Player : Photon.PunBehaviour
 
 		if (!_dance.IsPlaying)
 		{
+			int moveState = 0;
+
 			if (Input.GetKey("up") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
-				_rb.AddForce(transform.forward * _power);
+				moveState = 1;
 			if (Input.GetKey("left") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
 				transform.Rotate(Vector3.up, -_rotatePower);
 			if (Input.GetKey("right") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_DOWN))
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
-				_rb.AddForce(-transform.forward * _power);
+				moveState = 2;
 			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
-				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax();
+				moveState = 0;
+				_animator.SetInteger("MoveState", moveState);
+
+				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
 
 				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
                 photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				shakeparameter.ResetShakeParameter();
 				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
+			else
+			{
+				if (_animator.GetInteger("MoveState") != moveState)
+				{
+					_animator.SetInteger("MoveState", moveState);
+				}
+			}
 		}
 
-		Vector3 velocity = _rb.velocity;
+		//Vector3 velocity = _rb.velocity;
 
-		_animator.SetFloat("Velocity", Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z));
+		//_animator.SetFloat("Velocity", Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z));
 
 		// 移動量の減衰
-		_rb.velocity -= velocity * 0.1f;
+		//_rb.velocity -= velocity * 0.1f;
 
     }
 

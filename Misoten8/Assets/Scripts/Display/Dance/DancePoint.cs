@@ -5,11 +5,11 @@ using UnityEngine.UI;
 /// </summary>
 public class DancePoint : UIBase 
 {
-	private int _borderShakeCount = PlayerManager.SHAKE_NORMA;
 	private Image _gauge;
 	private Image _clearText;
 	private Image _clearGauge;
 	private float _drawValue = 0.0f;
+	private Dance _dance = null;
 
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
@@ -30,6 +30,13 @@ public class DancePoint : UIBase
 		if (_clearGauge == null)
 			Debug.LogWarning("clearGaugeが取得できませんでした");
 
+		var sceneCahce = cache as BattleSceneCache;
+		if(sceneCahce == null)
+			Debug.LogWarning("sceneCahceが取得できませんでした");
+
+		_dance = sceneCahce.playerManager?.GetLocalPlayer()?.Dance;
+		_gauge.fillAmount = _drawValue;
+
 		if (events != null)
 		{
 			events.onDanceStart += () => _gauge.fillAmount = _drawValue;
@@ -43,7 +50,11 @@ public class DancePoint : UIBase
 
 	public override bool IsDrawUpdate()
 	{
-		float value = Mathf.Min(shakeparameter.GetShakeParameter(), _borderShakeCount) / _borderShakeCount;
+		if(_dance == null)
+		{
+			return false;
+		}
+		float value = (float)Mathf.Min(_dance.DancePoint, PlayerManager.SHAKE_NORMA) / (float)PlayerManager.SHAKE_NORMA;
 		if (_drawValue != value)
 		{
 			_drawValue = value;

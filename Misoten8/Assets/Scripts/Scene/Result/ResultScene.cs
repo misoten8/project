@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -14,9 +15,22 @@ public class ResultScene : SceneBase<ResultScene>
 	{
 		get { return _sceneCache; }
 	}
+    private void Start()
+    {
+        AudioManager.PlayBGM("リザルト");
 
-	[SerializeField]
+		DisplayManager.Instance.onFadedIn += () =>
+		{
+			StartCoroutine(StepDo());
+		};
+    }
+    [SerializeField]
 	private ResultSceneCache _sceneCache;
+
+	/// <summary>
+	/// タイトル遷移が可能かどうか
+	/// </summary>
+	private bool _isTransTitle = false;
 
 	/// <summary>
 	/// 派生クラスのインスタンスを取得
@@ -28,19 +42,40 @@ public class ResultScene : SceneBase<ResultScene>
 
 	void Update ()
 	{
+		if (!_isTransTitle)
+			return;
+
 		if (shakeparameter.IsOverWithValue(Define.SCENE_TRANCE_VALUE))
 		{
-			Switch(SceneType.Title);
+            AudioManager.PlaySE("決定１");
+            Switch(SceneType.Title);
 		}
-	}
-
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(new Vector2(0,0), new Vector2(300, 200)), "Result Scene");
 	}
 
 	public void TransScene()
 	{
 		SceneManager.LoadScene("Title");
+	}
+
+	private IEnumerator StepDo()
+	{
+		shakeparameter.SetActive(false);
+
+		var events = DisplayManager.GetInstanceDisplayEvents<ResultEvents>();
+
+		events?.onPlayWinnerPanel?.Invoke();
+
+		yield return new WaitForSeconds(3.0f);
+
+		events?.onOpneScorePanel?.Invoke();
+
+		yield return new WaitForSeconds(3.0f);
+
+		// 入力操作受付開始
+		_isTransTitle = true;
+		shakeparameter.SetActive(true);
+		events?.onTransTitleReady?.Invoke();
+
+		yield return null;
 	}
 }

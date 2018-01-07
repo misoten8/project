@@ -56,11 +56,6 @@ public class Mob : Photon.PunBehaviour
 	public event Action onMoveMob;
 
 	/// <summary>
-	/// モブがダンス視聴状態になった時に呼ぶイベント
-	/// </summary>
-	public event Action onDanceWatchMob;
-
-	/// <summary>
 	/// プレイヤー追従対象が変化した時に呼ぶイベント
 	/// </summary>
 	public event Action onChangeFllowPlayer;
@@ -71,13 +66,15 @@ public class Mob : Photon.PunBehaviour
 	[SerializeField]
 	private MobController _mobController;
 
+	[SerializeField]
+	private Animator _animator;
 
 	[SerializeField]
 	private Transform _modelPlaceObject;
 
     // フォロワーになった順番
     // TODO:ここにフォロワーのインデックス番号
-    public int _followInex;
+    public int _followInex = 0;
 
 	/// <summary>
 	/// マテリアルを設定する対象メッシュ
@@ -130,6 +127,11 @@ public class Mob : Photon.PunBehaviour
 	private bool _isPlayChangeFollowTraget = true;
 
 	/// <summary>
+	/// 接触したプレイヤーのダンスコンポーネント
+	/// </summary>
+	private Dance _playerDance = null;
+
+	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
 	/// <remarks>
@@ -158,6 +160,10 @@ public class Mob : Photon.PunBehaviour
 		model.transform.SetParent(_modelPlaceObject);
 		model.transform.localPosition = Vector3.zero;
 		_modelSkinnidMeshs = model.GetComponent<ModelSkinnidMeshs>();
+		_animator.avatar = model.GetComponent<Animator>().avatar;
+		_animator.runtimeAnimatorController = model.GetComponent<Animator>().runtimeAnimatorController;
+		// アニメーションの設定
+		_mobController.OnStart(_animator);
 
 		// アウトラインの更新
 		_modelSkinnidMeshs.SkinnedMeshs.Foreach(e => e.materials[1].color = new Color(0.2f, 0.2f, 0.2f));
@@ -165,9 +171,6 @@ public class Mob : Photon.PunBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		//if (!photonView.isMine)
-		//	return;
-
 		if (other.tag != "DanceRange")
 			return;
 
@@ -175,72 +178,20 @@ public class Mob : Photon.PunBehaviour
 		if (_isViewingInDance)
 			return;
 
-		Dance playerDance = other.gameObject.GetComponent<Dance>();
+		_playerDance = other.gameObject.GetComponent<Dance>();
 
-		// プレイヤーがダンス中であれば、視聴する
-		if (playerDance.IsPlaying && 
-			playerDance.DancePhase != Dance.Phase.End &&
-			playerDance.DancePhase != Dance.Phase.Finish)
+		// ダンスが再生フェーズなら視聴する
+		if (_playerDance.DancePhase == Dance.Phase.Play)
 		{
-			// モブ停止イベント実行
-			onDanceWatchMob?.Invoke();
-
-			// ダンス視聴中エフェクト再生
-			_danceNowEffect = ParticleManager.Play("DanceNow", new Vector3(), transform);
-
-			_isViewingInDance = true;
-
-			// ダンス終了イベントにメソッドを登録する
-			playerDance.onEndDance += (isCancel, isSuccess) =>
-			{
-				_isViewingInDance = false;
-
-				if (!isCancel)
-				{
-					// モブキャラ管理クラスにスコア変更を通知
-					_mobManager.OnScoreChange();
-
-					// ファンタイプが変更したかチェックする
-					Define.PlayerType newFunType = isSuccess ? playerDance.Player.Type : Define.PlayerType.None;
-					if (FunType != newFunType)
-					{
-						_mobManager.FanChangeStack(newFunType, photonView.viewID);
-					}
-				}
-				else
-				{
-					// プレイヤーが客引き状態の場合、追従判定を行う
-					if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
-					|| _fllowTarget == Define.PlayerType.None)
-					{
-						if (FunType == Define.PlayerType.None)
-						{
-							_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-							_isPlayChangeFollowTraget = false;
-						}
-					}
-				}
-
-				// モブ再生イベント実行
-				onMoveMob?.Invoke();
-
-				Destroy(_danceNowEffect);
-			};
+			// ダンス開始イベント実行
+			OnBeginDance();
 		}
 		else
 		{
-			if (_isPlayChangeFollowTraget)
+			if (IsFollowTargetChange(_playerDance))
 			{
-				// プレイヤーが客引き状態の場合、追従判定を行う
-				if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
-				|| _fllowTarget == Define.PlayerType.None)
-				{
-					if (FunType == Define.PlayerType.None)
-					{
-						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-						_isPlayChangeFollowTraget = false;
-					}
-				}
+				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
+				_isPlayChangeFollowTraget = false;
 			}
 		}
 	}
@@ -255,6 +206,9 @@ public class Mob : Photon.PunBehaviour
 			// 推しているプレイヤーの更新
 			_funPlayer = PlayerManager.GetPlayer(type);
 
+			// ファン番号を初期化(最後尾にする)
+			_followInex = 999;
+
 			// 追従対象の更新
 			_fllowTarget = type;
 
@@ -268,9 +222,89 @@ public class Mob : Photon.PunBehaviour
 
 	public void SetFollowType(Define.PlayerType type)
 	{
-		_fllowTarget = type;
-		onChangeFllowPlayer?.Invoke();
-		_isPlayChangeFollowTraget = true;
+		if (_fllowTarget != type)
+		{
+			// ファン番号を初期化(最後尾にする)
+			_followInex = 999;
+
+			// 追従対象の更新
+			_fllowTarget = type;
+
+			// モブ移動動作の変更
+			onChangeFllowPlayer?.Invoke();
+
+			_isPlayChangeFollowTraget = true;
+		}
+	}
+
+	/// <summary>
+	/// ダンス開始時実行イベント
+	/// </summary>
+	public void OnBeginDance()
+	{
+		// ダンス視聴中エフェクト再生
+		_danceNowEffect = ParticleManager.Play("DanceNow", new Vector3(), transform);
+
+		_isViewingInDance = true;
+	}
+
+	/// <summary>
+	/// ダンス終了時実行イベント
+	/// </summary>
+	public void OnEndDance(bool isCancel, bool isSuccess)
+	{
+		if (_playerDance == null)
+		{
+			Debug.LogWarning("ダンスコンポーネントがnullです\n処理を中断しました");
+			return;
+		}
+
+		_isViewingInDance = false;
+
+		if (!isCancel)
+		{
+			// モブキャラ管理クラスにスコア変更を通知
+			_mobManager.OnScoreChange();
+
+			// ファンタイプが変更したかチェックする
+			Define.PlayerType newFunType = isSuccess ? _playerDance.Player.Type : Define.PlayerType.None;
+			if (FunType != newFunType)
+			{
+				_mobManager.FanChangeStack(newFunType, photonView.viewID);
+			}
+		}
+		else
+		{
+			if (IsFollowTargetChange(_playerDance))
+			{
+				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
+				_isPlayChangeFollowTraget = false;
+			}
+		}
+
+		// モブ再生イベント実行
+		onMoveMob?.Invoke();
+
+		Destroy(_danceNowEffect);
+
+		_playerDance = null;
+	}
+
+	/// <summary>
+	/// 追従対処が変化したかどうか
+	/// </summary>
+	private bool IsFollowTargetChange(Dance playerDance)
+	{
+		if (!_isPlayChangeFollowTraget)
+			return false;
+
+		if (_mobManager.GetFunCount(_fllowTarget) < _mobManager.GetFunCount(playerDance.PlayerType)
+				|| _fllowTarget == Define.PlayerType.None)
+		{
+			if (FunType == Define.PlayerType.None)
+				return true;
+		}
+		return false;
 	}
 
 	/// <summary>

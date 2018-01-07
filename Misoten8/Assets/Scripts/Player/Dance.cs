@@ -84,11 +84,12 @@ public class Dance : MonoBehaviour
 	}
 
 	/// <summary>
-	/// ダンス終了時実行イベント
-	/// bool型引数 -> このダンスが中断されたかどうか
+	/// ダンス終了時のファン増減数
 	/// </summary>
-	public event Action<bool, bool> onEndDance;
-
+	public int ChangeFanCountAtComplateDance
+	{
+		get { return _changeFanCountAtComplateDance; }
+	}
 
 	[SerializeField]
 	private Player _player;
@@ -100,16 +101,18 @@ public class Dance : MonoBehaviour
 	private SphereCollider _danceCollider;
 
 	[SerializeField]
-	private DanceUI _danceUI;
-
-	[SerializeField]
 	private MeshRenderer _danceFloor;
 
 	private playercamera _playercamera;
 
 	private Phase _phase = Phase.None;
 
-	private int _dancePoint = 100;
+	public int DancePoint
+	{
+		get { return _dancePoint; }
+	}
+
+	private int _dancePoint = 0;
 
 	private bool _isSuccess = false;
 
@@ -140,6 +143,8 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	private Coroutine _coroutine = null;
 
+	private int _changeFanCountAtComplateDance;
+
 	/// <summary>
 	/// playerに呼び出してもらう
 	/// </summary>
@@ -149,11 +154,6 @@ public class Dance : MonoBehaviour
 
 		_danceCollider.enabled = true;
 
-		if (Player.IsMine)
-		{
-			_danceUI.OnAwake();
-			_danceUI.NotActive();
-		}
 		_dancePoint = 0;
 	}
 
@@ -166,7 +166,6 @@ public class Dance : MonoBehaviour
 				{
 					Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 				}
-				_danceUI.SetPointUpdate(_dancePoint);
 				break;
 		}
 	}
@@ -219,11 +218,17 @@ public class Dance : MonoBehaviour
 	private void PhaseStart()
 	{
 		_phase = Phase.Start;
+		// 追従してきたモブ全員のダンス開始イベントを呼び出す
+		_player.MobManager
+			.Mobs.Where(e => e.FllowTarget == PlayerType)
+			.Select(e =>
+			{
+				e.OnBeginDance();
+				return e;
+			})
+			.Count();
 
-		shakeparameter.ResetShakeParameter();
-		shakeparameter.SetActive(true);
-
-		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -238,32 +243,60 @@ public class Dance : MonoBehaviour
 		_dancePoint = 0;
 		_danceFloor.enabled = true;
 		_isPlaing = true;
-		_player.Animator.SetBool("PlayDance", true);
+		
 
 		if (Player.IsMine)
 		{
-			_danceUI.Active();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
+		// 隊列の角度の設定
+		Player.RankAngleLeft = 2.0f;
+		Player.RankAngleRight = 4.0f;
+		Player.RankPosOffsetZ = -5.0f;
 	}
 
 	private void PhasePlay()
 	{
 		_phase = Phase.Play;
+
+		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
+
+		_player.Animator.SetBool("PlayDance", true);
+
+		AudioManager.PlaySE("Lets_dance_3");
 	}
 
 	private void PhaseFinish()
 	{
 		_phase = Phase.Finish;
-		onEndDance?.Invoke(false, IsSuccess);
-		onEndDance = null;
+		// 追従対処のモブ全員のダンス終了イベントを実行する
+		_changeFanCountAtComplateDance = _player.MobManager
+			.Mobs.Where(e => e.FllowTarget == PlayerType)
+			.Select(e => 
+			{
+				e.OnEndDance(false, IsSuccess);
+				return e;
+			})
+			.Count();
 
 		if (Player.IsMine)
 		{
-			_danceUI.SetResult(IsSuccess);
 			shakeparameter.ResetShakeParameter();
 			shakeparameter.SetActive(false);
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished();
+			if(_isSuccess)
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
+                AudioManager.PlaySE("ダンス成功");
+                AudioManager.PlaySE("モブ歓声＿ダンス成功");
+            }
+			else
+			{
+				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
+                AudioManager.PlaySE("ダンス失敗");
+                AudioManager.PlaySE("モブ歓声＿ダンス失敗");
+            }
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished?.Invoke();
 		}
 	}
 
@@ -273,12 +306,17 @@ public class Dance : MonoBehaviour
 
 		if (Player.IsMine)
 		{
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd();
-			_danceUI.NotActive();
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd?.Invoke();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
+			shakeparameter.SetActive(true);
 		}
-		
+
+		// 隊列の角度の設定
+		Player.RankAngleLeft = 0.5f;
+		Player.RankAngleRight = 1.5f;
+		Player.RankPosOffsetZ = 0.0f;
+
 		_danceFloor.enabled = false;
 		// スコアを設定する
 		_dancePoint = 0;
@@ -292,14 +330,19 @@ public class Dance : MonoBehaviour
 
 	private void ChangeFanPoint(int addValue)
 	{
-		_dancePoint += addValue;
-		if (Player.IsMine)
-			_danceUI.SetPointColor(addValue > 0 ? new Color(0.0f, 1.0f, 0.0f) : new Color(1.0f, 0.0f, 0.0f));
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
+			return;
+		}
+		_dancePoint += addValue;
+		_dancePoint = Math.Max(_dancePoint, 0);
+
+		if (!Player.IsMine)
+			return;
+		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
+		{
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate?.Invoke();
 			_isSuccess = true;
-			if(Player.IsMine)
-				_danceUI.SetPointColor(new Color(0.0f, 0.0f, 1.0f));
 		}
 	}
 
@@ -310,7 +353,7 @@ public class Dance : MonoBehaviour
 	{
 		PhaseStart();
 		
-		yield return new WaitForSeconds(1.0f);
+		yield return new WaitForSeconds(5.0f);
 
 		PhasePlay();
 
@@ -319,14 +362,13 @@ public class Dance : MonoBehaviour
 			_isRequestShake = !_isRequestShake;
 			if(Player.IsMine)
 			{
-				_danceUI.SetRequestShake(_isRequestShake);
 				if(_isRequestShake)
 				{
-					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake();
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake?.Invoke();
 				}
 				else
 				{
-					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop();
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop?.Invoke();
 				}
 			}
 			yield return new WaitForSeconds(_requestTime[callCount]);

@@ -40,7 +40,7 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// ダンス開始に必要なシェイク数
 	/// </summary>
-	public const int DANCE_START_SHAKE_COUNT = 10;
+	public const int DANCE_START_SHAKE_COUNT = 20;
 
 	/// <summary>
 	/// プレイヤーキャッシュリスト
@@ -58,6 +58,14 @@ public class PlayerManager : Photon.MonoBehaviour
 	public void SetPlayer(Player addPlayer)
 	{
 		_players.Add(addPlayer);
+	}
+
+	/// <summary>
+	/// ファンを登録し、ファン番号を返す
+	/// </summary>
+	public int SetFan(Define.PlayerType playerType)
+	{
+		return 0;
 	}
 
 	/// <summary>

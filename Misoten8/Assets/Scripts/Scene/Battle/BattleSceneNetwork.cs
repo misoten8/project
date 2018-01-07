@@ -29,8 +29,16 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	[PunRPC]
 	private void StartupGeneratorBattleScene()
 	{
-		Debug.Log("よばれたぜ");
 		_battleScene.StartupGenerator();
+	}
+
+	/// <summary>
+	/// バトル開始を伝える
+	/// </summary>
+	[PunRPC]
+	private void BeginGameBattleScene()
+	{
+		_battleScene.Begin();
 	}
 
 	/// <summary>

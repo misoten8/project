@@ -62,12 +62,7 @@ public class BattleScene : SceneBase<BattleScene>
 		{
 			StartCoroutine(RepeatNotification());
 		}
-		AudioManager.PlayBGM("DJ Striden - Lights [Dream Trance]");
-	}
-
-	private void OnGUI()
-	{
-		GUI.Label(new Rect(new Vector2(0, 0), new Vector2(300, 200)), "Battle Scene");
+		AudioManager.PlayBGM("gronx");
 	}
 
 	/// <summary>
@@ -82,6 +77,9 @@ public class BattleScene : SceneBase<BattleScene>
 			return;
 
 		duringTransScene = true;
+
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
 
 		// シーン遷移処理呼び出し
 		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
@@ -104,8 +102,6 @@ public class BattleScene : SceneBase<BattleScene>
 		StartCoroutine(SwitchAsync(nextScene));
 	}
 
-	//TODO:バトルシーン開始時にカメラで街を見渡す処理を挟む
-	//参加プレイヤー全員のシーン遷移が完了するまで、プレイヤーオブジェクトが生成されないため。
 	/// <summary>
 	/// 生成コルーチン
 	/// </summary>
@@ -119,6 +115,10 @@ public class BattleScene : SceneBase<BattleScene>
 			yield return null;
 
 		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
+
+		// ディスプレイの読み込みが完了するまで待機する
+		while (DisplayManager.IsSwitching)
+			yield return null;
 
 		// クライアント全員の生成クラスをアクティブにする
 		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
@@ -139,6 +139,15 @@ public class BattleScene : SceneBase<BattleScene>
 		} while (true);	
 	}
 
+	private IEnumerator DelayBegin()
+	{
+		//TODO:モブ等の生成が終わってからバトルを開始する
+		yield return new WaitForSeconds(3.0f);
+
+		// クライアント全員にバトル開始を通知する
+		_battleSceneNetwork.photonView.RPC("BeginGameBattleScene", PhotonTargets.AllViaServer);
+	}
+
 	/// <summary>
 	/// 生成クラスをアクティブにする
 	/// </summary>
@@ -146,8 +155,19 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_mobGenerator.enabled = true;
 		_playerGenerator.enabled = true;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleReady?.Invoke();
+
+		if (PhotonNetwork.isMasterClient)
+			StartCoroutine(DelayBegin());
+	}
+
+	/// <summary>
+	/// バトル開始する
+	/// </summary>
+	public void Begin()
+	{
 		_battleTime.enabled = true;
-		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart();
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 	}
 
 	/// <summary>

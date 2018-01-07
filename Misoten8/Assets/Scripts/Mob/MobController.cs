@@ -18,17 +18,20 @@ public class MobController : MonoBehaviour
 	private WanderMove _wanderMove;
 
     [SerializeField]
-    private Animator _animator;
-
-    [SerializeField]
     private NavMeshAgent _agent;
+
+	private Animator _animator = null;
 	/// <summary>
 	/// 現在の移動処理
 	/// </summary>
 	//private IMove _currentMove;
 
-	void Start()
+	public void OnStart(Animator anim)
 	{
+		_animator = anim;
+		
+		_agent.updatePosition = false;
+
 		// モブ再生イベントで実行する処理を追加
 		_mob.onMoveMob += () =>
 		{
@@ -40,21 +43,14 @@ public class MobController : MonoBehaviour
 			{
 				if (_mob.FunType == Define.PlayerType.None)
 				{
-					_followMove.OnStart(_mob.PlayerManager.GetPlayer(_mob.FllowTarget)?.transform);
+					_followMove.OnStart(_mob.PlayerManager.GetPlayer(_mob.FllowTarget)?.transform, _animator, _agent, _mob);
 				}
 				else
 				{
-					_followMove.OnStart(_mob.funPlayer.transform);
+					_followMove.OnStart(_mob.funPlayer.transform, _animator, _agent, _mob);
 				}
 				_wanderMove.enabled = false;
 			}
-		};
-
-		// モブ停止イベントで実行する処理を追加
-		_mob.onDanceWatchMob += () =>
-		{
-			_followMove.enabled = false;
-			_wanderMove.enabled = false;
 		};
 
 		// 追従対象プレイヤー変更イベント
@@ -64,7 +60,7 @@ public class MobController : MonoBehaviour
 
 			if(target != null)
 			{
-				_followMove.OnStart(target.transform);
+				_followMove.OnStart(target.transform, _animator, _agent, _mob);
 				_wanderMove.enabled = false;
 			}
 			else
@@ -84,15 +80,15 @@ public class MobController : MonoBehaviour
 
 		// 最初は徘徊移動モードにする
 		_wanderMove.OnStart();
-
-        //TODO: ゲーム再生中にInspectorの「Apply RootMotion」のチェックを変更しないとモーションが動かないバグあり
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.enabled = true;
-        _animator = GetComponent<Animator>();
 	}
 
     void Update()
     {
-        _animator.SetFloat("Velocity", _agent.velocity.sqrMagnitude);
-    }
+		// 初期化したかどうか
+		if (_animator == null)
+			return;
+
+		// ナビメッシュ上の目標座標を現在の座標に合わせる
+		_agent.nextPosition = transform.position;
+	}
 }
