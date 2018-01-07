@@ -23,14 +23,21 @@ public class ResultScene : SceneBase<ResultScene>
 		{
 			StartCoroutine(StepDo());
 		};
+
     }
     [SerializeField]
 	private ResultSceneCache _sceneCache;
+    [SerializeField]
+    private resultcamera _resultCamera;
+    [SerializeField]
+    private ResultRanking _resultRanking;
+    [SerializeField]
+    private Transform[] playerposition = new Transform[3];
 
-	/// <summary>
-	/// タイトル遷移が可能かどうか
-	/// </summary>
-	private bool _isTransTitle = false;
+    /// <summary>
+    /// タイトル遷移が可能かどうか
+    /// </summary>
+    private bool _isTransTitle = false;
 
 	/// <summary>
 	/// 派生クラスのインスタンスを取得
@@ -59,7 +66,12 @@ public class ResultScene : SceneBase<ResultScene>
 
 	private IEnumerator StepDo()
 	{
-		shakeparameter.SetActive(false);
+        yield return null;//初期化のタイミングをずらす為最初に書く
+        _resultCamera.SetFollowTarget();
+        _resultCamera.SetCameraMode(resultcamera.CAMERAMODE.RESULTS_ANNOUNCE);
+        yield return new WaitForSeconds(3.0f);
+        _resultCamera.SetCameraMode(resultcamera.CAMERAMODE.RESULTS_ANNOUNCE2);
+        shakeparameter.SetActive(false);
 
 		var events = DisplayManager.GetInstanceDisplayEvents<ResultEvents>();
 
@@ -76,6 +88,6 @@ public class ResultScene : SceneBase<ResultScene>
 		shakeparameter.SetActive(true);
 		events?.onTransTitleReady?.Invoke();
 
-		yield return null;
+
 	}
 }
