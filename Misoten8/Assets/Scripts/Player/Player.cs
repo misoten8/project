@@ -182,7 +182,7 @@ public class Player : Photon.PunBehaviour
 		if (_isMine)
 		{
 			//TODO:実行すると不具合が発生するため、要修正(戸部)
-			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
+			WiimoteManager.Wiimotes[0].SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());
