@@ -10,16 +10,6 @@ using System;
 public class Mob : Photon.PunBehaviour
 {
 	/// <summary>
-	/// ファンポイント
-	/// 配列の合計で人のファンポイント最大値になるようにする
-	/// ファンポイント最大値はファンタイプに応じて変わる
-	/// </summary>
-	public float[] FanPointArray
-	{
-		get { return _fanPointArray; }
-	}
-
-	/// <summary>
 	/// 合計を1.0にしたファンポイント
 	/// </summary>
 	public float[] InterpolationFanPointArray
@@ -148,9 +138,6 @@ public class Mob : Photon.PunBehaviour
 
 		// 無所属に全てのファンポイントを設定
 		_fanPointArray[0] = Define.FanPointArray[(int)_fanLevel];
-
-		// ファンタイプの更新
-		_funType = (Define.PlayerType)_fanPointArray.FindIndexMax();
 
 		// モブ再生イベント実行
 		onMoveMob?.Invoke();
