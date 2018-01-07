@@ -139,6 +139,15 @@ public class BattleScene : SceneBase<BattleScene>
 		} while (true);	
 	}
 
+	private IEnumerator DelayBegin()
+	{
+		//TODO:モブ等の生成が終わってからバトルを開始する
+		yield return new WaitForSeconds(3.0f);
+
+		// クライアント全員にバトル開始を通知する
+		_battleSceneNetwork.photonView.RPC("BeginGameBattleScene", PhotonTargets.AllViaServer);
+	}
+
 	/// <summary>
 	/// 生成クラスをアクティブにする
 	/// </summary>
@@ -146,6 +155,17 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_mobGenerator.enabled = true;
 		_playerGenerator.enabled = true;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleReady?.Invoke();
+
+		if (PhotonNetwork.isMasterClient)
+			StartCoroutine(DelayBegin());
+	}
+
+	/// <summary>
+	/// バトル開始する
+	/// </summary>
+	public void Begin()
+	{
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 	}
