@@ -23,7 +23,8 @@ public class DanceDisplayDebugEvent : DisplayDebugEventBase
 				new DisplayDebugger.DebugEvents.Element(e.onDanceFailled, nameof(e.onDanceFailled)),
 				new DisplayDebugger.DebugEvents.Element(e.onRequestShake, nameof(e.onRequestShake)),
 				new DisplayDebugger.DebugEvents.Element(e.onRequestStop, nameof(e.onRequestStop)),
-				new DisplayDebugger.DebugEvents.Element(e.onRequestNolmaComplate, nameof(e.onRequestNolmaComplate))
+				new DisplayDebugger.DebugEvents.Element(e.onRequestNolmaComplate, nameof(e.onRequestNolmaComplate)),
+				new DisplayDebugger.DebugEvents.Element(e.onBattleEnd, nameof(e.onBattleEnd)),
 			};
 	}
 }
