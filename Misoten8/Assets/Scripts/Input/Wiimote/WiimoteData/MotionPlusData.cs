@@ -78,6 +78,12 @@ namespace WiimoteApi {
 
         public MotionPlusData(Wiimote Owner) : base(Owner) { }
 
+        private float _timeLeft = 0.0f;                 // 時間カウント
+        private int _swingCount = 0;                    // 1秒間に振った回数
+        private const int SWING_RIMIT = 6;              // 1秒間に受け付ける振った判定の限界
+        private const float SWING_ACCEL_SPEED = 250.0f; // 振った判定になるスピード
+
+        // 更新処理のような物
         public override bool InterpretData(byte[] data)
         {
             if (data == null || data.Length < 6)
@@ -109,7 +115,14 @@ namespace WiimoteApi {
             if (!RollSlow)
                 _RollSpeed *= 2000f / 440f;
 
-            return true;
+            // 時間経過でカウントをリセット
+            _timeLeft -= Time.deltaTime;
+            if (_timeLeft <= 0.0f)
+            {
+                _swingCount = 0;
+                _timeLeft = 1.0f;
+            }
+                return true;
         }
 
         /// Calibrates the zero values of the Wii Motion Plus in the Pitch, Yaw, and Roll directions.
@@ -134,14 +147,13 @@ namespace WiimoteApi {
 
 		public bool GetSwing( int num)
 		{
-			if (!WiimoteManager.HasWiimote(num) )return false;
-			bool swing = false;
-			float ac = 0.0f;
+			if (!WiimoteManager.HasWiimote(num) || _swingCount > SWING_RIMIT )return false;
+            bool swing = false;
 
-			ac = PitchSpeed + RollSpeed + YawSpeed;
-            if( ac > 300.0f)
+            if( RollSpeed > SWING_ACCEL_SPEED)
             { 
                 swing = true;
+                _swingCount++;
             }
             return swing;
 		}

@@ -28,7 +28,7 @@ public static class Define
 
 
 
-    public const int SCENE_TRANCE_VALUE = 16;
+    public const int SCENE_TRANCE_VALUE = 6;
 	/// <summary>
 	/// ファンポイント最大値(この値によって各プレイヤーに割り振られるスコアポイントが決まる)
 	/// </summary>
