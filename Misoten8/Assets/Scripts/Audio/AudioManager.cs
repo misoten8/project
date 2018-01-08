@@ -19,6 +19,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 	/// </summary>
 	List<AudioClip> m_SECacheList = new List<AudioClip>();
 
+	/// <summary>
+	/// BGMのAudioClipキャッシュリスト
+	/// </summary>
+	List<AudioClip> m_BGMChaheList = new List<AudioClip>();
+
 	void Start()
 	{
 		Load();
@@ -29,11 +34,19 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 	/// </summary>
 	public static void Load()
 	{
-		// サウンドは事前に読み込んでキャッシュする
-		if (Instance.m_SECacheList.Count > 0) return;
-		foreach (AudioClip audioClip in Resources.LoadAll<AudioClip>("Audios/SE"))
+		if (Instance.m_SECacheList.Count == 0)
 		{
-			Instance.m_SECacheList.Add(audioClip);
+			foreach (AudioClip audioClip in Resources.LoadAll<AudioClip>("Audios/SE"))
+			{
+				Instance.m_SECacheList.Add(audioClip);
+			}
+		}
+		if(Instance.m_BGMChaheList.Count == 0)
+		{
+			foreach (AudioClip audioClip in Resources.LoadAll<AudioClip>("Audios/BGM"))
+			{
+				Instance.m_BGMChaheList.Add(audioClip);
+			}
 		}
 	}
 
@@ -46,7 +59,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 		GameObject obj = Instantiate(Instance.m_BGMPrefab, Instance.transform);
 		obj.name = "BGM_" + fileName;
 		AudioSource audioSource = obj.GetComponent<AudioSource>();
-		audioSource.clip = Resources.Load<AudioClip>("Audios/BGM/" + fileName);
+		audioSource.clip = Instance.m_BGMChaheList.Where(e => e.name == fileName).FirstOrDefault();
 		audioSource.volume = 0.5f;
 		if (audioSource.clip == null)
 		{
