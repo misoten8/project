@@ -17,20 +17,28 @@ public class ResultScene : SceneBase<ResultScene>
 	}
     private void Start()
     {
-        AudioManager.PlayBGM("リザルト");
-
-		DisplayManager.Instance.onFadedIn += () =>
+		shakeparameter.SetActive(false);
+		AudioManager.PlayBGM("リザルト");
+        DisplayManager.Instance.onFadedIn += () =>
 		{
 			StartCoroutine(StepDo());
 		};
+
     }
     [SerializeField]
 	private ResultSceneCache _sceneCache;
 
-	/// <summary>
-	/// タイトル遷移が可能かどうか
-	/// </summary>
-	private bool _isTransTitle = false;
+    [SerializeField]
+    private resultcamera _resultCamera;
+
+    [SerializeField]
+    private ResultRanking _resultRanking;
+
+
+    /// <summary>
+    /// タイトル遷移が可能かどうか
+    /// </summary>
+    private bool _isTransTitle = false;
 
 	/// <summary>
 	/// 派生クラスのインスタンスを取得
@@ -50,6 +58,7 @@ public class ResultScene : SceneBase<ResultScene>
             AudioManager.PlaySE("決定１");
             Switch(SceneType.Title);
 		}
+ 
 	}
 
 	public void TransScene()
@@ -59,11 +68,16 @@ public class ResultScene : SceneBase<ResultScene>
 
 	private IEnumerator StepDo()
 	{
-		shakeparameter.SetActive(false);
+        yield return null;//初期化のタイミングをずらす為最初に書く
+		_resultCamera.SetWinner();
 
 		var events = DisplayManager.GetInstanceDisplayEvents<ResultEvents>();
 
 		events?.onPlayWinnerPanel?.Invoke();
+
+		yield return new WaitForSeconds(3.0f);
+        _resultCamera.SetCameraMode(resultcamera.CAMERAMODE.RESULTS_ANNOUNCE2);
+        _resultCamera.SetAnnounceTarget(null);
 
 		yield return new WaitForSeconds(3.0f);
 
@@ -76,6 +90,6 @@ public class ResultScene : SceneBase<ResultScene>
 		shakeparameter.SetActive(true);
 		events?.onTransTitleReady?.Invoke();
 
-		yield return null;
-	}
+  
+    }
 }
