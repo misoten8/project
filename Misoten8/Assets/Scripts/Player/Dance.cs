@@ -273,6 +273,9 @@ public class Dance : MonoBehaviour
 	private void PhaseFinish()
 	{
 		_phase = Phase.Finish;
+		var events = DisplayManager.GetInstanceDisplayEvents<DanceEvents>();
+		events?.onDanceFinished?.Invoke();
+
 		// 追従対処のモブ全員のダンス終了イベントを実行する
 		_changeFanCountAtComplateDance = _player.MobManager
 			.Mobs.Where(e => e.FllowTarget == PlayerType)
@@ -289,13 +292,13 @@ public class Dance : MonoBehaviour
 			shakeparameter.SetActive(false);
 			if(_isSuccess)
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
+				events?.onDanceSuccess?.Invoke();
                 AudioManager.PlaySE("ダンス成功");
                 AudioManager.PlaySE("モブ歓声＿ダンス成功");
             }
 			else
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
+				events?.onDanceFailled?.Invoke();
                 AudioManager.PlaySE("ダンス失敗");
                 AudioManager.PlaySE("モブ歓声＿ダンス失敗");
             }
