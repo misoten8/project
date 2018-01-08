@@ -1,10 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
 using System.Linq;
 
@@ -39,7 +35,17 @@ public class resultcamera : MonoBehaviour
     public static CAMERAMODE m_mode;
     [SerializeField] private DanceCamera[] dancecamera = new DanceCamera[CAMERA_MAX];
     [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
-
+    [SerializeField] private ResultRanking _resultRanking;
+    [SerializeField] private Transform[] _playerPosition = new Transform[3];
+    private void Awake()
+    {
+        if ((int)_resultRanking.GetWinner() == 1)
+            SetAnnounceTarget(_playerPosition[0]);
+        if ((int)_resultRanking.GetWinner() == 2)
+            SetAnnounceTarget(_playerPosition[1]);
+        if ((int)_resultRanking.GetWinner() == 3)
+            SetAnnounceTarget(_playerPosition[2]);
+    }
     //=======================================
     //関数名 Start
     //引き数
@@ -48,6 +54,8 @@ public class resultcamera : MonoBehaviour
     void Start()
     {
         m_mode = CAMERAMODE.RESULTS_ANNOUNCE;
+
+    
     }
     //=======================================
     //関数名 Update
@@ -115,6 +123,11 @@ public class resultcamera : MonoBehaviour
     public void SetLookAtTarget(Transform transform)
     {
         cinemachineVirtualCamera.ToList().ForEach(e => e.LookAt = transform);
+    }
+    public void SetAnnounceTarget(Transform transform)
+    {
+        cinemachineVirtualCamera[0].Follow = transform;
+        cinemachineVirtualCamera[0].LookAt = transform;
     }
 
 }
