@@ -11,7 +11,6 @@ namespace Misoten8Utility
 	public static class FanMath
 	{
 		public static bool OverBorder(int fanPoint, Define.FanLevel fanLevel) => fanPoint >= Define.FanPointArray[(int)fanLevel];
-		public static int GetFanScore(Define.FanLevel fanLevel) => Define.FanScoreArray[(int)fanLevel];
 	}
 
 	public static class ArrayExtensions

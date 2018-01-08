@@ -55,10 +55,10 @@ public class ResultScoreWindows : UIBase
 			for(int i = 0; i < Define.JoinBattlePlayerNum; i++)
 			{
 				_panelPlayer[i].CrossFade(_animNameSlideUp, 1.0f, 0);
-				_fanValues[i].SetText(ResultScore.scoreArray[i].ToString() + "にん");
+				_fanValues[i].SetText(Define.ResultScoreMap[Define.ConvertToPlayerType(i + 1)].ToString() + "にん");
 
 				RectTransform rectTransform = _panelPlayer[i].gameObject.GetComponent<RectTransform>();
-				float offset = _resultRanking.GetPlayerRank((Define.PlayerType)(i + 1)) * 0.1f;
+				float offset = _resultRanking.GetPlayerRank(Define.ConvertToPlayerType(i + 1)) * 0.1f;
 				rectTransform.pivot = new Vector2(rectTransform.pivot.x, rectTransform.pivot.y + offset);
 			}
 		};

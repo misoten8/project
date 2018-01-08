@@ -14,6 +14,7 @@ public class PlayerBillboard : MonoBehaviour
 	{
 		_camera = targetCamera;
 		_textMesh.text = ((int)player.Type).ToString() + "P";
+		_textMesh.color = Define.playerColor[(int)player.Type];
 	}
 
 	void Update()

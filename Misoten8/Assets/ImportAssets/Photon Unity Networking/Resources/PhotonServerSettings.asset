@@ -46,4 +46,6 @@ MonoBehaviour:
   - LoadedBattleSceneSendToMasterClient
   - DanceShake
   - BeginGameBattleScene
+  - EndBattleScene
+  - FinishBattleScene
   DisableAutoOpenWizard: 1

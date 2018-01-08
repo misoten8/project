@@ -68,9 +68,6 @@ public class ResultScene : SceneBase<ResultScene>
 
 	private IEnumerator StepDo()
 	{
-        yield return null;//初期化のタイミングをずらす為最初に書く
-		_resultCamera.SetWinner();
-
 		var events = DisplayManager.GetInstanceDisplayEvents<ResultEvents>();
 
 		events?.onPlayWinnerPanel?.Invoke();

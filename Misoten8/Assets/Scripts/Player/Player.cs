@@ -158,10 +158,13 @@ public class Player : Photon.PunBehaviour
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
-		_type = (Define.PlayerType)(int)photonView.instantiationData[0];
+		_type = Define.ConvertToPlayerType((int)photonView.instantiationData[0]);
         
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
+		Define.JoinBattlePlayerNum++;
+		_billboard.OnAwake(_playercamera.CameraBrain?.transform, this);
+
 		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
 		
 		// モデルの設定
@@ -181,12 +184,10 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
-			WiimoteManager.Wiimotes[0].SetLED((int)_type);
-			Define.JoinBattlePlayerNum++;
+			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());
-			_billboard.OnAwake(_playercamera.CameraBrain?.transform, this);
 		}
 	}
 
@@ -234,14 +235,6 @@ public class Player : Photon.PunBehaviour
 				}
 			}
 		}
-
-		//Vector3 velocity = _rb.velocity;
-
-		//_animator.SetFloat("Velocity", Mathf.Abs(velocity.x) + Mathf.Abs(velocity.z));
-
-		// 移動量の減衰
-		//_rb.velocity -= velocity * 0.1f;
-
     }
 
 	/// <summary>
@@ -250,7 +243,7 @@ public class Player : Photon.PunBehaviour
 	[PunRPC]
 	public void DanceBegin(byte playerType)
 	{
-		if (_type == (Define.PlayerType)playerType)
+		if (_type == Define.ConvertToPlayerType(playerType))
 		{
 			_dance.Begin();
 		}
@@ -262,7 +255,7 @@ public class Player : Photon.PunBehaviour
 	[PunRPC]
 	public void DanceShake(byte playerType)
 	{
-		if (_type == (Define.PlayerType)playerType)
+		if (_type == Define.ConvertToPlayerType(playerType))
 		{
 			_dance.Shake();
 		}

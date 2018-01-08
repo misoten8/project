@@ -14,17 +14,7 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	private BattleScene _battleScene;
 
 	/// <summary>
-	/// シーン遷移する
-	/// </summary>
-	[PunRPC]
-	public void CallBackSwitchBattleScene(byte nextScene)
-	{
-		Debug.Log("よばれたぜ");
-		_battleScene.CallBackSwitch((BattleScene.SceneType)nextScene);
-	}
-
-	/// <summary>
-	/// 生成クラスをアクティブにする
+	/// 生成クラス有効化を通知
 	/// </summary>
 	[PunRPC]
 	private void StartupGeneratorBattleScene()
@@ -33,12 +23,30 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	}
 
 	/// <summary>
-	/// バトル開始を伝える
+	/// バトル開始を通知
 	/// </summary>
 	[PunRPC]
 	private void BeginGameBattleScene()
 	{
 		_battleScene.Begin();
+	}
+
+	/// <summary>
+	/// タイムアップを通知
+	/// </summary>
+	[PunRPC]
+	private void FinishBattleScene()
+	{
+		_battleScene.Finish();
+	}
+
+	/// <summary>
+	/// バトル終了処理を通知
+	/// </summary>
+	[PunRPC]
+	public void EndBattleScene(int joinBattlePlayerNum, int[] scoreArray)
+	{
+		_battleScene.End(joinBattlePlayerNum, scoreArray);
 	}
 
 	/// <summary>
@@ -61,20 +69,4 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
-
-	public void OnPhotonPlayerPropertiesChanged(object[] i_playerAndUpdatedProps)
-	{
-		var player = i_playerAndUpdatedProps[0] as PhotonPlayer;
-		var properties = i_playerAndUpdatedProps[1] as ExitGames.Client.Photon.Hashtable;
-
-		Debug.Log("誰かのプロパティが変化しました！");
-		PhotonNetwork.playerList
-			.Where(e => e.ID == player.ID)
-			.Select(e =>
-			{
-				Debug.Log("プレイヤー" + player.ID.ToString() + "のプロパティが変化しました");
-				e.SetCustomProperties(properties);
-				return default(IEnumerable);
-			});
-	}
 }

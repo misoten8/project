@@ -36,14 +36,15 @@ public class ResultRanking : MonoBehaviour
 		return _rankMap.First(e => e.Value == 1).Key;
 	}
 
-	void Start () 
+	void Awake () 
 	{
 		// スコアでソートを行う
 		List<RankingEx> sort = new List<RankingEx>();
 
 		for(int i = 0; i < Define.JoinBattlePlayerNum; i++)
 		{
-			sort.Add(new RankingEx((Define.PlayerType)(i + 1), ResultScore.scoreArray[i]));	
+			var type = Define.ConvertToPlayerType(i + 1);
+			sort.Add(new RankingEx(type, Define.ResultScoreMap[type]));	
 		}
 		sort = sort.OrderByDescending(e => e.score).ToList();
 
