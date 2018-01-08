@@ -31,8 +31,9 @@ public static class Define
 
 	public const int FAN_SCORE_HARD = 100;
 
-
-
+	/// <summary>
+	/// シーン遷移に必要なシェイク数(プレス数)
+	/// </summary>
     public const int SCENE_TRANCE_VALUE = 3;
 	/// <summary>
 	/// ファンポイント最大値(この値によって各プレイヤーに割り振られるスコアポイントが決まる)
@@ -140,4 +141,26 @@ public static class Define
 		{ PlayerType.Second, 2 },
 		{ PlayerType.Third, 3 },
 	};
+
+	/// <summary>
+	/// プレイヤーIDからプレイヤーのタイプに変換する
+	/// </summary>
+	public static PlayerType ConvertToPlayerType(int playerId)
+	{
+		//TODO:内部のロジックはロビーの設定に合わせて変更する
+		switch (playerId)
+		{
+			case 0:
+				return PlayerType.None;
+			case 1:
+				return PlayerType.First;
+			case 2:
+				return PlayerType.Second;
+			case 3:
+				return PlayerType.Third;
+			default:
+				Debug.LogWarning("Define.ConvertToPlayerTypeにて不正なplayerIdが指定されました\n代用としてNoneを返しました");
+				return PlayerType.None;
+		}
+	}
 }

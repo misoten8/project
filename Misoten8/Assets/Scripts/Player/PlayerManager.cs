@@ -53,19 +53,16 @@ public class PlayerManager : Photon.MonoBehaviour
 	private List<Player> _players = new List<Player>();
 
 	/// <summary>
+	/// ローカル（自身）のプレイヤ
+	/// </summary>
+	private Player _localPlayer = null;
+
+	/// <summary>
 	/// プレイヤーを追加する
 	/// </summary>
 	public void SetPlayer(Player addPlayer)
 	{
 		_players.Add(addPlayer);
-	}
-
-	/// <summary>
-	/// ファンを登録し、ファン番号を返す
-	/// </summary>
-	public int SetFan(Define.PlayerType playerType)
-	{
-		return 0;
 	}
 
 	/// <summary>
@@ -84,7 +81,13 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// </summary>
 	public Player GetLocalPlayer()
 	{
-		return _players?.First(e => e.photonView.owner.ID == PhotonNetwork.player.ID);
+		// ここでローカルのプレイヤーの取得処理を行っているのは、
+		// プレイヤーの初期化時に行った場合、所有権の変更がまだ終わっていないため
+		if (_localPlayer == null)
+		{
+			_localPlayer = _players?.First(e => e.photonView.owner.ID == PhotonNetwork.player.ID);
+		}
+		return _localPlayer;
 	}
 
 	/// <summary>

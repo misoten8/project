@@ -22,7 +22,7 @@ public class BattleScene : SceneBase<BattleScene>
 	private BattleTime _battleTime;
 
 	[SerializeField]
-	private BattleSceneNetwork _battleSceneNetwork;
+	private BattleSceneNetwork _network;
 
 	/// <summary>
 	/// 外部シーンが利用できるデータキャッシュ
@@ -77,74 +77,13 @@ public class BattleScene : SceneBase<BattleScene>
 
 		duringTransScene = true;
 
+		// ゲーム終了演出 + プレイヤー操作停止(ダンスはキャンセルする)
+		_battleTime.enabled = false;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
 		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
 
-		// シーン遷移処理呼び出し
-		_battleSceneNetwork.photonView.RPC("CallBackSwitchBattleScene", PhotonTargets.AllViaServer, (byte)nextScene);
-	}
-
-	/// <summary>
-	/// 使用しないでください
-	/// </summary>
-	public void CallBackSwitch(SceneType nextScene)
-	{
-		ResultScore.scoreArray[(int)Define.PlayerType.First] = _score.GetScore(Define.PlayerType.First);
-		ResultScore.scoreArray[(int)Define.PlayerType.Second] = _score.GetScore(Define.PlayerType.Second);
-		ResultScore.scoreArray[(int)Define.PlayerType.Third] = _score.GetScore(Define.PlayerType.Third);
-		ResultScore.scoreArray[(int)Define.PlayerType.Fourth] = _score.GetScore(Define.PlayerType.Fourth);
-
-		AudioManager.PauseBGM();
-
-		// ルームから退出する
-		PhotonNetwork.LeaveRoom();
-		StartCoroutine(SwitchAsync(nextScene));
-	}
-
-	/// <summary>
-	/// 生成コルーチン
-	/// </summary>
-	/// <remarks>
-	/// マスタークライアントのみが送信する
-	/// </remarks>
-	private IEnumerator DelayInstance()
-	{
-		// 全員が遷移を完了するまで、待機する
-		while (IsWaiting())
-			yield return null;
-
-		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
-
-		// ディスプレイの読み込みが完了するまで待機する
-		while (DisplayManager.IsSwitching)
-			yield return null;
-
-		// クライアント全員の生成クラスをアクティブにする
-		_battleSceneNetwork.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
-	}
-
-	/// <summary>
-	/// 一定間隔で通知する
-	/// </summary>
-	/// <remarks>
-	/// 一般クライアントが送信する
-	/// </remarks>
-	private IEnumerator RepeatNotification()
-	{
-		do
-		{
-			_battleSceneNetwork.photonView.RPC("LoadedBattleSceneSendToMasterClient", PhotonTargets.MasterClient, (byte)PhotonNetwork.player.ID);
-			yield return new WaitForSeconds(0.5f);
-		} while (true);	
-	}
-
-	private IEnumerator DelayBegin()
-	{
-		//TODO:モブ等の生成が終わってからバトルを開始する
-		yield return new WaitForSeconds(3.0f);
-
-		// クライアント全員にバトル開始を通知する
-		_battleSceneNetwork.photonView.RPC("BeginGameBattleScene", PhotonTargets.AllViaServer);
+		if (PhotonNetwork.isMasterClient)
+			StartCoroutine(DelayEnd());
 	}
 
 	/// <summary>
@@ -171,6 +110,23 @@ public class BattleScene : SceneBase<BattleScene>
 	}
 
 	/// <summary>
+	/// リザルトにスコアを設定する
+	/// </summary>
+	public void End(int joinBattlePlayerNum, int[] scoreArray)
+	{
+		for(int i = 0; i < joinBattlePlayerNum; i++)
+		{
+			Define.ResultScoreMap[Define.ConvertToPlayerType(i + 1)] = scoreArray[i];
+		}
+
+		AudioManager.PauseBGM();
+
+		// ルームから退出する
+		PhotonNetwork.LeaveRoom();
+		StartCoroutine(SwitchAsync(SceneType.Result));
+	}
+
+	/// <summary>
 	/// フラグを受け取る
 	/// </summary>
 	public void LoadedBattleSceneSendToMasterClient(byte playerID)
@@ -185,5 +141,75 @@ public class BattleScene : SceneBase<BattleScene>
 	private bool IsWaiting()
 	{
 		return !_isBattleSceneLoaded.All(e => e == true);
+	}
+
+	/// <summary>
+	/// 生成コルーチン
+	/// </summary>
+	/// <remarks>
+	/// マスタークライアントのみが送信する
+	/// </remarks>
+	private IEnumerator DelayInstance()
+	{
+		// 全員が遷移を完了するまで、待機する
+		while (IsWaiting())
+			yield return null;
+
+		Debug.Log("参加プレイヤー：" + PhotonNetwork.room.PlayerCount.ToString());
+
+		// ディスプレイの読み込みが完了するまで待機する
+		while (DisplayManager.IsSwitching)
+			yield return null;
+
+		// クライアント全員の生成クラスをアクティブにする
+		_network.photonView.RPC("StartupGeneratorBattleScene", PhotonTargets.AllViaServer);
+	}
+
+	/// <summary>
+	/// 一定間隔で通知する
+	/// </summary>
+	/// <remarks>
+	/// 一般クライアントが送信する
+	/// </remarks>
+	private IEnumerator RepeatNotification()
+	{
+		do
+		{
+			_network.photonView.RPC("LoadedBattleSceneSendToMasterClient", PhotonTargets.MasterClient, (byte)PhotonNetwork.player.ID);
+			yield return new WaitForSeconds(0.5f);
+		} while (true);
+	}
+
+	/// <summary>
+	/// バトル開始の通知を遅延させる
+	/// </summary>
+	/// <remarks>
+	/// マスタークライアントが呼び出す
+	/// </remarks>
+	private IEnumerator DelayBegin()
+	{
+		//TODO:モブ等の生成が終わってからバトルを開始する
+		yield return new WaitForSeconds(3.0f);
+
+		// クライアント全員にバトル開始を通知する
+		_network.photonView.RPC("BeginGameBattleScene", PhotonTargets.AllViaServer);
+	}
+
+	/// <summary>
+	/// バトル終了処理の通知を遅延させる
+	/// </summary>
+	/// <remarks>
+	/// マスタークライアントが呼び出す
+	/// </remarks>
+	private IEnumerator DelayEnd()
+	{
+		yield return new WaitForSeconds(3.0f);
+
+		int[] resultScore = Define.ResultScoreMap.Select(e => e.Value).ToArray();
+		int playerNum = Define.JoinBattlePlayerNum;
+		PhotonTargets target = PhotonTargets.AllViaServer;
+
+		// クライアント全員にバトル終了処理を通知する
+		_network.photonView.RPC("EndBattleScene", target, playerNum, resultScore);
 	}
 }

@@ -124,11 +124,6 @@ public class Dance : MonoBehaviour
 	private bool _isPenetrated = false;
 
 	/// <summary>
-	/// 処理中かどうか
-	/// </summary>
-	//private bool _isTransing = false;
-
-	/// <summary>
 	/// ダンス中かどうか
 	/// </summary>
 	private bool _isPlaing = false;
@@ -162,9 +157,12 @@ public class Dance : MonoBehaviour
 		switch (_phase)
 		{
 			case Phase.Play:
-				if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
+				if (Player.IsMine)
 				{
-					Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
+					if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
+					{
+						Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
+					}
 				}
 				break;
 		}
@@ -175,7 +173,10 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void Shake()
 	{
-		ChangeFanPoint(_isRequestShake ? 1 : -1);
+		if(Player.IsMine)
+		{
+			ChangeFanPoint(_isRequestShake ? 1 : -1);
+		}
 		ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
 	}
 
@@ -228,7 +229,7 @@ public class Dance : MonoBehaviour
 			})
 			.Count();
 
-		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
+		
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -244,9 +245,9 @@ public class Dance : MonoBehaviour
 		_danceFloor.enabled = true;
 		_isPlaing = true;
 		
-
 		if (Player.IsMine)
 		{
+			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceStart?.Invoke();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.DANCE_INTRO);
 		}
 		// 隊列の角度の設定
@@ -259,12 +260,14 @@ public class Dance : MonoBehaviour
 	{
 		_phase = Phase.Play;
 
-		shakeparameter.ResetShakeParameter();
-		shakeparameter.SetActive(true);
+		if (Player.IsMine)
+		{
+			shakeparameter.ResetShakeParameter();
+			shakeparameter.SetActive(true);
+			AudioManager.PlaySE("Lets_dance_3");
+		}
 
 		_player.Animator.SetBool("PlayDance", true);
-
-		AudioManager.PlaySE("Lets_dance_3");
 	}
 
 	private void PhaseFinish()
@@ -296,7 +299,6 @@ public class Dance : MonoBehaviour
                 AudioManager.PlaySE("ダンス失敗");
                 AudioManager.PlaySE("モブ歓声＿ダンス失敗");
             }
-			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFinished?.Invoke();
 		}
 	}
 

@@ -40,7 +40,8 @@ public class ResultRanking : MonoBehaviour
 
 		for(int i = 0; i < Define.JoinBattlePlayerNum; i++)
 		{
-			sort.Add(new RankingEx((Define.PlayerType)(i + 1), ResultScore.scoreArray[i]));	
+			var type = Define.ConvertToPlayerType(i + 1);
+			sort.Add(new RankingEx(type, Define.ResultScoreMap[type]));	
 		}
 		sort = sort.OrderByDescending(e => e.score).ToList();
 
