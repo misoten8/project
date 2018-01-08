@@ -30,6 +30,9 @@ public class ResultRanking : MonoBehaviour
 	/// </summary>
 	public Define.PlayerType GetWinner()
 	{
+        if (_rankMap.Count == 0)
+            return Define.PlayerType.First;
+
 		return _rankMap.First(e => e.Value == 1).Key;
 	}
 
