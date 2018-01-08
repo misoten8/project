@@ -117,11 +117,6 @@ public class Mob : Photon.PunBehaviour
 	private bool _isPlayChangeFollowTraget = true;
 
 	/// <summary>
-	/// 接触したプレイヤーのダンスコンポーネント
-	/// </summary>
-	private Dance _playerDance = null;
-
-	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
 	/// <remarks>
@@ -165,19 +160,19 @@ public class Mob : Photon.PunBehaviour
 		if (_isViewingInDance)
 			return;
 
-		_playerDance = other.gameObject.GetComponent<Dance>();
+		Dance playerDance = other.gameObject.GetComponent<Dance>();
 
 		// ダンスが再生フェーズなら視聴する
-		if (_playerDance.DancePhase == Dance.Phase.Play)
+		if (playerDance.DancePhase == Dance.Phase.Play)
 		{
 			// ダンス開始イベント実行
 			OnBeginDance();
 		}
 		else
 		{
-			if (IsFollowTargetChange(_playerDance))
+			if (IsFollowTargetChange(playerDance))
 			{
-				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
+				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
 				_isPlayChangeFollowTraget = false;
 			}
 		}
@@ -240,12 +235,8 @@ public class Mob : Photon.PunBehaviour
 	/// </summary>
 	public void OnEndDance(bool isCancel, bool isSuccess)
 	{
-		if (_playerDance == null)
-		{
-			Debug.LogWarning("ダンスコンポーネントがnullです\n処理を中断しました");
-			return;
-		}
-
+		// 追従対象のプレイヤーのダンスコンポーネントを取得する
+		Dance playerDance = _playerManager.GetPlayer(FllowTarget).Dance;
 		_isViewingInDance = false;
 
 		if (!isCancel)
@@ -254,7 +245,7 @@ public class Mob : Photon.PunBehaviour
 			_mobManager.OnScoreChange();
 
 			// ファンタイプが変更したかチェックする
-			Define.PlayerType newFunType = isSuccess ? _playerDance.Player.Type : Define.PlayerType.None;
+			Define.PlayerType newFunType = isSuccess ? playerDance.Player.Type : Define.PlayerType.None;
 			if (FunType != newFunType)
 			{
 				_mobManager.FanChangeStack(newFunType, photonView.viewID);
@@ -262,9 +253,10 @@ public class Mob : Photon.PunBehaviour
 		}
 		else
 		{
-			if (IsFollowTargetChange(_playerDance))
+			// ファンが多いプレイヤーに追従する
+			if (IsFollowTargetChange(playerDance))
 			{
-				_mobManager.FollowChangeStack(_playerDance.PlayerType, photonView.viewID);
+				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
 				_isPlayChangeFollowTraget = false;
 			}
 		}
@@ -273,8 +265,6 @@ public class Mob : Photon.PunBehaviour
 		onMoveMob?.Invoke();
 
 		Destroy(_danceNowEffect);
-
-		_playerDance = null;
 	}
 
 	/// <summary>
