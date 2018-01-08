@@ -65,9 +65,10 @@ public class LobbyScene : SceneBase<LobbyScene>
 
 		duringTransScene = true;
         AudioManager.PlaySE("決定１");
+		AudioManager.PauseBGM();
 
-        // シーン遷移処理呼び出し
-        _lobbySceneNetwork.photonView.RPC("CallBackSwitchLobbyScene", PhotonTargets.AllViaServer, (byte)nextScene);
+		// シーン遷移処理呼び出し
+		_lobbySceneNetwork.photonView.RPC("CallBackSwitchLobbyScene", PhotonTargets.AllViaServer, (byte)nextScene);
 	}
 
 	/// <summary>

@@ -252,6 +252,7 @@ public class Wiimote
             _Ir = null;
             _Status = null;
             _Extension = null;
+            _Speaker = null;
         }
 
     #region Setups
@@ -920,7 +921,10 @@ public class Wiimote
         // LEDê›íËä÷êî
         public void SetLED(int ledNum)
         {
-            SendPlayerLED(ledNum == 1, ledNum == 2, ledNum == 3, ledNum == 4);
+            if (WiimoteManager.HasWiimote())
+            {
+                SendPlayerLED(ledNum == 1, ledNum == 2, ledNum == 3, ledNum == 4);
+            }
         }
     }
 }
