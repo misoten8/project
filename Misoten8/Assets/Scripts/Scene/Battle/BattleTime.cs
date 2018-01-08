@@ -31,6 +31,7 @@ public class BattleTime : MonoBehaviour
 			return;
 
 		_currentTime -= Time.deltaTime;
+		_currentTime = Mathf.Max(_currentTime, 0.0f);
 
 		if (_currentTime > 0.0f)
 			return;
