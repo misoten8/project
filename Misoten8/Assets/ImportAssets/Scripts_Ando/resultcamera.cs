@@ -37,13 +37,21 @@ public class resultcamera : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera[] cinemachineVirtualCamera = new CinemachineVirtualCamera[CAMERA_MAX];
     [SerializeField] private ResultRanking _resultRanking;
     [SerializeField] private Transform[] _playerPosition = new Transform[3];
-    
-    //=======================================
-    //関数名 Start
-    //引き数
-    //戻り値
-    //=======================================
-    void Start()
+	private void Awake()
+	{
+		if ((int)_resultRanking.GetWinner() == 1)
+			SetAnnounceTarget(_playerPosition[0]);
+		if ((int)_resultRanking.GetWinner() == 2)
+			SetAnnounceTarget(_playerPosition[1]);
+		if ((int)_resultRanking.GetWinner() == 3)
+			SetAnnounceTarget(_playerPosition[2]);
+	}
+	//=======================================
+	//関数名 Start
+	//引き数
+	//戻り値
+	//=======================================
+	void Start()
     {
         m_mode = CAMERAMODE.RESULTS_ANNOUNCE;
 
@@ -121,13 +129,4 @@ public class resultcamera : MonoBehaviour
         cinemachineVirtualCamera[0].Follow = transform;
         cinemachineVirtualCamera[0].LookAt = transform;
     }
-	public void SetWinner()
-	{
-		if ((int)_resultRanking.GetWinner() == 1)
-			SetAnnounceTarget(_playerPosition[0]);
-		if ((int)_resultRanking.GetWinner() == 2)
-			SetAnnounceTarget(_playerPosition[1]);
-		if ((int)_resultRanking.GetWinner() == 3)
-			SetAnnounceTarget(_playerPosition[2]);
-	}
 }

@@ -36,7 +36,7 @@ public class ResultRanking : MonoBehaviour
 		return _rankMap.First(e => e.Value == 1).Key;
 	}
 
-	void Start () 
+	void Awake () 
 	{
 		// スコアでソートを行う
 		List<RankingEx> sort = new List<RankingEx>();
