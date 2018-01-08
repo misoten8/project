@@ -13,6 +13,7 @@ public class PlayerGenerator : Photon.MonoBehaviour
 	/// </summary>
 	public struct PlayerCaches
 	{
+		public BattleScene battleScene;
 		public MobManager mobManager;
 		public PlayerManager playerManager;
 		public playercamera playercamera;
@@ -27,6 +28,7 @@ public class PlayerGenerator : Photon.MonoBehaviour
 
 	private void OnEnable()
 	{
+		_caches.battleScene = GetComponent<BattleScene>();
 		_caches.mobManager = GetComponent<MobManager>();
 		_caches.playerManager = GetComponent<PlayerManager>();
 		_caches.playercamera = GameObject.Find("Cameras/playercamera").GetComponent<playercamera>();

@@ -154,12 +154,26 @@ public class Dance : MonoBehaviour
 
 	void Update()
 	{
+		if(!Player.BattleScene.IsBattleTime)
+		{
+			if(_coroutine != null)
+			{
+				StopCoroutine(_coroutine);
+				_coroutine = null;
+				if (_phase != Phase.End)
+				{
+					PhaseEnd();
+				}
+			}
+			return;
+		}
+
 		switch (_phase)
 		{
 			case Phase.Play:
 				if (Player.IsMine)
 				{
-					if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
+					if (Input.GetKeyDown(KeyCode.Return) || WiimoteManager.GetSwing(0))
 					{
 						Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 					}
@@ -185,7 +199,7 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void Begin()
 	{
-		_coroutine = StartCoroutine("StepDo");
+		_coroutine = StartCoroutine(StepDo());
 	}
 
 	/// <summary>

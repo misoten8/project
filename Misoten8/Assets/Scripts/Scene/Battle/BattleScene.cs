@@ -36,6 +36,19 @@ public class BattleScene : SceneBase<BattleScene>
 	private BattleSceneCache _sceneCache;
 
 	/// <summary>
+	/// 現在がバトル中かどうか
+	/// </summary>
+	/// <remarks>
+	/// このパラメータでバトルシーンのオブジェクトの動作を制御する
+	/// </remarks>
+	public bool IsBattleTime
+	{
+		get { return _isBattleTime; }
+	}
+
+	private bool _isBattleTime = false;
+
+	/// <summary>
 	/// 一般プレイヤー分存在する
 	/// マスタークライアントのみが使用する
 	/// </summary>
@@ -102,6 +115,7 @@ public class BattleScene : SceneBase<BattleScene>
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 		AudioManager.PlayBGM("bgm_main_kari");
+		_isBattleTime = true;
 	}
 
 	/// <summary>
@@ -113,6 +127,7 @@ public class BattleScene : SceneBase<BattleScene>
 	public void Finish()
 	{
 		_battleTime.enabled = false;
+		_isBattleTime = false;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
 		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
 
