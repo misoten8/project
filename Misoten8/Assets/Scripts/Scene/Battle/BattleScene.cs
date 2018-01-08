@@ -77,13 +77,8 @@ public class BattleScene : SceneBase<BattleScene>
 
 		duringTransScene = true;
 
-		// ゲーム終了演出 + プレイヤー操作停止(ダンスはキャンセルする)
-		_battleTime.enabled = false;
-		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
-		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
-
-		if (PhotonNetwork.isMasterClient)
-			StartCoroutine(DelayEnd());
+		// クライアント全員にタイムアップ処理を通知する
+		_network.photonView.RPC("FinishBattleScene", PhotonTargets.AllViaServer);
 	}
 
 	/// <summary>
@@ -107,6 +102,22 @@ public class BattleScene : SceneBase<BattleScene>
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 		AudioManager.PlayBGM("bgm_main_kari");
+	}
+
+	/// <summary>
+	/// タイムアップ
+	/// </summary>
+	/// <remarks>
+	/// ゲーム終了演出 + プレイヤー操作停止(ダンスはキャンセルする)
+	/// </remarks>
+	public void Finish()
+	{
+		_battleTime.enabled = false;
+		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
+		DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onBattleEnd?.Invoke();
+
+		if (PhotonNetwork.isMasterClient)
+			StartCoroutine(DelayEnd());
 	}
 
 	/// <summary>
@@ -205,7 +216,7 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		yield return new WaitForSeconds(3.0f);
 
-		int[] resultScore = Define.ResultScoreMap.Select(e => e.Value).ToArray();
+		int[] resultScore = Define.ResultScoreMap.Select(e => _score.GetScore(e.Key)).ToArray();
 		int playerNum = Define.JoinBattlePlayerNum;
 		PhotonTargets target = PhotonTargets.AllViaServer;
 

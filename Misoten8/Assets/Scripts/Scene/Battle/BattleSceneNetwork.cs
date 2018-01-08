@@ -32,6 +32,15 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	}
 
 	/// <summary>
+	/// タイムアップを通知
+	/// </summary>
+	[PunRPC]
+	private void FinishBattleScene()
+	{
+		_battleScene.Finish();
+	}
+
+	/// <summary>
 	/// バトル終了処理を通知
 	/// </summary>
 	[PunRPC]
