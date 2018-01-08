@@ -78,10 +78,19 @@ namespace WiimoteApi {
 
         public MotionPlusData(Wiimote Owner) : base(Owner) { }
 
+        private float _accelOld = 0.0f;                 // 振った時の速度を保存
+        private bool _isSwing = false;                  // 振った判定
+        private bool _isSwingOld = false;               // ある程度スピードが落ちるまで判定を制御
+        private const float SWING_ACCEL_SPEED = 200.0f; // 振った判定になるスピード
+        private const float SWING_RESET_SPEED = 150.0f;  // 振った判定をリセットするスピード
+
+        // 更新処理のような物
         public override bool InterpretData(byte[] data)
         {
             if (data == null || data.Length < 6)
                 return false;
+
+            _isSwingOld = _isSwing;
 
             _YawSpeedRaw    = data[0];
             _YawSpeedRaw   |= (data[3] & 0xfc) << 6;
@@ -109,6 +118,17 @@ namespace WiimoteApi {
             if (!RollSlow)
                 _RollSpeed *= 2000f / 440f;
 
+            // 振動判定
+            if (RollSpeed > SWING_ACCEL_SPEED)
+            {
+                _isSwing = true;
+                _accelOld = RollSpeed;
+            }
+            // 振動判定をリセット
+            if (RollSpeed < SWING_RESET_SPEED )
+            {
+                _isSwing = false;
+            }
             return true;
         }
 
@@ -132,18 +152,11 @@ namespace WiimoteApi {
             _RollSpeed = 0;
         }
 
+        // 振った判定
 		public bool GetSwing( int num)
 		{
-			if (!WiimoteManager.HasWiimote(num) )return false;
-			bool swing = false;
-			float ac = 0.0f;
-
-			ac = PitchSpeed + RollSpeed + YawSpeed;
-            if( ac > 300.0f)
-            { 
-                swing = true;
-            }
-            return swing;
+			if (_isSwingOld)return false;
+            return _isSwing;
 		}
     }
 }
