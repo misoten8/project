@@ -2,6 +2,7 @@
 using UnityEngine;
 using Misoten8Utility;
 using System;
+using UnityEngine.AI;
 
 /// <summary>
 /// モブキャラ クラス
@@ -74,6 +75,11 @@ public class Mob : Photon.PunBehaviour
 	/// <summary>
 	/// モブ管理クラス
 	/// </summary>
+	public MobManager MobManager
+	{
+		get { return _mobManager; }
+	}
+
 	private MobManager _mobManager;
 
 	/// <summary>
@@ -96,6 +102,14 @@ public class Mob : Photon.PunBehaviour
 
 	private Define.PlayerType _fllowTarget = Define.PlayerType.None;
 
+	public NavMeshAgent NavMeshAgent
+	{
+		get { return _navMeshAgent; }
+	}
+
+	[SerializeField]
+	private NavMeshAgent _navMeshAgent;
+
 	/// <summary>
 	/// ダンス視聴中エフェクト
 	/// </summary>
@@ -115,6 +129,17 @@ public class Mob : Photon.PunBehaviour
 	/// 追従変更処理が実行されたかどうか
 	/// </summary>
 	private bool _isPlayChangeFollowTraget = true;
+
+	/// <summary>
+	/// 目標地点の変更をスタックしているかどうか
+	/// </summary>
+	public bool IsSetMarkerStack
+	{
+		get { return _isSetMarkerStack; }
+		set { _isSetMarkerStack = value; }
+	}
+
+	private bool _isSetMarkerStack = false;
 
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。

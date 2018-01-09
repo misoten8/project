@@ -14,13 +14,8 @@ public class WanderMove : MonoBehaviour, IMove
         Move,
         Stop
     }
-
-
     
     private State _state = State.Move;
-
-    private MarkerManager _marker;
-    private NavMeshAgent _agent = null;
 
     /// <summary>
     /// 遷移条件判定イベント
@@ -65,31 +60,45 @@ public class WanderMove : MonoBehaviour, IMove
     /// </summary>
     private bool _isFirstFrame = true;
 
-    /// <summary>
-    /// 初期化処理
-    /// </summary>
-    public void OnStart()
+	private MarkerManager _marker;
+	private NavMeshAgent _agent = null;
+	private Mob _mob;
+
+	/// <summary>
+	/// 初期化処理
+	/// </summary>
+	public void OnStart(Mob mob)
     {
         enabled = true;
+		_mob = mob;
         _isFirstFrame = true;
         _state = State.Move;
-        _agent = GetComponent<NavMeshAgent>();
+        _agent = _mob.NavMeshAgent;
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
-        _marker.GotoNextPoint(_agent);
-    }
+		// 目標地点の設定
+		byte index = (byte)UnityEngine.Random.Range(0, _marker.MarkerNum);
+		_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
+		_mob.IsSetMarkerStack = true;
+	}
 
     void Update()
     {
         // 遷移チェック
         _onCheck?.Invoke();
 
+		if (!PhotonNetwork.isMasterClient)
+			return;
+
+		if (_mob.IsSetMarkerStack)
+			return;
+
         // 目標座標変更処理
         if (_agent.remainingDistance < 5.0f )
         {
-            int targetNum;
-            targetNum = _marker.GotoNextPoint(_agent);
-            // TODO:ここにMobの目標マーカー番号送信処理？
-        }
+			byte index = (byte)UnityEngine.Random.Range(0, _marker.MarkerNum);
+			_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
+			_mob.IsSetMarkerStack = true;
+		}
     }
 }

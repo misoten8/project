@@ -138,6 +138,7 @@ MonoBehaviour:
   _animator: {fileID: 95463852801502588}
   _modelPlaceObject: {fileID: 4368371678324800}
   _followInex: 0
+  _navMeshAgent: {fileID: 195579788771698494}
 --- !u!114 &114739631158529240
 MonoBehaviour:
   m_ObjectHideFlags: 1
