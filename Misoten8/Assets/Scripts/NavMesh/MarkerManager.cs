@@ -24,6 +24,16 @@ public class MarkerManager : MonoBehaviour {
     }
     private List<Marker> _markers = new List<Marker>();
 
+	/// <summary>
+	/// 登録されているマーカーの数
+	/// </summary>
+	public int MarkerNum
+	{
+		get { return _markerNum; }
+	}
+
+	private int _markerNum = 0;
+
 	// 初期化処理
 	void Start ()
     {
@@ -43,7 +53,8 @@ public class MarkerManager : MonoBehaviour {
     public void SetMarker(Marker marker)
     {
         _markers.Add(marker);
-    }
+		_markerNum++;
+	}
 
     //=============================================================================
     //	関数名:public int GotoNextPoint(NavMeshAgent agent)
@@ -58,6 +69,42 @@ public class MarkerManager : MonoBehaviour {
         agent.destination = _markers[rand].transform.position;
         return rand;
     }
+
+	/// <summary>
+	/// 目標地点を設定する
+	/// </summary>
+	public void SetTargetMarker(NavMeshAgent agent, byte index)
+	{
+		if(_markerNum >= index)
+		{
+			Debug.LogWarning("不正な番号が指定されました\n");
+			return;
+		}
+		agent.destination = _markers[index].transform.position;
+	}
+
+	/// <summary>
+	/// 目標地点の取得
+	/// </summary>
+	public Vector3 GetMarker(byte index)
+	{
+		if (_markerNum >= index)
+		{
+			Debug.LogWarning("不正な番号が指定されました\n");
+			return new Vector3();
+		}
+		return _markers[index].transform.position;
+	}
+
+	/// <summary>
+	/// ランダムな目標地点の取得
+	/// </summary>
+	public Vector3 GetMarkerRandom()
+	{
+		int index = UnityEngine.Random.Range(0, MarkerNum);
+
+		return _markers[index].transform.position;
+	}
 }
 //=============================================================================
 //	end of file

@@ -107,6 +107,13 @@ public class Player : Photon.PunBehaviour
 
 	private MobManager _mobManager;
 
+	public BattleScene BattleScene
+	{
+		get { return _battleScene; }
+	}
+
+	private BattleScene _battleScene;
+
 	[SerializeField]
 	private float _rotatePower;
 
@@ -139,6 +146,8 @@ public class Player : Photon.PunBehaviour
 	[SerializeField]
 	private Transform _targetBack;
 
+	private string _animNameMoveState = "MoveState";
+
 	/// <summary>
 	/// PhotonNetwork.Instantiate によって GameObject(とその子供)が生成された際に呼び出されます。
 	/// </summary>
@@ -151,6 +160,7 @@ public class Player : Photon.PunBehaviour
 		_isMine = (int)photonView.instantiationData[0] == PhotonNetwork.player.ID;
 
 		var caches = GameObject.Find("SystemObjects/BattleManager").GetComponent<PlayerGenerator>().Caches;
+		_battleScene = caches.battleScene;
 		_playerManager = caches.playerManager;
 		_mobManager = caches.mobManager;
 		_playercamera = caches.playercamera;
@@ -200,6 +210,14 @@ public class Player : Photon.PunBehaviour
 
 	private void Update()
 	{
+		if (!_battleScene.IsBattleTime)
+		{
+			var currentAnimState = _animator.GetInteger(_animNameMoveState);
+			if (currentAnimState != 0)
+				_animator.SetInteger(_animNameMoveState, 0);
+			return;
+		}
+
 		if (!photonView.isMine)
 			return;
 
@@ -207,19 +225,21 @@ public class Player : Photon.PunBehaviour
 		{
 			int moveState = 0;
 
-			if (Input.GetKey("up") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
+			if (Input.GetKey(KeyCode.UpArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
 				moveState = 1;
-			if (Input.GetKey("left") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
+			if (Input.GetKey(KeyCode.LeftArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
 				transform.Rotate(Vector3.up, -_rotatePower);
-			if (Input.GetKey("right") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_DOWN))
+			if (Input.GetKey(KeyCode.RightArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_DOWN))
 				transform.Rotate(Vector3.up, _rotatePower);
-			if (Input.GetKey("down") || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
+			if (Input.GetKey(KeyCode.DownArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
 				moveState = 2;
 			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
 				moveState = 0;
-				_animator.SetInteger("MoveState", moveState);
-
+				if (_animator.GetInteger(_animNameMoveState) != moveState)
+				{
+					_animator.SetInteger(_animNameMoveState, moveState);
+				}
 				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
 
 				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
@@ -229,9 +249,9 @@ public class Player : Photon.PunBehaviour
 			}
 			else
 			{
-				if (_animator.GetInteger("MoveState") != moveState)
+				if (_animator.GetInteger(_animNameMoveState) != moveState)
 				{
-					_animator.SetInteger("MoveState", moveState);
+					_animator.SetInteger(_animNameMoveState, moveState);
 				}
 			}
 		}

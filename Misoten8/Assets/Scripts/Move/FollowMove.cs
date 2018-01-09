@@ -45,9 +45,6 @@ public class FollowMove : MonoBehaviour, IMove
 	[SerializeField]
 	private float _toStopDistance = 0.0f;
 
-	//private float _angle = 0.2f;
-	//private float _angle2 = -0.2f;
-
 	/// <summary>
 	/// 移動目標座標
 	/// </summary>

@@ -44,7 +44,11 @@ public class MobManager : Photon.MonoBehaviour
 	private List<int> _followChangeStackID = new List<int>();
 	private List<Define.PlayerType> _followChangeStackType = new List<Define.PlayerType>();
 
+	private List<byte> _markerChangeStackID = new List<byte>();
+	private List<byte> _markerChangeStackMarkerID = new List<byte>();
+
 	private PlayerManager _playerManager = null;
+	private MarkerManager _marker = null;
 
 	private void Start()
 	{
@@ -55,6 +59,7 @@ public class MobManager : Photon.MonoBehaviour
 		};
 
 		_playerManager = GetComponent<PlayerManager>();
+		_marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
 
 		if (_playerManager == null)
 		{
@@ -84,6 +89,16 @@ public class MobManager : Photon.MonoBehaviour
 			photonView.RPC("SendFanChanges", PhotonTargets.AllViaServer, _fanChangeStackType.ToArray(), _fanChangeStackID.ToArray());
 			_fanChangeStackType.Clear();
 			_fanChangeStackID.Clear();
+		}
+
+		if (!PhotonNetwork.isMasterClient)
+			return;
+
+		if(_markerChangeStackMarkerID.Count > 0)
+		{
+			photonView.RPC("SendMarkerChange", PhotonTargets.AllViaServer, _markerChangeStackMarkerID.ToArray(), _markerChangeStackID.ToArray());
+			_markerChangeStackMarkerID.Clear();
+			_markerChangeStackID.Clear();
 		}
 	}
 
@@ -131,6 +146,15 @@ public class MobManager : Photon.MonoBehaviour
 	{
 		_followChangeStackType.Add(followTarget);
 		_followChangeStackID.Add(photonViewID);
+	}
+
+	/// <summary>
+	/// 移動目標マーカー変更処理をスタックする
+	/// </summary>
+	public void MarkerChangeStack(byte MarkerIndex, byte photonViewID)
+	{
+		_markerChangeStackMarkerID.Add(MarkerIndex);
+		_markerChangeStackID.Add(photonViewID);
 	}
 
 	/// <summary>
@@ -193,7 +217,9 @@ public class MobManager : Photon.MonoBehaviour
 		int max = followTargets.Count();
 		for (int i = 0; i < max; i++)
 		{
-			_mobs.First(e => e.photonView.viewID == photonViewIDs[i]).SetFollowType(followTargets[i]);
+			var mob = _mobs.First(e => e.photonView.viewID == photonViewIDs[i]);
+			mob.SetFollowType(followTargets[i]);
+			mob.IsSetMarkerStack = false;
 		}
 
 		foreach(var followType in new Define.PlayerType[]
@@ -219,6 +245,25 @@ public class MobManager : Photon.MonoBehaviour
 					return e;
 				})
 				.Count();
+		}
+	}
+
+	/// <summary>
+	/// 目標地点の変更を一括送信
+	/// </summary>
+	[PunRPC]
+	private void SendMarkerChange(byte[] markerTargets, byte[] photonViewIDs)
+	{
+		int count = markerTargets.Length;
+		if(count != photonViewIDs.Length)
+		{
+			Debug.LogWarning("二つの配列のサイズが一致していません。\n正常にデータを受信できませんでした");
+			return;
+		}
+		for (int i = 0; i < count; i++)
+		{
+			Mob mob = _mobs.First(e => e.photonView.viewID == photonViewIDs[i]);
+			_marker.SetTargetMarker(mob.NavMeshAgent, markerTargets[i]);
 		}
 	}
 

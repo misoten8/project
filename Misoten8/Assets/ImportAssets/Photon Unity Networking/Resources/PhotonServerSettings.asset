@@ -48,4 +48,5 @@ MonoBehaviour:
   - BeginGameBattleScene
   - EndBattleScene
   - FinishBattleScene
+  - SendMarkerChange
   DisableAutoOpenWizard: 1

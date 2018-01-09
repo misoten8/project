@@ -154,12 +154,26 @@ public class Dance : MonoBehaviour
 
 	void Update()
 	{
+		if(!Player.BattleScene.IsBattleTime)
+		{
+			if(_coroutine != null)
+			{
+				StopCoroutine(_coroutine);
+				_coroutine = null;
+				if (_phase != Phase.End)
+				{
+					PhaseEnd();
+				}
+			}
+			return;
+		}
+
 		switch (_phase)
 		{
 			case Phase.Play:
 				if (Player.IsMine)
 				{
-					if (Input.GetKeyDown("return") || WiimoteManager.GetSwing(0))
+					if (Input.GetKeyDown(KeyCode.Return) || WiimoteManager.GetSwing(0))
 					{
 						Player.photonView.RPC("DanceShake", PhotonTargets.All, (byte)PlayerType);
 					}
@@ -185,7 +199,7 @@ public class Dance : MonoBehaviour
 	/// </summary>
 	public void Begin()
 	{
-		_coroutine = StartCoroutine("StepDo");
+		_coroutine = StartCoroutine(StepDo());
 	}
 
 	/// <summary>
@@ -273,6 +287,9 @@ public class Dance : MonoBehaviour
 	private void PhaseFinish()
 	{
 		_phase = Phase.Finish;
+		var events = DisplayManager.GetInstanceDisplayEvents<DanceEvents>();
+		events?.onDanceFinished?.Invoke();
+
 		// 追従対処のモブ全員のダンス終了イベントを実行する
 		_changeFanCountAtComplateDance = _player.MobManager
 			.Mobs.Where(e => e.FllowTarget == PlayerType)
@@ -289,13 +306,13 @@ public class Dance : MonoBehaviour
 			shakeparameter.SetActive(false);
 			if(_isSuccess)
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceSuccess?.Invoke();
+				events?.onDanceSuccess?.Invoke();
                 AudioManager.PlaySE("ダンス成功");
                 AudioManager.PlaySE("モブ歓声＿ダンス成功");
             }
 			else
 			{
-				DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceFailled?.Invoke();
+				events?.onDanceFailled?.Invoke();
                 AudioManager.PlaySE("ダンス失敗");
                 AudioManager.PlaySE("モブ歓声＿ダンス失敗");
             }
