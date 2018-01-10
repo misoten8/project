@@ -194,7 +194,7 @@ public class Player : Photon.PunBehaviour
 		// プレイヤー自身だけに実行される処理
 		if (_isMine)
 		{
-			//WiimoteManager.Wiimotes[0].SetLED((int)_type);
+			WiimoteManager.SetLED((int)_type);
 			_playercamera.SetFollowTarget(transform);
 			_playercamera.SetLookAtTarget(transform);
 			StartCoroutine(WaitOnFrame());
