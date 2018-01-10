@@ -5,14 +5,38 @@ using WiimoteApi;
 using System.Linq;
 using System.Collections;
 
-//TODO:乱入に対応する
-//TODO:各ユーザーのPhaseを同期する
 /// <summary>
 /// ダンス クラス
 /// 製作者：実川
 /// </summary>
 public class Dance : MonoBehaviour
 {
+	public enum DanceResultState
+	{
+		None = 0,
+		/// <summary>
+		/// 個人のダンスでクリア
+		/// </summary>
+		Clear,
+		/// <summary>
+		/// 個人のダンスでクリア
+		/// </summary>
+		Miss,
+		/// <summary>
+		/// ダンスバトルで勝利
+		/// </summary>
+		Win,
+		/// <summary>
+		/// ダンスバトルで敗北
+		/// </summary>
+		Lose,
+		/// <summary>
+		/// ダンスを中断
+		/// </summary>
+		Cansel,
+		Max
+	}
+
 	public enum Phase
 	{
 		/// <summary>
@@ -60,11 +84,6 @@ public class Dance : MonoBehaviour
 		get { return _isPlaing; }
 	}
 
-	public bool IsSuccess
-	{
-		get { return _isSuccess; }
-	}
-
 	public bool IsRequestShake
 	{
 		get { return _isRequestShake; }
@@ -105,6 +124,8 @@ public class Dance : MonoBehaviour
 
 	private playercamera _playercamera;
 
+	private DanceResultState _state = DanceResultState.None;
+
 	private Phase _phase = Phase.None;
 
 	public int DancePoint
@@ -113,8 +134,6 @@ public class Dance : MonoBehaviour
 	}
 
 	private int _dancePoint = 0;
-
-	private bool _isSuccess = false;
 
 	private bool _isRequestShake = false;
 
@@ -254,7 +273,7 @@ public class Dance : MonoBehaviour
 		// 正規化
 		_requestTime = _requestTime.Select(e => PlayerManager.DANCE_TIME * (e / sum)).ToArray();
 
-		_isSuccess = false;
+		_state = DanceResultState.None;
 		_dancePoint = 0;
 		_danceFloor.enabled = true;
 		_isPlaing = true;
@@ -295,7 +314,7 @@ public class Dance : MonoBehaviour
 			.Mobs.Where(e => e.FllowTarget == PlayerType)
 			.Select(e => 
 			{
-				e.OnEndDance(false, IsSuccess);
+				e.OnEndDance(_state);
 				return e;
 			})
 			.Count();
@@ -304,18 +323,22 @@ public class Dance : MonoBehaviour
 		{
 			shakeparameter.ResetShakeParameter();
 			shakeparameter.SetActive(false);
-			if(_isSuccess)
+			switch (_state)
 			{
-				events?.onDanceSuccess?.Invoke();
-                AudioManager.PlaySE("ダンス成功");
-                AudioManager.PlaySE("モブ歓声＿ダンス成功");
-            }
-			else
-			{
-				events?.onDanceFailled?.Invoke();
-                AudioManager.PlaySE("ダンス失敗");
-                AudioManager.PlaySE("モブ歓声＿ダンス失敗");
-            }
+				case DanceResultState.Clear:
+				case DanceResultState.Win:
+					events?.onDanceSuccess?.Invoke();
+					AudioManager.PlaySE("ダンス成功");
+					AudioManager.PlaySE("モブ歓声＿ダンス成功");
+					break;
+				case DanceResultState.Miss:
+				case DanceResultState.Lose:
+					events?.onDanceFailled?.Invoke();
+					AudioManager.PlaySE("ダンス失敗");
+					AudioManager.PlaySE("モブ歓声＿ダンス失敗");
+					break;
+
+			}
 		}
 	}
 
@@ -361,7 +384,7 @@ public class Dance : MonoBehaviour
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate?.Invoke();
-			_isSuccess = true;
+			_state = DanceResultState.Clear;
 		}
 	}
 

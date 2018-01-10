@@ -258,32 +258,61 @@ public class Mob : Photon.PunBehaviour
 	/// <summary>
 	/// ダンス終了時実行イベント
 	/// </summary>
-	public void OnEndDance(bool isCancel, bool isSuccess)
+	public void OnEndDance(Dance.DanceResultState state)
 	{
 		// 追従対象のプレイヤーのダンスコンポーネントを取得する
 		Dance playerDance = _playerManager.GetPlayer(FllowTarget).Dance;
 		_isViewingInDance = false;
 
-		if (!isCancel)
+		switch (state)
 		{
-			// モブキャラ管理クラスにスコア変更を通知
-			_mobManager.OnScoreChange();
+			case Dance.DanceResultState.Clear:
+				{
+					// モブキャラ管理クラスにスコア変更を通知
+					_mobManager.OnScoreChange();
 
-			// ファンタイプが変更したかチェックする
-			Define.PlayerType newFunType = isSuccess ? playerDance.Player.Type : Define.PlayerType.None;
-			if (FunType != newFunType)
-			{
-				_mobManager.FanChangeStack(newFunType, photonView.viewID);
-			}
-		}
-		else
-		{
-			// ファンが多いプレイヤーに追従する
-			if (IsFollowTargetChange(playerDance))
-			{
-				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-				_isPlayChangeFollowTraget = false;
-			}
+					// ファンタイプが変更したかチェックする
+					Define.PlayerType newFunType = playerDance.Player.Type;
+					if (FunType != newFunType)
+					{
+						_mobManager.FanChangeStack(newFunType, photonView.viewID);
+					}
+				}
+				break;
+			case Dance.DanceResultState.Miss:
+				{
+					// モブキャラ管理クラスにスコア変更を通知
+					_mobManager.OnScoreChange();
+
+
+					// 散歩モードに移行する
+					if (FunType == Define.PlayerType.None)
+					{
+						//_mobManager.FanChangeStack(newFunType, photonView.viewID);
+					}
+				}
+				break;
+			case Dance.DanceResultState.Win:
+				{
+					// モブキャラ管理クラスにスコア変更を通知
+					_mobManager.OnScoreChange();
+				}
+				break;
+			case Dance.DanceResultState.Lose:
+				{
+
+				}
+				break;
+			case Dance.DanceResultState.Cansel:
+				{
+					// ファンが多いプレイヤーに追従する
+					if (IsFollowTargetChange(playerDance))
+					{
+						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+						_isPlayChangeFollowTraget = false;
+					}
+				}
+				break;
 		}
 
 		// モブ再生イベント実行
