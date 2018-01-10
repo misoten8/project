@@ -77,7 +77,7 @@ public class WanderMove : MonoBehaviour, IMove
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
 		// 目標地点の設定
-		byte index = (byte)UnityEngine.Random.Range(0, _marker.MarkerNum);
+		byte index = (byte)UnityEngine.Random.Range(0, _marker.Markers.Count);
 		_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
 		_mob.IsSetMarkerStack = true;
 	}
@@ -96,7 +96,7 @@ public class WanderMove : MonoBehaviour, IMove
         // 目標座標変更処理
         if (_agent.remainingDistance < 5.0f )
         {
-			byte index = (byte)UnityEngine.Random.Range(0, _marker.MarkerNum);
+			byte index = (byte)UnityEngine.Random.Range(0, _marker.Markers.Count);
 			_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
 			_mob.IsSetMarkerStack = true;
 		}

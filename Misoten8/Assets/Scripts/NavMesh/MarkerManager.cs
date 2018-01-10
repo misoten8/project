@@ -22,27 +22,9 @@ public class MarkerManager : MonoBehaviour {
             return _markers;
         }
     }
+
+	[SerializeField]
     private List<Marker> _markers = new List<Marker>();
-
-	/// <summary>
-	/// 登録されているマーカーの数
-	/// </summary>
-	public int MarkerNum
-	{
-		get { return _markerNum; }
-	}
-
-	private int _markerNum = 0;
-
-	// 初期化処理
-	void Start ()
-    {
-	}
-	
-	// 更新処理
-	void Update () {
-		
-	}
 
     //=============================================================================
     //	関数名:void SetMarker(Marker marker)
@@ -53,7 +35,6 @@ public class MarkerManager : MonoBehaviour {
     public void SetMarker(Marker marker)
     {
         _markers.Add(marker);
-		_markerNum++;
 	}
 
     //=============================================================================
@@ -75,9 +56,9 @@ public class MarkerManager : MonoBehaviour {
 	/// </summary>
 	public void SetTargetMarker(NavMeshAgent agent, byte index)
 	{
-		if(_markerNum >= index)
+		if(_markers.Count < index)
 		{
-			Debug.LogWarning("不正な番号が指定されました\n");
+			Debug.LogWarning("不正な番号が指定されました\n指定されたマーカー番号：" + index.ToString() + "登録されているマーカー数：" + _markers.Count.ToString());
 			return;
 		}
 		agent.destination = _markers[index].transform.position;
@@ -88,9 +69,9 @@ public class MarkerManager : MonoBehaviour {
 	/// </summary>
 	public Vector3 GetMarker(byte index)
 	{
-		if (_markerNum >= index)
+		if (_markers.Count < index)
 		{
-			Debug.LogWarning("不正な番号が指定されました\n");
+			Debug.LogWarning("不正な番号が指定されました\n指定されたマーカー番号：" + index.ToString() + "登録されているマーカー数：" + _markers.Count.ToString());
 			return new Vector3();
 		}
 		return _markers[index].transform.position;
@@ -101,7 +82,7 @@ public class MarkerManager : MonoBehaviour {
 	/// </summary>
 	public Vector3 GetMarkerRandom()
 	{
-		int index = UnityEngine.Random.Range(0, MarkerNum);
+		int index = UnityEngine.Random.Range(0, _markers.Count);
 
 		return _markers[index].transform.position;
 	}

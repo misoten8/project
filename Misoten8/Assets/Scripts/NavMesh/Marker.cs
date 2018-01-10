@@ -13,15 +13,6 @@ using UnityEngine;
 //=============================================================================
 public class Marker : MonoBehaviour {
 
-    private MarkerManager _markerManager = null;
-
-    // 初期化処理
-    void Start()
-    {
-        _markerManager = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
-        _markerManager.SetMarker(this);
-    }
-
     // Gizmo描画
     void OnDrawGizmos()
     {
