@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TextFx;
+using TMPro;
 using UnityEngine;
+using Misoten8Utility;
 
 /// <summary>
 /// MoveTimer クラス
@@ -11,28 +13,24 @@ public class MoveTimer : UIBase
 {
 	private BattleTime _battleTime = null;
 	private float _currentTime = 0.0f;
-	private TextFxUGUI _textFx;
+	private TextMeshProUGUI _textMeshPro;
 
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
 		base.OnAwake(cache, displayEvents);
 		var sceneCache = cache as BattleSceneCache;
-		if (sceneCache == null)
-			Debug.LogWarning("BattleSceneCacheが取得できませんでした");
+		sceneCache.IsEmpty();
 
 		var events = displayEvents as MoveEvents;
-		if (events == null)
-			Debug.LogWarning("MoveEventsが取得できませんでした");
+		events.IsEmpty();
 
-		_textFx = uiObjects[0] as TextFxUGUI;
-		if (_textFx == null)
-			Debug.LogWarning("_textFxが取得できませんでした");
+		_textMeshPro = uiObjects[0] as TextMeshProUGUI;
+		_textMeshPro.IsEmpty();
 
 		_battleTime = sceneCache.battleTime;
-		if(_battleTime == null)
-			Debug.LogWarning("BattleTimeが取得できませんでした");
+		_battleTime.IsEmpty();
 
-		_textFx.SetText("Time Limit:" + _battleTime.CurrentTime.ToString("F0"));
+		OnDrawUpdate();
 	}
 
 	public override bool IsDrawUpdate()
@@ -48,6 +46,10 @@ public class MoveTimer : UIBase
 
 	public override void OnDrawUpdate()
 	{
-		_textFx.SetText("Time Limit:" + _currentTime.ToString("F0"));
+		int minute = (int)_battleTime.CurrentTime / 60;
+		int second = (int)_battleTime.CurrentTime % 60;
+		string time = minute.ToString() + ":" + (second < 10 ? "0" + second.ToString() : second.ToString());
+
+		_textMeshPro.SetText(time);
 	}
 }
