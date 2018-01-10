@@ -190,7 +190,11 @@ public class Dance : MonoBehaviour
 		if(Player.IsMine)
 		{
 			ChangeFanPoint(_isRequestShake ? 1 : -1);
-		}
+            if (_isRequestShake == true)
+                AudioManager.PlaySE("shake成功サンプル");
+            else
+                AudioManager.PlaySE("shake失敗サンプル");
+        }
 		ParticleManager.Play(_isRequestShake ? "DanceNowClear" : "DanceNowFailed", new Vector3(), transform);
 	}
 
