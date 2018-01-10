@@ -917,14 +917,5 @@ public class Wiimote
             RequestIdentifyWiiMotionPlus();
             ActivateWiiMotionPlus();
        }
-
-        // LEDê›íËä÷êî
-        public void SetLED(int ledNum)
-        {
-            if (WiimoteManager.HasWiimote())
-            {
-                SendPlayerLED(ledNum == 1, ledNum == 2, ledNum == 3, ledNum == 4);
-            }
-        }
     }
 }

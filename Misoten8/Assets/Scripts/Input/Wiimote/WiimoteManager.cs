@@ -17,7 +17,7 @@ namespace WiimoteApi
         private const ushort product_id_wiimote = 0x0306;
         private const ushort product_id_wiimoteplus = 0x0330;
 
-        
+
 
         //  接続されているWiiリモコンのリスト
         public static List<Wiimote> Wiimotes { get { return _Wiimotes; } }
@@ -409,6 +409,15 @@ namespace WiimoteApi
                 Wiimotes[wmNum].Button.UpdateButton();
             }
             return down;
+        }
+
+        // LED設定関数
+        public static bool SetLED(int ledNum)
+        {
+            if (!WiimoteManager.HasWiimote()) return false;
+
+            Wiimotes[0].SendPlayerLED(ledNum == 1, ledNum == 2, ledNum == 3, ledNum == 4);
+            return true;
         }
     }
 } // namespace WiimoteApi
