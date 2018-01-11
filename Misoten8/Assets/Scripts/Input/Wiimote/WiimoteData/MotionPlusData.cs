@@ -3,7 +3,8 @@ using WiimoteApi;
 using WiimoteApi.Util;
 using WiimoteApi.Internal;
 
-namespace WiimoteApi {
+namespace WiimoteApi
+{
     public class MotionPlusData : WiimoteData
     {
         /// The rotational velocity in the Pitch direction of the Wii Remote, as
@@ -94,11 +95,11 @@ namespace WiimoteApi {
 
             _isSwingOld = _isSwing;
 
-            _YawSpeedRaw    = data[0];
-            _YawSpeedRaw   |= (data[3] & 0xfc) << 6;
-            _RollSpeedRaw   = data[1];
-            _RollSpeedRaw  |= (data[4] & 0xfc) << 6;
-            _PitchSpeedRaw  = data[2];
+            _YawSpeedRaw = data[0];
+            _YawSpeedRaw |= (data[3] & 0xfc) << 6;
+            _RollSpeedRaw = data[1];
+            _RollSpeedRaw |= (data[4] & 0xfc) << 6;
+            _PitchSpeedRaw = data[2];
             _PitchSpeedRaw |= (data[5] & 0xfc) << 6;
 
             _YawSlow = (data[3] & 0x02) == 0x02;
@@ -123,16 +124,12 @@ namespace WiimoteApi {
             // 振動判定
             if (!_isSwing && RollSpeed > SWING_ACCEL_SPEED)
             {
-                // 過剰な振りを読み取らないための速度制限
-                if (RollSpeed < RIMIT_SPEED_ROLL && Mathf.Abs(YawSpeed) < RIMIT_SPEED_YAW )
-                {
-                    _isSwing = true;
-                    _accelOld = RollSpeed;
-                    Debug.Log("Roll:" + RollSpeed + "  Yaw:" + YawSpeed + "  Pitch:" + PitchSpeed);
-                }
+                _isSwing = true;
+                _accelOld = RollSpeed;
+
             }
             // 振動判定をリセット
-            if (_isSwing && RollSpeed < SWING_RESET_SPEED )
+            if (_isSwing && RollSpeed < SWING_RESET_SPEED)
             {
                 _isSwing = false;
             }
@@ -160,10 +157,10 @@ namespace WiimoteApi {
         }
 
         // 振った判定
-		public bool GetSwing( int num)
-		{
-			if (_isSwingOld)return false;
+        public bool GetSwing(int num)
+        {
+            if (_isSwingOld) return false;
             return _isSwing;
-		}
+        }
     }
 }
