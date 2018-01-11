@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// プレイヤー管理 クラス
@@ -89,6 +90,41 @@ public class PlayerManager : Photon.MonoBehaviour
 		}
 		return _localPlayer;
 	}
+
+	/// <summary>
+	/// ダンスバトルの結果を各プレイヤーに設定する
+	/// </summary>
+	[PunRPC]
+	public void DanceBattleResult(byte[] playerType, byte[] battleResultState, int[] changeFunScore)
+	{
+		int size = playerType.Count();
+		if (size != battleResultState.Count() ||
+			size != changeFunScore.Count())
+		{
+			Debug.LogWarning("3つの配列のサイズが一致していません。\n正常にデータを受信できませんでした");
+			return;
+		}
+
+		// 各ローカルのプレイヤーに適用させる
+		for (int i = 0; i < size; i++)
+		{
+			var player = GetPlayer(Define.ConvertToPlayerType(playerType[i]));
+
+			player.Dance.DanceBattleResult(battleResultState[i], changeFunScore[i]);
+		}
+	}
+
+	/// <summary>
+	/// ダンスバトルの結果を通知
+	/// </summary>
+	/// <remarks>
+	/// ダンスバトル仕掛け人が通知する
+	/// </remarks>
+	//[PunRPC]
+	//public void DanceBattleResult(byte[] playerType, byte[] battleResultState, int[] changeFunScore)
+	//{
+	//	PlayerManager.DanceBattleResult(playerType, battleResultState, changeFunScore);
+	//}
 
 	/// <summary>
 	/// 定義のみ

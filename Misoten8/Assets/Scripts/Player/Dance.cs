@@ -4,6 +4,7 @@ using UniRx;
 using WiimoteApi;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// ダンス クラス
@@ -11,7 +12,7 @@ using System.Collections;
 /// </summary>
 public class Dance : MonoBehaviour
 {
-	public enum DanceResultState
+	public enum DanceResultState : byte
 	{
 		None = 0,
 		/// <summary>
@@ -30,6 +31,10 @@ public class Dance : MonoBehaviour
 		/// ダンスバトルで敗北
 		/// </summary>
 		Lose,
+		/// <summary>
+		/// ダンスバトルで引き分け
+		/// </summary>
+		Draw,
 		/// <summary>
 		/// ダンスを中断
 		/// </summary>
@@ -110,6 +115,19 @@ public class Dance : MonoBehaviour
 		get { return _changeFanCountAtComplateDance; }
 	}
 
+	/// <summary>
+	/// 対戦相手のリスト
+	/// </summary>
+	public List<Define.PlayerType> BattleTargetList
+	{
+		get { return _battleTargetList; }
+	}
+
+	/// <summary>
+	/// 対戦相手のリスト
+	/// </summary>
+	private List<Define.PlayerType> _battleTargetList = new List<Define.PlayerType>();
+
 	[SerializeField]
 	private Player _player;
 
@@ -158,6 +176,16 @@ public class Dance : MonoBehaviour
 	private Coroutine _coroutine = null;
 
 	private int _changeFanCountAtComplateDance;
+
+	/// <summary>
+	/// このダンスがダンスバトルかどうか
+	/// </summary>
+	private bool _isDanceBattle = false;
+
+	/// <summary>
+	/// ダンスバトルの結果を受け取ったかどうか
+	/// </summary>
+	private bool _isReceiveDanceBattleResult = false;
 
 	/// <summary>
 	/// playerに呼び出してもらう
@@ -220,26 +248,38 @@ public class Dance : MonoBehaviour
 	{
 		_coroutine = StartCoroutine(StepDo());
 	}
+	/// <summary>
+	/// 1vs1ダンスバトル開始
+	/// </summary>
+	public void Begin(Define.PlayerType target)
+	{
+		_battleTargetList.Clear();
+		_battleTargetList.Add(target);
+		_coroutine = StartCoroutine(OnlineStepDo());
+	}
+	/// <summary>
+	/// 全員でのダンスバトル開始
+	/// </summary>
+	public void Begin(Define.PlayerType target1, Define.PlayerType target2)
+	{
+		_battleTargetList.Clear();
+		_battleTargetList.Add(target1);
+		_battleTargetList.Add(target2);
+		_coroutine = StartCoroutine(OnlineStepDo());
+	}
 
 	/// <summary>
-	/// ダンス乱入
+	/// ダンスバトルの結果
 	/// </summary>
-	/// <returns>乱入できたかどうか</returns>
-	public bool ToPenetration()
+	public void DanceBattleResult(int battleResultState, int changeFunScore)
 	{
-		if (_isPenetrated)
-			return false;
-		if (_phase == Phase.None)
+		if (Player.IsMine)
 		{
-			_isPenetrated = true;
-			return true;
+			// フィニッシュした事を通知
 		}
-		if (_phase == Phase.Start)
-		{
-			_isPenetrated = true;
-			return true;
-		}
-		return false;
+
+		// ダンスバトルの結果を受け取った事を設定
+		_isReceiveDanceBattleResult = true;
 	}
 
 	private void PhaseNone()
@@ -261,8 +301,6 @@ public class Dance : MonoBehaviour
 				return e;
 			})
 			.Count();
-
-		
 
 		// ダンスの振付時間を乱数で決定する
 		_requestTime = _requestTime.Select(e => UnityEngine.Random.Range(PlayerManager.DANCE_TIME, PlayerManager.DANCE_TIME * PlayerManager.LEAN_COEFFICIENT)).ToArray();
@@ -309,10 +347,59 @@ public class Dance : MonoBehaviour
 		var events = DisplayManager.GetInstanceDisplayEvents<DanceEvents>();
 		events?.onDanceFinished?.Invoke();
 
+		// ダンス終了後の状態を設定する
+		SetDanceResultState();
+
 		// 追従対処のモブ全員のダンス終了イベントを実行する
 		_changeFanCountAtComplateDance = _player.MobManager
 			.Mobs.Where(e => e.FllowTarget == PlayerType)
 			.Select(e => 
+			{
+				e.OnEndDance(_state);
+				return e;
+			})
+			.Count();
+
+		if (Player.IsMine)
+		{
+			shakeparameter.ResetShakeParameter();
+			shakeparameter.SetActive(false);
+			switch (_state)
+			{
+				case DanceResultState.Clear:
+				case DanceResultState.Win:
+					events?.onDanceSuccess?.Invoke();
+					AudioManager.PlaySE("ダンス成功");
+					AudioManager.PlaySE("モブ歓声＿ダンス成功");
+					break;
+				case DanceResultState.Miss:
+				case DanceResultState.Lose:
+					events?.onDanceFailled?.Invoke();
+					AudioManager.PlaySE("ダンス失敗");
+					AudioManager.PlaySE("モブ歓声＿ダンス失敗");
+					break;
+
+			}
+		}
+	}
+
+	//変化したファン情報の同期は、勝者が行う
+	/// <summary>
+	/// ダンスバトルで使用するフィニッシュフェーズ
+	/// </summary>
+	private void PhaseFinishOnline()
+	{
+		_phase = Phase.Finish;
+		var events = DisplayManager.GetInstanceDisplayEvents<DanceEvents>();
+		events?.onDanceFinished?.Invoke();
+
+		// ダンス終了後の状態を設定する
+		SetDanceResultState();
+
+		// 追従対処のモブ全員のダンス終了イベントを実行する
+		_changeFanCountAtComplateDance = _player.MobManager
+			.Mobs.Where(e => e.FllowTarget == PlayerType)
+			.Select(e =>
 			{
 				e.OnEndDance(_state);
 				return e;
@@ -384,8 +471,95 @@ public class Dance : MonoBehaviour
 		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
 		{
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestNolmaComplate?.Invoke();
+		}
+	}
+
+	/// <summary>
+	/// ダンス終了後の状態を設定する
+	/// </summary>
+	/// <remarks>
+	/// 個人でのダンスで使用する
+	/// </remarks>
+	private void SetDanceResultState()
+	{
+		// 通常ダンス
+		if (_dancePoint >= PlayerManager.SHAKE_NORMA)
+		{
 			_state = DanceResultState.Clear;
 		}
+		else
+		{
+			_state = DanceResultState.Miss;
+		}
+	}
+
+	private void BattleResultCast()
+	{
+		// ランキングを求める(この処理は分離)
+		List<DanceBattleRankingEx> sort = new List<DanceBattleRankingEx>();
+
+		sort.Add(new DanceBattleRankingEx(PlayerType, DancePoint));
+		foreach (var type in _battleTargetList)
+		{
+			int dancePoint = _player.PlayerManager.GetPlayer(type).Dance.DancePoint;
+			sort.Add(new DanceBattleRankingEx(type, dancePoint));
+		}
+		sort = sort.OrderByDescending(e => e.dancePoint).ToList();
+
+		// ランキングを設定
+		for (int i = 0; i < sort.Count; i++)
+		{
+			sort[i].rank = i;
+		}
+
+		// スコアが重複していた場合、順位の高い方に合わせる
+
+		// 引き分けかどうか
+
+		//変化したファン情報の同期は、勝者が行う
+
+		//二つのpun関数を用意
+		//1:バトル結果送信
+
+
+		//2:ファン変更処理送信
+		
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (other.tag != "DanceRange")
+			return;
+
+		if (IsPlaying)
+			return;
+
+		Dance playerDance = other.gameObject.GetComponent<Dance>();
+
+		// 既にターゲットリストに登録されているかどうか
+		if (_battleTargetList.Count(e => e == playerDance.PlayerType) != 0)
+			return;
+
+		// ターゲットに追加
+		_battleTargetList.Add(playerDance.PlayerType);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.tag != "DanceRange")
+			return;
+
+		if (IsPlaying)
+			return;
+
+		Dance playerDance = other.gameObject.GetComponent<Dance>();
+
+		// ターゲットリストに未登録かどうか
+		if (_battleTargetList.Count(e => e == playerDance.PlayerType) == 0)
+			return;
+
+		// ターゲットから除外する
+		_battleTargetList.Remove(playerDance.PlayerType);
 	}
 
 	/// <summary>
@@ -425,5 +599,64 @@ public class Dance : MonoBehaviour
 		yield return null;
 
 		PhaseNone();
+	}
+
+	//TODO:ダンスバトル用のPhaseFinishを非同期にしたStepDoを作成する
+	private IEnumerator OnlineStepDo()
+	{
+		PhaseStart();
+
+		yield return new WaitForSeconds(5.0f);
+
+		PhasePlay();
+
+		for (int callCount = 0; callCount < PlayerManager.REQUEST_COUNT; callCount++)
+		{
+			_isRequestShake = !_isRequestShake;
+			if (Player.IsMine)
+			{
+				if (_isRequestShake)
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestShake?.Invoke();
+				}
+				else
+				{
+					DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onRequestStop?.Invoke();
+				}
+			}
+			yield return new WaitForSeconds(_requestTime[callCount]);
+		}
+
+		// ここで代表一人がバトル結果の同期処理を送信する
+
+
+		// バトル結果が通知されるまで待機
+		while (!_isReceiveDanceBattleResult)
+			yield return null;
+
+		PhaseFinishOnline();
+
+		yield return new WaitForSeconds(3.0f);
+
+		PhaseEnd();
+
+		yield return null;
+
+		PhaseNone();
+	}
+
+	internal class DanceBattleRankingEx
+	{
+		public Define.PlayerType playerType;
+		public int dancePoint;
+
+		// ソート後に入力される
+		public int rank;
+
+		public DanceBattleRankingEx(Define.PlayerType playerType, int score)
+		{
+			this.playerType = playerType;
+			this.dancePoint = score;
+		}
 	}
 }
