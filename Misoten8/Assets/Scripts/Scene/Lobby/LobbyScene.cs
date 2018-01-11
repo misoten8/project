@@ -38,7 +38,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 	}
     private void Start()
     {
-        AudioManager.PlayBGM("タイトル");
+        AudioManager.PlayBGM("bgm_title");
     }
     void Update () 
 	{

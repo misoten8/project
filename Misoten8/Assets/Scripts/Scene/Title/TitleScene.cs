@@ -28,7 +28,7 @@ public class TitleScene : SceneBase<TitleScene>
     private void Start()
     {
 		Define.JoinBattlePlayerNum = 0;
-        AudioManager.PlayBGM("タイトル");
+        AudioManager.PlayBGM("bgm_title");
     }
     void Update()
 	{
