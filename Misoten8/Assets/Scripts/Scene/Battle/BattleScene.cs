@@ -82,7 +82,7 @@ public class BattleScene : SceneBase<BattleScene>
 
 	private void Update()
 	{
-		if(Input.GetKeyDown("q"))
+		if(Input.GetKeyDown(KeyCode.Backspace))
 		{
 			_network.photonView.RPC("RoomQuitBattleScene", PhotonTargets.AllViaServer);
 		}
