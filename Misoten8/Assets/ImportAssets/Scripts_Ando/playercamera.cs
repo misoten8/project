@@ -87,6 +87,7 @@ public class playercamera : MonoBehaviour {
             case CAMERAMODE.NORMAL:
                 Setblend(1);
                 SetCameraPriority((int)CAMERATYPE.PLAYER);
+       
                 break;
             //===========================
             //プレイヤーを前から撮影

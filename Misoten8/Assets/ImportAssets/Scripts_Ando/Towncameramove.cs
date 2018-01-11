@@ -14,8 +14,13 @@ public class Towncameramove : MonoBehaviour
     private float dollytime = 0.0f;
     private void Awake()
     {
-        currentDistance = 0.0f;
+        dolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
+        if (path != null)
+            SamplePath(path.m_Appearance.steps); // TODO: decouple numSteps from appearance setting
+
         dollytime = 0.0f;
+        currentDistance = dollytime;
+        currentDistance = currentDistance % pathLength;
         dolly.m_PathPosition = curve.Evaluate(currentDistance);
     }
     void SamplePath(int stepsPerSegment)
@@ -36,12 +41,7 @@ public class Towncameramove : MonoBehaviour
             p0 = p;
         }
     }
-    void Start()
-    {
-        dolly = virtualCamera.GetCinemachineComponent<CinemachineTrackedDolly>();
-        if (path != null)
-            SamplePath(path.m_Appearance.steps); // TODO: decouple numSteps from appearance setting
-    }
+  
     void Update()
     {
         int numKeys = (curve != null && curve.keys != null) ? curve.keys.Length : 0;
