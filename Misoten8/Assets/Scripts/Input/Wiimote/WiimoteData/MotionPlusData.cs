@@ -82,7 +82,9 @@ namespace WiimoteApi {
         private bool _isSwing = false;                  // 振った判定
         private bool _isSwingOld = false;               // ある程度スピードが落ちるまで判定を制御
         private const float SWING_ACCEL_SPEED = 200.0f; // 振った判定になるスピード
-        private const float SWING_RESET_SPEED = 150.0f;  // 振った判定をリセットするスピード
+        private const float SWING_RESET_SPEED = 150.0f; // 振った判定をリセットするスピード
+        private const float RIMIT_SPEED_YAW = 200.0f;   // Yaw方向の速度制限
+        private const float RIMIT_SPEED_ROLL = 300.0f;  // Roll方向の速度制限
 
         // 更新処理のような物
         public override bool InterpretData(byte[] data)
@@ -119,13 +121,18 @@ namespace WiimoteApi {
                 _RollSpeed *= 2000f / 440f;
 
             // 振動判定
-            if (RollSpeed > SWING_ACCEL_SPEED)
+            if (!_isSwing && RollSpeed > SWING_ACCEL_SPEED)
             {
-                _isSwing = true;
-                _accelOld = RollSpeed;
+                // 過剰な振りを読み取らないための速度制限
+                if (RollSpeed < RIMIT_SPEED_ROLL && Mathf.Abs(YawSpeed) < RIMIT_SPEED_YAW )
+                {
+                    _isSwing = true;
+                    _accelOld = RollSpeed;
+                    Debug.Log("Roll:" + RollSpeed + "  Yaw:" + YawSpeed + "  Pitch:" + PitchSpeed);
+                }
             }
             // 振動判定をリセット
-            if (RollSpeed < SWING_RESET_SPEED )
+            if (_isSwing && RollSpeed < SWING_RESET_SPEED )
             {
                 _isSwing = false;
             }
