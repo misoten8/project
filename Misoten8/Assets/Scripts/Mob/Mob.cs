@@ -187,19 +187,17 @@ public class Mob : Photon.PunBehaviour
 
 		Dance playerDance = other.gameObject.GetComponent<Dance>();
 
+		if (IsFollowTargetChange(playerDance))
+		{
+			_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+			_isPlayChangeFollowTraget = false;
+		}
 		// ダンスが再生フェーズなら視聴する
-		if (playerDance.DancePhase == Dance.Phase.Play)
+		if (playerDance.DancePhase == Dance.Phase.Play ||
+			playerDance.DancePhase == Dance.Phase.Start)
 		{
 			// ダンス開始イベント実行
 			OnBeginDance();
-		}
-		else
-		{
-			if (IsFollowTargetChange(playerDance))
-			{
-				_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-				_isPlayChangeFollowTraget = false;
-			}
 		}
 	}
 
@@ -271,24 +269,26 @@ public class Mob : Photon.PunBehaviour
 					// モブキャラ管理クラスにスコア変更を通知
 					_mobManager.OnScoreChange();
 
-					// ファンタイプが変更したかチェックする
-					Define.PlayerType newFunType = playerDance.Player.Type;
-					if (FunType != newFunType)
+					if (playerDance.Player.IsMine)
 					{
-						_mobManager.FanChangeStack(newFunType, photonView.viewID);
+						// ファンタイプが変更したかチェックする
+						Define.PlayerType newFunType = playerDance.Player.Type;
+						if (FunType != newFunType)
+						{
+							_mobManager.FanChangeStack(newFunType, photonView.viewID);
+						}
 					}
 				}
 				break;
 			case Dance.DanceResultState.Miss:
 				{
-					// モブキャラ管理クラスにスコア変更を通知
-					_mobManager.OnScoreChange();
-
-
-					// 散歩モードに移行する
-					if (FunType == Define.PlayerType.None)
+					if (playerDance.Player.IsMine)
 					{
-						//_mobManager.FanChangeStack(newFunType, photonView.viewID);
+						// 散歩モードに移行する
+						if (FunType == Define.PlayerType.None)
+						{
+							_mobManager.FanChangeStack(Define.PlayerType.None, photonView.viewID);
+						}
 					}
 				}
 				break;
@@ -296,20 +296,28 @@ public class Mob : Photon.PunBehaviour
 				{
 					// モブキャラ管理クラスにスコア変更を通知
 					_mobManager.OnScoreChange();
+
+					// ファン変更処理は上位スクリプトで呼び出す
 				}
 				break;
 			case Dance.DanceResultState.Lose:
 				{
+					// モブキャラ管理クラスにスコア変更を通知
+					_mobManager.OnScoreChange();
 
+					// ファン変更処理は上位スクリプトで呼び出す
 				}
 				break;
 			case Dance.DanceResultState.Cansel:
 				{
-					// ファンが多いプレイヤーに追従する
-					if (IsFollowTargetChange(playerDance))
+					if (playerDance.Player.IsMine)
 					{
-						_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
-						_isPlayChangeFollowTraget = false;
+						// ファンが多いプレイヤーに追従する
+						if (IsFollowTargetChange(playerDance))
+						{
+							_mobManager.FollowChangeStack(playerDance.PlayerType, photonView.viewID);
+							_isPlayChangeFollowTraget = false;
+						}
 					}
 				}
 				break;

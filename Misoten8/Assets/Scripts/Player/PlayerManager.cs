@@ -94,6 +94,9 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// ダンスバトルの結果を各プレイヤーに設定する
 	/// </summary>
+	/// <remarks>
+	/// ダンスバトル仕掛け人が通知する
+	/// </remarks>
 	[PunRPC]
 	public void DanceBattleResult(byte[] playerType, byte[] battleResultState, int[] changeFunScore)
 	{
@@ -109,22 +112,14 @@ public class PlayerManager : Photon.MonoBehaviour
 		for (int i = 0; i < size; i++)
 		{
 			var player = GetPlayer(Define.ConvertToPlayerType(playerType[i]));
+			if(player == null)
+			{
+				Debug.LogWarning("プレイヤーを取得できませんでした。指定番号:" + playerType[i].ToString());
+			}
 
-			player.Dance.DanceBattleResult(battleResultState[i], changeFunScore[i]);
+			player.Dance.DanceBattleResult((Dance.DanceResultState)battleResultState[i], changeFunScore[i]);
 		}
 	}
-
-	/// <summary>
-	/// ダンスバトルの結果を通知
-	/// </summary>
-	/// <remarks>
-	/// ダンスバトル仕掛け人が通知する
-	/// </remarks>
-	//[PunRPC]
-	//public void DanceBattleResult(byte[] playerType, byte[] battleResultState, int[] changeFunScore)
-	//{
-	//	PlayerManager.DanceBattleResult(playerType, battleResultState, changeFunScore);
-	//}
 
 	/// <summary>
 	/// 定義のみ

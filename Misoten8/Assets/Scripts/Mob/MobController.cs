@@ -58,7 +58,7 @@ public class MobController : MonoBehaviour
 		{
 			Player target = _mob.PlayerManager.GetPlayer(_mob.FllowTarget);
 
-			if(target != null)
+			if(target != null && _mob.FllowTarget != Define.PlayerType.None)
 			{
 				_followMove.OnStart(target.transform, _animator, _agent, _mob);
 				_wanderMove.enabled = false;
