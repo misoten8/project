@@ -80,6 +80,24 @@ public class BattleScene : SceneBase<BattleScene>
 		}
 	}
 
+	private void Update()
+	{
+		if(Input.GetKeyDown("q"))
+		{
+			_network.photonView.RPC("RoomQuitBattleScene", PhotonTargets.AllViaServer);
+		}
+	}
+
+	/// <summary>
+	/// ルームから強制退出する
+	/// </summary>
+	public void RoomQuit()
+	{
+		// ルームから退出する
+		PhotonNetwork.LeaveRoom();
+		StartCoroutine(SwitchAsync(SceneType.Title));
+	}
+
 	/// <summary>
 	/// シーン切り替え
 	/// </summary>

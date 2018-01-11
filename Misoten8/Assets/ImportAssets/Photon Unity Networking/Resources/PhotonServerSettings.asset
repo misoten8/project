@@ -52,4 +52,6 @@ MonoBehaviour:
   - DanceBattleAllBegin
   - DanceBattleBegin
   - DanceBattleResult
+  - RoomQuitBattleScene
+  - RoomQuitLobbyScene
   DisableAutoOpenWizard: 1

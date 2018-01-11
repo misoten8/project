@@ -50,6 +50,21 @@ public class LobbyScene : SceneBase<LobbyScene>
 				return;
 			}
 		}
+
+		if (Input.GetKeyDown("q"))
+		{
+			_lobbySceneNetwork.photonView.RPC("RoomQuitLobbyScene", PhotonTargets.AllViaServer);
+		}
+	}
+
+	/// <summary>
+	/// ルームから強制退出する
+	/// </summary>
+	public void RoomQuit()
+	{
+		// ルームから退出する
+		PhotonNetwork.LeaveRoom();
+		StartCoroutine(SwitchAsync(SceneType.Title));
 	}
 
 	/// <summary>

@@ -47,6 +47,15 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		_lobbyScene.CallBackSwitch(nextScene);
 	}
 
+	/// <summary>
+	/// ルーム強制退出を通知する
+	/// </summary>
+	[PunRPC]
+	private void RoomQuitLobbyScene()
+	{
+		_lobbyScene.RoomQuit();
+	}
+
 	private void Start () 
 	{
 		_networkParameters = _lobbyScene.LobbyNetworkCustomizer;
