@@ -601,7 +601,6 @@ public class Dance : MonoBehaviour
 		PhaseNone();
 	}
 
-	//TODO:ダンスバトル用のPhaseFinishを非同期にしたStepDoを作成する
 	private IEnumerator OnlineStepDo()
 	{
 		PhaseStart();

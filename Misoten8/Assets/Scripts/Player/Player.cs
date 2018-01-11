@@ -248,21 +248,21 @@ public class Player : Photon.PunBehaviour
 				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
 
 				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
-				if (_dance.BattleTargetList.Count == 0)
+				//if (_dance.BattleTargetList.Count == 0)
 				{
 					// 一人
 					photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
 				}
-				else if (_dance.BattleTargetList.Count == 1)
-				{
-					// 1vs1
-					photonView.RPC("DanceBattleBegin", PhotonTargets.AllViaServer, (byte)_type, (byte)_dance.BattleTargetList[0]);
-				}
-				else
-				{
-					// 全員
-					photonView.RPC("DanceBattleAllBegin", PhotonTargets.AllViaServer, (byte)_type);
-				}
+				//else if (_dance.BattleTargetList.Count == 1)
+				//{
+				//	// 1vs1
+				//	photonView.RPC("DanceBattleBegin", PhotonTargets.AllViaServer, (byte)_type, (byte)_dance.BattleTargetList[0]);
+				//}
+				//else
+				//{
+				//	// 全員
+				//	photonView.RPC("DanceBattleAllBegin", PhotonTargets.AllViaServer, (byte)_type);
+				//}
 				shakeparameter.ResetShakeParameter();
 				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
