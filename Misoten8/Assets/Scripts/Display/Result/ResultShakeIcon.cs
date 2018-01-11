@@ -14,8 +14,7 @@ public class ResultShakeIcon : UIBase
 
 	private int _borderShakeCount = Define.SCENE_TRANCE_VALUE;
 	private Image _image;
-	private float _drawValue = 0.0f;
-	private string _animNameSlideUp = "SlideUp";
+	private string _animNameSlideDown = "SlideDown";
 
 	public override void OnAwake(ISceneCache cache, IEvents displayEvents)
 	{
@@ -26,22 +25,6 @@ public class ResultShakeIcon : UIBase
 		if (events.IsEmpty())
 			return;
 
-		events.onTransTitleReady += () => _animator.CrossFade(_animNameSlideUp, 1.0f, 0);
-	}
-
-	public override bool IsDrawUpdate()
-	{
-		float value = Mathf.Min(shakeparameter.GetShakeParameter(), _borderShakeCount) / _borderShakeCount;
-		if (_drawValue != value)
-		{
-			_drawValue = value;
-			return true;
-		}
-		return false;
-	}
-
-	public override void OnDrawUpdate()
-	{
-		_image.fillAmount = _drawValue;
+		events.onTransTitleReady += () => _animator.CrossFade(_animNameSlideDown, 1.0f, 0);
 	}
 }

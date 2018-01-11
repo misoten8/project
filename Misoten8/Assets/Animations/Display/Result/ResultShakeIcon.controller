@@ -33,7 +33,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SlideUp
+  m_Name: SlideDown
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
@@ -45,7 +45,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3b8ee36a0f5625949a5c6b6757a3a36c, type: 2}
+  m_Motion: {fileID: 7400000, guid: b224e63ababf01b47978f6da1a55748b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
