@@ -128,6 +128,23 @@ public static class Define
 	private static int _joinBattlePlayerNum = 0;
 
 	/// <summary>
+	/// このマシンが使用するプレイヤーの種類
+	/// </summary>
+	public static PlayerType LocalPlayerType
+	{
+		get { return _localPlayerType; }
+		set
+		{
+			_localPlayerType = value;
+#if DEBUG
+			Debug.Log("このマシンが使用するプレイヤーの種類が設定されました。プレイヤータイプ:" + _localPlayerType.ToString());
+#endif
+		}
+	}
+
+	private static PlayerType _localPlayerType = PlayerType.None;
+
+	/// <summary>
 	/// バトル終了時のスコアマップ
 	/// </summary>
 	public static Dictionary<PlayerType, int> ResultScoreMap

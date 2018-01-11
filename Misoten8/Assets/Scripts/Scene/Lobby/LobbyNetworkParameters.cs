@@ -55,6 +55,20 @@ public class LobbyNetworkParameters : MonoBehaviour
 	[SerializeField]
 	private bool _offlineMode = false;
 
+	/// <summary>
+	/// ロビーで設定するプレイヤー番号
+	/// </summary>
+	public Define.PlayerType LocalPlayerType
+	{
+		get { return _localPlayerType; }
+	}
+
+	/// <summary>
+	/// ロビーで設定するプレイヤー番号
+	/// </summary>
+	[SerializeField]
+	private Define.PlayerType _localPlayerType;
+
 	[SerializeField]
 	private ConnectState _currentState = ConnectState.Start;
 }

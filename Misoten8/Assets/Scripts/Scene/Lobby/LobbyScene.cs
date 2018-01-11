@@ -38,7 +38,9 @@ public class LobbyScene : SceneBase<LobbyScene>
 	}
     private void Start()
     {
-        AudioManager.PlayBGM("タイトル");
+		Define.LocalPlayerType = _lobbyNetworkCustomizer.LocalPlayerType;
+
+		AudioManager.PlayBGM("タイトル");
     }
     void Update () 
 	{
