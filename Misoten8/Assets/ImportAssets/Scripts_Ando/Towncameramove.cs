@@ -12,7 +12,12 @@ public class Towncameramove : MonoBehaviour
     private float pathLength;
     private CinemachineTrackedDolly dolly;
     private float dollytime = 0.0f;
-
+    private void Awake()
+    {
+        currentDistance = 0.0f;
+        dollytime = 0.0f;
+        dolly.m_PathPosition = curve.Evaluate(currentDistance);
+    }
     void SamplePath(int stepsPerSegment)
     {
         curve = new AnimationCurve();
