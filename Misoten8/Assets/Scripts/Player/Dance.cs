@@ -309,6 +309,14 @@ public class Dance : MonoBehaviour
 		_isReceiveDanceBattleResult = true;
 	}
 
+	/// <summary>
+	/// ダンスバトル開始
+	/// </summary>
+	public void DanceBattleStart()
+	{
+		_isReceiveDanceBattlePlay = true;
+	}
+
 	private void PhaseNone()
 	{
 		_phase = Phase.None;
