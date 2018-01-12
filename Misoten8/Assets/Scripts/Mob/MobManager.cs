@@ -73,6 +73,16 @@ public class MobManager : Photon.MonoBehaviour
 			return;
 
 		// 一括で設定する
+		if (PhotonNetwork.isMasterClient)
+		{
+			if (_markerChangeStackMarkerID.Count > 0)
+			{
+				photonView.RPC("SendMarkerChange", PhotonTargets.AllViaServer, _markerChangeStackMarkerID.ToArray(), _markerChangeStackID.ToArray());
+				_markerChangeStackMarkerID.Clear();
+				_markerChangeStackID.Clear();
+			}
+		}
+
 		if (!_isScoreChange)
 		{
 			if (_followChangeStackType.Count > 0)
@@ -89,16 +99,6 @@ public class MobManager : Photon.MonoBehaviour
 			photonView.RPC("SendFanChanges", PhotonTargets.AllViaServer, _fanChangeStackType.ToArray(), _fanChangeStackID.ToArray());
 			_fanChangeStackType.Clear();
 			_fanChangeStackID.Clear();
-		}
-
-		if (!PhotonNetwork.isMasterClient)
-			return;
-
-		if(_markerChangeStackMarkerID.Count > 0)
-		{
-			photonView.RPC("SendMarkerChange", PhotonTargets.AllViaServer, _markerChangeStackMarkerID.ToArray(), _markerChangeStackID.ToArray());
-			_markerChangeStackMarkerID.Clear();
-			_markerChangeStackID.Clear();
 		}
 	}
 
@@ -263,7 +263,9 @@ public class MobManager : Photon.MonoBehaviour
 		for (int i = 0; i < count; i++)
 		{
 			Mob mob = _mobs.First(e => e.photonView.viewID == photonViewIDs[i]);
+			
 			_marker.SetTargetMarker(mob.NavMeshAgent, markerTargets[i]);
+			mob.IsSetMarkerStack = false;
 		}
 	}
 

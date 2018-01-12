@@ -63,7 +63,7 @@ public class WanderMove : MonoBehaviour, IMove
 	private MarkerManager _marker;
 	private NavMeshAgent _agent = null;
 	private Mob _mob;
-
+	private byte _currentMarkerIndex = 0;
 	/// <summary>
 	/// 初期化処理
 	/// </summary>
@@ -77,8 +77,8 @@ public class WanderMove : MonoBehaviour, IMove
         _agent.enabled = true;
         _marker = GameObject.Find("MobControlleMarker").GetComponent<MarkerManager>();
 		// 目標地点の設定
-		byte index = (byte)UnityEngine.Random.Range(0, _marker.Markers.Count);
-		_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
+		_currentMarkerIndex = (byte)UnityEngine.Random.Range(0, _marker.Markers.Count);
+		_mob.MobManager.MarkerChangeStack(_currentMarkerIndex, (byte)_mob.photonView.viewID);
 		_mob.IsSetMarkerStack = true;
 	}
 
@@ -97,8 +97,12 @@ public class WanderMove : MonoBehaviour, IMove
         if (_agent.remainingDistance < 5.0f )
         {
 			byte index = (byte)UnityEngine.Random.Range(0, _marker.Markers.Count);
-			_mob.MobManager.MarkerChangeStack(index, (byte)_mob.photonView.viewID);
-			_mob.IsSetMarkerStack = true;
+			if(_currentMarkerIndex != index)
+			{
+				_currentMarkerIndex = index;
+				_mob.MobManager.MarkerChangeStack(_currentMarkerIndex, (byte)_mob.photonView.viewID);
+				_mob.IsSetMarkerStack = true;
+			}			
 		}
     }
 }

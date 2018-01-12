@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 0b414ed8e08d2ec439306b6cfd812f79
+timeCreated: 1483458080
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Details
+    100004: Directional Light
+    100006: Environment_Orientation
+    100008: Lights (3)
+    100010: Matrix To Euler
+    100012: Point Light
+    100014: Point Light (2)
+    100016: Point Light (3)
+    100018: Point Light (4)
+    100020: Point Light (5)
+    100022: Point Light (6)
+    100024: Point Light Blue
+    100026: Point Light Blue (2)
+    100028: Point Light Blue (3)
+    100030: Point Light Center
+    100032: Point Light Red
+    100034: Point Light Red (2)
+    100036: Point Light Red (3)
+    100038: ShadowCatcher
+    100040: Spot Light
+    100042: Spot Light (2)
+    100044: Spot Light (3)
+    100046: Spot Light (4)
+    100048: Spot Light (5)
+    100050: Spot Light (6)
+    100052: Spot Light (7)
+    100054: Spot Light (8)
+    100056: //RootNode
+    100058: Texture Group
+    100060: Tokyo_BigSight.lxe (2)
+    100062: Tokyo_BigSight_3k
+    100064: Tokyo_BigSight_8k
+    100066: Tokyo_BigSight_Env
+    100068: Walls
+    400000: Camera
+    400002: Details
+    400004: Directional Light
+    400006: Environment_Orientation
+    400008: Lights (3)
+    400010: Matrix To Euler
+    400012: Point Light
+    400014: Point Light (2)
+    400016: Point Light (3)
+    400018: Point Light (4)
+    400020: Point Light (5)
+    400022: Point Light (6)
+    400024: Point Light Blue
+    400026: Point Light Blue (2)
+    400028: Point Light Blue (3)
+    400030: Point Light Center
+    400032: Point Light Red
+    400034: Point Light Red (2)
+    400036: Point Light Red (3)
+    400038: ShadowCatcher
+    400040: Spot Light
+    400042: Spot Light (2)
+    400044: Spot Light (3)
+    400046: Spot Light (4)
+    400048: Spot Light (5)
+    400050: Spot Light (6)
+    400052: Spot Light (7)
+    400054: Spot Light (8)
+    400056: //RootNode
+    400058: Texture Group
+    400060: Tokyo_BigSight.lxe (2)
+    400062: Tokyo_BigSight_3k
+    400064: Tokyo_BigSight_8k
+    400066: Tokyo_BigSight_Env
+    400068: Walls
+    2300000: Details
+    2300002: Lights (3)
+    2300004: ShadowCatcher
+    2300006: Walls
+    3300000: Details
+    3300002: Lights (3)
+    3300004: ShadowCatcher
+    3300006: Walls
+    4300000: Lights (3)
+    4300002: Walls
+    4300004: Details
+    4300006: ShadowCatcher
+    6400000: Details
+    6400002: Lights (3)
+    6400004: ShadowCatcher
+    6400006: Walls
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
