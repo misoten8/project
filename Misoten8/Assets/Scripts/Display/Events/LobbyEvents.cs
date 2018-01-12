@@ -44,4 +44,8 @@ public class LobbyEvents : EventsBase
 	/// オフラインモード時にも呼ばれる
 	/// </remarks>
 	public Action onBeginConnect;
+	/// <summary>
+	/// バトル遷移可能時実行イベント
+	/// </summary>
+	public Action onTransBattleReady;
 }

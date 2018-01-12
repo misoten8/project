@@ -38,6 +38,8 @@ public class LobbyScene : SceneBase<LobbyScene>
 	}
     private void Start()
     {
+		shakeparameter.SetActive(false);
+		shakeparameter.ResetShakeParameter();
 		Define.LocalPlayerType = _lobbyNetworkCustomizer.LocalPlayerType;
 
 		AudioManager.PlayBGM("タイトル");

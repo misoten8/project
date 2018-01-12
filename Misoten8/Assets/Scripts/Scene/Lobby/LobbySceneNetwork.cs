@@ -20,20 +20,15 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	/// </summary>
 	public bool IsReady()
 	{
-		//TODO:バトル開始の条件式は後々変更する
-		if (PhotonNetwork.inRoom)
+		// プレイヤーの人数が揃うまで待つ
+		if (_networkParameters.OfflineMode)
 		{
 			return true;
 		}
-		// 以下の条件式が正しい(調整するかも)
-		//if (_networkParameters.OfflineMode)
-		//{
-		//	return true;
-		//}
-		//if (PhotonNetwork.playerList.Length == Define.PLAYER_NUM_MAX)
-		//{
-		//	return true;
-		//}
+		if (PhotonNetwork.playerList.Length == Define.PLAYER_NUM_MAX_CHARACTOR_ONLY)
+		{
+			return true;
+		}
 		Debug.LogWarning("まだゲーム開始の準備ができていません");
 		return false;
 	}
@@ -187,29 +182,60 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
 
-		// プレイヤー入室UIを表示
+		if (PhotonNetwork.playerList.Length == Define.PLAYER_NUM_MAX_CHARACTOR_ONLY)
+		{
+			events?.onTransBattleReady?.Invoke();
+			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.Ready;
+			shakeparameter.SetActive(true);
+		}
+
+			// プレイヤー入室UIを表示
 		if (_lobbyScene.LobbyNetworkCustomizer.OfflineMode)
 		{
-			if(PhotonNetwork.player.ID == 1)
-				events?.onPlayer1Online?.Invoke();
+			//if(PhotonNetwork.player.ID == 1)
+			//	events?.onPlayer1Online?.Invoke();
+			switch (Define.LocalPlayerType)
+			{
+				case Define.PlayerType.First:
+					events?.onPlayer1Online?.Invoke();
+					break;
+				case Define.PlayerType.Second:
+					events?.onPlayer2Online?.Invoke();
+					break;
+				case Define.PlayerType.Third:
+					events?.onPlayer3Online?.Invoke();
+					break;
+			}
 		}
 		else
 		{
-			foreach(var player in PhotonNetwork.playerList)
+			switch (Define.LocalPlayerType)
 			{
-				switch (player.ID)
-				{
-					case 1:
-						events?.onPlayer1Online?.Invoke();
-						break;
-					case 2:
-						events?.onPlayer2Online?.Invoke();
-						break;
-					case 3:
-						events?.onPlayer3Online?.Invoke();
-						break;
-				}
+				case Define.PlayerType.First:
+					events?.onPlayer1Online?.Invoke();
+					break;
+				case Define.PlayerType.Second:
+					events?.onPlayer2Online?.Invoke();
+					break;
+				case Define.PlayerType.Third:
+					events?.onPlayer3Online?.Invoke();
+					break;
 			}
+			//foreach(var player in PhotonNetwork.playerList)
+			//{
+			//	switch (player.ID)
+			//	{
+			//		case 1:
+			//			events?.onPlayer1Online?.Invoke();
+			//			break;
+			//		case 2:
+			//			events?.onPlayer2Online?.Invoke();
+			//			break;
+			//		case 3:
+			//			events?.onPlayer3Online?.Invoke();
+			//			break;
+			//	}
+			//}
 		}
 	}
 
@@ -228,22 +254,25 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 
 		// プレイヤー入室UIを表示
 		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
-		switch (newPlayer.ID)
-		{
-			case 1:
-				events?.onPlayer1Online?.Invoke();
-				break;
-			case 2:
-				events?.onPlayer2Online?.Invoke();
-				break;
-			case 3:
-				events?.onPlayer3Online?.Invoke();
-				break;
-		}
 
-		if (PhotonNetwork.room?.PlayerCount == Define.PLAYER_NUM_MAX)
+		//switch (newPlayer.ID)
+		//{
+		//	case 1:
+		//		events?.onPlayer1Online?.Invoke();
+		//		break;
+		//	case 2:
+		//		events?.onPlayer2Online?.Invoke();
+		//		break;
+		//	case 3:
+		//		events?.onPlayer3Online?.Invoke();
+		//		break;
+		//}
+
+		if (PhotonNetwork.room?.PlayerCount == Define.PLAYER_NUM_MAX_CHARACTOR_ONLY)
 		{
 			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.Ready;
+			DisplayManager.GetInstanceDisplayEvents<LobbyEvents>()?.onTransBattleReady?.Invoke();
+			shakeparameter.SetActive(true);
 		}
 	}
 
@@ -255,19 +284,19 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		Debug.Log("player" + leavePlayer.ID.ToString() + "が退室しました");
 
 		// プレイヤー入室UIを表示
-		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
-		switch (leavePlayer.ID)
-		{
-			case 1:
-				events?.onPlayer1Offline?.Invoke();
-				break;
-			case 2:
-				events?.onPlayer2Offline?.Invoke();
-				break;
-			case 3:
-				events?.onPlayer3Offline?.Invoke();
-				break;
-		}
+		//var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
+		//switch (leavePlayer.ID)
+		//{
+		//	case 1:
+		//		events?.onPlayer1Offline?.Invoke();
+		//		break;
+		//	case 2:
+		//		events?.onPlayer2Offline?.Invoke();
+		//		break;
+		//	case 3:
+		//		events?.onPlayer3Offline?.Invoke();
+		//		break;
+		//}
 
 		if (PhotonNetwork.room?.PlayerCount != Define.PLAYER_NUM_MAX)
 		{
