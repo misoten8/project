@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using WiimoteApi;
 using System.Collections;
+using UnityEngine.AI;
 
 /// <summary>
 /// Player クラス
@@ -234,14 +235,23 @@ public class Player : Photon.PunBehaviour
 		if (!_dance.IsPlaying)
 		{
 			int moveState = 0;
+            // 障害物チェック
+            NavMeshHit hitForward;
+            NavMeshHit hitBack;
+            NavMesh.Raycast(transform.position, _targetForward.position, out hitForward, NavMesh.AllAreas);
+            NavMesh.Raycast(transform.position, _targetBack.position, out hitBack, NavMesh.AllAreas);
 
-			if (Input.GetKey(KeyCode.UpArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
-				moveState = 1;
+            if (Input.GetKey(KeyCode.UpArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_RIGHT))
+            {
+                if (!hitForward.hit)
+                    moveState = 1;
+            }
 			if (Input.GetKey(KeyCode.LeftArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_UP))
 				transform.Rotate(Vector3.up, -_rotatePower);
 			if (Input.GetKey(KeyCode.RightArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_DOWN))
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey(KeyCode.DownArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
+                if(!hitBack.hit)
 				moveState = 2;
 			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
