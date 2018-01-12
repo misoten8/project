@@ -269,6 +269,7 @@ public class Player : Photon.PunBehaviour
 				//	photonView.RPC("DanceBattleAllBegin", PhotonTargets.AllViaServer, (byte)_type, (byte)_dance.BattleTargetList[0], (byte)_dance.BattleTargetList[1]);
 				//}
 				shakeparameter.ResetShakeParameter();
+				shakeparameter.SetActive(false);
 				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
 			else
