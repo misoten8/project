@@ -144,6 +144,21 @@ public static class Define
 
 	private static PlayerType _localPlayerType = PlayerType.None;
 
+	public static Dictionary<int, PlayerType> IdAndTypeMap
+	{
+		get { return _idAndTypeMap; }
+		set
+		{
+			_idAndTypeMap = value;
+#if DEBUG
+			Debug.Log("IdAndTypeMapが設定されました");
+#endif
+		}
+	}
+
+
+	private static Dictionary<int, PlayerType> _idAndTypeMap = new Dictionary<int, PlayerType>();
+
 	/// <summary>
 	/// バトル終了時のスコアマップ
 	/// </summary>

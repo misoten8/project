@@ -173,8 +173,7 @@ public class Player : Photon.PunBehaviour
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
-		//_type = Define.ConvertToPlayerType((int)photonView.instantiationData[0]);
-		_type = Define.LocalPlayerType;
+		_type = Define.IdAndTypeMap[(int)photonView.instantiationData[0]];
 
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);

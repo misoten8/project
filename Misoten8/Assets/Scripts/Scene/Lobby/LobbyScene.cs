@@ -38,6 +38,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 	}
     private void Start()
     {
+		Define.IdAndTypeMap.Clear();
 		shakeparameter.SetActive(false);
 		shakeparameter.ResetShakeParameter();
 		Define.LocalPlayerType = _lobbyNetworkCustomizer.LocalPlayerType;

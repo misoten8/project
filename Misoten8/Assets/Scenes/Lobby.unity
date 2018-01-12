@@ -6982,4 +6982,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offlineMode: 0
+  _localPlayerType: 3
   _currentState: 0

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Misoten8Utility;
+using System.Collections.Generic;
 
 /// <summary>
 /// ロビーシーン管理クラスで利用する通信処理
@@ -14,6 +15,8 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	private LobbyScene _lobbyScene;
 
 	private LobbyNetworkParameters _networkParameters;
+
+	
 
 	/// <summary>
 	/// バトル開始の準備ができたかどうか
@@ -180,6 +183,9 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		Debug.Log("ルームに入室しました あなたはplayer" + PhotonNetwork.player.ID.ToString() + "で\n" + 
 			"あなたは" + (PhotonNetwork.isMasterClient ? "マスタークライアント" : "一般クライアント") + "です");
 
+		// リストの登録
+		photonView.RPC("IdToType", PhotonTargets.AllBufferedViaServer, (byte)PhotonNetwork.player.ID, (byte)Define.LocalPlayerType);
+
 		var events = DisplayManager.GetInstanceDisplayEvents<LobbyEvents>();
 
 		if (PhotonNetwork.playerList.Length == Define.PLAYER_NUM_MAX_CHARACTOR_ONLY)
@@ -298,10 +304,19 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 		//		break;
 		//}
 
-		if (PhotonNetwork.room?.PlayerCount != Define.PLAYER_NUM_MAX)
+		if (PhotonNetwork.room?.PlayerCount != Define.PLAYER_NUM_MAX_CHARACTOR_ONLY)
 		{
 			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.WaitMember;
 		}
+	}
+
+	/// <summary>
+	/// IDとタイプの紐づけ
+	/// </summary>
+	[PunRPC]
+	private void IdToType(byte playerID, byte playerType)
+	{
+		Define.IdAndTypeMap.Add(playerID, Define.ConvertToPlayerType(playerType));
 	}
 
 	/// <summary>
