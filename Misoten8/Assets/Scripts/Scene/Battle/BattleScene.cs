@@ -135,7 +135,7 @@ public class BattleScene : SceneBase<BattleScene>
 	{
 		_battleTime.enabled = true;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
-		AudioManager.PlayBGM("bgm_main_kari");
+		AudioManager.PlayBGM("bgm_main");
 		_isBattleTime = true;
 		shakeparameter.ResetShakeParameter();
 		shakeparameter.SetActive(true);

@@ -18,7 +18,7 @@ public class ResultScene : SceneBase<ResultScene>
     private void Start()
     {
 		shakeparameter.SetActive(false);
-		AudioManager.PlayBGM("リザルト");
+		AudioManager.PlayBGM("bgm_result");
         DisplayManager.Instance.onFadedIn += () =>
 		{
 			StartCoroutine(StepDo());

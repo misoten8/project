@@ -41,7 +41,7 @@ public class PlayerManager : Photon.MonoBehaviour
 	/// <summary>
 	/// ダンス開始に必要なシェイク数
 	/// </summary>
-	public const int DANCE_START_SHAKE_COUNT = 4;
+	public const int DANCE_START_SHAKE_COUNT = 2;
 
 	/// <summary>
 	/// プレイヤーキャッシュリスト
