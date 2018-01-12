@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Linq;
+using TMPro;
+using TextFx;
+
 /// <summary>
 /// PlayerBillboard クラス
 /// </summary>
@@ -8,7 +11,7 @@ public class PlayerBillboard : MonoBehaviour
 	private Transform _camera = null;
 
 	[SerializeField]
-	private TextMesh _textMesh;
+	private TextFxTextMeshPro _textMesh;
 
 	public void OnAwake(Transform targetCamera, Player player)
 	{
