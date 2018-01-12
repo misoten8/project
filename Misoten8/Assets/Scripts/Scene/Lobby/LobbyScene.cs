@@ -58,7 +58,7 @@ public class LobbyScene : SceneBase<LobbyScene>
 
 		if (Input.GetKeyDown(KeyCode.Backspace))
 		{
-			_lobbySceneNetwork.photonView.RPC("RoomQuitLobbyScene", PhotonTargets.AllViaServer);
+			_lobbySceneNetwork.photonView.RPC("RoomQuitLobbyScene", PhotonTargets.All);
 		}
 	}
 
