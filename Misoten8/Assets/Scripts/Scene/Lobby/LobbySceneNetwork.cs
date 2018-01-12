@@ -81,6 +81,8 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 			PhotonNetwork.offlineMode = true;
 			_networkParameters.CurrentState = LobbyNetworkParameters.ConnectState.Offline;
 			events?.onBeginConnect?.Invoke();
+			events?.onTransBattleReady?.Invoke();
+			shakeparameter.SetActive(true);
 		}
 		else
 		{
