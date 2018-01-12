@@ -27,6 +27,7 @@ public class TitleScene : SceneBase<TitleScene>
 	}
     private void Start()
     {
+		shakeparameter.SetActive(true);
 		Define.JoinBattlePlayerNum = 0;
         AudioManager.PlayBGM("bgm_title");
     }
