@@ -1,0 +1,2296 @@
+fileFormatVersion: 2
+guid: 2ba20406af357274a9fd076b2bcf2642
+timeCreated: 1466999764
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: "+\u3072\u3058\u88DC\u52A9.L"
+    100002: "+\u3072\u3058\u88DC\u52A9.L_end"
+    100004: "+\u3072\u3058\u88DC\u52A9.R"
+    100006: "+\u3072\u3058\u88DC\u52A9.R_end"
+    100008: Base
+    100010: Base_arm
+    100012: Base_mesh
+    100014: Chest
+    100016: Foot IK parent .L
+    100018: Foot IK.L
+    100020: Foot IK.R
+    100022: Foot.L
+    100024: Foot.R
+    100026: Groove
+    100028: Hand .L
+    100030: Hand .R
+    100032: Head
+    100034: Head_end
+    100036: Hip
+    100038: //RootNode
+    100040: Index Distal.R
+    100042: Index Intermediate.L
+    100044: Index Intermediate.R
+    100046: Index Proximal.L
+    100048: Index Proximal.R
+    100050: Insex Distal.L
+    100052: Little Distal.L
+    100054: Little Distal.R
+    100056: Little Intermediate.L
+    100058: Little Intermediate.R
+    100060: Little Proximal.L
+    100062: Little Proximal.R
+    100064: Lower Arm.L
+    100066: Lower Arm.R
+    100068: Lower Leg.L
+    100070: Lower Leg.R
+    100072: Middle Distal.L
+    100074: Middle Distal.R
+    100076: Middle Intermediate.L
+    100078: Middle Intermediate.R
+    100080: Middle Proximal.L
+    100082: Middle Proximal.R
+    100084: neck
+    100086: rigidbodies
+    100088: Ring Distal.L
+    100090: Ring Distal.R
+    100092: Ring Intermediate.L
+    100094: Ring Intermediate.R
+    100096: Ring Proximal.L
+    100098: Ring Proximal.R
+    100100: Shoulder .L
+    100102: Shoulder .R
+    100104: Spine
+    100106: Thumb Distal.L
+    100108: Thumb Distal.R
+    100110: Thumb Intermediate.L
+    100112: Thumb Intermediate.R
+    100114: Thumb Proximal.L
+    100116: Thumb Proximal.R
+    100118: Toe IK.L
+    100120: Toe IK.L_end
+    100122: Toe IK.R
+    100124: Toe IK.R_end
+    100126: Toes.L
+    100128: Toes.L_end
+    100130: Toes.R
+    100132: Toes.R_end
+    100134: Upper Arm.L
+    100136: Upper Arm.R
+    100138: Upper Leg.L
+    100140: Upper Leg.R
+    100142: "\u3064\u307E\u5148.L"
+    100144: "\u3064\u307E\u5148.L_end"
+    100146: "\u3064\u307E\u5148.R"
+    100148: "\u3064\u307E\u5148.R_end"
+    100150: "\u3072\u3056.L.shadow"
+    100152: "\u3072\u3056.L.shadow_end"
+    100154: "\u3072\u3056.R.shadow"
+    100156: "\u3072\u3056.R.shadow_end"
+    100158: "\u3072\u3056D.L"
+    100160: "\u3072\u3056D.R"
+    100162: "\u3072\u3058.L.shadow"
+    100164: "\u3072\u3058.L.shadow_end"
+    100166: "\u3072\u3058.R.shadow"
+    100168: "\u3072\u3058.R.shadow_end"
+    100170: "\u3072\u3058\u88DC\u52A9.L"
+    100172: "\u3072\u3058\u88DC\u52A9.R"
+    100174: "\u30BB\u30F3\u30BF\u30FC.shadow"
+    100176: "\u30BB\u30F3\u30BF\u30FC.shadow_end"
+    100178: "\u4E21\u76EE.shadow"
+    100180: "\u4E21\u76EE.shadow_end"
+    100182: "\u4E2D\u6307\u5148.L"
+    100184: "\u4E2D\u6307\u5148.L_end"
+    100186: "\u4E2D\u6307\u5148.R"
+    100188: "\u4E2D\u6307\u5148.R_end"
+    100190: "\u4EBA\u6307\u5148.L"
+    100192: "\u4EBA\u6307\u5148.L_end"
+    100194: "\u4EBA\u6307\u5148.R"
+    100196: "\u4EBA\u6307\u5148.R_end"
+    100198: "\u5C0F\u6307\u5148.L"
+    100200: "\u5C0F\u6307\u5148.L_end"
+    100202: "\u5C0F\u6307\u5148.R"
+    100204: "\u5C0F\u6307\u5148.R_end"
+    100206: "\u624B\u5148.L"
+    100208: "\u624B\u5148.L_end"
+    100210: "\u624B\u5148.R"
+    100212: "\u624B\u5148.R_end"
+    100214: "\u624B\u6369.L"
+    100216: "\u624B\u6369.L.shadow"
+    100218: "\u624B\u6369.L.shadow_end"
+    100220: "\u624B\u6369.R"
+    100222: "\u624B\u6369.R.shadow"
+    100224: "\u624B\u6369.R.shadow_end"
+    100226: "\u624B\u63691.L"
+    100228: "\u624B\u63691.L_end"
+    100230: "\u624B\u63691.R"
+    100232: "\u624B\u63691.R_end"
+    100234: "\u624B\u63692.L"
+    100236: "\u624B\u63692.L_end"
+    100238: "\u624B\u63692.R"
+    100240: "\u624B\u63692.R_end"
+    100242: "\u624B\u63693.L"
+    100244: "\u624B\u63693.L_end"
+    100246: "\u624B\u63693.R"
+    100248: "\u624B\u63693.R_end"
+    100250: "\u76EE.L.shadow"
+    100252: "\u76EE.L.shadow_end"
+    100254: "\u76EE.R.shadow"
+    100256: "\u76EE.R.shadow_end"
+    100258: "\u80A9C.L"
+    100260: "\u80A9C.R"
+    100262: "\u80A9P.L"
+    100264: "\u80A9P.L.shadow"
+    100266: "\u80A9P.L.shadow_end"
+    100268: "\u80A9P.R"
+    100270: "\u80A9P.R.shadow"
+    100272: "\u80A9P.R.shadow_end"
+    100274: "\u8155\u6369.L"
+    100276: "\u8155\u6369.L.shadow"
+    100278: "\u8155\u6369.L.shadow_end"
+    100280: "\u8155\u6369.R"
+    100282: "\u8155\u6369.R.shadow"
+    100284: "\u8155\u6369.R.shadow_end"
+    100286: "\u8155\u63691.L"
+    100288: "\u8155\u63691.L_end"
+    100290: "\u8155\u63691.R"
+    100292: "\u8155\u63691.R_end"
+    100294: "\u8155\u63692.L"
+    100296: "\u8155\u63692.L_end"
+    100298: "\u8155\u63692.R"
+    100300: "\u8155\u63692.R_end"
+    100302: "\u8155\u63693.L"
+    100304: "\u8155\u63693.L_end"
+    100306: "\u8155\u63693.R"
+    100308: "\u8155\u63693.R_end"
+    100310: "\u8170.shadow"
+    100312: "\u8170.shadow_end"
+    100314: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L"
+    100316: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R"
+    100318: "\u85AC\u6307\u5148.L"
+    100320: "\u85AC\u6307\u5148.L_end"
+    100322: "\u85AC\u6307\u5148.R"
+    100324: "\u85AC\u6307\u5148.R_end"
+    100326: "\u89AA\u6307\u5148.L"
+    100328: "\u89AA\u6307\u5148.L_end"
+    100330: "\u89AA\u6307\u5148.R"
+    100332: "\u89AA\u6307\u5148.R_end"
+    100334: "\u8DB3.L.shadow"
+    100336: "\u8DB3.L.shadow_end"
+    100338: "\u8DB3.R.shadow"
+    100340: "\u8DB3.R.shadow_end"
+    100342: "\u8DB3D.L"
+    100344: "\u8DB3D.R"
+    100346: "\u8DB3IK\u89AA.R"
+    100348: "\u8DB3\u9996.L.shadow"
+    100350: "\u8DB3\u9996.L.shadow_end"
+    100352: "\u8DB3\u9996.R.shadow"
+    100354: "\u8DB3\u9996.R.shadow_end"
+    100356: "\u8DB3\u9996D.L"
+    100358: "\u8DB3\u9996D.R"
+    100360: "\u9996.shadow"
+    100362: "\u9996.shadow_end"
+    400000: "+\u3072\u3058\u88DC\u52A9.L"
+    400002: "+\u3072\u3058\u88DC\u52A9.L_end"
+    400004: "+\u3072\u3058\u88DC\u52A9.R"
+    400006: "+\u3072\u3058\u88DC\u52A9.R_end"
+    400008: Base
+    400010: Base_arm
+    400012: Base_mesh
+    400014: Chest
+    400016: Foot IK parent .L
+    400018: Foot IK.L
+    400020: Foot IK.R
+    400022: Foot.L
+    400024: Foot.R
+    400026: Groove
+    400028: Hand .L
+    400030: Hand .R
+    400032: Head
+    400034: Head_end
+    400036: Hip
+    400038: //RootNode
+    400040: Index Distal.R
+    400042: Index Intermediate.L
+    400044: Index Intermediate.R
+    400046: Index Proximal.L
+    400048: Index Proximal.R
+    400050: Insex Distal.L
+    400052: Little Distal.L
+    400054: Little Distal.R
+    400056: Little Intermediate.L
+    400058: Little Intermediate.R
+    400060: Little Proximal.L
+    400062: Little Proximal.R
+    400064: Lower Arm.L
+    400066: Lower Arm.R
+    400068: Lower Leg.L
+    400070: Lower Leg.R
+    400072: Middle Distal.L
+    400074: Middle Distal.R
+    400076: Middle Intermediate.L
+    400078: Middle Intermediate.R
+    400080: Middle Proximal.L
+    400082: Middle Proximal.R
+    400084: neck
+    400086: rigidbodies
+    400088: Ring Distal.L
+    400090: Ring Distal.R
+    400092: Ring Intermediate.L
+    400094: Ring Intermediate.R
+    400096: Ring Proximal.L
+    400098: Ring Proximal.R
+    400100: Shoulder .L
+    400102: Shoulder .R
+    400104: Spine
+    400106: Thumb Distal.L
+    400108: Thumb Distal.R
+    400110: Thumb Intermediate.L
+    400112: Thumb Intermediate.R
+    400114: Thumb Proximal.L
+    400116: Thumb Proximal.R
+    400118: Toe IK.L
+    400120: Toe IK.L_end
+    400122: Toe IK.R
+    400124: Toe IK.R_end
+    400126: Toes.L
+    400128: Toes.L_end
+    400130: Toes.R
+    400132: Toes.R_end
+    400134: Upper Arm.L
+    400136: Upper Arm.R
+    400138: Upper Leg.L
+    400140: Upper Leg.R
+    400142: "\u3064\u307E\u5148.L"
+    400144: "\u3064\u307E\u5148.L_end"
+    400146: "\u3064\u307E\u5148.R"
+    400148: "\u3064\u307E\u5148.R_end"
+    400150: "\u3072\u3056.L.shadow"
+    400152: "\u3072\u3056.L.shadow_end"
+    400154: "\u3072\u3056.R.shadow"
+    400156: "\u3072\u3056.R.shadow_end"
+    400158: "\u3072\u3056D.L"
+    400160: "\u3072\u3056D.R"
+    400162: "\u3072\u3058.L.shadow"
+    400164: "\u3072\u3058.L.shadow_end"
+    400166: "\u3072\u3058.R.shadow"
+    400168: "\u3072\u3058.R.shadow_end"
+    400170: "\u3072\u3058\u88DC\u52A9.L"
+    400172: "\u3072\u3058\u88DC\u52A9.R"
+    400174: "\u30BB\u30F3\u30BF\u30FC.shadow"
+    400176: "\u30BB\u30F3\u30BF\u30FC.shadow_end"
+    400178: "\u4E21\u76EE.shadow"
+    400180: "\u4E21\u76EE.shadow_end"
+    400182: "\u4E2D\u6307\u5148.L"
+    400184: "\u4E2D\u6307\u5148.L_end"
+    400186: "\u4E2D\u6307\u5148.R"
+    400188: "\u4E2D\u6307\u5148.R_end"
+    400190: "\u4EBA\u6307\u5148.L"
+    400192: "\u4EBA\u6307\u5148.L_end"
+    400194: "\u4EBA\u6307\u5148.R"
+    400196: "\u4EBA\u6307\u5148.R_end"
+    400198: "\u5C0F\u6307\u5148.L"
+    400200: "\u5C0F\u6307\u5148.L_end"
+    400202: "\u5C0F\u6307\u5148.R"
+    400204: "\u5C0F\u6307\u5148.R_end"
+    400206: "\u624B\u5148.L"
+    400208: "\u624B\u5148.L_end"
+    400210: "\u624B\u5148.R"
+    400212: "\u624B\u5148.R_end"
+    400214: "\u624B\u6369.L"
+    400216: "\u624B\u6369.L.shadow"
+    400218: "\u624B\u6369.L.shadow_end"
+    400220: "\u624B\u6369.R"
+    400222: "\u624B\u6369.R.shadow"
+    400224: "\u624B\u6369.R.shadow_end"
+    400226: "\u624B\u63691.L"
+    400228: "\u624B\u63691.L_end"
+    400230: "\u624B\u63691.R"
+    400232: "\u624B\u63691.R_end"
+    400234: "\u624B\u63692.L"
+    400236: "\u624B\u63692.L_end"
+    400238: "\u624B\u63692.R"
+    400240: "\u624B\u63692.R_end"
+    400242: "\u624B\u63693.L"
+    400244: "\u624B\u63693.L_end"
+    400246: "\u624B\u63693.R"
+    400248: "\u624B\u63693.R_end"
+    400250: "\u76EE.L.shadow"
+    400252: "\u76EE.L.shadow_end"
+    400254: "\u76EE.R.shadow"
+    400256: "\u76EE.R.shadow_end"
+    400258: "\u80A9C.L"
+    400260: "\u80A9C.R"
+    400262: "\u80A9P.L"
+    400264: "\u80A9P.L.shadow"
+    400266: "\u80A9P.L.shadow_end"
+    400268: "\u80A9P.R"
+    400270: "\u80A9P.R.shadow"
+    400272: "\u80A9P.R.shadow_end"
+    400274: "\u8155\u6369.L"
+    400276: "\u8155\u6369.L.shadow"
+    400278: "\u8155\u6369.L.shadow_end"
+    400280: "\u8155\u6369.R"
+    400282: "\u8155\u6369.R.shadow"
+    400284: "\u8155\u6369.R.shadow_end"
+    400286: "\u8155\u63691.L"
+    400288: "\u8155\u63691.L_end"
+    400290: "\u8155\u63691.R"
+    400292: "\u8155\u63691.R_end"
+    400294: "\u8155\u63692.L"
+    400296: "\u8155\u63692.L_end"
+    400298: "\u8155\u63692.R"
+    400300: "\u8155\u63692.R_end"
+    400302: "\u8155\u63693.L"
+    400304: "\u8155\u63693.L_end"
+    400306: "\u8155\u63693.R"
+    400308: "\u8155\u63693.R_end"
+    400310: "\u8170.shadow"
+    400312: "\u8170.shadow_end"
+    400314: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L"
+    400316: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R"
+    400318: "\u85AC\u6307\u5148.L"
+    400320: "\u85AC\u6307\u5148.L_end"
+    400322: "\u85AC\u6307\u5148.R"
+    400324: "\u85AC\u6307\u5148.R_end"
+    400326: "\u89AA\u6307\u5148.L"
+    400328: "\u89AA\u6307\u5148.L_end"
+    400330: "\u89AA\u6307\u5148.R"
+    400332: "\u89AA\u6307\u5148.R_end"
+    400334: "\u8DB3.L.shadow"
+    400336: "\u8DB3.L.shadow_end"
+    400338: "\u8DB3.R.shadow"
+    400340: "\u8DB3.R.shadow_end"
+    400342: "\u8DB3D.L"
+    400344: "\u8DB3D.R"
+    400346: "\u8DB3IK\u89AA.R"
+    400348: "\u8DB3\u9996.L.shadow"
+    400350: "\u8DB3\u9996.L.shadow_end"
+    400352: "\u8DB3\u9996.R.shadow"
+    400354: "\u8DB3\u9996.R.shadow_end"
+    400356: "\u8DB3\u9996D.L"
+    400358: "\u8DB3\u9996D.R"
+    400360: "\u9996.shadow"
+    400362: "\u9996.shadow_end"
+    4300000: Base_mesh
+    7400000: Base_arm|Base_armAction
+    9500000: //RootNode
+    13700000: Base_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Base_arm|Base_armAction
+      takeName: Base_arm|Base_armAction
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Base
+        weight: 1
+      - path: Base/Base_arm
+        weight: 1
+      - path: Base/Base_arm/Foot IK parent .L
+        weight: 0
+      - path: Base/Base_arm/Foot IK parent .L/Foot IK.L
+        weight: 0
+      - path: Base/Base_arm/Foot IK parent .L/Foot IK.L/Toe IK.L
+        weight: 0
+      - path: Base/Base_arm/Foot IK parent .L/Foot IK.L/Toe IK.L/Toe IK.L_end
+        weight: 0
+      - path: Base/Base_arm/Groove
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip/Spine
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip/Spine/Chest
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip/Spine/Chest/neck
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip/Spine/Chest/neck/Head
+        weight: 1
+      - path: Base/Base_arm/Groove/Hip/Spine/Chest/neck/Head/Head_end
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Index Proximal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Index Proximal.L/Index
+          Intermediate.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Index Proximal.L/Index
+          Intermediate.L/Insex Distal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Index Proximal.L/Index
+          Intermediate.L/Insex Distal.L/\u4EBA\u6307\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Index Proximal.L/Index
+          Intermediate.L/Insex Distal.L/\u4EBA\u6307\u5148.L/\u4EBA\u6307\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Little Proximal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Little Proximal.L/Little
+          Intermediate.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Little Proximal.L/Little
+          Intermediate.L/Little Distal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Little Proximal.L/Little
+          Intermediate.L/Little Distal.L/\u5C0F\u6307\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Little Proximal.L/Little
+          Intermediate.L/Little Distal.L/\u5C0F\u6307\u5148.L/\u5C0F\u6307\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Middle Proximal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Middle Proximal.L/Middle
+          Intermediate.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Middle Proximal.L/Middle
+          Intermediate.L/Middle Distal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Middle Proximal.L/Middle
+          Intermediate.L/Middle Distal.L/\u4E2D\u6307\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Middle Proximal.L/Middle
+          Intermediate.L/Middle Distal.L/\u4E2D\u6307\u5148.L/\u4E2D\u6307\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Ring Proximal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Ring Proximal.L/Ring
+          Intermediate.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Ring Proximal.L/Ring
+          Intermediate.L/Ring Distal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Ring Proximal.L/Ring
+          Intermediate.L/Ring Distal.L/\u85AC\u6307\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Ring Proximal.L/Ring
+          Intermediate.L/Ring Distal.L/\u85AC\u6307\u5148.L/\u85AC\u6307\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Thumb Proximal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Thumb Proximal.L/Thumb
+          Intermediate.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Thumb Proximal.L/Thumb
+          Intermediate.L/Thumb Distal.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Thumb Proximal.L/Thumb
+          Intermediate.L/Thumb Distal.L/\u89AA\u6307\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/Thumb Proximal.L/Thumb
+          Intermediate.L/Thumb Distal.L/\u89AA\u6307\u5148.L/\u89AA\u6307\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/\u624B\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u6369.L/Hand .L/\u624B\u5148.L/\u624B\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63691.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63691.L/\u624B\u63691.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63692.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63692.L/\u624B\u63692.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63693.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/Lower Arm.L/\u624B\u63693.L/\u624B\u63693.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/\u3072\u3058\u88DC\u52A9.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/\u3072\u3058\u88DC\u52A9.L/+\u3072\u3058\u88DC\u52A9.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u6369.L/\u3072\u3058\u88DC\u52A9.L/+\u3072\u3058\u88DC\u52A9.L/+\u3072\u3058\u88DC\u52A9.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63691.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63691.L/\u8155\u63691.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63692.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63692.L/\u8155\u63692.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63693.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.L/Shoulder .L/\u80A9C.L/Upper
+          Arm.L/\u8155\u63693.L/\u8155\u63693.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Index Proximal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Index Proximal.R/Index
+          Intermediate.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Index Proximal.R/Index
+          Intermediate.R/Index Distal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Index Proximal.R/Index
+          Intermediate.R/Index Distal.R/\u4EBA\u6307\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Index Proximal.R/Index
+          Intermediate.R/Index Distal.R/\u4EBA\u6307\u5148.R/\u4EBA\u6307\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Little Proximal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Little Proximal.R/Little
+          Intermediate.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Little Proximal.R/Little
+          Intermediate.R/Little Distal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Little Proximal.R/Little
+          Intermediate.R/Little Distal.R/\u5C0F\u6307\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Little Proximal.R/Little
+          Intermediate.R/Little Distal.R/\u5C0F\u6307\u5148.R/\u5C0F\u6307\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Middle Proximal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Middle Proximal.R/Middle
+          Intermediate.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Middle Proximal.R/Middle
+          Intermediate.R/Middle Distal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Middle Proximal.R/Middle
+          Intermediate.R/Middle Distal.R/\u4E2D\u6307\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Middle Proximal.R/Middle
+          Intermediate.R/Middle Distal.R/\u4E2D\u6307\u5148.R/\u4E2D\u6307\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Ring Proximal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Ring Proximal.R/Ring
+          Intermediate.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Ring Proximal.R/Ring
+          Intermediate.R/Ring Distal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Ring Proximal.R/Ring
+          Intermediate.R/Ring Distal.R/\u85AC\u6307\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Ring Proximal.R/Ring
+          Intermediate.R/Ring Distal.R/\u85AC\u6307\u5148.R/\u85AC\u6307\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Thumb Proximal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Thumb Proximal.R/Thumb
+          Intermediate.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Thumb Proximal.R/Thumb
+          Intermediate.R/Thumb Distal.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Thumb Proximal.R/Thumb
+          Intermediate.R/Thumb Distal.R/\u89AA\u6307\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/Thumb Proximal.R/Thumb
+          Intermediate.R/Thumb Distal.R/\u89AA\u6307\u5148.R/\u89AA\u6307\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/\u624B\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u6369.R/Hand .R/\u624B\u5148.R/\u624B\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63691.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63691.R/\u624B\u63691.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63692.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63692.R/\u624B\u63692.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63693.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/Lower Arm.R/\u624B\u63693.R/\u624B\u63693.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/\u3072\u3058\u88DC\u52A9.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/\u3072\u3058\u88DC\u52A9.R/+\u3072\u3058\u88DC\u52A9.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u6369.R/\u3072\u3058\u88DC\u52A9.R/+\u3072\u3058\u88DC\u52A9.R/+\u3072\u3058\u88DC\u52A9.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63691.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63691.R/\u8155\u63691.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63692.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63692.R/\u8155\u63692.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63693.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/Spine/Chest/\u80A9P.R/Shoulder .R/\u80A9C.R/Upper
+          Arm.R/\u8155\u63693.R/\u8155\u63693.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/Upper
+          Leg.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/Upper
+          Leg.L/Lower Leg.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/Upper
+          Leg.L/Lower Leg.L/Foot.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/Upper
+          Leg.L/Lower Leg.L/Foot.L/\u3064\u307E\u5148.L"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/Upper
+          Leg.L/Lower Leg.L/Foot.L/\u3064\u307E\u5148.L/\u3064\u307E\u5148.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/\u8DB3D.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/\u8DB3D.L/\u3072\u3056D.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/\u8DB3D.L/\u3072\u3056D.L/\u8DB3\u9996D.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/\u8DB3D.L/\u3072\u3056D.L/\u8DB3\u9996D.L/Toes.L"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L/\u8DB3D.L/\u3072\u3056D.L/\u8DB3\u9996D.L/Toes.L/Toes.L_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/Upper
+          Leg.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/Upper
+          Leg.R/Lower Leg.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/Upper
+          Leg.R/Lower Leg.R/Foot.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/Upper
+          Leg.R/Lower Leg.R/Foot.R/\u3064\u307E\u5148.R"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/Upper
+          Leg.R/Lower Leg.R/Foot.R/\u3064\u307E\u5148.R/\u3064\u307E\u5148.R_end"
+        weight: 0
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/\u8DB3D.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/\u8DB3D.R/\u3072\u3056D.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/\u8DB3D.R/\u3072\u3056D.R/\u8DB3\u9996D.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/\u8DB3D.R/\u3072\u3056D.R/\u8DB3\u9996D.R/Toes.R"
+        weight: 1
+      - path: "Base/Base_arm/Groove/Hip/\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R/\u8DB3D.R/\u3072\u3056D.R/\u8DB3\u9996D.R/Toes.R/Toes.R_end"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3056.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3056.L.shadow/\u3072\u3056.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3056.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3056.R.shadow/\u3072\u3056.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3058.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3058.L.shadow/\u3072\u3058.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3058.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u3072\u3058.R.shadow/\u3072\u3058.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u30BB\u30F3\u30BF\u30FC.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u30BB\u30F3\u30BF\u30FC.shadow/\u30BB\u30F3\u30BF\u30FC.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u4E21\u76EE.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u4E21\u76EE.shadow/\u4E21\u76EE.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u624B\u6369.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u624B\u6369.L.shadow/\u624B\u6369.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u624B\u6369.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u624B\u6369.R.shadow/\u624B\u6369.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u76EE.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u76EE.L.shadow/\u76EE.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u76EE.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u76EE.R.shadow/\u76EE.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u80A9P.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u80A9P.L.shadow/\u80A9P.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u80A9P.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u80A9P.R.shadow/\u80A9P.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8155\u6369.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8155\u6369.L.shadow/\u8155\u6369.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8155\u6369.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8155\u6369.R.shadow/\u8155\u6369.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8170.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8170.shadow/\u8170.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3.L.shadow/\u8DB3.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3.R.shadow/\u8DB3.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3IK\u89AA.R"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3IK\u89AA.R/Foot IK.R"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3IK\u89AA.R/Foot IK.R/Toe IK.R"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3IK\u89AA.R/Foot IK.R/Toe IK.R/Toe IK.R_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3\u9996.L.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3\u9996.L.shadow/\u8DB3\u9996.L.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3\u9996.R.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u8DB3\u9996.R.shadow/\u8DB3\u9996.R.shadow_end"
+        weight: 0
+      - path: "Base/Base_arm/\u9996.shadow"
+        weight: 0
+      - path: "Base/Base_arm/\u9996.shadow/\u9996.shadow_end"
+        weight: 0
+      - path: Base/rigidbodies
+        weight: 0
+      - path: Base_mesh
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Groove
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3D.L"
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3D.R"
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3056D.L"
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u3072\u3056D.R"
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3\u9996D.L"
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "\u8DB3\u9996D.R"
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shoulder .L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shoulder .R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Upper Arm.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Upper Arm.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lower Arm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lower Arm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand .L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand .R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Toes.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Toes.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Proximal.L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Intermediate.L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Distal.L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Index Proximal.L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Index Intermediate.L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Insex Distal.L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Proximal.L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Intermediate.L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Distal.L
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Proximal.L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Intermediate.L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Distal.L
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Proximal.L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Intermediate.L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Distal.L
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Proximal.R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Intermediate.R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Thumb Distal.R
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Index Proximal.R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Index Intermediate.R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Index Distal.R
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Proximal.R
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Intermediate.R
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Middle Distal.R
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Proximal.R
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Intermediate.R
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Ring Distal.R
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Proximal.R
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Intermediate.R
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Little Distal.R
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: idle_9(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Base
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100.00001, z: 100.00001}
+      transformModified: 1
+    - name: Base_arm
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Groove
+      position: {x: -0.00000069626606, y: 0.0007760001, z: 0.016481064}
+      rotation: {x: 0.7071068, y: -1.5675806e-10, z: 4.1400208e-10, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: Hip
+      position: {x: -8.600182e-11, y: 0.008915059, z: 0.0010187969}
+      rotation: {x: 0.99998987, y: 0.0000000042071893, z: 1.6297066e-10, w: -0.0044994955}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.9979889}
+      transformModified: 1
+    - name: Spine
+      position: {x: -1.6589183e-11, y: -0.000116637115, z: 0.0000010321145}
+      rotation: {x: -0.9996581, y: -0.000000004771304, z: -8.183602e-11, w: -0.0261461}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000368}
+      transformModified: 1
+    - name: Chest
+      position: {x: 8.039933e-11, y: 0.0021771272, z: 5.838956e-11}
+      rotation: {x: -0.049482405, y: 1.2446992e-10, z: -0.000000001828111, w: 0.998775}
+      scale: {x: 0.99999994, y: 0.9999986, z: 1.0000015}
+      transformModified: 1
+    - name: neck
+      position: {x: 5.3058783e-11, y: 0.004908831, z: -1.1641532e-10}
+      rotation: {x: 0.07637432, y: -2.4046087e-10, z: 0.0000000036460457, w: 0.99707925}
+      scale: {x: 0.9999993, y: 0.9999113, z: 1.0000892}
+      transformModified: 1
+    - name: Head
+      position: {x: -1.7287902e-10, y: 0.0015674246, z: 6.315531e-11}
+      rotation: {x: -0.0052965, y: -1.700045e-10, z: -0.0000000063397168, w: 0.99998605}
+      scale: {x: 0.9999997, y: 0.99999934, z: 1.0000011}
+      transformModified: 1
+    - name: Head_end
+      position: {x: -0, y: 0.0029999996, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u80A9P.R"
+      position: {x: 0.0004615172, y: 0.00434709, z: -0.0000059684585}
+      rotation: {x: 0.07109225, y: -7.539421e-11, z: 0.0000000016974877, w: 0.9974698}
+      scale: {x: 1, y: 0.99991655, z: 1.0000831}
+      transformModified: 1
+    - name: Shoulder .R
+      position: {x: -2.3710525e-10, y: -1.458875e-10, z: 2.4296298e-12}
+      rotation: {x: 0.62817, y: 0.4807297, z: 0.48050162, w: -0.37870795}
+      scale: {x: 0.99999034, y: 1.0000054, z: 1.0000048}
+      transformModified: 1
+    - name: "\u80A9C.R"
+      position: {x: -4.5634804e-10, y: 0.0017432472, z: -0.0000000017182901}
+      rotation: {x: -0.6282776, y: -0.48064485, z: -0.48036098, w: -0.37881553}
+      scale: {x: 0.99816895, y: 0.9996369, z: 1.0002183}
+      transformModified: 1
+    - name: Upper Arm.R
+      position: {x: -4.4554324e-10, y: -0.000000001620192, z: 1.6298145e-11}
+      rotation: {x: 0.6523855, y: 0.61789125, z: 0.31805173, w: -0.30240163}
+      scale: {x: 1.0008769, y: 0.9995866, z: 0.99953884}
+      transformModified: 1
+    - name: "\u8155\u6369.R"
+      position: {x: -0.000020659007, y: 0.0031541223, z: 0.00001658067}
+      rotation: {x: -0.8102367, y: -0.39087042, z: -0.39012966, w: -0.19630517}
+      scale: {x: 1.0005233, y: 0.9991398, z: 1.0003375}
+      transformModified: 1
+    - name: Lower Arm.R
+      position: {x: 0.0016539885, y: -0.001298532, z: -0.0000011047721}
+      rotation: {x: 0.8056893, y: 0.39823562, z: 0.39740914, w: -0.18530828}
+      scale: {x: 0.9989712, y: 1.0006827, z: 1.0003455}
+      transformModified: 1
+    - name: "\u624B\u6369.R"
+      position: {x: -0.000050611645, y: 0.002771512, z: 0.000038658825}
+      rotation: {x: -0.8056947, y: -0.39823312, z: -0.39739823, w: -0.18531357}
+      scale: {x: 0.9999689, y: 1.0000051, z: 1.0000259}
+      transformModified: 1
+    - name: Hand .R
+      position: {x: 0.0014581919, y: -0.0011343545, z: 0.000096754804}
+      rotation: {x: 0.82688814, y: 0.373195, z: 0.37252533, w: -0.19546439}
+      scale: {x: 1.0000805, y: 0.9998195, z: 1.0001009}
+      transformModified: 1
+    - name: "\u624B\u5148.R"
+      position: {x: -1.4901161e-10, y: 0.0010559466, z: -8.9406965e-10}
+      rotation: {x: 0.0073213708, y: 0.012588081, z: -0.012670723, w: 0.9998137}
+      scale: {x: 1.0000029, y: 0.999998, z: 0.9999993}
+      transformModified: 1
+    - name: "\u624B\u5148.R_end"
+      position: {x: -0, y: 0.0001112707, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Thumb Proximal.R
+      position: {x: 0.000030475705, y: 0.00034067748, z: -0.00035695164}
+      rotation: {x: -0.33717075, y: -0.20257758, z: -0.19374661, w: 0.89874387}
+      scale: {x: 0.99999833, y: 0.9999731, z: 1.0000283}
+      transformModified: 1
+    - name: Thumb Intermediate.R
+      position: {x: 5.2154064e-10, y: 0.001007804, z: -0.0000000016391277}
+      rotation: {x: 0.035804216, y: 0.093079716, z: 0.007955429, w: 0.9949829}
+      scale: {x: 1.0000113, y: 0.9999696, z: 1.0000194}
+      transformModified: 1
+    - name: Thumb Distal.R
+      position: {x: -4.4703483e-10, y: 0.00045807092, z: -0.0000000010430813}
+      rotation: {x: 0.027262762, y: 0.02790159, z: -0.0022220612, w: 0.99923635}
+      scale: {x: 1.0000024, y: 0.9999951, z: 1.0000025}
+      transformModified: 1
+    - name: "\u89AA\u6307\u5148.R"
+      position: {x: 6.705522e-10, y: 0.0005217533, z: 2.9802322e-10}
+      rotation: {x: 0.019063028, y: 0.020236166, z: -0.0022303762, w: 0.99961096}
+      scale: {x: 1.0000011, y: 0.9999961, z: 1.0000017}
+      transformModified: 1
+    - name: "\u89AA\u6307\u5148.R_end"
+      position: {x: -0, y: 0.00004284541, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Little Proximal.R
+      position: {x: -0.0004664084, y: 0.0015532135, z: 0.00028266443}
+      rotation: {x: -0.03099081, y: -0.0020233095, z: -0.034367472, w: 0.9989267}
+      scale: {x: 1.0000738, y: 0.9998847, z: 1.000041}
+      transformModified: 1
+    - name: Little Intermediate.R
+      position: {x: -3.7252902e-11, y: 0.00064923137, z: 7.45058e-10}
+      rotation: {x: 0.03332616, y: 0.046150807, z: -0.024512753, w: 0.99807745}
+      scale: {x: 0.9999879, y: 1.0000371, z: 0.99997556}
+      transformModified: 1
+    - name: Little Distal.R
+      position: {x: 5.9604643e-10, y: 0.00029452145, z: -4.4703483e-10}
+      rotation: {x: -0.037670005, y: -0.081213996, z: 0.011749855, w: 0.9959153}
+      scale: {x: 0.99999684, y: 0.9999941, z: 1.0000088}
+      transformModified: 1
+    - name: "\u5C0F\u6307\u5148.R"
+      position: {x: -0.000000004172325, y: 0.00033129958, z: -0.0000000013411044}
+      rotation: {x: 0.023658862, y: 0.010710981, z: 0.010626104, w: 0.9996062}
+      scale: {x: 0.9999992, y: 1.0000017, z: 0.9999994}
+      transformModified: 1
+    - name: "\u5C0F\u6307\u5148.R_end"
+      position: {x: -0, y: 0.000012406023, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Ring Proximal.R
+      position: {x: -0.00013097316, y: 0.0016372242, z: 0.00016981139}
+      rotation: {x: -0.036768403, y: -0.015342383, z: -0.019633858, w: 0.9990131}
+      scale: {x: 1.0000585, y: 0.9998944, z: 1.0000467}
+      transformModified: 1
+    - name: Ring Intermediate.R
+      position: {x: 0.0000000012014061, y: 0.0007936493, z: -0.0000000020861626}
+      rotation: {x: 0.008372095, y: 0.0075275274, z: -0.0015746349, w: 0.9999354}
+      scale: {x: 0.9999913, y: 1.0000315, z: 0.9999776}
+      transformModified: 1
+    - name: Ring Distal.R
+      position: {x: 2.9802322e-10, y: 0.00043070444, z: 8.9406965e-10}
+      rotation: {x: -0.010996395, y: 0.019787613, z: -0.03987912, w: 0.99894804}
+      scale: {x: 1.0000095, y: 0.99998873, z: 1.0000021}
+      transformModified: 1
+    - name: "\u85AC\u6307\u5148.R"
+      position: {x: -8.9406965e-10, y: 0.00036774902, z: 0.0000000011920929}
+      rotation: {x: 0.002718448, y: -0.019766266, z: 0.031637065, w: 0.99930024}
+      scale: {x: 0.9999942, y: 1.0000043, z: 1.000001}
+      transformModified: 1
+    - name: "\u85AC\u6307\u5148.R_end"
+      position: {x: -0, y: 0.000018271294, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Middle Proximal.R
+      position: {x: 0.00019393444, y: 0.0017160638, z: -0.00005289048}
+      rotation: {x: -0.021269778, y: -0.01852357, z: 0.0038721552, w: 0.9995946}
+      scale: {x: 1.0000534, y: 0.9999058, z: 1.0000408}
+      transformModified: 1
+    - name: Middle Intermediate.R
+      position: {x: -9.126961e-10, y: 0.00084327854, z: -3.5390257e-10}
+      rotation: {x: -0.0063589946, y: 0.005611478, z: -0.015502777, w: 0.99984396}
+      scale: {x: 0.99999875, y: 1.0000175, z: 0.999984}
+      transformModified: 1
+    - name: Middle Distal.R
+      position: {x: -0.000000001490116, y: 0.00045719586, z: -8.9406965e-10}
+      rotation: {x: 0.0036848318, y: 0.039722543, z: -0.04072116, w: 0.99837387}
+      scale: {x: 1.0000126, y: 0.99998724, z: 0.9999999}
+      transformModified: 1
+    - name: "\u4E2D\u6307\u5148.R"
+      position: {x: 2.9802322e-10, y: 0.0003939613, z: 2.2351741e-10}
+      rotation: {x: -0.007002024, y: -0.04577865, z: 0.06005834, w: 0.9971201}
+      scale: {x: 0.9999872, y: 1.0000099, z: 1.0000026}
+      transformModified: 1
+    - name: "\u4E2D\u6307\u5148.R_end"
+      position: {x: -0, y: 0.000014807429, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Index Proximal.R
+      position: {x: 0.00043105945, y: 0.0017024465, z: -0.00036491794}
+      rotation: {x: -0.018841352, y: -0.007104872, z: -0.011751381, w: 0.9997282}
+      scale: {x: 1.0000478, y: 0.99991727, z: 1.0000352}
+      transformModified: 1
+    - name: Index Intermediate.R
+      position: {x: -5.9604643e-10, y: 0.00075232144, z: -5.2154064e-10}
+      rotation: {x: -0.00580786, y: 0.0056355875, z: -0.01529857, w: 0.9998503}
+      scale: {x: 1.0000099, y: 0.99999833, z: 0.9999921}
+      transformModified: 1
+    - name: Index Distal.R
+      position: {x: -4.4703483e-10, y: 0.0003648214, z: -5.9604643e-10}
+      rotation: {x: 0.023306036, y: 0.0029917352, z: 0.022955233, w: 0.99946034}
+      scale: {x: 0.999997, y: 1.0000035, z: 0.99999887}
+      transformModified: 1
+    - name: "\u4EBA\u6307\u5148.R"
+      position: {x: -0.0000000023841857, y: 0.00037361367, z: -0.0000000011920929}
+      rotation: {x: -0.009846431, y: -0.034539275, z: 0.04399069, w: 0.9983862}
+      scale: {x: 0.9999914, y: 1.0000066, z: 1.0000019}
+      transformModified: 1
+    - name: "\u4EBA\u6307\u5148.R_end"
+      position: {x: -0, y: 0.000018827026, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63691.R"
+      position: {x: 0.00000025451183, y: 0.0012741399, z: 0.00000031739472}
+      rotation: {x: -0.8056948, y: -0.39823303, z: -0.3973982, w: -0.18531361}
+      scale: {x: 0.99861234, y: 1.0002755, z: 0.9991396}
+      transformModified: 1
+    - name: "\u624B\u63691.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63692.R"
+      position: {x: 0.00000045239923, y: 0.0022659998, z: 0.000000564605}
+      rotation: {x: -0.8056947, y: -0.39823306, z: -0.39739826, w: -0.18531357}
+      scale: {x: 0.99861217, y: 1.0002749, z: 0.9991393}
+      transformModified: 1
+    - name: "\u624B\u63692.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63693.R"
+      position: {x: -0.0000002707541, y: 0.0032590006, z: -0.00000033706425}
+      rotation: {x: -0.80569464, y: -0.39823303, z: -0.39739853, w: -0.1853134}
+      scale: {x: 0.9986119, y: 1.0002748, z: 0.9991389}
+      transformModified: 1
+    - name: "\u624B\u63693.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3058\u88DC\u52A9.R"
+      position: {x: 0.0016811767, y: -0.0013196707, z: -0.00000004798174}
+      rotation: {x: 0.800861, y: 0.40227708, z: 0.4014508, w: -0.18876447}
+      scale: {x: 0.9977605, y: 1.0001137, z: 1.0001563}
+      transformModified: 1
+    - name: "+\u3072\u3058\u88DC\u52A9.R"
+      position: {x: -0.000000004470348, y: 0.000000007450581, z: -0.0000000067055224}
+      rotation: {x: 0.0000011473892, y: -0.00043806422, z: -0.00000083446486, w: 0.9999999}
+      scale: {x: 0.9999999, y: 0.99999976, z: 1}
+      transformModified: 1
+    - name: "+\u3072\u3058\u88DC\u52A9.R_end"
+      position: {x: -0, y: 0.0007488654, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63691.R"
+      position: {x: -0.0000114318445, y: 0.0016826811, z: 0.000008303374}
+      rotation: {x: -0.81023675, y: -0.3908704, z: -0.39012957, w: -0.19630526}
+      scale: {x: 1.001996, y: 0.9984531, z: 0.9975827}
+      transformModified: 1
+    - name: "\u8155\u63691.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63692.R"
+      position: {x: -0.000018019116, y: 0.0027337058, z: 0.000014220699}
+      rotation: {x: -0.81023675, y: -0.3908704, z: -0.39012957, w: -0.19630526}
+      scale: {x: 1.001996, y: 0.9984531, z: 0.9975827}
+      transformModified: 1
+    - name: "\u8155\u63692.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63693.R"
+      position: {x: -0.000024607925, y: 0.0037847357, z: 0.00002013415}
+      rotation: {x: -0.81023675, y: -0.39087033, z: -0.39012972, w: -0.19630502}
+      scale: {x: 1.0019959, y: 0.99845254, z: 0.9975822}
+      transformModified: 1
+    - name: "\u8155\u63693.R_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u80A9P.L"
+      position: {x: -0.00046151708, y: 0.0043470915, z: -0.0000059684457}
+      rotation: {x: 0.07109225, y: -7.539421e-11, z: 0.0000000016974877, w: 0.9974698}
+      scale: {x: 1, y: 0.99991655, z: 1.0000831}
+      transformModified: 1
+    - name: Shoulder .L
+      position: {x: -1.268836e-10, y: 0.0000000029269722, z: -9.0221875e-12}
+      rotation: {x: 0.62816995, y: -0.48072967, z: -0.48050165, w: -0.37870798}
+      scale: {x: 0.9999898, y: 1.000004, z: 1.0000062}
+      transformModified: 1
+    - name: "\u80A9C.L"
+      position: {x: -2.188608e-10, y: 0.0017432483, z: 1.9092113e-10}
+      rotation: {x: -0.6282775, y: 0.48064485, z: 0.480361, w: -0.37881553}
+      scale: {x: 0.99816966, y: 0.9996377, z: 1.0002178}
+      transformModified: 1
+    - name: Upper Arm.L
+      position: {x: 0.0000000012298369, y: -7.274502e-10, z: -1.36788e-11}
+      rotation: {x: 0.6523843, y: -0.6178928, z: -0.31805015, w: -0.30240282}
+      scale: {x: 1.0008798, y: 0.999613, z: 0.9995095}
+      transformModified: 1
+    - name: "\u8155\u6369.L"
+      position: {x: 0.000039527527, y: 0.003154419, z: 0.0000313884}
+      rotation: {x: -0.8102368, y: 0.3908702, z: 0.39012975, w: -0.19630499}
+      scale: {x: 1.0005237, y: 0.9991379, z: 1.0003384}
+      transformModified: 1
+    - name: Lower Arm.L
+      position: {x: -0.0016540111, y: -0.0012985338, z: 0.00002288416}
+      rotation: {x: 0.8056892, y: -0.39823586, z: -0.39740902, w: -0.18530822}
+      scale: {x: 0.99908996, y: 1.0005136, z: 1.0003971}
+      transformModified: 1
+    - name: "\u624B\u6369.L"
+      position: {x: 0.000050612536, y: 0.0027715133, z: 0.000038659033}
+      rotation: {x: -0.80569464, y: 0.39823338, z: 0.39739802, w: -0.18531372}
+      scale: {x: 0.9999683, y: 1.0000051, z: 1.0000263}
+      transformModified: 1
+    - name: Hand .L
+      position: {x: -0.0014581941, y: -0.0011343553, z: 0.00009675108}
+      rotation: {x: 0.8268883, y: -0.37319478, z: -0.3725253, w: -0.19546446}
+      scale: {x: 0.99999225, y: 0.9999151, z: 1.0000918}
+      transformModified: 1
+    - name: "\u624B\u5148.L"
+      position: {x: -0.00000000115484, y: 0.0010559469, z: -2.2351741e-10}
+      rotation: {x: 0.007321327, y: -0.012587814, z: 0.012670783, w: 0.9998137}
+      scale: {x: 1.0000014, y: 0.9999988, z: 0.99999934}
+      transformModified: 1
+    - name: "\u624B\u5148.L_end"
+      position: {x: -0, y: 0.0001112707, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Thumb Proximal.L
+      position: {x: -0.000030477344, y: 0.0003406748, z: -0.00035694978}
+      rotation: {x: -0.34075898, y: 0.19758059, z: 0.1942784, w: 0.89838815}
+      scale: {x: 0.99999905, y: 0.9999833, z: 1.0000175}
+      transformModified: 1
+    - name: Thumb Intermediate.L
+      position: {x: 0.0000000020861626, y: 0.0010075598, z: -0.0000000013411044}
+      rotation: {x: 0.031821277, y: -0.07495226, z: -0.012771927, w: 0.9965974}
+      scale: {x: 1.0000057, y: 0.99998254, z: 1.0000116}
+      transformModified: 1
+    - name: Thumb Distal.L
+      position: {x: 7.45058e-10, y: 0.00046794265, z: -7.45058e-10}
+      rotation: {x: 0.006108909, y: -0.038491007, z: 0.032109167, w: 0.9987243}
+      scale: {x: 1.0000031, y: 0.9999981, z: 0.99999815}
+      transformModified: 1
+    - name: "\u89AA\u6307\u5148.L"
+      position: {x: 5.2154064e-10, y: 0.0005217552, z: 1.4901161e-10}
+      rotation: {x: 0.019065153, y: -0.020237738, z: 0.0022338922, w: 0.99961096}
+      scale: {x: 1.000001, y: 0.99999857, z: 1.0000008}
+      transformModified: 1
+    - name: "\u89AA\u6307\u5148.L_end"
+      position: {x: -0, y: 0.00004284541, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Little Proximal.L
+      position: {x: 0.00046640693, y: 0.0015532178, z: 0.00028266612}
+      rotation: {x: -0.030991074, y: 0.0020236669, z: 0.034367528, w: 0.99892664}
+      scale: {x: 1.0000198, y: 0.9999586, z: 1.0000218}
+      transformModified: 1
+    - name: Little Intermediate.L
+      position: {x: 0.0000000037252903, y: 0.0006492311, z: 0.0000000011920929}
+      rotation: {x: 0.033332445, y: -0.04615098, z: 0.02451737, w: 0.9980771}
+      scale: {x: 1.0000119, y: 1.0000032, z: 0.99998474}
+      transformModified: 1
+    - name: Little Distal.L
+      position: {x: -1.4901161e-10, y: 0.00029452136, z: -2.9802322e-10}
+      rotation: {x: -0.03767538, y: 0.08122569, z: -0.01175731, w: 0.99591404}
+      scale: {x: 0.9999959, y: 1.0000006, z: 1.000003}
+      transformModified: 1
+    - name: "\u5C0F\u6307\u5148.L"
+      position: {x: 0.0000000016763806, y: 0.00033130302, z: 0.000000001816079}
+      rotation: {x: 0.023667056, y: -0.010723173, z: -0.010617166, w: 0.999606}
+      scale: {x: 0.9999995, y: 1.0000008, z: 0.99999917}
+      transformModified: 1
+    - name: "\u5C0F\u6307\u5148.L_end"
+      position: {x: -0, y: 0.000012406023, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Ring Proximal.L
+      position: {x: 0.00013097159, y: 0.0016372248, z: 0.00016981192}
+      rotation: {x: -0.03676812, y: 0.015342085, z: 0.019634066, w: 0.9990131}
+      scale: {x: 1.0000157, y: 0.9999654, z: 1.0000184}
+      transformModified: 1
+    - name: Ring Intermediate.L
+      position: {x: -0.00000000230968, y: 0.0007936516, z: -8.9406965e-10}
+      rotation: {x: 0.008371723, y: -0.007527289, z: 0.0015744859, w: 0.9999354}
+      scale: {x: 1.000012, y: 0.99999803, z: 0.99999064}
+      transformModified: 1
+    - name: Ring Distal.L
+      position: {x: 7.8231094e-10, y: 0.00043070372, z: -5.9604643e-10}
+      rotation: {x: -0.011000001, y: -0.019782279, z: 0.03987748, w: 0.99894816}
+      scale: {x: 1.0000043, y: 0.9999959, z: 0.9999994}
+      transformModified: 1
+    - name: "\u85AC\u6307\u5148.L"
+      position: {x: -0, y: 0.00036774605, z: -8.1956386e-10}
+      rotation: {x: 0.0027221134, y: 0.019760929, z: -0.031633247, w: 0.9993005}
+      scale: {x: 0.9999964, y: 1.0000029, z: 1.0000007}
+      transformModified: 1
+    - name: "\u85AC\u6307\u5148.L_end"
+      position: {x: -0, y: 0.000018271294, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Middle Proximal.L
+      position: {x: -0.00019393902, y: 0.0017160615, z: -0.0000528872}
+      rotation: {x: -0.02127029, y: 0.01852426, z: -0.0038725734, w: 0.9995947}
+      scale: {x: 1.0000113, y: 0.9999728, z: 1.0000154}
+      transformModified: 1
+    - name: Middle Intermediate.L
+      position: {x: -0.0000000011920929, y: 0.00084327965, z: -0.0000000016391277}
+      rotation: {x: -0.0063576386, y: -0.005613087, z: 0.01550388, w: 0.9998439}
+      scale: {x: 1.0000141, y: 0.9999901, z: 0.99999654}
+      transformModified: 1
+    - name: Middle Distal.L
+      position: {x: -3.72529e-10, y: 0.00045719667, z: -5.7742e-10}
+      rotation: {x: 0.0036770373, y: -0.03970867, z: 0.04072207, w: 0.99837446}
+      scale: {x: 1.0000062, y: 0.999995, z: 0.99999845}
+      transformModified: 1
+    - name: "\u4E2D\u6307\u5148.L"
+      position: {x: 9.685754e-10, y: 0.0003939645, z: -4.4703483e-10}
+      rotation: {x: -0.0069921887, y: 0.04576598, z: -0.06004996, w: 0.9971212}
+      scale: {x: 0.9999932, y: 1.0000056, z: 1.0000018}
+      transformModified: 1
+    - name: "\u4E2D\u6307\u5148.L_end"
+      position: {x: -0, y: 0.000014807429, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Index Proximal.L
+      position: {x: -0.00043106405, y: 0.0017024382, z: -0.00036491314}
+      rotation: {x: -0.018840997, y: 0.0071046343, z: 0.011751799, w: 0.99972826}
+      scale: {x: 1.0000079, y: 0.9999805, z: 1.0000111}
+      transformModified: 1
+    - name: Index Intermediate.L
+      position: {x: 0.0000000028312206, y: 0.0007523197, z: 0.0000000040233132}
+      rotation: {x: -0.0058085006, y: -0.005634783, z: 0.015297884, w: 0.9998502}
+      scale: {x: 1.0000246, y: 0.9999761, z: 0.9999994}
+      transformModified: 1
+    - name: Insex Distal.L
+      position: {x: -1.816079e-10, y: 0.0003648256, z: 2.4214386e-10}
+      rotation: {x: 0.023307614, y: -0.0029936123, z: -0.02295395, w: 0.99946034}
+      scale: {x: 0.9999975, y: 1.0000029, z: 0.99999905}
+      transformModified: 1
+    - name: "\u4EBA\u6307\u5148.L"
+      position: {x: -0.0000000010058283, y: 0.00037360846, z: -3.7252902e-11}
+      rotation: {x: -0.009847846, y: 0.034540612, z: -0.04399182, w: 0.998386}
+      scale: {x: 0.999996, y: 1.0000039, z: 1.000001}
+      transformModified: 1
+    - name: "\u4EBA\u6307\u5148.L_end"
+      position: {x: -0, y: 0.000018827026, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63691.L"
+      position: {x: 0.00008468775, y: 0.0012721289, z: 0.00006645487}
+      rotation: {x: -0.80569476, y: 0.39823332, z: 0.39739794, w: -0.18531372}
+      scale: {x: 0.99913746, y: 0.999583, z: 0.99930584}
+      transformModified: 1
+    - name: "\u624B\u63691.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63692.L"
+      position: {x: -0.000000451589, y: 0.0022659993, z: 0.00000056479126}
+      rotation: {x: -0.80569464, y: 0.39823335, z: 0.39739814, w: -0.18531363}
+      scale: {x: 0.99913734, y: 0.9995828, z: 0.999306}
+      transformModified: 1
+    - name: "\u624B\u63692.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u63693.L"
+      position: {x: 0.00000027116388, y: 0.0032590015, z: -0.0000003361143}
+      rotation: {x: -0.80569464, y: 0.39823335, z: 0.397398, w: -0.18531376}
+      scale: {x: 0.99913746, y: 0.9995832, z: 0.9993062}
+      transformModified: 1
+    - name: "\u624B\u63693.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3058\u88DC\u52A9.L"
+      position: {x: -0.0016811996, y: -0.001319673, z: 0.000023942292}
+      rotation: {x: 0.80086076, y: -0.40227756, z: -0.40145075, w: -0.18876472}
+      scale: {x: 0.9974563, y: 1.0003572, z: 1.000218}
+      transformModified: 1
+    - name: "+\u3072\u3058\u88DC\u52A9.L"
+      position: {x: 0.000000005960464, y: 0.000000007897615, z: -0.0000000062584875}
+      rotation: {x: 0.00000084936596, y: 0.00043827284, z: 0.00000071525557, w: 0.9999999}
+      scale: {x: 0.9999998, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: "+\u3072\u3058\u88DC\u52A9.L_end"
+      position: {x: -0, y: 0.0007488654, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63691.L"
+      position: {x: 0.000021495092, y: 0.0016828378, z: 0.000016202106}
+      rotation: {x: -0.8102368, y: 0.39087027, z: 0.39012948, w: -0.19630513}
+      scale: {x: 1.0019844, y: 0.99844867, z: 0.99759966}
+      transformModified: 1
+    - name: "\u8155\u63691.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63692.L"
+      position: {x: 0.000034372024, y: 0.002733963, z: 0.000027053802}
+      rotation: {x: -0.81023675, y: 0.39087018, z: 0.39012977, w: -0.19630493}
+      scale: {x: 1.001984, y: 0.99844795, z: 0.9975996}
+      transformModified: 1
+    - name: "\u8155\u63692.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u63693.L"
+      position: {x: 0.00004725337, y: 0.0037850912, z: 0.00003790289}
+      rotation: {x: -0.8102368, y: 0.3908702, z: 0.39012957, w: -0.19630514}
+      scale: {x: 1.0019841, y: 0.9984482, z: 0.9975994}
+      transformModified: 1
+    - name: "\u8155\u63693.L_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.R"
+      position: {x: 0.0018444338, y: 0.0027584543, z: 0.0003185298}
+      rotation: {x: -0.9999899, y: -0.0000000050752478, z: 2.0473713e-10, w: -0.004499522}
+      scale: {x: 1.0000001, y: 0.9979892, z: 1.0060463}
+      transformModified: 1
+    - name: Upper Leg.R
+      position: {x: 4.4685292e-10, y: 0.000000006601913, z: -8.563802e-11}
+      rotation: {x: 0.99937993, y: 0.007910928, z: 0.008786017, w: -0.03316719}
+      scale: {x: 1.0002478, y: 1.0002649, z: 0.9994388}
+      transformModified: 1
+    - name: Lower Leg.R
+      position: {x: 0.0000000024959443, y: 0.009512165, z: 2.6077032e-10}
+      rotation: {x: 0.02818003, y: -0.0048309066, z: 0.004782694, w: 0.9995798}
+      scale: {x: 1.000001, y: 1.0009837, z: 0.99902076}
+      transformModified: 1
+    - name: Foot.R
+      position: {x: -2.9802322e-10, y: 0.011205248, z: 5.587935e-10}
+      rotation: {x: -0.60572636, y: -0.0049421326, z: 0.00094537274, w: 0.7956571}
+      scale: {x: 1.0000718, y: 1.0004488, z: 0.99948263}
+      transformModified: 1
+    - name: "\u3064\u307E\u5148.R"
+      position: {x: -0.000000005658949, y: 0.0040985006, z: 0.0008369895}
+      rotation: {x: -0.83131367, y: -0.000001942266, z: -0.0000029282648, w: 0.55580354}
+      scale: {x: 0.9999998, y: 1.0009781, z: 0.9990218}
+      transformModified: 1
+    - name: "\u3064\u307E\u5148.R_end"
+      position: {x: -0, y: 0.002, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3D.R"
+      position: {x: 4.4674378e-10, y: 0.0000000042060857, z: 2.6193447e-11}
+      rotation: {x: 0.000000018160783, y: 1.818993e-10, z: 0.0000000033764982, w: 1}
+      scale: {x: 1.0000018, y: 1.0060402, z: 0.9980037}
+      transformModified: 1
+    - name: "\u3072\u3056D.R"
+      position: {x: 0.00015587687, y: -0.009490213, z: -0.00062677904}
+      rotation: {x: 0.000000029802315, y: 0.00000002328306, z: -0.000000008731147,
+        w: 1}
+      scale: {x: 1, y: 0.9980069, z: 1.00603}
+      transformModified: 1
+    - name: "\u8DB3\u9996D.R"
+      position: {x: 0.00008394625, y: -0.011121347, z: -0.0013660481}
+      rotation: {x: 0.00000003125751, y: -0.00000002328306, z: 0.000000009720225,
+        w: 1}
+      scale: {x: 1.0000063, y: 1.0060408, z: 0.9980013}
+      transformModified: 1
+    - name: Toes.R
+      position: {x: 1.5570548e-11, y: -0.0012986154, z: 0.0027320583}
+      rotation: {x: 0.7033034, y: -0.0000000030570928, z: -0.0000000025727989, w: 0.7108898}
+      scale: {x: 1, y: 0.99999964, z: 1.0000004}
+      transformModified: 1
+    - name: Toes.R_end
+      position: {x: -0, y: 0.002, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8170\u30AD\u30E3\u30F3\u30BB\u30EB.L"
+      position: {x: -0.0018444343, y: 0.0027584552, z: 0.0003185298}
+      rotation: {x: -0.9999899, y: -0.000000008427339, z: 5.836218e-10, w: -0.004499519}
+      scale: {x: 1.0000001, y: 0.9979892, z: 1.0060463}
+      transformModified: 1
+    - name: Upper Leg.L
+      position: {x: 5.664333e-11, y: 0.0000000018737045, z: 2.219167e-11}
+      rotation: {x: 0.99937993, y: -0.007910927, z: -0.008786009, w: -0.033167195}
+      scale: {x: 1.0002481, y: 1.0004749, z: 0.9992297}
+      transformModified: 1
+    - name: Lower Leg.L
+      position: {x: -1.4901161e-10, y: 0.009512168, z: 1.4901161e-10}
+      rotation: {x: 0.028179895, y: 0.004830921, z: -0.004782703, w: 0.9995797}
+      scale: {x: 1.0000006, y: 1.0014373, z: 0.99856824}
+      transformModified: 1
+    - name: Foot.L
+      position: {x: 3.5390257e-10, y: 0.011205248, z: -0.0000000010803342}
+      rotation: {x: -0.60572624, y: 0.0049421107, z: -0.0009453802, w: 0.7956573}
+      scale: {x: 1.0000768, y: 1.0003839, z: 0.99954}
+      transformModified: 1
+    - name: "\u3064\u307E\u5148.L"
+      position: {x: 0.000000005652655, y: 0.0040985006, z: 0.0008369896}
+      rotation: {x: -0.8313137, y: 0.000001942455, z: 0.000002926897, w: 0.55580354}
+      scale: {x: 0.99999994, y: 1.000725, z: 0.99927485}
+      transformModified: 1
+    - name: "\u3064\u307E\u5148.L_end"
+      position: {x: -0, y: 0.002, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3D.L"
+      position: {x: 5.646143e-11, y: 0.0000000018707942, z: -3.3687685e-11}
+      rotation: {x: 0.000000006519251, y: 0.000000023828758, z: -0.0000000020008868,
+        w: 1}
+      scale: {x: 1.0000032, y: 1.0060396, z: 0.9980059}
+      transformModified: 1
+    - name: "\u3072\u3056D.L"
+      position: {x: -0.00015587673, y: -0.009490212, z: -0.00062677875}
+      rotation: {x: 0.000000018160783, y: -0.00000002328306, z: 1.1752762e-16, w: 1}
+      scale: {x: 1, y: 0.9980131, z: 1.0060248}
+      transformModified: 1
+    - name: "\u8DB3\u9996D.L"
+      position: {x: -0.000083946186, y: -0.011121347, z: -0.0013660481}
+      rotation: {x: 0.000000029802315, y: 4.54756e-11, z: 0.0000000024549245, w: 1}
+      scale: {x: 1.0000075, y: 1.0060391, z: 0.9980063}
+      transformModified: 1
+    - name: Toes.L
+      position: {x: -1.328226e-10, y: -0.0012986154, z: 0.002732058}
+      rotation: {x: 0.70330346, y: 0.0000000026264115, z: 0.000000002590082, w: 0.71088976}
+      scale: {x: 0.9999999, y: 0.9999996, z: 1.0000005}
+      transformModified: 1
+    - name: Toes.L_end
+      position: {x: -0, y: 0.002, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3IK\u89AA.R"
+      position: {x: 0.002084257, y: 0.0013247469, z: -0.0008155621}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: Foot IK.R
+      position: {x: 0.0021593042, y: 0.0023301025, z: 0}
+      rotation: {x: -0.67548347, y: -7.0934663e-25, z: 7.743409e-25, w: 0.73737514}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+      transformModified: 1
+    - name: Toe IK.R
+      position: {x: -0, y: -0.003658755, z: -0.002017896}
+      rotation: {x: 0.76475143, y: 1.318343e-24, z: 1.996162e-24, w: -0.64432544}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+      transformModified: 1
+    - name: Toe IK.R_end
+      position: {x: -0, y: 0.0014578336, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Foot IK parent .L
+      position: {x: -0.002084257, y: 0.0013247469, z: -0.0008155621}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: Foot IK.L
+      position: {x: -0.002361739, y: 0.0023301025, z: 0}
+      rotation: {x: -0.67548347, y: -7.0934663e-25, z: 7.743409e-25, w: 0.73737514}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+      transformModified: 1
+    - name: Toe IK.L
+      position: {x: -0, y: -0.003658755, z: -0.002017896}
+      rotation: {x: 0.76475143, y: 1.318343e-24, z: 1.996162e-24, w: -0.64432544}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+      transformModified: 1
+    - name: Toe IK.L_end
+      position: {x: -0, y: 0.0014578336, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u4E21\u76EE.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -6.123234e-17, y: 0, z: 1, w: 3.3087225e-24}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u4E21\u76EE.shadow_end"
+      position: {x: -0, y: 0.00156, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u76EE.R.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.07573035, y: -0.000000029802322, z: 0.98564607, w: -0.15088692}
+      scale: {x: 0.99999857, y: 0.99999994, z: 1.0000001}
+      transformModified: 1
+    - name: "\u76EE.R.shadow_end"
+      position: {x: -0, y: 0.0010333422, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u76EE.L.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.07573035, y: -0.000000029802322, z: 0.98564607, w: 0.15088692}
+      scale: {x: 0.99999857, y: 0.99999994, z: 1.0000001}
+      transformModified: 1
+    - name: "\u76EE.L.shadow_end"
+      position: {x: -0, y: 0.0010333422, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u80A9P.R.shadow"
+      position: {x: 7.4505804e-11, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -6.30066e-28, z: 6.30066e-28, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u80A9P.R.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u6369.R.shadow"
+      position: {x: -0, y: -0.0000000011920929, z: 0}
+      rotation: {x: 0.7071068, y: 9.813082e-16, z: -9.813076e-16, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u624B\u6369.R.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3058.R.shadow"
+      position: {x: -1.4714883e-10, y: -1.830397e-10, z: -1.8347078e-10}
+      rotation: {x: 0.43839148, y: 0, z: 0.56313777, w: -0.7004918}
+      scale: {x: 0.99999964, y: 0.99999964, z: 0.9999999}
+      transformModified: 1
+    - name: "\u3072\u3058.R.shadow_end"
+      position: {x: -0, y: 0.0046203984, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u6369.R.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -4.906541e-16, z: 4.906538e-16, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u8155\u6369.R.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u80A9P.L.shadow"
+      position: {x: 2.9802322e-10, y: 9.3132255e-12, z: 0.0000000023841857}
+      rotation: {x: 0.7071068, y: -6.30066e-28, z: 6.30066e-28, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u80A9P.L.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u624B\u6369.L.shadow"
+      position: {x: -0, y: -7.4505804e-11, z: 0}
+      rotation: {x: 0.7071068, y: 7.6912354e-32, z: -7.6912354e-32, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u624B\u6369.L.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3058.L.shadow"
+      position: {x: 4.702489e-10, y: 1.1099857e-11, z: 3.660794e-10}
+      rotation: {x: 0.43839154, y: 0, z: -0.56313777, w: -0.70049185}
+      scale: {x: 0.99999976, y: 0.99999964, z: 0.99999964}
+      transformModified: 1
+    - name: "\u3072\u3058.L.shadow_end"
+      position: {x: -0, y: 0.0046203984, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8155\u6369.L.shadow"
+      position: {x: 0.0000000023841857, y: 0.0000000011920929, z: -0.0000000011920929}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u8155\u6369.L.shadow_end"
+      position: {x: -0, y: 0.0020000003, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u9996.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.7108421, y: 0.000000008234239, z: -0.000000008354257, w: 0.7033517}
+      scale: {x: 0.9999999, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u9996.shadow_end"
+      position: {x: -0, y: 0.0015674254, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8170.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.9160883, y: 0, z: 0, w: 0.4009766}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: "\u8170.shadow_end"
+      position: {x: -0, y: 0.0018092305, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3.R.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.68322456, y: 0.0000000041909516, z: 0.011221984, w: -0.7301221}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+      transformModified: 1
+    - name: "\u8DB3.R.shadow_end"
+      position: {x: -0, y: 0.009512309, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3056.R.shadow"
+      position: {x: 0.0000000020940014, y: -1.7608696e-11, z: -0.0000000011875234}
+      rotation: {x: 0.66240275, y: -6.9849193e-10, z: 0.004999988, w: -0.7491312}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: "\u3072\u3056.R.shadow_end"
+      position: {x: -0, y: 0.011205867, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3\u9996.R.shadow"
+      position: {x: 2.9802322e-10, y: 7.070479e-10, z: -1.5256404e-10}
+      rotation: {x: 0.98107004, y: 8.4540863e-10, z: 0.0000000042829336, w: -0.1936535}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999976}
+      transformModified: 1
+    - name: "\u8DB3\u9996.R.shadow_end"
+      position: {x: -0, y: 0.0038333994, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3.L.shadow"
+      position: {x: 7.905701e-11, y: -2.961093e-10, z: -2.0933684e-11}
+      rotation: {x: 0.68322456, y: -0.00000001071021, z: -0.011222007, w: -0.7301221}
+      scale: {x: 0.9999999, y: 1.0000001, z: 0.9999999}
+      transformModified: 1
+    - name: "\u8DB3.L.shadow_end"
+      position: {x: -0, y: 0.009512309, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3056.L.shadow"
+      position: {x: -2.9998243e-10, y: 2.9354152e-10, z: 3.8465578e-11}
+      rotation: {x: 0.6624027, y: -2.3283064e-10, z: -0.004999988, w: -0.74913126}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1}
+      transformModified: 1
+    - name: "\u3072\u3056.L.shadow_end"
+      position: {x: -0, y: 0.011205867, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u8DB3\u9996.L.shadow"
+      position: {x: 5.9604643e-10, y: -5.014424e-10, z: -0.0000000011322768}
+      rotation: {x: 0.98107004, y: -0.000000012548369, z: -0.0000000034561563, w: -0.1936535}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+      transformModified: 1
+    - name: "\u8DB3\u9996.L.shadow_end"
+      position: {x: -0, y: 0.0038333994, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: "\u30BB\u30F3\u30BF\u30FC.shadow"
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: "\u30BB\u30F3\u30BF\u30FC.shadow_end"
+      position: {x: -0, y: 0.016, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: rigidbodies
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Base_mesh
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100.00001, z: 100.00001}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
