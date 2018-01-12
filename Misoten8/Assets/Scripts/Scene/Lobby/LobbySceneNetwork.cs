@@ -322,6 +322,15 @@ public class LobbySceneNetwork : Photon.MonoBehaviour
 	}
 
 	/// <summary>
+	/// 通信切断時実行イベント
+	/// </summary>
+	public void OnDisconnectedFromPhoton()
+	{
+		Debug.LogWarning("通信が切断されました");
+		RoomQuitLobbyScene();
+	}
+
+	/// <summary>
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }
