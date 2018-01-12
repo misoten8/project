@@ -55,4 +55,5 @@ MonoBehaviour:
   - RoomQuitBattleScene
   - RoomQuitLobbyScene
   - IdToType
+  - DanceBattleStart
   DisableAutoOpenWizard: 1
