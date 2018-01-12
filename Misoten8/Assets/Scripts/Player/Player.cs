@@ -126,6 +126,11 @@ public class Player : Photon.PunBehaviour
 	[SerializeField]
 	private PlayerBillboard _billboard;
 
+	public PlayerManager PlayerManager
+	{
+		get { return _playerManager; }
+	}
+
 	private PlayerManager _playerManager;
 
 	private playercamera _playercamera;
@@ -168,14 +173,19 @@ public class Player : Photon.PunBehaviour
 		// プレイヤーを管理クラスに登録
 		_playerManager.SetPlayer(this);
 
-		_type = Define.ConvertToPlayerType((int)photonView.instantiationData[0]);
-        
+		_type = Define.IdAndTypeMap[(int)photonView.instantiationData[0]];
+
 		_playerColor = Define.playerColor[(int)_type];
 		_dance.OnAwake(_playercamera);
 		Define.JoinBattlePlayerNum++;
 		_billboard.OnAwake(_playercamera.CameraBrain?.transform, this);
 
-		Debug.Log("生成受信データ player ID : " + ((int)photonView.instantiationData[0]).ToString() + "\n クライアントID : " + PhotonNetwork.player.ID.ToString());
+		Debug.Log("生成受信データ player ID : " 
+			+ ((int)photonView.instantiationData[0]).ToString()
+			+ "\n クライアントID : " 
+			+ PhotonNetwork.player.ID.ToString()
+			+ "\n 指定されたプレイヤー種類:"
+			+ _type.ToString());
 		
 		// モデルの設定
 		_model = Instantiate(ModelManager.GetCache(PlayerManager.MODEL_MAP[_type]));
@@ -243,7 +253,21 @@ public class Player : Photon.PunBehaviour
 				DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onDanceGaugeMax?.Invoke();
 
 				_playercamera.SetDollyPosition(transform);//ドリーの位置設定
-                photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
+				//if (_dance.BattleTargetList.Count == 0)
+				{
+					// 一人
+					photonView.RPC("DanceBegin", PhotonTargets.AllViaServer, (byte)_type);
+				}
+				//else if (_dance.BattleTargetList.Count == 1)
+				//{
+				//	// 1vs1
+				//	photonView.RPC("DanceBattleBegin", PhotonTargets.AllViaServer, (byte)_type, (byte)_dance.BattleTargetList[0]);
+				//}
+				//else
+				//{
+				//	// 全員
+				//	photonView.RPC("DanceBattleAllBegin", PhotonTargets.AllViaServer, (byte)_type, (byte)_dance.BattleTargetList[0], (byte)_dance.BattleTargetList[1]);
+				//}
 				shakeparameter.ResetShakeParameter();
 				DisplayManager.Switch(DisplayManager.DisplayType.Dance);
 			}
@@ -267,6 +291,53 @@ public class Player : Photon.PunBehaviour
 		{
 			_dance.Begin();
 		}
+	}
+
+	/// <summary>
+	/// 1vs1のダンスバトル開始
+	/// </summary>
+	/// <param name="hostPlayerType">仕掛けたプレイヤーのタイプ</param>
+	/// <param name="targetPlayerType">仕掛けられたプレイヤーのタイプ</param>
+	[PunRPC]
+	public void DanceBattleBegin(byte hostPlayerType, byte targetPlayerType)
+	{
+		Define.PlayerType host, target;
+		host = (Define.PlayerType)hostPlayerType;
+		target = (Define.PlayerType)targetPlayerType;
+		if (_type == host)
+		{
+			Debug.Log(host.ToString() + "が" + target.ToString() + "にバトルを仕掛けました");
+			_dance.Begin(true, target);
+			_playerManager.GetPlayer(target)._dance.Begin(true, host);
+		}
+	}
+
+	/// <summary>
+	/// プレイヤー全員でのダンスバトル開始
+	/// </summary>
+	/// <param name="hostPlayerType">仕掛けたプレイヤーのタイプ</param>
+	/// <param name="targetPlayerType">仕掛けられたプレイヤーのタイプ</param>
+	[PunRPC]
+	public void DanceBattleAllBegin(byte hostPlayerType, byte targetPlayerType1, byte targetPlayerType2)
+	{
+		Define.PlayerType host, target1, target2;
+		host = (Define.PlayerType)hostPlayerType;
+		target1 = (Define.PlayerType)targetPlayerType1;
+		target2 = (Define.PlayerType)targetPlayerType2;
+
+		if (_type == host)
+		{
+			Debug.Log(host.ToString() + "が" + target1.ToString() + "と" + target2.ToString() + "にバトルを仕掛けました");
+			_dance.Begin(true, target1, target2);
+			_playerManager.GetPlayer(target1)._dance.Begin(false, host, target2);
+			_playerManager.GetPlayer(target2)._dance.Begin(false, host, target1);
+		}
+	}
+
+	[PunRPC]
+	private void DanceBattleStart()
+	{
+		_dance.DanceBattleStart();
 	}
 
 	/// <summary>

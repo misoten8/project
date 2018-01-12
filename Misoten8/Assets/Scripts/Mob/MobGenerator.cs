@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Misoten8Utility;
-using System.Collections.Generic;
-using System.Linq;
 
 /// <summary>
 /// モブキャラ生成 クラス

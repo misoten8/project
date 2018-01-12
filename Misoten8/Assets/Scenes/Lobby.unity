@@ -6882,7 +6882,6 @@ GameObject:
   - component: {fileID: 2128661442}
   - component: {fileID: 2128661441}
   - component: {fileID: 2128661440}
-  - component: {fileID: 2128661443}
   - component: {fileID: 2128661444}
   - component: {fileID: 2128661445}
   - component: {fileID: 2128661446}
@@ -6933,29 +6932,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2128661443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2128661439}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d06466c03d263624786afa88b52928b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statsWindowOn: 1
-  statsOn: 1
-  healthStatsVisible: 1
-  trafficStatsOn: 1
-  buttonsOn: 0
-  statsRect:
-    serializedVersion: 2
-    x: 0
-    y: 100
-    width: 200
-    height: 50
-  WindowId: 100
 --- !u!114 &2128661444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7005,5 +6981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89689a2ad2ff3e7479fc0cee3e1c3609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offlineMode: 1
+  _offlineMode: 0
+  _localPlayerType: 3
   _currentState: 0

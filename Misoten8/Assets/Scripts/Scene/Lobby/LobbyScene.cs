@@ -38,6 +38,11 @@ public class LobbyScene : SceneBase<LobbyScene>
 	}
     private void Start()
     {
+		Define.IdAndTypeMap.Clear();
+		shakeparameter.SetActive(false);
+		shakeparameter.ResetShakeParameter();
+		Define.LocalPlayerType = _lobbyNetworkCustomizer.LocalPlayerType;
+
         AudioManager.PlayBGM("bgm_title");
     }
     void Update () 
@@ -50,6 +55,21 @@ public class LobbyScene : SceneBase<LobbyScene>
 				return;
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.Backspace))
+		{
+			_lobbySceneNetwork.photonView.RPC("RoomQuitLobbyScene", PhotonTargets.AllViaServer);
+		}
+	}
+
+	/// <summary>
+	/// ルームから強制退出する
+	/// </summary>
+	public void RoomQuit()
+	{
+		// ルームから退出する
+		PhotonNetwork.LeaveRoom();
+		StartCoroutine(SwitchAsync(SceneType.Title));
 	}
 
 	/// <summary>

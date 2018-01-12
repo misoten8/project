@@ -66,6 +66,15 @@ public class BattleSceneNetwork : Photon.MonoBehaviour
 	}
 
 	/// <summary>
+	/// ルーム強制退出を通知する
+	/// </summary>
+	[PunRPC]
+	private void RoomQuitBattleScene()
+	{
+		_battleScene.RoomQuit();
+	}
+
+	/// <summary>
 	/// 定義のみ
 	/// </summary>
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) { }

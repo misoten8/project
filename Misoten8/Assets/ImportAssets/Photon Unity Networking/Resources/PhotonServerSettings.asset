@@ -49,4 +49,10 @@ MonoBehaviour:
   - EndBattleScene
   - FinishBattleScene
   - SendMarkerChange
+  - DanceBattleAllBegin
+  - DanceBattleBegin
+  - DanceBattleResult
+  - RoomQuitBattleScene
+  - RoomQuitLobbyScene
+  - IdToType
   DisableAutoOpenWizard: 1

@@ -64,6 +64,9 @@ public class BattleScene : SceneBase<BattleScene>
 
 	private void Start()
 	{
+		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(false);
+
 		_isBattleSceneLoaded = new bool[PhotonNetwork.otherPlayers.Length];
 		_isBattleSceneLoaded?.Foreach(e => e = false);
 		
@@ -75,6 +78,24 @@ public class BattleScene : SceneBase<BattleScene>
 		{
 			StartCoroutine(RepeatNotification());
 		}
+	}
+
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Backspace))
+		{
+			_network.photonView.RPC("RoomQuitBattleScene", PhotonTargets.AllViaServer);
+		}
+	}
+
+	/// <summary>
+	/// ルームから強制退出する
+	/// </summary>
+	public void RoomQuit()
+	{
+		// ルームから退出する
+		PhotonNetwork.LeaveRoom();
+		StartCoroutine(SwitchAsync(SceneType.Title));
 	}
 
 	/// <summary>
@@ -116,6 +137,8 @@ public class BattleScene : SceneBase<BattleScene>
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleStart?.Invoke();
 		AudioManager.PlayBGM("bgm_main");
 		_isBattleTime = true;
+		shakeparameter.ResetShakeParameter();
+		shakeparameter.SetActive(true);
 	}
 
 	/// <summary>
@@ -126,6 +149,7 @@ public class BattleScene : SceneBase<BattleScene>
 	/// </remarks>
 	public void Finish()
 	{
+		shakeparameter.SetActive(false);
 		_battleTime.enabled = false;
 		_isBattleTime = false;
 		DisplayManager.GetInstanceDisplayEvents<MoveEvents>()?.onBattleEnd?.Invoke();
