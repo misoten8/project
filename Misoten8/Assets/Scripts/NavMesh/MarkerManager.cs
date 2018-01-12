@@ -61,6 +61,7 @@ public class MarkerManager : MonoBehaviour {
 			Debug.LogWarning("不正な番号が指定されました\n指定されたマーカー番号：" + index.ToString() + "登録されているマーカー数：" + _markers.Count.ToString());
 			return;
 		}
+        Debug.Log(index + "に向かいます");
 		agent.destination = _markers[index].transform.position;
 	}
 
