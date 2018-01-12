@@ -252,7 +252,7 @@ public class Player : Photon.PunBehaviour
 				transform.Rotate(Vector3.up, _rotatePower);
 			if (Input.GetKey(KeyCode.DownArrow) || WiimoteManager.GetButton(0, ButtonData.WMBUTTON_LEFT))
                 if(!hitBack.hit)
-				moveState -= 1;
+				moveState = 2;
 			if (shakeparameter.IsOverWithValue(PlayerManager.DANCE_START_SHAKE_COUNT))
 			{
 				moveState = 0;
