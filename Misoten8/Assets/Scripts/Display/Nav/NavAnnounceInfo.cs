@@ -39,7 +39,7 @@ public class NavAnnounceInfo : MonoBehaviour
 			{
 				readIndex = 0;
 			}
-			yield return new WaitForSeconds(10.0f);
+			yield return new WaitForSeconds(30.0f);
 		} while (isRun);
 	}
 }
