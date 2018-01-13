@@ -471,7 +471,7 @@ public class Dance : MonoBehaviour
 			DisplayManager.GetInstanceDisplayEvents<DanceEvents>()?.onDanceEnd?.Invoke();
 			_playercamera?.SetCameraMode(playercamera.CAMERAMODE.NORMAL);
 			DisplayManager.Switch(DisplayManager.DisplayType.Move);
-			shakeparameter.SetActive(true);
+			DisplayManager.Instance.onFadedIn += () => shakeparameter.SetActive(true);
 		}
 
 		// 隊列の角度の設定
