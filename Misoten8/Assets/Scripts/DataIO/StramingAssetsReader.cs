@@ -55,8 +55,7 @@ public class StramingAssetsReader
         return "file:///" + Application.dataPath + "/StreamingAssets/";
 #elif UNITY_IPHONE || UNITY_ANDROID
       return "jar:file://" + Application.dataPath + "!/assets" + "/";
-#elif UNITY_WINDOWS
-		return "file:///" + Application.dataPath + "/StreamingAssets/";
 #endif
+		return "file:///" + Application.dataPath + "/StreamingAssets/";
 	}
 }
