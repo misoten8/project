@@ -12,10 +12,10 @@ public class ApiStartup : MonoBehaviour
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void OnApiStartup()
 	{
-		var text = Resources.Load<TextAsset>("Config/configFile");
+		string text = StramingAssetsReader.Read("configFile.txt");
 		if (text != null)
 		{
-			var config = JsonUtility.FromJson<Config>(text.text);
+			var config = JsonUtility.FromJson<Config>(text);
 			if (config != null)
 			{
 				Define.config = config;
