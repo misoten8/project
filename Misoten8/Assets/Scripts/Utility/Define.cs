@@ -195,4 +195,9 @@ public static class Define
 				return PlayerType.None;
 		}
 	}
+
+	/// <summary>
+	/// 設定ファイル
+	/// </summary>
+	public static Config config = null;
 }
