@@ -12,6 +12,25 @@ public class ApiStartup : MonoBehaviour
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 	private static void OnApiStartup()
 	{
+		var text = Resources.Load<TextAsset>("Config/configFile");
+		if (text != null)
+		{
+			var config = JsonUtility.FromJson<Config>(text.text);
+			if (config != null)
+			{
+				Define.config = config;
+				Debug.Log("offlineMode:" + Define.config.offlineMode.ToString() + "\nplayerNum:" + Define.config.playerNum.ToString());
+			}
+			else
+			{
+				Debug.LogError("解析エラー");
+			}
+		}
+		else
+		{
+			Debug.LogError("読み込みエラー");
+		}
+
 		Resources.LoadAll("Prefabs/ApiStartupObjects")?.Foreach(e => Instantiate(e));
 	}
 }

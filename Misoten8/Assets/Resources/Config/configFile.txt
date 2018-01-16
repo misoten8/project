@@ -1,0 +1,4 @@
+{
+    "offlineMode": 0, 
+    "playerNum": 1
+}
